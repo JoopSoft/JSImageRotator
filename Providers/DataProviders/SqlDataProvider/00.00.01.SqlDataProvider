@@ -1,0 +1,35 @@
+﻿/************************************************************/
+/*****              SqlDataProvider                     *****/
+/*****                                                  *****/
+/*****                                                  *****/
+/***** Note: To manually execute this script you must   *****/
+/*****       perform a search and replace operation     *****/
+/*****       for {databaseOwner} and {objectQualifier}  *****/
+/*****                                                  *****/
+/************************************************************/
+
+IF EXISTS (SELECT * FROM sys.objects WHERE [object_id] = OBJECT_ID(N'{databaseOwner}[{objectQualifier}JSImageRotator_Images]') AND type in (N'U'))
+	DROP TABLE {databaseOwner}[{objectQualifier}JSImageRotator_Images]
+GO
+
+CREATE TABLE {databaseOwner}{objectQualifier}JSImageRotator_Images
+(
+	[ImageId] INT NOT NULL IDENTITY (1, 1),
+	[ImageTitle] NVARCHAR(MAX) NOT NULL,
+	[ImageDescription] NVARCHAR(MAX) NOT NULL,
+	[ImagePhotographer] NVARCHAR(MAX) NOT NULL,
+	[ImageContact] NVARCHAR(MAX) NOT NULL,
+	[ImageUrl] NVARCHAR(MAX) NOT NULL,
+	[IsSelected] BIT NOT NULL,
+	[ModuleId] INT NOT NULL,
+)
+GO
+
+
+ALTER TABLE {databaseOwner}[{objectQualifier}JSImageRotator_Images] ADD CONSTRAINT [PK_{objectQualifier}JSImageRotator_Images] PRIMARY KEY CLUSTERED ([ImageId])
+GO
+
+
+/************************************************************/
+/*****              SqlDataProvider                     *****/
+/************************************************************/
