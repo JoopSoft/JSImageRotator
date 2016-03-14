@@ -121,16 +121,16 @@ namespace JS.Modules.JSImageRotator
             }
         }
 
-        protected void cbSelect_CheckedChanged(object sender, RepeaterItemEventArgs e)
+        protected void cbSelect_CheckedChanged(object sender, EventArgs e)
         {
-            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
-            {
-                var ic = new ImageController();
-                var i = ic.GetImage(ImageId, ModuleId);
-                var cbSelect = e.Item.FindControl("cbSelect") as CheckBox;
-                i.IsSelected = cbSelect.Checked;
-                ic.UpdateImage(i);
-            }
+            //if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+            //{
+            //    var ic = new ImageController();
+            //    var i = ic.GetImage(ImageId, ModuleId);
+            //    var cbSelect = e.Item.FindControl("cbSelect") as CheckBox;
+            //    i.IsSelected = cbSelect.Checked;
+            //    ic.UpdateImage(i);
+            //}
         }
 
         protected void cbSelectAll_CheckedChanged(object sender, EventArgs e)
