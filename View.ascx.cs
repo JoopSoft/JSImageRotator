@@ -55,6 +55,10 @@ namespace JS.Modules.JSImageRotator
                 var actions = new ModuleActionCollection
                     {
                         {
+                            GetNextActionID(), Localization.GetString("Select", LocalResourceFile), "", "", "",
+                            EditUrl("Select"), false, SecurityAccessLevel.Edit, true, false
+                        },
+                        {
                             GetNextActionID(), Localization.GetString("AddImage", LocalResourceFile), "", "", "",
                             EditUrl("AddImage"), false, SecurityAccessLevel.Edit, true, false
                         },

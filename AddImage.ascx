@@ -32,12 +32,13 @@
             <dnn:label ID="lblContact" runat="server" />
             <asp:TextBox ID="txtContact" runat="server" />
         </div>
+        <div class="dnnFormItem">
+            <asp:LinkButton ID="btnAddImage" runat="server" OnClick="btnAddImage_Click" resourcekey="btnAddImage" CssClass="dnnSecondaryAction"/>
+        </div>
     </fieldset>
 </div>
-<asp:LinkButton ID="btnSubmit" runat="server"
-    OnClick="btnSubmit_Click" resourcekey="btnSubmit" CssClass="dnnPrimaryAction" />
-<asp:LinkButton ID="btnCancel" runat="server"
-    OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="dnnSecondaryAction" />
+<asp:HyperLink ID="btnSubmit" runat="server" resourcekey="btnSubmit" CssClass="dnnPrimaryAction" />
+<asp:LinkButton ID="btnCancel" runat="server" OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="dnnSecondaryAction" />
 
 <script type="text/javascript">
     /*globals jQuery, window, Sys */

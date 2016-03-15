@@ -39,6 +39,7 @@ namespace JS.Modules.JSImageRotator
                 //Implement your edit logic for your module
                 if (!Page.IsPostBack)
                 {
+                    btnSubmit.NavigateUrl = EditUrl();
                     if (ImageId > 0)
                     {
                         var ic = new ImageController();
@@ -60,8 +61,23 @@ namespace JS.Modules.JSImageRotator
             }
         }
 
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
+        }
 
-        protected void btnSubmit_Click(object sender, EventArgs e)
+        protected void btnImageUpload_Click(object sender, EventArgs e)
+        {
+            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Images/"));
+            btnImageSelect.SaveAs(Server.MapPath("~/DesktopModules/JSImageRotator/Images/" + btnImageSelect.FileName));
+
+            if (btnImageSelect.FileName != null)
+            {
+                txtImageUrl.Text = "~/DesktopModules/JSImageRotator/Images/" + btnImageSelect.FileName;
+            }
+        }
+
+        protected void btnAddImage_Click(object sender, EventArgs e)
         {
             var i = new Images();
             var ic = new ImageController();
@@ -95,23 +111,7 @@ namespace JS.Modules.JSImageRotator
             {
                 ic.AddImage(i);
             }
-            Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
-        }
-
-        protected void btnCancel_Click(object sender, EventArgs e)
-        {
-            Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
-        }
-
-        protected void btnImageUpload_Click(object sender, EventArgs e)
-        {
-            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Images/"));
-            btnImageSelect.SaveAs(Server.MapPath("~/DesktopModules/JSImageRotator/Images/" + btnImageSelect.FileName));
-
-            if (btnImageSelect.FileName != null)
-            {
-                txtImageUrl.Text = "~/DesktopModules/JSImageRotator/Images/" + btnImageSelect.FileName;
-            }
+            txtImageUrl.Text = txtTitle.Text = txtDescription.Text = txtPhotographer.Text = txtContact.Text = "";
         }
     }
 }

@@ -124,7 +124,7 @@
     <value>Cancel</value>
   </data>
   <data name="btnSubmit.Text" xml:space="preserve">
-    <value>Generate</value>
+    <value>Generate and Save</value>
   </data>
   <data name="ConfirmDelete.Text" xml:space="preserve">
     <value>Are you sure you want to delete this Image</value>
@@ -146,6 +146,9 @@
   </data>
   <data name="lblFileName.Text" xml:space="preserve">
     <value>FileName</value>
+  </data>
+  <data name="btnGenerate.Text" xml:space="preserve">
+    <value>Generate</value>
   </data>
   <data name="lblOverwrite.Help" xml:space="preserve">
     <value>Check if you want to overwrite Existing File</value>

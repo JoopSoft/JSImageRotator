@@ -91,6 +91,17 @@
                     <supportsPopUps>True</supportsPopUps>
                   </moduleControl>
                   <moduleControl>
+                    <controlKey>Select</controlKey>
+                    <controlSrc>DesktopModules/JSImageRotator/Select.ascx</controlSrc>
+                    <supportsPartialRendering>False</supportsPartialRendering>
+                    <controlTitle>Select Image List</controlTitle>
+                    <controlType>Edit</controlType>
+                    <iconFile />
+                    <helpUrl />
+                    <viewOrder>0</viewOrder>
+                    <supportsPopUps>True</supportsPopUps>
+                  </moduleControl>
+                  <moduleControl>
                     <controlKey>Settings</controlKey>
                     <controlSrc>DesktopModules/JSImageRotator/Settings.ascx</controlSrc>
                     <supportsPartialRendering>False</supportsPartialRendering>

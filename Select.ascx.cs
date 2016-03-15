@@ -36,7 +36,7 @@ namespace JS.Modules.JSImageRotator
     /// 
     /// </summary>
     /// -----------------------------------------------------------------------------
-    public partial class Edit : JSImageRotatorModuleBase
+    public partial class Select : JSImageRotatorModuleBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,7 +46,7 @@ namespace JS.Modules.JSImageRotator
                 if (!Page.IsPostBack)
                 {
                     lnkAdd.NavigateUrl = EditUrl("AddImage");
-                    lnkSelect.NavigateUrl = EditUrl("Select");
+                    lnkGenerate.NavigateUrl = EditUrl();
                     var ic = new ImageController();
                     var i = ic.GetImages(ModuleId);
                     bool allSelected = true;
@@ -71,10 +71,40 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            Generate();
-            if (!Generate())
+            if (File.Exists(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json")))
             {
-                return;
+                if (cbOverwrite.Checked)
+                {
+                    File.Delete(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json"));
+                }
+                else
+                {
+                    lblOverwriteError.Text = "The File Already Exists! If You want to overwrite it check the Overwrite Checkbox below!";
+                    return;
+                }
+            }
+            var ic = new ImageController();
+            var il = ic.GetImages(ModuleId);
+            List<ImageJ> Slides = new List<ImageJ>();
+            foreach (var img in il)
+            {
+                ImageJ li = new ImageJ();
+                li.ImageTitle = img.ImageTitle;
+                li.ImageDescription = img.ImageDescription;
+                li.ImagePhotographer = img.ImagePhotographer;
+                li.ImageContact = img.ImageContact;
+                li.ImageUrl = img.ImageUrl;
+                Slides.Add(li);
+            }
+            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
+            using (FileStream fs = File.Open((Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json")), FileMode.CreateNew))
+            using (StreamWriter sw = new StreamWriter(fs))
+            using (JsonWriter jw = new JsonTextWriter(sw))
+            {
+                jw.Formatting = Formatting.Indented;
+
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(jw, Slides);
             }
             Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
         }
@@ -122,46 +152,6 @@ namespace JS.Modules.JSImageRotator
             //}
         }
 
-        protected bool Generate()
-        {
-            if (File.Exists(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json")))
-            {
-                if (cbOverwrite.Checked)
-                {
-                    File.Delete(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json"));
-                }
-                else
-                {
-                    lblOverwriteError.Text = "The File Already Exists! If You want to overwrite it check the Overwrite Checkbox below!";
-                    return false;
-                }
-            }
-            var ic = new ImageController();
-            var il = ic.GetImages(ModuleId);
-            List<ImageJ> Slides = new List<ImageJ>();
-            foreach (var img in il)
-            {
-                ImageJ li = new ImageJ();
-                li.ImageTitle = img.ImageTitle;
-                li.ImageDescription = img.ImageDescription;
-                li.ImagePhotographer = img.ImagePhotographer;
-                li.ImageContact = img.ImageContact;
-                li.ImageUrl = img.ImageUrl;
-                Slides.Add(li);
-            }
-            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
-            using (FileStream fs = File.Open((Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json")), FileMode.CreateNew))
-            using (StreamWriter sw = new StreamWriter(fs))
-            using (JsonWriter jw = new JsonTextWriter(sw))
-            {
-                jw.Formatting = Formatting.Indented;
-
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(jw, Slides, typeof(ImageJ));
-            }
-            return true;
-        }
-
         protected void cbSelectAll_CheckedChanged(object sender, EventArgs e)
         {
             var ic = new ImageController();
@@ -185,10 +175,5 @@ namespace JS.Modules.JSImageRotator
             rptImageList.DataSource = ic.GetImages(ModuleId);
             rptImageList.DataBind();
         }
-
-        protected void btnGenerate_Click(object sender, EventArgs e)
-        {
-            Generate();
-        }
-        }
+    }
 }

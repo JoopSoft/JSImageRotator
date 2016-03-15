@@ -10,133 +10,97 @@
 namespace JS.Modules.JSImageRotator {
     
     
-    public partial class AddImage {
+    public partial class Select {
         
         /// <summary>
-        /// lblImage control.
+        /// lnkAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblImage;
+        protected global::System.Web.UI.WebControls.HyperLink lnkAdd;
         
         /// <summary>
-        /// txtImageUrl control.
+        /// lnkGenerate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtImageUrl;
+        protected global::System.Web.UI.WebControls.HyperLink lnkGenerate;
         
         /// <summary>
-        /// lblUploadImage control.
+        /// lblTableTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblUploadImage;
+        protected global::System.Web.UI.WebControls.Label lblTableTitle;
         
         /// <summary>
-        /// btnImageSelect control.
+        /// cbSelectAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload btnImageSelect;
+        protected global::System.Web.UI.WebControls.CheckBox cbSelectAll;
         
         /// <summary>
-        /// btnImageUpload control.
+        /// rptImageList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnImageUpload;
+        protected global::System.Web.UI.WebControls.Repeater rptImageList;
         
         /// <summary>
-        /// lblTitle control.
+        /// lblOverwriteError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblTitle;
+        protected global::System.Web.UI.WebControls.Label lblOverwriteError;
         
         /// <summary>
-        /// txtTitle control.
+        /// lblFileName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTitle;
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblFileName;
         
         /// <summary>
-        /// lblDescription control.
+        /// txtFileName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtFileName;
         
         /// <summary>
-        /// txtDescription control.
+        /// lblOverwrite control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescription;
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblOverwrite;
         
         /// <summary>
-        /// lblPhotographer control.
+        /// cbOverwrite control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblPhotographer;
-        
-        /// <summary>
-        /// txtPhotographer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPhotographer;
-        
-        /// <summary>
-        /// lblContact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblContact;
-        
-        /// <summary>
-        /// txtContact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContact;
-        
-        /// <summary>
-        /// btnAddImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnAddImage;
+        protected global::System.Web.UI.WebControls.CheckBox cbOverwrite;
         
         /// <summary>
         /// btnSubmit control.
@@ -145,7 +109,7 @@ namespace JS.Modules.JSImageRotator {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink btnSubmit;
+        protected global::System.Web.UI.WebControls.LinkButton btnSubmit;
         
         /// <summary>
         /// btnCancel control.

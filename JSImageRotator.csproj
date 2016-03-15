@@ -87,6 +87,13 @@
     <Compile Include="AddImage.ascx.designer.cs">
       <DependentUpon>AddImage.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Select.ascx.cs">
+      <DependentUpon>Select.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Select.ascx.designer.cs">
+      <DependentUpon>Select.ascx</DependentUpon>
+    </Compile>
     <Compile Include="JSImageRotatorModuleBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -120,6 +127,7 @@
     <Content Include="Documentation\Documentation.css" />
     <Content Include="Documentation\Documentation.html" />
     <Content Include="AddImage.ascx" />
+    <Content Include="Select.ascx" />
     <Content Include="Edit.ascx" />
     <Content Include="License.txt" />
     <Content Include="module.css" />
@@ -152,6 +160,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\AddImage.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Select.ascx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
