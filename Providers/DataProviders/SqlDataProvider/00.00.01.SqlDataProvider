@@ -30,6 +30,22 @@ GO
 ALTER TABLE {databaseOwner}[{objectQualifier}JSImageRotator_Images] ADD CONSTRAINT [PK_{objectQualifier}JSImageRotator_Images] PRIMARY KEY CLUSTERED ([ImageId])
 GO
 
+IF EXISTS (SELECT * FROM sys.objects WHERE [object_id] = OBJECT_ID(N'{databaseOwner}[{objectQualifier}JSImageRotator_ImageLists]') AND type in (N'U'))
+	DROP TABLE {databaseOwner}[{objectQualifier}JSImageRotator_ImageLists]
+GO
+
+CREATE TABLE {databaseOwner}{objectQualifier}JSImageRotator_ImageLists
+(
+	[ImageListId] INT NOT NULL IDENTITY (1, 1),
+	[ListName] NVARCHAR(MAX) NOT NULL,
+	[ModuleId] INT NOT NULL,
+)
+GO
+
+
+ALTER TABLE {databaseOwner}[{objectQualifier}JSImageRotator_ImageLists] ADD CONSTRAINT [PK_{objectQualifier}JSImageRotator_ImageLists] PRIMARY KEY CLUSTERED ([ImageListId])
+GO
+
 
 /************************************************************/
 /*****              SqlDataProvider                     *****/

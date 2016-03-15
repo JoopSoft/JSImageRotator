@@ -79,6 +79,7 @@
     <Compile Include="Components\FeatureController.cs" />
     <Compile Include="Components\ImageController.cs" />
     <Compile Include="Components\ImageJ.cs" />
+    <Compile Include="Components\ImageLists.cs" />
     <Compile Include="Components\Images.cs" />
     <Compile Include="AddImage.ascx.cs">
       <DependentUpon>AddImage.ascx</DependentUpon>

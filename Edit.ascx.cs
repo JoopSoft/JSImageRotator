@@ -191,14 +191,34 @@ namespace JS.Modules.JSImageRotator
             //Generate();
             var ic = new ImageController();
             var i = ic.GetImages(ModuleId);
+            bool selectedImagePresent = false;
+            bool lstExists = false;
             foreach (var img in i)
             {
-                if (img.IsSelected && !img.ListsIn.Contains(txtFileName.Text.Trim() + ".json, "))
+                if (img.IsSelected && !img.ListsIn.Contains(txtFileName.Text.Trim() + ".json"))
                 {
                     img.ListsIn += txtFileName.Text.Trim() + ".json, ";
                     ic.UpdateImage(img);
+                    selectedImagePresent = true;
                 }
             }
+            var il = ic.GetLists(ModuleId);
+            foreach (var lst in il)
+            {
+                if (lst.ListName == txtFileName.Text.Trim())
+                {
+                    lstExists = true;
+                }
+            }
+            if (!lstExists && selectedImagePresent)
+            {
+                var nil = new ImageLists
+                {
+                    ListName = txtFileName.Text.Trim(),
+                    ModuleId = ModuleId
+                };
+                ic.AddImageList(nil);
+            }
         }
-        }
+    }
 }

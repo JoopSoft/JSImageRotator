@@ -13,6 +13,7 @@
         <div class="dnnFormItem">
             <asp:HyperLink ID="lnkAdd" runat="server" Text="[+] Add New Image" CssClass="dnnSecondaryAction" />
             <asp:HyperLink ID="lnkEdit" runat="server" Text="Edit Image Lists" CssClass="dnnSecondaryAction" />
+            <asp:DropDownList ID="lstImageLists" runat="server" />
         </div>
         <div class="dnnFormItem">
             <asp:Label ID="lblTableTitle" runat="server" Text="Image List"/>

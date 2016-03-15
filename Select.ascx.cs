@@ -45,10 +45,15 @@ namespace JS.Modules.JSImageRotator
                 //Implement your edit logic for your module
                 if (!Page.IsPostBack)
                 {
-                    lnkAdd.NavigateUrl = EditUrl("AddImage");
-                    lnkEdit.NavigateUrl = EditUrl();
                     var ic = new ImageController();
                     var i = ic.GetImages(ModuleId);
+                    var il = ic.GetLists(ModuleId);
+                    foreach (var lst in il)
+                    {
+                        lstImageLists.Items.Add(lst.ListName);
+                    }
+                    lnkAdd.NavigateUrl = EditUrl("AddImage");
+                    lnkEdit.NavigateUrl = EditUrl();
                     rptImageList.DataSource = ic.GetImages(ModuleId);
                     rptImageList.DataBind();
                 }

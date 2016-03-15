@@ -71,5 +71,26 @@ namespace JS.Modules.JSImageRotator.Components
             }
         }
 
+        public void AddImageList(ImageLists i)
+        {
+            using (IDataContext ctx = DataContext.Instance())
+            {
+                var rep = ctx.GetRepository<ImageLists>();
+                rep.Insert(i);
+            }
+        }
+
+        public IEnumerable<ImageLists> GetLists(int moduleId)
+        {
+            IEnumerable<ImageLists> i;
+            using (IDataContext ctx = DataContext.Instance())
+            {
+                var rep = ctx.GetRepository<ImageLists>();
+                i = rep.Get(moduleId);
+            }
+            return i;
+        }
+
+
     }
 }
