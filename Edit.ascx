@@ -78,15 +78,23 @@
         </asp:Repeater>
     </fieldset>
 </div>
+<div>
+    <asp:Label ID="lblOverwriteError" runat="server" ForeColor="Red" />
+</div>
 <div class="dnnFormItem">
     <dnn:label ID="lblFileName" runat="server" />
     <asp:TextBox ID="txtFileName" runat="server" />
 </div>
+<div class="dnnFormItem">
+    <dnn:label ID="lblOverwrite" runat="server" />
+    <asp:CheckBox ID="cbOverwrite" runat="server" />
+</div>
+<div class="dnnFormItem">
 <asp:LinkButton ID="btnSubmit" runat="server"
     OnClick="btnSubmit_Click" resourcekey="btnSubmit" CssClass="dnnPrimaryAction" />
 <asp:LinkButton ID="btnCancel" runat="server"
     OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="dnnSecondaryAction" />
-
+</div>
 <script type="text/javascript">
     /*globals jQuery, window, Sys */
     (function ($, Sys) {

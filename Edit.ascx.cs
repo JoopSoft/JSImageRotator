@@ -20,6 +20,7 @@ using DotNetNuke.Services.Localization;
 using System.Collections.Generic;
 using System.IO;
 using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace JS.Modules.JSImageRotator
 {
@@ -69,9 +70,21 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            if (File.Exists(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json")))
+            {
+                if (cbOverwrite.Checked)
+                {
+                    File.Delete(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json"));
+                }
+                else
+                {
+                    lblOverwriteError.Text = "The File Already Exists! If You want to overwrite it check the Overwrite Checkbox below!";
+                    return;
+                }
+            }
             var ic = new ImageController();
             var il = ic.GetImages(ModuleId);
-            List<ImageJ> fileJ = new List<ImageJ>();
+            List<ImageJ> Slides = new List<ImageJ>();
             foreach (var img in il)
             {
                 ImageJ li = new ImageJ();
@@ -80,13 +93,18 @@ namespace JS.Modules.JSImageRotator
                 li.ImagePhotographer = img.ImagePhotographer;
                 li.ImageContact = img.ImageContact;
                 li.ImageUrl = img.ImageUrl;
-                fileJ.Add(li);
+                Slides.Add(li);
             }
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            var json = serializer.Serialize(fileJ);
             DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
-            File.WriteAllText((Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json")), json);
+            using (FileStream fs = File.Open((Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json")), FileMode.CreateNew))
+            using (StreamWriter sw = new StreamWriter(fs))
+            using (JsonWriter jw = new JsonTextWriter(sw))
+            {
+                jw.Formatting = Formatting.Indented;
 
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(jw, Slides);
+            }
             Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
         }
 
