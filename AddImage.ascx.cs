@@ -79,6 +79,8 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnAddImage_Click(object sender, EventArgs e)
         {
+            if (txtImageUrl.Text != "" && txtTitle.Text != "" && txtDescription.Text != "" && txtPhotographer.Text != "" && txtContact.Text != "")
+            {
             var i = new Images();
             var ic = new ImageController();
             if (ImageId > 0)
@@ -111,7 +113,13 @@ namespace JS.Modules.JSImageRotator
             {
                 ic.AddImage(i);
             }
+            lblAddedImage.Text = "Image Added";
             txtImageUrl.Text = txtTitle.Text = txtDescription.Text = txtPhotographer.Text = txtContact.Text = "";
+            }
+            else
+            {
+                lblAddedImage.Text = "Please Fill All Fields";
+            }
         }
     }
 }

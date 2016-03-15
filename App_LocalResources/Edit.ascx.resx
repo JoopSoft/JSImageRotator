@@ -147,13 +147,13 @@
   <data name="lblFileName.Text" xml:space="preserve">
     <value>FileName</value>
   </data>
-  <data name="btnGenerate.Text" xml:space="preserve">
-    <value>Generate</value>
-  </data>
   <data name="lblOverwrite.Help" xml:space="preserve">
     <value>Check if you want to overwrite Existing File</value>
   </data>
   <data name="lblOverwrite.Text" xml:space="preserve">
     <value>Overwrite Existing File</value>
+  </data>
+  <data name="btnGenerate.Text" xml:space="preserve">
+    <value>Generate</value>
   </data>
 </root>

@@ -12,5 +12,8 @@ namespace JS.Modules.JSImageRotator.Components
         public string ImagePhotographer { get; set; }
         public string ImageContact { get; set; }
         public string ImageUrl { get; set; }
+        public ImageJ Slides = new ImageJ
+        { 
+        };
     }
 }

@@ -188,7 +188,17 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnGenerate_Click(object sender, EventArgs e)
         {
-            Generate();
+            //Generate();
+            var ic = new ImageController();
+            var i = ic.GetImages(ModuleId);
+            foreach (var img in i)
+            {
+                if (img.IsSelected && !img.ListsIn.Contains(txtFileName.Text.Trim() + ".json, "))
+                {
+                    img.ListsIn += txtFileName.Text.Trim() + ".json, ";
+                    ic.UpdateImage(img);
+                }
+            }
         }
         }
 }

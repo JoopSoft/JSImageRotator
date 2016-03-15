@@ -32,8 +32,9 @@
             <dnn:label ID="lblContact" runat="server" />
             <asp:TextBox ID="txtContact" runat="server" />
         </div>
-        <div class="dnnFormItem">
+        <div>
             <asp:LinkButton ID="btnAddImage" runat="server" OnClick="btnAddImage_Click" resourcekey="btnAddImage" CssClass="dnnSecondaryAction"/>
+            <asp:Label ID="lblAddedImage" runat="server" />
         </div>
     </fieldset>
 </div>

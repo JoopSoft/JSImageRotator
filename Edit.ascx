@@ -58,7 +58,7 @@
             </FooterTemplate>
         </asp:Repeater>
     </fieldset>
- </div><div>
+  </div><div>
     <asp:Label ID="lblOverwriteError" runat="server" ForeColor="Red" />
 </div>
 <div class="dnnFormItem">
@@ -70,9 +70,8 @@
     <asp:CheckBox ID="cbOverwrite" runat="server" />
 </div>
 <div class="dnnFormItem">
-<asp:LinkButton ID="btnGenerate" runat="server"
-    OnClick="btnGenerate_Click" resourcekey="btnGenerate" CssClass="dnnSecondaryAction" />
-    <asp:HyperLink ID="lnkSelect" runat="server" Text="Go To Image Lists" CssClass="dnnSecondaryAction" />
+    <asp:LinkButton ID="btnGenerate" runat="server" OnClick="btnGenerate_Click" resourcekey="btnGenerate" CssClass="dnnSecondaryAction" />
+    <asp:HyperLink ID="lnkSelect" runat="server" Text="Select Image List" CssClass="dnnSecondaryAction" />
 </div>
 <div class="dnnFormItem">
 <asp:LinkButton ID="btnSubmit" runat="server"

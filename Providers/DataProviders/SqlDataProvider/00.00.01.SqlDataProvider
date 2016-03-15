@@ -20,6 +20,7 @@ CREATE TABLE {databaseOwner}{objectQualifier}JSImageRotator_Images
 	[ImagePhotographer] NVARCHAR(MAX) NOT NULL,
 	[ImageContact] NVARCHAR(MAX) NOT NULL,
 	[ImageUrl] NVARCHAR(MAX) NOT NULL,
+	[ListsIn] NVARCHAR(MAX) NULL,
 	[IsSelected] BIT NOT NULL,
 	[ModuleId] INT NOT NULL,
 )

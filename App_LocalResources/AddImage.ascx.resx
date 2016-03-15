@@ -124,7 +124,7 @@
     <value>Cancel</value>
   </data>
   <data name="btnSubmit.Text" xml:space="preserve">
-    <value>Save</value>
+    <value>View Image List</value>
   </data>
   <data name="btnUpload.Text" xml:space="preserve">
     <value>Upload</value>

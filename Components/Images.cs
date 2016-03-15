@@ -15,6 +15,7 @@ using System.Web.Caching;
 using DotNetNuke.Common.Utilities;
 using DotNetNuke.ComponentModel.DataAnnotations;
 using DotNetNuke.Entities.Content;
+using System.Collections.Generic;
 
 namespace JS.Modules.JSImageRotator.Components
 {
@@ -33,6 +34,7 @@ namespace JS.Modules.JSImageRotator.Components
         public string ImagePhotographer { get; set; }
         public string ImageContact { get; set; }
         public string ImageUrl { get; set; }
+        public string ListsIn { get; set; }
         public bool IsSelected { get; set; }
         public int ModuleId { get; set; }
     }
