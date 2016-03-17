@@ -49,13 +49,40 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.Repeater rptImageList;
         
         /// <summary>
-        /// lblOverwriteError control.
+        /// lblSelectList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOverwriteError;
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblSelectList;
+        
+        /// <summary>
+        /// lstSelectList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList lstSelectList;
+        
+        /// <summary>
+        /// btnDeleteList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnDeleteList;
+        
+        /// <summary>
+        /// btnShowAddNewList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnShowAddNewList;
         
         /// <summary>
         /// lblFileName control.
@@ -76,22 +103,40 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.TextBox txtFileName;
         
         /// <summary>
-        /// lblOverwrite control.
+        /// btnShowSelectList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblOverwrite;
+        protected global::System.Web.UI.WebControls.LinkButton btnShowSelectList;
         
         /// <summary>
-        /// cbOverwrite control.
+        /// lblConfirmDelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbOverwrite;
+        protected global::System.Web.UI.WebControls.Label lblConfirmDelete;
+        
+        /// <summary>
+        /// btnYes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnYes;
+        
+        /// <summary>
+        /// btnNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnNo;
         
         /// <summary>
         /// btnGenerate control.
@@ -110,6 +155,15 @@ namespace JS.Modules.JSImageRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkSelect;
+        
+        /// <summary>
+        /// lblListAdded control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblListAdded;
         
         /// <summary>
         /// btnSubmit control.

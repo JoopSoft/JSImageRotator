@@ -142,18 +142,30 @@
     <value>Expand All</value>
   </data>
   <data name="lblFileName.Help" xml:space="preserve">
-    <value>Enter the Name of the File to Generate</value>
+    <value>Enter the Name of the List to Add</value>
   </data>
   <data name="lblFileName.Text" xml:space="preserve">
-    <value>FileName</value>
+    <value>New List Name</value>
   </data>
-  <data name="lblOverwrite.Help" xml:space="preserve">
-    <value>Check if you want to overwrite Existing File</value>
+  <data name="btnDeleteList.Text" xml:space="preserve">
+    <value>Delete List</value>
   </data>
-  <data name="lblOverwrite.Text" xml:space="preserve">
-    <value>Overwrite Existing File</value>
+  <data name="btnNo.Text" xml:space="preserve">
+    <value>No</value>
   </data>
-  <data name="btnGenerate.Text" xml:space="preserve">
-    <value>Generate</value>
+  <data name="btnShowAddList.Text" xml:space="preserve">
+    <value>Add New</value>
+  </data>
+  <data name="btnShowSelectList.Text" xml:space="preserve">
+    <value>Select From Lists</value>
+  </data>
+  <data name="btnYes.Text" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="lblSelectList.Help" xml:space="preserve">
+    <value>Select a List to Edit</value>
+  </data>
+  <data name="lblSelectList.Text" xml:space="preserve">
+    <value>Select From Available Lists</value>
   </data>
 </root>

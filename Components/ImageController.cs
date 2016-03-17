@@ -70,6 +70,17 @@ namespace JS.Modules.JSImageRotator.Components
                 rep.Update(i);
             }
         }
+        public ImageLists GetList(int listId, int moduleId)
+        {
+            ImageLists l;
+            using (IDataContext ctx = DataContext.Instance())
+            {
+                var rep = ctx.GetRepository<ImageLists>();
+                l = rep.GetById(listId, moduleId);
+            }
+            return l;
+        }
+
 
         public void AddImageList(ImageLists i)
         {
@@ -89,6 +100,20 @@ namespace JS.Modules.JSImageRotator.Components
                 i = rep.Get(moduleId);
             }
             return i;
+        }
+        public void DeleteList(int listId, int moduleId)
+        {
+            var l = GetList(listId, moduleId);
+            DeleteList(l);
+        }
+
+        public void DeleteList(ImageLists l)
+        {
+            using (IDataContext ctx = DataContext.Instance())
+            {
+                var rep = ctx.GetRepository<ImageLists>();
+                rep.Delete(l);
+            }
         }
 
 

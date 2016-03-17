@@ -135,4 +135,13 @@
   <data name="ExpandAll.Text" xml:space="preserve">
     <value>Expand All</value>
   </data>
+  <data name="btnDeleteList.Text" xml:space="preserve">
+    <value>Delete List</value>
+  </data>
+  <data name="btnNo.Text" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="btnYes.Text" xml:space="preserve">
+    <value>Yes</value>
+  </data>
 </root>

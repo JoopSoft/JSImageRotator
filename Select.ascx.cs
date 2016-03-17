@@ -48,13 +48,21 @@ namespace JS.Modules.JSImageRotator
                     var ic = new ImageController();
                     var i = ic.GetImages(ModuleId);
                     var il = ic.GetLists(ModuleId);
+                    var dbi = new List<Images>();
                     foreach (var lst in il)
                     {
                         lstImageLists.Items.Add(lst.ListName);
                     }
+                    foreach(var img in i)
+                    {
+                        if (img.ListsIn.Contains(lstImageLists.SelectedValue) && lstImageLists.SelectedItem != null)
+                        {
+                            dbi.Add(img);
+                        }
+                    }
                     lnkAdd.NavigateUrl = EditUrl("AddImage");
                     lnkEdit.NavigateUrl = EditUrl();
-                    rptImageList.DataSource = ic.GetImages(ModuleId);
+                    rptImageList.DataSource = dbi;
                     rptImageList.DataBind();
                 }
             }
@@ -92,6 +100,69 @@ namespace JS.Modules.JSImageRotator
             {
                 var i = (Images)e.Item.DataItem;
             }
+        }
+
+        protected void lstImageLists_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var ic = new ImageController();
+            var i = ic.GetImages(ModuleId);
+            var dbi = new List<Images>();
+            foreach (var img in i)
+            {
+                if (img.ListsIn.Contains(lstImageLists.SelectedValue))
+                {
+                    dbi.Add(img);
+                }
+            }
+            rptImageList.DataSource = dbi;
+            rptImageList.DataBind();
+        }
+
+        protected void btnDeleteList_Click(object sender, EventArgs e)
+        {
+            lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = true;
+        }
+
+        protected void btnYes_Click(object sender, EventArgs e)
+        {
+            int listId = 0;
+            var ic = new ImageController();
+            var ai = ic.GetImages(ModuleId);
+            var il = ic.GetLists(ModuleId);
+            foreach (var l in il)
+            {
+                if (l.ListName == lstImageLists.SelectedValue)
+                {
+                    listId = l.ImageListId;
+                }
+            }
+            ic.DeleteList(listId, ModuleId);
+            foreach (var i in ai)
+            {
+                if (i.ListsIn.Contains(lstImageLists.SelectedValue + ".json"))
+                {
+                    string remove = lstImageLists.SelectedValue + ".json, ";
+                    i.ListsIn = i.ListsIn.Replace(remove, "");
+                    ic.UpdateImage(i);
+                }
+            }
+            lstImageLists.Items.Remove(lstImageLists.SelectedItem);
+            lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
+            var dbi = new List<Images>();
+            foreach (var img in ai)
+            {
+                if (img.ListsIn.Contains(lstImageLists.SelectedValue) && lstImageLists.SelectedValue != "")
+                {
+                    dbi.Add(img);
+                }
+            }
+            rptImageList.DataSource = dbi;
+            rptImageList.DataBind();
+        }
+
+        protected void btnNo_Click(object sender, EventArgs e)
+        {
+            lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
         }
     }
 }

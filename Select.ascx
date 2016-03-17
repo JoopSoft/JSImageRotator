@@ -13,7 +13,7 @@
         <div class="dnnFormItem">
             <asp:HyperLink ID="lnkAdd" runat="server" Text="[+] Add New Image" CssClass="dnnSecondaryAction" />
             <asp:HyperLink ID="lnkEdit" runat="server" Text="Edit Image Lists" CssClass="dnnSecondaryAction" />
-            <asp:DropDownList ID="lstImageLists" runat="server" />
+            <asp:DropDownList ID="lstImageLists" runat="server" AutoPostBack="true" OnSelectedIndexChanged="lstImageLists_SelectedIndexChanged"/>
         </div>
         <div class="dnnFormItem">
             <asp:Label ID="lblTableTitle" runat="server" Text="Image List"/>
@@ -68,10 +68,17 @@
     </fieldset>
 </div>
 <div class="dnnFormItem">
-<asp:LinkButton ID="btnSubmit" runat="server"
-    OnClick="btnSubmit_Click" resourcekey="btnSubmit" CssClass="dnnPrimaryAction" />
-<asp:LinkButton ID="btnCancel" runat="server"
-    OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="dnnSecondaryAction" />
+    <asp:LinkButton ID="btnSubmit" runat="server"
+        OnClick="btnSubmit_Click" resourcekey="btnSubmit" CssClass="dnnPrimaryAction" />
+    <asp:LinkButton ID="btnCancel" runat="server"
+        OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="dnnSecondaryAction" />
+    <asp:LinkButton ID="btnDeleteList" runat="server"
+        OnClick="btnDeleteList_Click" resourcekey="btnDeleteList" CssClass="dnnSecondaryAction" />
+    <asp:Label ID="lblConfirmDelete" runat="server" Text="Are you sure you want to Delete this List!" Visible="false" />
+    <asp:LinkButton ID="btnYes" runat="server"
+        OnClick="btnYes_Click" resourcekey="btnYes" CssClass="dnnSecondaryAction" Visible="false" />
+    <asp:LinkButton ID="btnNo" runat="server"
+        OnClick="btnNo_Click" resourcekey="btnNo" CssClass="dnnSecondaryAction" Visible="false" />
 </div>
 <script type="text/javascript">
     /*globals jQuery, window, Sys */
