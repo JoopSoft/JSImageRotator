@@ -128,12 +128,23 @@
     <Content Include="Documentation\Documentation.css" />
     <Content Include="Documentation\Documentation.html" />
     <Content Include="AddImage.ascx" />
+    <Content Include="module.css">
+      <DependentUpon>module.scss</DependentUpon>
+    </Content>
+    <Content Include="module.min.css">
+      <DependentUpon>module.css</DependentUpon>
+    </Content>
     <Content Include="Select.ascx" />
     <Content Include="Edit.ascx" />
     <Content Include="License.txt" />
-    <Content Include="module.css" />
     <Content Include="ReleaseNotes.txt" />
     <Content Include="Settings.ascx" />
+    <Content Include="variables.css">
+      <DependentUpon>variables.scss</DependentUpon>
+    </Content>
+    <Content Include="variables.min.css">
+      <DependentUpon>variables.css</DependentUpon>
+    </Content>
     <Content Include="View.ascx" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +175,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\Select.ascx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="module.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="variables.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

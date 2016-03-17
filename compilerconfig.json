@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "module.css",
+    "inputFile": "module.scss"
+  },
+  {
+    "outputFile": "variables.css",
+    "inputFile": "variables.scss"
+  }
+]
