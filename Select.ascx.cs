@@ -55,9 +55,13 @@ namespace JS.Modules.JSImageRotator
                     }
                     foreach (var img in i)
                     {
-                        if (img.ListsIn.Contains(lstImageLists.SelectedValue) && lstImageLists.SelectedItem != null)
+                        if (img.ListsIn != null)
                         {
-                            dbi.Add(img);
+
+                            if (img.ListsIn.Contains(lstImageLists.SelectedValue) && lstImageLists.SelectedItem != null)
+                            {
+                                dbi.Add(img);
+                            }
                         }
                     }
                     lnkAdd.NavigateUrl = EditUrl("AddImage");
