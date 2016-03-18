@@ -41,19 +41,46 @@
     .dnnFormSectionHead {
         /*border-bottom: 1px solid $dark-alpha;*/
         border-bottom: $none;
-        margin-bottom: 30px;
 
         .dnnFormMessage {
-            color: $white;
-            background: $dark-alpha-lg url(h-icon.png) no-repeat 15px center;
+            margin: 0 0 30px;
+            padding: 15px;
             background-size: 30px;
-            border: $none;
-            margin: 0;
-            padding: 15px 15px 15px 55px;
             font-weight: normal;
             line-height: normal;
+            border: $none;
 
             @include border-radius(0);
+
+            &.no-spacing {
+                margin: 0;
+            }
+
+            &.dnnFormTitle {
+                color: $white;
+                background-color: $dark-alpha-lg;
+
+                &.dnnFormIcon {
+                    padding: 15px 15px 15px 55px;
+                    background-image: url(h-icon.png);
+                    background-repeat: no-repeat;
+                    background-position: 15px center;
+                }
+            }
+
+            &.dnnFormInfo {
+                color: $white;
+                background: $dark-alpha-md;
+                /*display: $none;*/
+            }
+            //&.dnnFormSuccess {
+            //    color: $dark;
+            //    background: $dark-alpha;
+            //}
+            //&.dnnFormWarning {
+            //    color: $dark;
+            //    background: $dark-alpha;
+            //}
         }
     }
 
@@ -93,18 +120,10 @@
         .news-image {
             width: auto;
             height: 35px;
-            display: inline-block;
-            margin-right: 10px;
-            border: 1px solid $dark-alpha-lg;
-        }
-
-        select > option {
-            color: $dark;
-        }
-
-        label span {
-            color: $dark-alpha-lg;
-            font-weight: bold;
+            //display: inline-block;
+            //margin-right: 10px;
+            //border: 1px solid $dark-alpha-lg;
+            float: left;
         }
 
         .btn {
@@ -144,6 +163,30 @@
             }
         }
 
+        .link-delete {
+            height: 35px;
+            float: left;
+            margin-right: 10px;
+        }
+
+        select > option {
+            color: $dark;
+        }
+
+        label span {
+            color: $dark-alpha-lg;
+            font-weight: bold;
+        }
+
+        .table-list {
+            border: $none;
+            width: 100%;
+
+            .link-delete {
+                float: $none;
+            }
+        }
+
         &.controls {
             margin: 0;
             padding: 10px 0 0 0;
@@ -151,7 +194,7 @@
         }
     }
 
-    &.add-news {
+    &.add-img {
 
         .dnnFormItem button,
         .dnnFormItem input[type="button"],
@@ -188,8 +231,8 @@
         }
     }
 
-    &.add-news,
-    &.settings {
+    &.add-img,
+    &.select {
         font-size: 14px;
 
         input[type="text"],

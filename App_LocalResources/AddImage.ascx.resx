@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Title.Text" xml:space="preserve">
-    <value>JSImageRotator - Add/Edit Image</value>
+    <value>JSImageRotator - Add Image</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
   <data name="btnSubmit.Text" xml:space="preserve">
-    <value>View Image List</value>
+    <value>Image List</value>
   </data>
   <data name="btnUpload.Text" xml:space="preserve">
     <value>Upload</value>
@@ -164,5 +164,8 @@
   </data>
   <data name="btnAddImage.Text" xml:space="preserve">
     <value>Add New</value>
+  </data>
+  <data name="btnDeleteImg.Text" xml:space="preserve">
+    <value>Delete</value>
   </data>
 </root>

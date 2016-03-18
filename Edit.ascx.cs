@@ -388,6 +388,8 @@ namespace JS.Modules.JSImageRotator
                     {
                         imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = true;
                         btnEdit.Text = "Save";
+                        btnEdit.ToolTip = "Save";
+                        btnEdit.CssClass = "btn btn-primary link-save";
                     }
                     else
                     {
@@ -399,6 +401,8 @@ namespace JS.Modules.JSImageRotator
                         ic.UpdateImage(i);
                         imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = false;
                         btnEdit.Text = "Edit";
+                        btnEdit.ToolTip = "Edit";
+                        btnEdit.CssClass = "btn btn-primary link-edit";
                     }
                 }
             }

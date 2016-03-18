@@ -27,6 +27,7 @@
             $lnkSave = '<i class="fa fa-floppy-o"></i>',
             $lnkCancel = '<i class="fa fa-ban"></i>',
             $lnkInfo = '<i class="fa fa-info-circle"></i>',
+            $lnkList = '<i class="fa fa-list"></i>',
 
             $lnkPrev = '<i class="fa fa-angle-left"></i>',
             $lnkNext = '<i class="fa fa-angle-right"></i>',
@@ -49,6 +50,18 @@
         $('.link-cancel').prepend($lnkCancel + ' ');
         $('.link-all').prepend($lnkAll + ' ');
         $('.link-upload').prepend($lnkUpload + ' ');
+
+        $('.link-list').prepend($lnkList + ' ');
+        $('.link-add').prepend($lnkAdd + ' ');
+
+        $('.add-img .link-delete').prepend($lnkDelete + ' ');
+
+        $('.dnnForm.edit table .link-edit').html($lnkEdit);
+        $('.dnnForm.edit table .link-save').html($lnkSave);
+        $('.dnnForm.edit table .link-delete').html($lnkDelete);
+        $('.dnnForm.edit table .link-cancel').html($lnkCancel);
+
+
 
         $('a.dnnFormHelp').prepend($lnkInfo);
 
