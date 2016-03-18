@@ -4,3 +4,243 @@
     @include box-size(border-box);
 }
 
+
+.dnnForm {
+
+    .form-control {
+        width: 45%;
+        height: 35px;
+        line-height: normal;
+
+        @include box-shadow($none);
+
+        &.teaser-txt {
+            height: 70px;
+        }
+
+        &.body-txt {
+            height: 150px;
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: $dark;
+        /*margin: 0 0 10px;*/
+    }
+
+    h3 {
+        /*font-size: 1rem;*/
+        font-size: 1.571em;
+    }
+
+    h4 {
+        /*font-size: 0.85rem;*/
+        font-size: 1.286em;
+    }
+
+    .dnnFormSectionHead {
+        /*border-bottom: 1px solid $dark-alpha;*/
+        border-bottom: $none;
+        margin-bottom: 30px;
+
+        .dnnFormMessage {
+            color: $white;
+            background: $dark-alpha-lg url(h-icon.png) no-repeat 15px center;
+            background-size: 30px;
+            border: $none;
+            margin: 0;
+            padding: 15px 15px 15px 55px;
+            font-weight: normal;
+            line-height: normal;
+
+            @include border-radius(0);
+        }
+    }
+
+    input[type=checkbox] {
+        visibility: hidden;
+    }
+    //DNN RE-STYLING CHECK BOX CONTROL
+    //DON'T REORDER ROW DEFINITIONS
+    .dnnCheckbox img {
+        display: inline-block;
+        width: 20px;
+        height: 18px;
+        min-width: 20px;
+        vertical-align: middle;
+    }
+
+    .dnnCheckbox img {
+        background: transparent url(checkbox.png) no-repeat;
+    }
+
+    .dnnCheckbox img {
+        background-position: 0px 0px;
+    }
+
+    .dnnCheckbox-checked img {
+        background-position: -51px 0px;
+    }
+
+    .dnnCheckbox-disabled img {
+        opacity: .5;
+    }
+    //END
+    .dnnFormItem,
+    .dnnFormItem {
+        margin-bottom: 15px;
+
+        .news-image {
+            width: auto;
+            height: 35px;
+            display: inline-block;
+            margin-right: 10px;
+            border: 1px solid $dark-alpha-lg;
+        }
+
+        select > option {
+            color: $dark;
+        }
+
+        label span {
+            color: $dark-alpha-lg;
+            font-weight: bold;
+        }
+
+        .btn {
+            line-height: normal;
+            border: $none;
+            padding: 10px 15px;
+
+            @include border-radius(0);
+
+            &.btn-primary {
+                background-color: $dark-alpha-lg;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: $dark-alpha-xlg;
+                }
+            }
+
+            &.btn-default {
+                color: $dark-alpha-lg;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: $white;
+                    background-color: $dark-alpha-lg;
+                }
+            }
+
+            &:hover {
+                border: $none;
+            }
+
+            &:active {
+                @include box-shadow($none);
+            }
+        }
+
+        &.controls {
+            margin: 0;
+            padding: 10px 0 0 0;
+            border-top: 1px solid $dark-alpha;
+        }
+    }
+
+    &.add-news {
+
+        .dnnFormItem button,
+        .dnnFormItem input[type="button"],
+        .dnnFormItem input[type="reset"],
+        .dnnSecondaryAction,
+        a.dnnSecondaryAction,
+        ul.dnnAdminTabNav li a,
+        .dnnLogin .LoginTabGroup span {
+            margin: 0;
+            padding: 8px 12px;
+            color: $white;
+            background: $dark-alpha-lg;
+            font-family: inherit;
+            font-weight: normal;
+            border: $none;
+            text-decoration: none;
+            text-shadow: $none;
+
+            @include border-radius(0);
+            @include box-shadow($none);
+
+            &:hover {
+                background: $dark-alpha-xlg;
+            }
+        }
+
+        a.dnnFormHelp {
+            color: $dark-alpha-lg;
+            background: $none;
+            top: 0;
+            width: auto;
+            height: auto;
+            font-weight: normal;
+        }
+    }
+
+    &.add-news,
+    &.settings {
+        font-size: 14px;
+
+        input[type="text"],
+        select,
+        textarea,
+        input[type="email"],
+        input[type="search"],
+        input[type="date"] {
+            margin: 0;
+            border: 1px solid $dark-alpha;
+            color: $dark-alpha-md;
+            width: 50%;
+            max-width: 450px;
+            font-size: 1em;
+            padding: 5px 8px;
+
+            @include border-radius(0);
+            @include box-shadow($none);
+            @include transition($all);
+
+            &:active,
+            &:focus {
+                color: $dark;
+                background: $none;
+                border: 1px solid $dark;
+                outline: $none;
+                @include box-shadow(0 0 6px 1px $dark-alpha-md);
+            }
+
+            &[disabled="disabled"] {
+                color: $dark;
+                width: calc(50% - 50px);
+                display: inline-block;
+                border: none;
+                background: none;
+                padding: 0;
+
+                @include box-shadow($none);
+            }
+        }
+
+        select {
+            padding: 5px;
+        }
+    }
+}
+
+
+
+
+.mark, mark {
+    padding: 0!important;
+    background-color: transparent!important;
+}

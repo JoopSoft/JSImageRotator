@@ -1,20 +1,24 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Edit.ascx.cs" Inherits="JS.Modules.JSImageRotator.Edit" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 <%@ Register TagPrefix="dnn" TagName="label" Src="~/controls/LabelControl.ascx" %>
-<div class="dnnForm dnnEditBasicSettings" id="dnnEditBasicSettings">
-    <div class="dnnFormExpandContent dnnRight "><a href=""><%=LocalizeString("ExpandAll")%></a></div>
 
-    <h2 id="dnnSitePanel-BasicSettings" class="dnnFormSectionHead dnnClear">
-        <a href="" class="dnnSectionExpanded">
-            <%=LocalizeString("BasicSettings")%>
-        </a>
-    </h2>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<div class="dnnForm edit">
+    <div class="dnnFormSectionHead">
+        <h3 class="dnnFormMessage dnnFormInfo">
+            <%=LocalizeString("Title")%>
+        </h3>
+    </div>
+
     <fieldset>
         <div class="dnnFormItem">
             <asp:HyperLink ID="lnkAdd" runat="server" Text="[+] Add New Image" CssClass="dnnSecondaryAction" />
         </div>
         <div class="dnnFormItem">
-            <asp:Label ID="lblTableTitle" runat="server" Text="Image List"/>
+            <asp:Label ID="lblTableTitle" runat="server" Text="Image List" />
         </div>
         <asp:Table runat="server" BorderStyle="None" Width="100%" GridLines="Both">
             <asp:TableRow>
@@ -66,7 +70,7 @@
             </FooterTemplate>
         </asp:Repeater>
     </fieldset>
-  </div>
+</div>
 <div class="dnnFormItem">
     <dnn:label ID="lblSelectList" runat="server" Visible="false" />
     <asp:DropDownList ID="lstSelectList" runat="server" AutoPostBack="True" OnSelectedIndexChanged="lstSelectList_SelectedIndexChanged" Visible="false" />
@@ -84,30 +88,15 @@
         OnClick="btnNo_Click" resourcekey="btnNo" CssClass="dnnSecondaryAction" Visible="false" />
 </div>
 <div class="dnnFormItem">
-    <asp:LinkButton ID="btnGenerate" runat="server" OnClick="btnGenerate_Click" resourcekey="btnGenerate" CssClass="dnnSecondaryAction" Text="Add List"/>
+    <asp:LinkButton ID="btnGenerate" runat="server" OnClick="btnGenerate_Click" resourcekey="btnGenerate" CssClass="dnnSecondaryAction" Text="Add List" />
     <asp:HyperLink ID="lnkSelect" runat="server" Text="Select Image List" CssClass="dnnSecondaryAction" />
     <asp:Label ID="lblListAdded" runat="server" />
 </div>
 <div class="dnnFormItem">
-<asp:LinkButton ID="btnSubmit" runat="server"
-    OnClick="btnSubmit_Click" resourcekey="btnSubmit" CssClass="dnnPrimaryAction" />
-<asp:LinkButton ID="btnCancel" runat="server"
-    OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="dnnSecondaryAction" />
+    <asp:LinkButton ID="btnSubmit" runat="server"
+        OnClick="btnSubmit_Click" resourcekey="btnSubmit" CssClass="dnnPrimaryAction" />
+    <asp:LinkButton ID="btnCancel" runat="server"
+        OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="dnnSecondaryAction" />
 </div>
-<script type="text/javascript">
-    /*globals jQuery, window, Sys */
-    (function ($, Sys) {
-        function dnnEditBasicSettings() {
-            $('#dnnEditBasicSettings').dnnPanels();
-            $('#dnnEditBasicSettings .dnnFormExpandContent a').dnnExpandAll({ expandText: '<%=Localization.GetString("ExpandAll", LocalResourceFile)%>', collapseText: '<%=Localization.GetString("CollapseAll", LocalResourceFile)%>', targetArea: '#dnnEditBasicSettings' });
-        }
 
-        $(document).ready(function () {
-            dnnEditBasicSettings();
-            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
-                dnnEditBasicSettings();
-            });
-        });
-
-    }(jQuery, window.Sys));
-</script>
+<script type="text/javascript" src="<%= ModulePath %>Js/main.js"></script>

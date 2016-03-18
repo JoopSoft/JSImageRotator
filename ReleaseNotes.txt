@@ -1,23 +1,10 @@
-﻿<h3>JSImageRotator</h3>
-<p class="Contributor">
-	JoopSoft.com <br />
-	<a href="mailto:modules@joopsoft.com">modules@joopsoft.com</a><br />
-	<a href=http://www.joopsoft.com/>http://www.joopsoft.com/</a><br />
-</p>
-<hr/>
-<div class="License">
-	<h3>About the JSImageRotator</h3>
-	<p class="Owner">
-		<b>Version CHANGEME</b><br /><br />
-	</p>
-	<p>Description about version.</p>
-	
-	<h4>Bug Fixes</h4>
-	<ul>
-			<li>List</li>
-			<li>of</li>
-			<li>bug</li>
-			<li>fixes</li>
-	</ul>
-	
-</div>
+﻿<h4>JSImageRotator</h4>
+<b>Version</b><br />00.00.01
+
+<b>Description</b><br />JSImageRotator allows you to create image slides with some describe attributes, modify slides, delete slides, change the slide order and etc.
+<br />We used Vegas plugin with MIT license.<br /><a href="https://vegas.jaysalvat.com/">www.vegas.jaysalvat.com</a>
+<br />
+<span class="Contributor">	
+	<b>JoopSOFT Ltd.</b><br />
+	<a href="mailto:devmod@joopsoft.com">devmod@joopsoft.com</a><br /><a href=http://www.joopsoft.com>www.joopsoft.com</a><br />
+</span>

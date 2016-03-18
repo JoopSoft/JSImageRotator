@@ -53,7 +53,7 @@ namespace JS.Modules.JSImageRotator
                     {
                         lstImageLists.Items.Add(lst.ListName);
                     }
-                    foreach(var img in i)
+                    foreach (var img in i)
                     {
                         if (img.ListsIn.Contains(lstImageLists.SelectedValue) && lstImageLists.SelectedItem != null)
                         {

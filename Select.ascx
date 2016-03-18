@@ -1,14 +1,18 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Select.ascx.cs" Inherits="JS.Modules.JSImageRotator.Select" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 <%@ Register TagPrefix="dnn" TagName="label" Src="~/controls/LabelControl.ascx" %>
-<div class="dnnForm dnnEditBasicSettings" id="dnnEditBasicSettings">
-    <div class="dnnFormExpandContent dnnRight "><a href=""><%=LocalizeString("ExpandAll")%></a></div>
 
-    <h2 id="dnnSitePanel-BasicSettings" class="dnnFormSectionHead dnnClear">
-        <a href="" class="dnnSectionExpanded">
-            <%=LocalizeString("BasicSettings")%>
-        </a>
-    </h2>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<div class="dnnForm select">
+    <div class="dnnFormSectionHead">
+        <h3 class="dnnFormMessage dnnFormInfo">
+            <%=LocalizeString("Title")%>
+        </h3>
+    </div>
+
     <fieldset>
         <div class="dnnFormItem">
             <asp:HyperLink ID="lnkAdd" runat="server" Text="[+] Add New Image" CssClass="dnnSecondaryAction" />
@@ -80,20 +84,6 @@
     <asp:LinkButton ID="btnNo" runat="server"
         OnClick="btnNo_Click" resourcekey="btnNo" CssClass="dnnSecondaryAction" Visible="false" />
 </div>
-<script type="text/javascript">
-    /*globals jQuery, window, Sys */
-    (function ($, Sys) {
-        function dnnEditBasicSettings() {
-            $('#dnnEditBasicSettings').dnnPanels();
-            $('#dnnEditBasicSettings .dnnFormExpandContent a').dnnExpandAll({ expandText: '<%=Localization.GetString("ExpandAll", LocalResourceFile)%>', collapseText: '<%=Localization.GetString("CollapseAll", LocalResourceFile)%>', targetArea: '#dnnEditBasicSettings' });
-        }
 
-        $(document).ready(function () {
-            dnnEditBasicSettings();
-            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
-                dnnEditBasicSettings();
-            });
-        });
+<script type="text/javascript" src="<%= ModulePath %>Js/main.js"></script>
 
-    }(jQuery, window.Sys));
-</script>

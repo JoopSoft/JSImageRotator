@@ -125,9 +125,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="icon.png" />
     <Content Include="Documentation\Documentation.css" />
     <Content Include="Documentation\Documentation.html" />
     <Content Include="AddImage.ascx" />
+    <Content Include="h-icon.png" />
+    <Content Include="Js\main.js" />
     <Content Include="module.css">
       <DependentUpon>module.scss</DependentUpon>
     </Content>
