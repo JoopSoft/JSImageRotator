@@ -113,12 +113,16 @@ namespace JS.Modules.JSImageRotator
             {
                 ic.AddImage(i);
             }
-            lblAddedImage.Text = "Image Added";
+            pnlMsgBox.Visible = true;
+
+            lblAddedImage.Text = "<i class='fa fa-check'></i> Image Added";
             txtImageUrl.Text = txtTitle.Text = txtDescription.Text = txtPhotographer.Text = txtContact.Text = "";
             }
             else
             {
-                lblAddedImage.Text = "Please Fill All Fields";
+                pnlMsgBox.Visible = true;
+
+                lblAddedImage.Text = "<i class='fa fa-warning'></i> Please Fill All Fields";
             }
         }
     }

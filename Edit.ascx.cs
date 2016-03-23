@@ -320,7 +320,9 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnDeleteList_Click(object sender, EventArgs e)
         {
-            lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = true;
+            //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = true;
+            pnlConfirmDelete.Visible = true;
+            pnlConfirmDelete.CssClass = "dnnFormItem confirms";
         }
 
         protected void btnYes_Click(object sender, EventArgs e)
@@ -347,7 +349,10 @@ namespace JS.Modules.JSImageRotator
                 }
             }
             lstSelectList.Items.Remove(lstSelectList.SelectedItem);
-            lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
+            //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
+            pnlConfirmDelete.Visible = false;
+            pnlConfirmDelete.CssClass = "dnnFormItem";
+
             if (lstSelectList.Items.Count == 0)
             {
                 lblFileName.Visible = txtFileName.Visible = true;
@@ -368,7 +373,10 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnNo_Click(object sender, EventArgs e)
         {
-            lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
+            //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
+            pnlConfirmDelete.Visible = false;
+            pnlConfirmDelete.CssClass = "dnnFormItem";
+
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)

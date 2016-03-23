@@ -1,289 +1,572 @@
 ﻿@import "variables.scss";
 
-* {
-    @include box-size(border-box);
-}
+.JSRotator {
 
-
-.dnnForm {
-
-    .form-control {
-        width: 45%;
-        height: 35px;
-        line-height: normal;
-
-        @include box-shadow($none);
-
-        &.teaser-txt {
-            height: 70px;
-        }
-
-        &.body-txt {
-            height: 150px;
-        }
+    * {
+        @include box-size(border-box);
     }
 
-    h1, h2, h3, h4, h5, h6 {
-        color: $dark;
-        /*margin: 0 0 10px;*/
+    .link-dev {
+        float: right;
+        font-size: 12px;
+        color: $white;
+        margin-top: 6px;
     }
 
-    h3 {
-        /*font-size: 1rem;*/
-        font-size: 1.571em;
-    }
+    .dnnForm {
 
-    h4 {
-        /*font-size: 0.85rem;*/
-        font-size: 1.286em;
-    }
-
-    .dnnFormSectionHead {
-        /*border-bottom: 1px solid $dark-alpha;*/
-        border-bottom: $none;
-
-        .dnnFormMessage {
-            margin: 0 0 30px;
-            padding: 15px;
-            background-size: 30px;
-            font-weight: normal;
-            line-height: normal;
-            border: $none;
-
-            @include border-radius(0);
-
-            &.no-spacing {
-                margin: 0;
-            }
-
-            &.dnnFormTitle {
-                color: $white;
-                background-color: $dark-alpha-lg;
-
-                &.dnnFormIcon {
-                    padding: 15px 15px 15px 55px;
-                    background-image: url(h-icon.png);
-                    background-repeat: no-repeat;
-                    background-position: 15px center;
-                }
-            }
-
-            &.dnnFormInfo {
-                color: $white;
-                background: $dark-alpha-md;
-                /*display: $none;*/
-            }
-            //&.dnnFormSuccess {
-            //    color: $dark;
-            //    background: $dark-alpha;
-            //}
-            //&.dnnFormWarning {
-            //    color: $dark;
-            //    background: $dark-alpha;
-            //}
-        }
-    }
-
-    input[type=checkbox] {
-        visibility: hidden;
-    }
-    //DNN RE-STYLING CHECK BOX CONTROL
-    //DON'T REORDER ROW DEFINITIONS
-    .dnnCheckbox img {
-        display: inline-block;
-        width: 20px;
-        height: 18px;
-        min-width: 20px;
-        vertical-align: middle;
-    }
-
-    .dnnCheckbox img {
-        background: transparent url(checkbox.png) no-repeat;
-    }
-
-    .dnnCheckbox img {
-        background-position: 0px 0px;
-    }
-
-    .dnnCheckbox-checked img {
-        background-position: -51px 0px;
-    }
-
-    .dnnCheckbox-disabled img {
-        opacity: .5;
-    }
-    //END
-    .dnnFormItem,
-    .dnnFormItem {
-        margin-bottom: 15px;
-
-        .news-image {
-            width: auto;
+        .form-control {
+            width: 45%;
             height: 35px;
-            //display: inline-block;
-            //margin-right: 10px;
-            //border: 1px solid $dark-alpha-lg;
-            float: left;
-        }
-
-        .btn {
             line-height: normal;
-            border: $none;
-            padding: 10px 15px;
 
-            @include border-radius(0);
+            @include box-shadow($none);
 
-            &.btn-primary {
-                background-color: $dark-alpha-lg;
-
-                &:hover,
-                &:focus,
-                &:active {
-                    background-color: $dark-alpha-xlg;
-                }
+            &.teaser-txt {
+                height: 70px;
             }
 
-            &.btn-default {
-                color: $dark-alpha-lg;
+            &.body-txt {
+                height: 150px;
+            }
+        }
 
-                &:hover,
-                &:focus,
-                &:active {
+        h1, h2, h3, h4, h5, h6 {
+            color: $dark;
+            /*margin: 0 0 10px;*/
+        }
+
+        h3 {
+            /*font-size: 1rem;*/
+            font-size: 1.571em;
+        }
+
+        h4 {
+            /*font-size: 0.85rem;*/
+            font-size: 1.286em;
+        }
+
+
+
+        .dnnFormSectionHead {
+            border-bottom: $none;
+
+            span {
+                font-size: inherit;
+                color: $white;
+            }
+
+            .dnnFormMessage {
+                margin: 0 0 30px;
+                padding: 15px;
+                background-size: 30px;
+                font-weight: normal;
+                line-height: normal;
+                border: $none;
+
+                @include border-radius(0);
+
+                &.dnnFormTitle {
                     color: $white;
+                    background-color: $dark-alpha-xlg;
+
+                    &.dnnFormIcon {
+                        padding: 15px 15px 15px 55px;
+                        background-image: url(h-icon.png);
+                        background-repeat: no-repeat;
+                        background-position: 15px center;
+                    }
+                }
+
+                &.dnnFormInfo {
+                    color: $white;
+                    background: $dark-alpha-md;
+                    /*display: $none;*/
+                }
+                //&.dnnFormSuccess {
+                //    color: $dark;
+                //    background: $dark-alpha;
+                //}
+                //&.dnnFormWarning {
+                //    color: $dark;
+                //    background: $dark-alpha;
+                //}
+            }
+
+
+            .JSRotatorMenu {
+                display: inline-block;
+
+                .dnnFormTitle {
+                    float: left;
                     background-color: $dark-alpha-lg;
                 }
+
+                .dnnFormMessage {
+                    padding: 0 15px;
+                    min-width: 45px;
+                    width: calc(100% - 135px);
+                    height: 45px;
+                    line-height: 45px;
+                    font-size: 1.286em;
+                }
+
+                a.btn {
+                    float: left;
+                    padding: 0;
+                    margin: 0;
+                    min-width: 45px;
+                    height: 45px;
+                    line-height: 45px;
+                    font-size: 1.286em;
+                    text-align: center;
+                }
             }
 
-            &:hover {
+            .no-spacing {
+                margin: 0;
+            }
+        }
+
+        input[type=checkbox] {
+            visibility: hidden;
+        }
+        /*DNN RE-STYLING CHECK BOX CONTROL*/
+        /*DON'T REORDER ROW DEFINITIONS*/
+        .dnnCheckbox img {
+            display: inline-block;
+            width: 20px;
+            height: 18px;
+            min-width: 20px;
+            vertical-align: middle;
+        }
+
+        .dnnCheckbox img {
+            background: transparent url(checkbox.png) no-repeat;
+        }
+
+        .dnnCheckbox img {
+            background-position: 0px 0px;
+        }
+
+        .dnnCheckbox-checked img {
+            background-position: -50px 0px;
+        }
+
+        .dnnCheckbox-disabled img {
+            opacity: .5;
+        }
+
+
+        .dnnFormItem {
+            margin-bottom: 15px;
+
+            .news-image {
+                width: auto;
+                height: 35px;
+                //display: inline-block;
+                //margin-right: 10px;
+                //border: 1px solid $dark-alpha-lg;
+                float: left;
+            }
+
+            .btn {
+                line-height: normal;
                 border: $none;
+                padding: 10px 15px;
+
+                @include border-radius(0);
+
+                &.btn-primary {
+                    background-color: $dark-alpha-lg;
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        background-color: $dark-alpha-xlg;
+                    }
+                }
+
+                &.btn-default {
+                    color: $dark-alpha-lg;
+
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        color: $white;
+                        background-color: $dark-alpha-lg;
+                    }
+                }
+
+                &:hover {
+                    border: $none;
+                }
+
+                &:active {
+                    @include box-shadow($none);
+                }
             }
 
-            &:active {
+            select > option {
+                color: $dark;
+            }
+
+            label span {
+                color: $dark-alpha-lg;
+                font-weight: bold;
+            }
+
+            .table-list {
+                border: $none;
+                width: 100%;
+            }
+
+            &.controls {
+                margin: 0;
+                padding: 10px 0 0 0;
+                border-top: 1px solid $dark-alpha;
+            }
+
+            &.confirms {
+                position: fixed;
+                top: 0;
+                left: 0;
+                margin: 0;
+                color: $white;
+                text-align: center;
+                background: $overlay;
+                height: 100%;
+                z-index: 9999;
+
+                .confirm-wrapper {
+                    top: calc((100% - 80px)/2);
+                    position: relative;
+
+                    h1, h2, h3, h4, h5, h6 {
+                        color: $white;
+                        border: $none;
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    .confirm-msg {
+                        display: block;
+                        padding: 10px;
+                        margin: 0;
+                    }
+                }
+            }
+
+            &.group {
+
+                input[type="text"],
+                select,
+                textarea,
+                input[type="email"],
+                input[type="search"],
+                input[type="date"] {
+                    float: left;
+                    height: 35px;
+                    line-height: 35px;
+                    width: 50%;
+                    max-width: 450px;
+
+                    &.grouped {
+                        border-right: $none;
+                    }
+
+                    &.ungrouped {
+                        border: 1px solid $dark-alpha;
+
+                        &:focus {
+                            border: 1px solid $dark;
+                        }
+                    }
+                }
+
+                .btn {
+                    float: left;
+                    padding: 0 10px;
+                    height: 35px;
+                    line-height: 35px;
+                    min-width: 35px;
+                    text-align: center;
+
+                    &.btn-icon {
+                        padding: 0;
+                    }
+                }
+            }
+        }
+
+
+        &.add-img,
+        &.select,
+        &.edit {
+            font-size: 14px;
+
+            .dnnFormItem button,
+            .dnnFormItem input[type="button"],
+            .dnnFormItem input[type="reset"],
+            .dnnSecondaryAction,
+            a.dnnSecondaryAction,
+            ul.dnnAdminTabNav li a,
+            .dnnLogin .LoginTabGroup span {
+                margin: 0;
+                padding: 8px 12px;
+                color: $white;
+                background: $dark-alpha-lg;
+                font-family: inherit;
+                font-weight: normal;
+                border: $none;
+                text-decoration: none;
+                text-shadow: $none;
+
+                @include border-radius(0);
                 @include box-shadow($none);
+
+                &:hover {
+                    background: $dark-alpha-xlg;
+                }
+            }
+
+            a.dnnFormHelp {
+                color: $dark-alpha-lg;
+                background: $none;
+                top: 0;
+                width: auto;
+                height: auto;
+                font-weight: normal;
+            }
+
+            input[type="text"],
+            select,
+            textarea,
+            input[type="email"],
+            input[type="search"],
+            input[type="date"] {
+                margin: 0;
+                border: 1px solid $dark-alpha;
+                color: $dark-alpha-md;
+                width: 50%;
+                max-width: 450px;
+                font-size: 1em;
+                padding: 5px 8px;
+
+                @include border-radius(0);
+                @include box-shadow($none);
+                @include transition($all);
+
+                &:active,
+                &:focus {
+                    color: $dark;
+                    background: $none;
+                    border: 1px solid $dark;
+                    outline: $none;
+                    @include box-shadow(0 0 6px 1px $dark-alpha-md);
+                }
+
+                &[disabled="disabled"] {
+                    color: $dark;
+                    width: calc(50% - 50px);
+                    display: inline-block;
+                    border: none;
+                    background: none;
+                    padding: 0;
+                    cursor: default;
+
+                    @include box-shadow($none);
+                }
+            }
+
+            select {
+                padding: 0 5px;
+                width: auto;
+                min-width: 100px;
+            }
+
+            .dnnFormItem {
+                table {
+                    thead {
+                        tr {
+                            background-color: $dark-alpha-lg;
+                            color: $white;
+                        }
+                    }
+
+                    tr.active > td {
+                        background-color: $dark-alpha-lg;
+                        color: $white;
+
+                        input[disabled=disabled] {
+                            color: $white;
+                        }
+                    }
+
+                    tr > th {
+                        /*background-color: $dark-alpha;*/
+                        border: $none;
+                    }
+
+                    tr > td {
+
+                        input[type="text"],
+                        select,
+                        textarea,
+                        input[type="email"],
+                        input[type="search"],
+                        input[type="date"] {
+                            width: 100%;
+
+                            &[disabled="disabled"] {
+                                padding: 5px 8px;
+                            }
+                        }
+
+                        a {
+                            width: 50%;
+                            /*min-width: 30px;*/
+                            height: 30px;
+                            line-height: 30px;
+                            float: left;
+                            margin: 0;
+                            padding: 0;
+                            text-align: center;
+                        }
+                    }
+                }
             }
         }
 
-        .link-delete {
-            height: 35px;
-            float: left;
-            margin-right: 10px;
+        &.add-img {
+            .link-delete {
+                height: 35px;
+                margin-right: 10px;
+                float: left;
+            }
         }
 
-        select > option {
-            color: $dark;
+        &.edit {
+            .dnnFormItem {
+                h3 {
+                    /*border-bottom: 1px solid $dark-alpha;*/
+                }
+
+                img.row-img {
+                    height: 30px;
+                    width: auto;
+                }
+            }
         }
 
-        label span {
-            color: $dark-alpha-lg;
-            font-weight: bold;
-        }
-
-        .table-list {
-            border: $none;
-            width: 100%;
+        &.select {
 
             .link-delete {
-                float: $none;
+                margin-right: 10px;
+                float: right;
+            }
+
+            .dnnFormItem {
+                h3 {
+                    /*border-bottom: 1px solid $dark-alpha;*/
+                }
+
+                img.row-img {
+                    height: 40px;
+                    width: auto;
+                }
             }
         }
 
-        &.controls {
-            margin: 0;
-            padding: 10px 0 0 0;
-            border-top: 1px solid $dark-alpha;
+
+        &.popup {
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: $overlay;
+                z-index: 9999;
+
+
+                .confirm-wrapper {
+                    top: calc((100% - 80px)/2);
+                    position: relative;
+
+
+                    input[type=text] {
+                        height: 100px;
+                    }
+
+                    .input[type=button] {
+                    }
+                }
+            }
         }
-    }
 
-    &.add-img {
-
-        .dnnFormItem button,
-        .dnnFormItem input[type="button"],
-        .dnnFormItem input[type="reset"],
-        .dnnSecondaryAction,
-        a.dnnSecondaryAction,
-        ul.dnnAdminTabNav li a,
-        .dnnLogin .LoginTabGroup span {
-            margin: 0;
-            padding: 8px 12px;
-            color: $white;
-            background: $dark-alpha-lg;
-            font-family: inherit;
-            font-weight: normal;
+        fieldset {
             border: $none;
-            text-decoration: none;
-            text-shadow: $none;
-
-            @include border-radius(0);
-            @include box-shadow($none);
-
-            &:hover {
-                background: $dark-alpha-xlg;
-            }
-        }
-
-        a.dnnFormHelp {
-            color: $dark-alpha-lg;
-            background: $none;
-            top: 0;
-            width: auto;
-            height: auto;
-            font-weight: normal;
-        }
-    }
-
-    &.add-img,
-    &.select {
-        font-size: 14px;
-
-        input[type="text"],
-        select,
-        textarea,
-        input[type="email"],
-        input[type="search"],
-        input[type="date"] {
             margin: 0;
-            border: 1px solid $dark-alpha;
-            color: $dark-alpha-md;
-            width: 50%;
-            max-width: 450px;
-            font-size: 1em;
-            padding: 5px 8px;
-
-            @include border-radius(0);
-            @include box-shadow($none);
-            @include transition($all);
-
-            &:active,
-            &:focus {
-                color: $dark;
-                background: $none;
-                border: 1px solid $dark;
-                outline: $none;
-                @include box-shadow(0 0 6px 1px $dark-alpha-md);
-            }
-
-            &[disabled="disabled"] {
-                color: $dark;
-                width: calc(50% - 50px);
-                display: inline-block;
-                border: none;
-                background: none;
-                padding: 0;
-
-                @include box-shadow($none);
-            }
-        }
-
-        select {
-            padding: 5px;
+            padding: 0;
         }
     }
-}
+    /*BOOTSTRAP RE-STYLING TOOLTIP*/
+    .tooltip {
 
+        &.in {
+            filter: alpha(opacity=100);
+            opacity: 1;
+        }
 
+        &.top .tooltip-arrow {
+            border-top-color: $tooltip;
+        }
 
+        &.top-left .tooltip-arrow {
+            border-top-color: $tooltip;
+        }
 
-.mark, mark {
-    padding: 0!important;
-    background-color: transparent!important;
+        &.top-right .tooltip-arrow {
+            border-top-color: $tooltip;
+        }
+
+        &.right .tooltip-arrow {
+            border-right-color: $tooltip;
+        }
+
+        &.left .tooltip-arrow {
+            border-left-color: $tooltip;
+        }
+
+        &.bottom .tooltip-arrow {
+            border-bottom-color: $tooltip;
+        }
+
+        &.bottom-left .tooltip-arrow {
+            border-bottom-color: $tooltip;
+        }
+
+        &.bottom-right .tooltip-arrow {
+            border-bottom-color: $tooltip;
+        }
+
+        .tooltip-inner {
+            background-color: $tooltip;
+            @include border-radius(0);
+        }
+    }
+
+    .row {
+        margin: 0;
+
+        > div {
+            padding: 0;
+        }
+    }
+
+    .mark, mark {
+        padding: 0 !important;
+        background-color: transparent !important;
+    }
 }

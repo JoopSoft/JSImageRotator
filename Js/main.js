@@ -5,13 +5,6 @@
     //    $('#dnnEditBasicSettings .dnnFormExpandContent a').dnnExpandAll({ expandText: '<%=Localization.GetString("ExpandAll", LocalResourceFile)%>', collapseText: '<%=Localization.GetString("CollapseAll", LocalResourceFile)%>', targetArea: '#dnnEditBasicSettings' });
     //}
 
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip({
-
-            placement: 'auto left'
-        })
-    });
-
     $(document).ready(function () {
 
         //CUSTOM MODULE FOR CHECKING EXISTING AN ELEMENS
@@ -26,73 +19,148 @@
             $lnkUpload = '<i class="fa fa-upload"></i>',
             $lnkSave = '<i class="fa fa-floppy-o"></i>',
             $lnkCancel = '<i class="fa fa-ban"></i>',
+            $lnkCheck = '<i class="fa fa-check"></i>',
             $lnkInfo = '<i class="fa fa-info-circle"></i>',
             $lnkList = '<i class="fa fa-list"></i>',
+            $lnkExch = '<i class="fa fa-exchange"></i>',
 
             $lnkPrev = '<i class="fa fa-angle-left"></i>',
             $lnkNext = '<i class="fa fa-angle-right"></i>',
             $largeIcon = 'fa-lg';
 
-
+        
         //CUTTING TEXT BY ELLIPSIS PLUGIN
-        if ($('.rpt-list .teaser-txt').exists()) $('.rpt-list .teaser-txt').ellipsis({
+        if ($('.JSRotator .rpt-list .teaser-txt').exists()) $('.JSRotator .rpt-list .teaser-txt').ellipsis({
             row: 5,
             onlyFullWords: true
         });
 
         //CUTTING TEXT BY ELLIPSIS PLUGIN
-        if ($('.rpt-accordion .teaser-txt').exists()) $('.rpt-accordion .teaser-txt').ellipsis({
+        if ($('.JSRotator .rpt-accordion .teaser-txt').exists()) $('.JSRotator .rpt-accordion .teaser-txt').ellipsis({
             row: 2,
             onlyFullWords: true
         });
 
-        $('.link-save').prepend($lnkSave + ' ');
-        $('.link-cancel').prepend($lnkCancel + ' ');
-        $('.link-all').prepend($lnkAll + ' ');
-        $('.link-upload').prepend($lnkUpload + ' ');
+        $('.JSRotator .link-save').prepend($lnkSave + ' ');
+        $('.JSRotator .link-cancel').prepend($lnkCancel + ' ');
+        $('.JSRotator .link-all').prepend($lnkAll + ' ');
+        $('.JSRotator .link-upload').prepend($lnkUpload + ' ');
+        $('.JSRotator .link-check').prepend($lnkCheck + ' ');
 
-        $('.link-list').prepend($lnkList + ' ');
-        $('.link-add').prepend($lnkAdd + ' ');
-
-        $('.add-img .link-delete').prepend($lnkDelete + ' ');
-
-        $('.dnnForm.edit table .link-edit').html($lnkEdit);
-        $('.dnnForm.edit table .link-save').html($lnkSave);
-        $('.dnnForm.edit table .link-delete').html($lnkDelete);
-        $('.dnnForm.edit table .link-cancel').html($lnkCancel);
+        $('.JSRotator .link-list').prepend($lnkList + ' ');
+        $('.JSRotator .link-add').prepend($lnkAdd + ' ');
+        $('.JSRotator .link-edit').prepend($lnkEdit + ' ');
 
 
+        $('.JSRotator .link-exch').prepend($lnkExch + ' ');
 
-        $('a.dnnFormHelp').prepend($lnkInfo);
+        $('.JSRotator .add-img .link-delete').prepend($lnkDelete + ' ');
+        $('.JSRotator .edit .link-delete').prepend($lnkDelete + ' ');
+        $('.JSRotator .select .link-delete').prepend($lnkDelete + ' ');
 
-
-        $('.details-view .link-home').prepend($lnkHome + ' ');
-        $('.details-view .link-back').prepend($lnkBack + ' ');
-        $('.details-view .link-edit').prepend($lnkEdit + ' ');
-        $('.details-view .link-delete').prepend($lnkDelete + ' ');
-
-
-        $('.rpt-list .link-edit').prepend($lnkEdit + ' ');
-        $('.rpt-list .link-add').prepend($lnkAdd + ' ');
-        $('.rpt-list .link-delete').prepend($lnkDelete + ' ');
-        $('.rpt-list .link-prev, .details-view .link-prev').prepend($lnkPrev + ' ');
-        $('.rpt-list .link-next, .details-view .link-next').append(' ' + $lnkNext);
+        $('.JSRotator .dnnForm.edit table .link-edit').html($lnkEdit);
+        $('.JSRotator .dnnForm.edit table .link-save').html($lnkSave);
+        $('.JSRotator .dnnForm.edit table .link-delete').html($lnkDelete);
+        $('.JSRotator .dnnForm.edit table .link-cancel').html($lnkCancel);
 
 
-        $('.rpt-accordion .link-edit').html($lnkEdit);
-        $('.rpt-accordion .link-add').html($lnkAdd);
-        $('.rpt-accordion .link-delete').html($lnkDelete);
-        $('.rpt-accordion .link-prev').html($lnkPrev);
-        $('.rpt-accordion .link-next').html($lnkNext);
+
+        $('.JSRotator a.dnnFormHelp').prepend($lnkInfo);
+
+
+        $('.JSRotator .details-view .link-home').prepend($lnkHome + ' ');
+        $('.JSRotator .details-view .link-back').prepend($lnkBack + ' ');
+        $('.JSRotator .details-view .link-edit').prepend($lnkEdit + ' ');
+        $('.JSRotator .details-view .link-delete').prepend($lnkDelete + ' ');
+
+
+        $('.JSRotator .rpt-list .link-edit').prepend($lnkEdit + ' ');
+        $('.JSRotator .rpt-list .link-add').prepend($lnkAdd + ' ');
+        $('.JSRotator .rpt-list .link-delete').prepend($lnkDelete + ' ');
+        $('.JSRotator .rpt-list .link-prev, .details-view .link-prev').prepend($lnkPrev + ' ');
+        $('.JSRotator .rpt-list .link-next, .details-view .link-next').append(' ' + $lnkNext);
+
+
+        $('.JSRotator .rpt-accordion .link-edit').html($lnkEdit);
+        $('.JSRotator .rpt-accordion .link-add').html($lnkAdd);
+        $('.JSRotator .rpt-accordion .link-delete').html($lnkDelete);
+        $('.JSRotator .rpt-accordion .link-prev').html($lnkPrev);
+        $('.JSRotator .rpt-accordion .link-next').html($lnkNext);
 
         //COLLAPSING BY BOOTSTRAP FRAMEWORK
-        $('.collapse').collapse();
+        //$('.collapse').collapse();
 
 
         //dnnEditBasicSettings();
         //Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
         //    dnnEditBasicSettings();
         //});
+
+
+        $('.JSRotator #exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var recipient = button.data('whatever') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+        })
+
+
+        $('.JSRotator [data-toggle="tooltip"]').tooltip({
+            placement: 'auto bottom'
+        });
+
+
+        $('.JSRotator .dnnForm.edit input[type=text]').bind('focusin', function () {
+            var $this = $(this),
+                $newInputVal = $this.val();
+
+
+            
+            //$('.dnnForm.edit .popup-msg').siblings().remove();
+            //$this.parent().siblings().remove();
+
+            //if (!$this.closest('.edit').find('.popup-msg').exists()) {
+            //
+            //    $this.closest('.edit').addClass('popup')
+            //        .prepend(
+            //            $('<div>', { 'class': 'overlay'})
+            //                .html('<div class="confirm-wrapper">'
+            //                        + '<input type="text" class="popup-msg" value="' + $newInputVal + '" />'
+            //                        + '<input type="button" class="btn btn-primary link-check" value="Update" />'
+            //                        + '<input type="button" class="btn btn-default link-cancel" value="Cancel" />'
+            //                    + '</div>'
+            //                )
+            //            );
+            //
+            //}
+
+            //CHANGE TITLES FOR EACH OF MORE INFO BUTTONS BY CLICKIN IT
+            //$this.attr('title', function (index, attr) {
+            //    return attr == $Customs.undo ? $Customs.viewMore : $Customs.undo;
+            //});
+
+            
+            //$this.html(function (index, icon) {
+            //    return icon === $navIconClose ? $navIcon : $navIconClose;
+            //});
+            console.log($this.attr('id') + ': ' + $newInputVal);
+        }).bind('focusout', function () {
+            console.log('Focusing out...');
+        });
+
+        $('#table-list tbody tr:eq(1)').addClass('active');
+        
+        if ($('#table-list').exists()) $('#table-list').DataTable({
+            //"dom": '<"toolbar">frtip',
+            "pagingType": "full_numbers"
+
+        });
+
+        $(".edit .toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
+
     });
 
 }(jQuery, window.Sys));
