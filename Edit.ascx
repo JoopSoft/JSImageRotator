@@ -49,13 +49,13 @@
                     OnSelectedIndexChanged="lstSelectList_SelectedIndexChanged" Visible="false" />
 
                 <asp:LinkButton ID="btnDeleteList" runat="server" CssClass="btn btn-danger btn-icon link-delete" OnClick="btnDeleteList_Click"
-                    ResourceKey="btnDeleteList-RRRRRRRRRRR" data-toggle="tooltip" ToolTip='Delete List' />
+                    Visible="false" ResourceKey="btnDeleteList-RRRRRRRRRRR" data-toggle="tooltip" ToolTip='Delete List' />
 
                 <dnn:label ID="lblFileName" runat="server" />
                 <asp:TextBox ID="txtFileName" runat="server" CssClass="form-control grouped" />
 
                 <asp:LinkButton ID="btnGenerate" runat="server" CssClass="btn btn-primary link-add" OnClick="btnGenerate_Click"
-                    ResourceKey="btnGenerate" data-toggle="tooltip" ToolTip='Create List' />
+                    ResourceKey="btnGenerate" data-toggle="tooltip" ToolTip='Create New List' />
                 <asp:Label ID="lblListAdded" runat="server" />
             </div>
 

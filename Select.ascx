@@ -35,7 +35,7 @@
                     ResourceKey="lnkEdit-RRRRRRRRRRRRR" data-toggle="tooltip" ToolTip='Edit Image Lists' />
                 
                 <asp:LinkButton ID="btnDeleteList" runat="server" CssClass="btn btn-danger link-delete" OnClick="btnDeleteList_Click" 
-                    ResourceKey="btnDeleteList-RRRRRRRRRRRRR" data-toggle="tooltip" ToolTip='Delete List' />
+                    ResourceKey="btnDeleteList-RRRRRRRRRRRRR" data-toggle="tooltip" ToolTip='Delete Selected List' />
             </div>
         </div>
 
