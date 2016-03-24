@@ -20,7 +20,7 @@
         <div class="dnnFormSectionHead">
             <h3 class="dnnFormMessage dnnFormTitle dnnFormIcon no-spacing">
                 <%=LocalizeString("Title")%>
-                <a href="http://www.joopsoft.com/" title="JoopSOFT on web" class="link-dev" data-toggle="tooltip" >JoopSOFT.com</a>
+                <a href="http://www.joopsoft.com/" title="JoopSOFT.com" class="link-dev">JoopSOFT.com</a>
             </h3>
         </div>
         <div class="dnnFormSectionHead">
@@ -32,7 +32,7 @@
                     ResourceKey="lnkAdd-RRRRRRRRR" data-toggle="tooltip" ToolTip='Add New Image' />
 
                 <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary link-edit"
-                    ResourceKey="lnkEdit-RRRRRRRRRRRRR" data-toggle="tooltip" ToolTip='Edit Image Lists' />
+                    ResourceKey="lnkEdit-RRRRRRRRRRRRR" data-toggle="tooltip" ToolTip='Edit Lists' />
                 
                 <asp:LinkButton ID="btnDeleteList" runat="server" CssClass="btn btn-danger link-delete" OnClick="btnDeleteList_Click" 
                     ResourceKey="btnDeleteList-RRRRRRRRRRRRR" data-toggle="tooltip" ToolTip='Delete Selected List' />
@@ -47,9 +47,9 @@
             </div>
 
             <asp:Panel ID="pnlConfirmDelete" runat="server" CssClass="dnnFormItem" Visible="false">
-                <div class="confirm-wrapper">
+                <div class="popup-wrapper">
                     <h3>
-                        <asp:Label ID="lblConfirmDelete" runat="server" CssClass="confirm-msg" ResourceKey="lblConfirmDelete" Visible="false" />
+                        <asp:Label ID="lblConfirmDelete" runat="server" CssClass="popup-msg" ResourceKey="lblConfirmDelete" Visible="false" />
                     </h3>
                     <asp:LinkButton ID="btnYes" runat="server" CssClass="btn btn-danger link-delete" 
                         OnClick="btnYes_Click" resourcekey="btnYes" />
@@ -91,19 +91,24 @@
                             <ItemTemplate>
                                 <tr>
                                     <td>
-                                        <asp:Image runat="server" CssClass="row-img" ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' />
+                                        <asp:Image runat="server" CssClass="row-img" 
+                                            ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' />
                                     </td>
                                     <td>
-                                        <asp:Label runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"ImageTitle").ToString() %>' />
+                                        <asp:Label runat="server" 
+                                            Text='<%#DataBinder.Eval(Container.DataItem,"ImageTitle").ToString() %>' />
                                     </td>
                                     <td>
-                                        <asp:Label runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"ImageDescription").ToString() %>' />
+                                        <asp:Label runat="server" CssClass="ellipsis"
+                                            Text='<%#DataBinder.Eval(Container.DataItem,"ImageDescription").ToString() %>' />
                                     </td>
                                     <td>
-                                        <asp:Label runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"ImagePhotographer").ToString() %>' />
+                                        <asp:Label runat="server" 
+                                            Text='<%#DataBinder.Eval(Container.DataItem,"ImagePhotographer").ToString() %>' />
                                     </td>
                                     <td>
-                                        <asp:Label runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"ImageContact").ToString() %>' />
+                                        <asp:Label runat="server" 
+                                            Text='<%#DataBinder.Eval(Container.DataItem,"ImageContact").ToString() %>' />
                                     </td>
                                 </tr>
                             </ItemTemplate>
@@ -158,4 +163,5 @@
 <%--JQUERY JS--%>
 <%--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.10.11/js/dataTables.jqueryui.min.js"></script>--%>
 
+<script type="text/javascript" src="<%= ModulePath %>Ellipsis/jquery.ellipsis.min.js"></script>
 <script type="text/javascript" src="<%= ModulePath %>Js/main.js"></script>

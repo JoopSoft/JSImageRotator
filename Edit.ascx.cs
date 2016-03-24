@@ -144,6 +144,9 @@ namespace JS.Modules.JSImageRotator
             }
             cbSelectAll.Checked = allChecked;
             lblListAdded.Text = "";
+            pnlPopUp.Visible = false;
+            pnlPopUp.CssClass = "";
+            lblPopUpIcon.CssClass = "";
         }
 
         //protected bool Generate()
@@ -198,6 +201,10 @@ namespace JS.Modules.JSImageRotator
             rptImageList.DataSource = ic.GetImages(ModuleId);
             rptImageList.DataBind();
             lblListAdded.Text = "";
+            pnlPopUp.Visible = false;
+            pnlPopUp.CssClass = "";
+            lblPopUpIcon.CssClass = "";
+
         }
 
         protected void btnGenerate_Click(object sender, EventArgs e)
@@ -252,14 +259,23 @@ namespace JS.Modules.JSImageRotator
             }
             if (!selectedImagePresent && listName == "")
             {
+                pnlPopUp.Visible = true;
+                pnlPopUp.CssClass = "dnnFormItem popup warning";
+                lblPopUpIcon.CssClass = "popup-icon link-warning";
                 lblListAdded.Text = "No Image Selected and FileName field is empty";
             }
             else if (!selectedImagePresent && listName != "")
             {
+                pnlPopUp.Visible = true;
+                pnlPopUp.CssClass = "dnnFormItem popup warning";
+                lblPopUpIcon.CssClass = "popup-icon link-warning";
                 lblListAdded.Text = "No Image Selected";
             }
             else if (selectedImagePresent && listName == "")
             {
+                pnlPopUp.Visible = true;
+                pnlPopUp.CssClass = "dnnFormItem popup warning";
+                lblPopUpIcon.CssClass = "popup-icon link-warning";
                 lblListAdded.Text = "FileName field is empty";
             }
             else if (!lstExists)
@@ -270,6 +286,9 @@ namespace JS.Modules.JSImageRotator
                     ModuleId = ModuleId
                 };
                 ic.AddImageList(nil);
+                pnlPopUp.Visible = true;
+                pnlPopUp.CssClass = "dnnFormItem popup success";
+                lblPopUpIcon.CssClass = "popup-icon link-success";
                 lblListAdded.Text = "Added List " + listName + " with Selected Images";
                 txtFileName.Text = "";
                 btnShowSelectList.Visible = true;
@@ -277,6 +296,9 @@ namespace JS.Modules.JSImageRotator
             }
             else
             {
+                pnlPopUp.Visible = true;
+                pnlPopUp.CssClass = "dnnFormItem popup success";
+                lblPopUpIcon.CssClass = "popup-icon link-success";
                 lblListAdded.Text = "Updated List " + listName + " with Selected Images";
                 txtFileName.Text = "";
             }
@@ -288,6 +310,10 @@ namespace JS.Modules.JSImageRotator
             lblSelectList.Visible = btnShowAddNewList.Visible = lstSelectList.Visible = btnDeleteList.Visible = false;
             btnGenerate.Text = "Add List";
             lblListAdded.Text = "";
+            lblPopUpIcon.CssClass = "";
+            pnlPopUp.Visible = false;
+            pnlPopUp.CssClass = "";
+
         }
 
         protected void btnShowSelectList_Click(object sender, EventArgs e)
@@ -296,6 +322,9 @@ namespace JS.Modules.JSImageRotator
             lblSelectList.Visible = btnShowAddNewList.Visible = lstSelectList.Visible = btnDeleteList.Visible = true;
             btnGenerate.Text = "Update List";
             lblListAdded.Text = "";
+            lblPopUpIcon.CssClass = "";
+            pnlPopUp.Visible = false;
+
         }
 
         protected void lstSelectList_SelectedIndexChanged(object sender, EventArgs e)
@@ -322,7 +351,8 @@ namespace JS.Modules.JSImageRotator
         {
             //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = true;
             pnlConfirmDelete.Visible = true;
-            pnlConfirmDelete.CssClass = "dnnFormItem confirms";
+            pnlConfirmDelete.CssClass = "dnnFormItem popup warning";
+            lblConfirmIcon.CssClass = "popup-icon link-delete";
         }
 
         protected void btnYes_Click(object sender, EventArgs e)
@@ -351,7 +381,9 @@ namespace JS.Modules.JSImageRotator
             lstSelectList.Items.Remove(lstSelectList.SelectedItem);
             //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
             pnlConfirmDelete.Visible = false;
-            pnlConfirmDelete.CssClass = "dnnFormItem";
+            pnlConfirmDelete.CssClass = "";
+            lblConfirmIcon.CssClass = "";
+
 
             if (lstSelectList.Items.Count == 0)
             {
@@ -375,7 +407,9 @@ namespace JS.Modules.JSImageRotator
         {
             //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
             pnlConfirmDelete.Visible = false;
-            pnlConfirmDelete.CssClass = "dnnFormItem";
+            pnlConfirmDelete.CssClass = "";
+            lblConfirmIcon.CssClass = "";
+
 
         }
 
@@ -395,7 +429,8 @@ namespace JS.Modules.JSImageRotator
                     if (!imgTitle.Enabled)
                     {
                         imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = true;
-                        btnEdit.Text = "Save";
+                        //btnEdit.Text = "Save";
+                        //btnEdit.Text = "<i class='fa fa-floppy-o'></i>";
                         btnEdit.ToolTip = "Save";
                         btnEdit.CssClass = "btn btn-primary link-save";
                     }
@@ -408,7 +443,8 @@ namespace JS.Modules.JSImageRotator
                         i.ImageContact = imgContact.Text.Trim();
                         ic.UpdateImage(i);
                         imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = false;
-                        btnEdit.Text = "Edit";
+                        //btnEdit.Text = "Edit";
+                        //btnEdit.Text = "<i class='fa fa-pencil'></i>";
                         btnEdit.ToolTip = "Edit";
                         btnEdit.CssClass = "btn btn-primary link-edit";
                     }

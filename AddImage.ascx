@@ -10,7 +10,7 @@
         <div class="dnnFormSectionHead">
             <h3 class="dnnFormMessage dnnFormTitle dnnFormIcon">
                 <%=LocalizeString("Title")%>
-                <a href="http://www.joopsoft.com/" title="JoopSOFT on web" class="link-dev" data-toggle="tooltip" >JoopSOFT.com</a>
+                <a href="http://www.joopsoft.com/" title="JoopSOFT.com" class="link-dev">JoopSOFT.com</a>
             </h3>
         </div>
 

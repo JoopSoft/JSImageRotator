@@ -112,6 +112,24 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.LinkButton btnGenerate;
         
         /// <summary>
+        /// pnlPopUp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlPopUp;
+        
+        /// <summary>
+        /// lblPopUpIcon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPopUpIcon;
+        
+        /// <summary>
         /// lblListAdded control.
         /// </summary>
         /// <remarks>
@@ -121,6 +139,15 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.Label lblListAdded;
         
         /// <summary>
+        /// btnClose control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnClose;
+        
+        /// <summary>
         /// pnlConfirmDelete control.
         /// </summary>
         /// <remarks>
@@ -128,6 +155,15 @@ namespace JS.Modules.JSImageRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlConfirmDelete;
+        
+        /// <summary>
+        /// lblConfirmIcon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblConfirmIcon;
         
         /// <summary>
         /// lblConfirmDelete control.

@@ -19,33 +19,34 @@
             $lnkUpload = '<i class="fa fa-upload"></i>',
             $lnkSave = '<i class="fa fa-floppy-o"></i>',
             $lnkCancel = '<i class="fa fa-ban"></i>',
-            $lnkCheck = '<i class="fa fa-check"></i>',
+            $lnkSuccess = '<i class="fa fa-check-circle"></i>',
             $lnkInfo = '<i class="fa fa-info-circle"></i>',
             $lnkList = '<i class="fa fa-list"></i>',
             $lnkExch = '<i class="fa fa-exchange"></i>',
+            $lnkClose = '<i class="fa fa-close"></i>',
+            $lnkWarning = '<i class="fa fa-warning"></i>',
+
 
             $lnkPrev = '<i class="fa fa-angle-left"></i>',
             $lnkNext = '<i class="fa fa-angle-right"></i>',
             $largeIcon = 'fa-lg';
 
-        
+              
         //CUTTING TEXT BY ELLIPSIS PLUGIN
-        if ($('.JSRotator .rpt-list .teaser-txt').exists()) $('.JSRotator .rpt-list .teaser-txt').ellipsis({
-            row: 5,
-            onlyFullWords: true
-        });
-
-        //CUTTING TEXT BY ELLIPSIS PLUGIN
-        if ($('.JSRotator .rpt-accordion .teaser-txt').exists()) $('.JSRotator .rpt-accordion .teaser-txt').ellipsis({
+        if ($('.JSRotator .ellipsis').exists()) $('.JSRotator .ellipsis').ellipsis({
             row: 2,
-            onlyFullWords: true
+            onlyFullWords: false
         });
 
         $('.JSRotator .link-save').prepend($lnkSave + ' ');
         $('.JSRotator .link-cancel').prepend($lnkCancel + ' ');
         $('.JSRotator .link-all').prepend($lnkAll + ' ');
         $('.JSRotator .link-upload').prepend($lnkUpload + ' ');
-        $('.JSRotator .link-check').prepend($lnkCheck + ' ');
+
+        $('.JSRotator .popup .link-close').html($lnkClose);
+        $('.JSRotator .popup .link-success').html($lnkSuccess);
+        $('.JSRotator .popup .link-warning').html($lnkWarning);
+        
 
         $('.JSRotator .link-list').prepend($lnkList + ' ');
         $('.JSRotator .link-add').prepend($lnkAdd + ' ');
@@ -67,25 +68,6 @@
 
         $('.JSRotator a.dnnFormHelp').prepend($lnkInfo);
 
-
-        $('.JSRotator .details-view .link-home').prepend($lnkHome + ' ');
-        $('.JSRotator .details-view .link-back').prepend($lnkBack + ' ');
-        $('.JSRotator .details-view .link-edit').prepend($lnkEdit + ' ');
-        $('.JSRotator .details-view .link-delete').prepend($lnkDelete + ' ');
-
-
-        $('.JSRotator .rpt-list .link-edit').prepend($lnkEdit + ' ');
-        $('.JSRotator .rpt-list .link-add').prepend($lnkAdd + ' ');
-        $('.JSRotator .rpt-list .link-delete').prepend($lnkDelete + ' ');
-        $('.JSRotator .rpt-list .link-prev, .details-view .link-prev').prepend($lnkPrev + ' ');
-        $('.JSRotator .rpt-list .link-next, .details-view .link-next').append(' ' + $lnkNext);
-
-
-        $('.JSRotator .rpt-accordion .link-edit').html($lnkEdit);
-        $('.JSRotator .rpt-accordion .link-add').html($lnkAdd);
-        $('.JSRotator .rpt-accordion .link-delete').html($lnkDelete);
-        $('.JSRotator .rpt-accordion .link-prev').html($lnkPrev);
-        $('.JSRotator .rpt-accordion .link-next').html($lnkNext);
 
         //COLLAPSING BY BOOTSTRAP FRAMEWORK
         //$('.collapse').collapse();
@@ -113,53 +95,15 @@
         });
 
 
-        $('.JSRotator .dnnForm.edit input[type=text]').bind('focusin', function () {
-            var $this = $(this),
-                $newInputVal = $this.val();
-
-
-            
-            //$('.dnnForm.edit .popup-msg').siblings().remove();
-            //$this.parent().siblings().remove();
-
-            //if (!$this.closest('.edit').find('.popup-msg').exists()) {
-            //
-            //    $this.closest('.edit').addClass('popup')
-            //        .prepend(
-            //            $('<div>', { 'class': 'overlay'})
-            //                .html('<div class="confirm-wrapper">'
-            //                        + '<input type="text" class="popup-msg" value="' + $newInputVal + '" />'
-            //                        + '<input type="button" class="btn btn-primary link-check" value="Update" />'
-            //                        + '<input type="button" class="btn btn-default link-cancel" value="Cancel" />'
-            //                    + '</div>'
-            //                )
-            //            );
-            //
-            //}
-
-            //CHANGE TITLES FOR EACH OF MORE INFO BUTTONS BY CLICKIN IT
-            //$this.attr('title', function (index, attr) {
-            //    return attr == $Customs.undo ? $Customs.viewMore : $Customs.undo;
-            //});
-
-            
-            //$this.html(function (index, icon) {
-            //    return icon === $navIconClose ? $navIcon : $navIconClose;
-            //});
-            console.log($this.attr('id') + ': ' + $newInputVal);
-        }).bind('focusout', function () {
-            console.log('Focusing out...');
-        });
-
         $('#table-list tbody tr:eq(1)').addClass('active');
         
-        if ($('#table-list').exists()) $('#table-list').DataTable({
-            //"dom": '<"toolbar">frtip',
-            "pagingType": "full_numbers"
-
-        });
-
-        $(".edit .toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
+        //if ($('#table-list').exists()) $('#table-list').DataTable({
+        //    //"dom": '<"toolbar">frtip',
+        //    //"pagingType": "full_numbers"
+        //
+        //});
+        //
+        //$(".edit .toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
 
     });
 

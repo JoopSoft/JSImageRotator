@@ -227,7 +227,7 @@
                 border-top: 1px solid $dark-alpha;
             }
 
-            &.confirms {
+            &.popup {
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -238,9 +238,12 @@
                 height: 100%;
                 z-index: 9999;
 
-                .confirm-wrapper {
-                    top: calc((100% - 80px)/2);
+                .popup-wrapper {
+                    top: calc((100% - 180px)/2);
                     position: relative;
+                    width: 50%;
+                    left: 25%;
+                    padding: 15px;
 
                     h1, h2, h3, h4, h5, h6 {
                         color: $white;
@@ -249,10 +252,92 @@
                         margin: 0;
                     }
 
-                    .confirm-msg {
+
+                    .popup-icon {
+                        .fa {
+                            font-size: 5em;
+                        }
+                    }
+
+                    .popup-msg {
                         display: block;
-                        padding: 10px;
-                        margin: 0;
+                        margin: 10px 0 0 0;
+                    }
+
+                    .primary-action {
+                        margin: 15px 0 0 0;
+                    }
+
+                    .close-action {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        padding: 0;
+                        width: 25px;
+                        height: 25px;
+                        line-height: 25px;
+                    }
+                }
+
+                &.success {
+
+                    .popup-wrapper {
+                        background: $success-md;
+
+                        .popup-icon {
+                            color: $success;
+                        }
+
+                        .btn {
+                            background-color: transparent;
+                            border: 2px solid $success;
+                            color: $success;
+
+                            &:hover {
+                                background-color: $success;
+                                border: 2px solid $success;
+                                color: $white;
+                            }
+
+                            &.close-action {
+                                border: $none;
+
+                                &:hover {
+                                    border: $none;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.warning {
+
+                    .popup-wrapper {
+                        background: $warning-md;
+
+                        .popup-icon {
+                            color: $warning;
+                        }
+
+                        .btn {
+                            background-color: transparent;
+                            border: 2px solid $warning;
+                            color: $warning;
+
+                            &:hover {
+                                background-color: $warning;
+                                border: 2px solid $warning;
+                                color: $white;
+                            }
+
+                            &.close-action {
+                                border: $none;
+
+                                &:hover {
+                                    border: $none;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -389,49 +474,85 @@
                 table {
                     thead {
                         tr {
-                            background-color: $dark-alpha-lg;
-                            color: $white;
                         }
                     }
 
-                    tr.active > td {
-                        background-color: $dark-alpha-lg;
-                        color: $white;
+                    tr {
 
-                        input[disabled=disabled] {
-                            color: $white;
-                        }
-                    }
+                        > th {
+                            color: $light-alpha-xlg;
+                            background-color: $dark-alpha-xlg;
+                            border: $none;
+                            vertical-align: middle;
 
-                    tr > th {
-                        /*background-color: $dark-alpha;*/
-                        border: $none;
-                    }
+                            .dnnCheckbox img {
+                                background-position: -100px 0px;
+                            }
 
-                    tr > td {
-
-                        input[type="text"],
-                        select,
-                        textarea,
-                        input[type="email"],
-                        input[type="search"],
-                        input[type="date"] {
-                            width: 100%;
-
-                            &[disabled="disabled"] {
-                                padding: 5px 8px;
+                            .dnnCheckbox-checked img {
+                                background-position: -150px 0px;
                             }
                         }
 
-                        a {
-                            width: 50%;
-                            /*min-width: 30px;*/
-                            height: 30px;
-                            line-height: 30px;
-                            float: left;
-                            margin: 0;
-                            padding: 0;
-                            text-align: center;
+                        > td {
+                            vertical-align: middle;
+
+                            input[type="text"],
+                            select,
+                            textarea,
+                            input[type="email"],
+                            input[type="search"],
+                            input[type="date"] {
+                                width: 100%;
+
+                                &[disabled="disabled"] {
+                                    padding: 5px 8px 5px 0;
+                                }
+                            }
+
+                            a {
+                                width: 50%;
+                                /*min-width: 30px;*/
+                                height: 30px;
+                                line-height: 30px;
+                                float: left;
+                                margin: 0;
+                                padding: 0;
+                                text-align: center;
+                            }
+                        }
+
+                        &.active {
+
+                            > td {
+                                background-color: $dark-alpha-lg;
+                                color: $white;
+
+                                input,
+                                select,
+                                textarea {
+                                    &:focus {
+                                        background-color: $white;
+                                    }
+
+                                    &[disabled=disabled] {
+                                        color: $white;
+                                    }
+                                }
+
+
+                                .btn-primary {
+                                    background-color: transparent;
+                                }
+
+                                .dnnCheckbox img {
+                                    background-position: -100px 0px;
+                                }
+
+                                .dnnCheckbox-checked img {
+                                    background-position: -150px 0px;
+                                }
+                            }
                         }
                     }
                 }
@@ -490,7 +611,7 @@
                 z-index: 9999;
 
 
-                .confirm-wrapper {
+                .popup-wrapper {
                     top: calc((100% - 80px)/2);
                     position: relative;
 

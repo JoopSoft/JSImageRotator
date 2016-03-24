@@ -151,7 +151,7 @@
     <value>Delete</value>
   </data>
   <data name="btnNo.Text" xml:space="preserve">
-    <value>No</value>
+    <value>Cancel</value>
   </data>
   <data name="btnShowAddList.Text" xml:space="preserve">
     <value>Create New List</value>
@@ -221,5 +221,8 @@
   </data>
   <data name="lblSelImgList.Text" xml:space="preserve">
     <value>Image List</value>
+  </data>
+  <data name="btnClose.Text" xml:space="preserve">
+    <value>Close</value>
   </data>
 </root>

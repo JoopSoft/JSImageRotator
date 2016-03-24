@@ -126,12 +126,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="checkbox.png" />
+    <Content Include="Ellipsis\jquery.ellipsis.js" />
+    <Content Include="Ellipsis\jquery.ellipsis.min.js" />
     <Content Include="icon.png" />
     <Content Include="Documentation\Documentation.css" />
     <Content Include="Documentation\Documentation.html" />
     <Content Include="AddImage.ascx" />
     <Content Include="h-icon.png" />
-    <Content Include="Images\IMG_1981.JPG" />
     <Content Include="Js\main.js" />
     <Content Include="module.css">
       <DependentUpon>module.scss</DependentUpon>
@@ -207,6 +208,9 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Vegas\vegas.min.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
