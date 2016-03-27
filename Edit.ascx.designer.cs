@@ -40,15 +40,6 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.HyperLink lnkSelect;
         
         /// <summary>
-        /// btnShowSelectList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnShowSelectList;
-        
-        /// <summary>
         /// btnShowAddNewList control.
         /// </summary>
         /// <remarks>
@@ -103,13 +94,13 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.TextBox txtFileName;
         
         /// <summary>
-        /// btnGenerate control.
+        /// btnAddUpdateList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnGenerate;
+        protected global::System.Web.UI.WebControls.LinkButton btnAddUpdateList;
         
         /// <summary>
         /// pnlPopUp control.

@@ -47,12 +47,20 @@ namespace JS.Modules.JSImageRotator
                 {
                     lnkAdd.NavigateUrl = EditUrl("AddImage");
                     lnkSelect.NavigateUrl = EditUrl("Select");
+                    bool listPresent = false;
                     var ic = new ImageController();
                     var il = ic.GetLists(ModuleId);
                     foreach (var lst in il)
                     {
-                        lstSelectList.Items.Add(lst.ListName);
-                        btnShowSelectList.Visible = true;
+                        if (lst != null)
+                        {
+                            lstSelectList.Items.Add(lst.ListName);
+                            listPresent = true;
+                        }
+                    }
+                    if (!listPresent)
+                    {
+                        btnShowAddNewList.Enabled = lnkSelect.Enabled = false;
                     }
                     var i = ic.GetImages(ModuleId);
                     bool allSelected = true;
@@ -207,7 +215,7 @@ namespace JS.Modules.JSImageRotator
 
         }
 
-        protected void btnGenerate_Click(object sender, EventArgs e)
+        protected void btnAddUpdateList_Click(object sender, EventArgs e)
         {
             var ic = new ImageController();
             var i = ic.GetImages(ModuleId);
@@ -291,8 +299,9 @@ namespace JS.Modules.JSImageRotator
                 lblPopUpIcon.CssClass = "popup-icon link-success";
                 lblListAdded.Text = "Added List " + listName + " with Selected Images";
                 txtFileName.Text = "";
-                btnShowSelectList.Visible = true;
+                //btnShowSelectList.Visible = true;
                 lstSelectList.Items.Add(listName);
+                btnShowAddNewList.Enabled = lnkSelect.Enabled = true;
             }
             else
             {
@@ -306,26 +315,39 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnShowAddNewList_Click(object sender, EventArgs e)
         {
-            lblFileName.Visible = btnShowSelectList.Visible = txtFileName.Visible = true;
-            lblSelectList.Visible = btnShowAddNewList.Visible = lstSelectList.Visible = btnDeleteList.Visible = false;
-            btnGenerate.Text = "Add List";
-            lblListAdded.Text = "";
-            lblPopUpIcon.CssClass = "";
-            pnlPopUp.Visible = false;
-            pnlPopUp.CssClass = "";
-
+            if (btnAddUpdateList.Text == "Create")
+            {
+                lblFileName.Visible = txtFileName.Visible = false;
+                lblSelectList.Visible = lstSelectList.Visible = btnDeleteList.Visible = true;
+                btnAddUpdateList.Text = "Update";
+                lblListAdded.Text = "";
+                lblPopUpIcon.CssClass = "";
+                pnlPopUp.Visible = false;
+                btnShowAddNewList.ToolTip = "Create New List";
+            }
+            else
+            {
+                lblFileName.Visible = txtFileName.Visible = true;
+                lblSelectList.Visible = lstSelectList.Visible = btnDeleteList.Visible = false;
+                btnAddUpdateList.Text = "Create";
+                lblListAdded.Text = "";
+                lblPopUpIcon.CssClass = "";
+                pnlPopUp.Visible = false;
+                pnlPopUp.CssClass = "";
+                btnShowAddNewList.ToolTip = "Edit Available Lists";
+            }
         }
 
-        protected void btnShowSelectList_Click(object sender, EventArgs e)
-        {
-            lblFileName.Visible = btnShowSelectList.Visible = txtFileName.Visible = false;
-            lblSelectList.Visible = btnShowAddNewList.Visible = lstSelectList.Visible = btnDeleteList.Visible = true;
-            btnGenerate.Text = "Update List";
-            lblListAdded.Text = "";
-            lblPopUpIcon.CssClass = "";
-            pnlPopUp.Visible = false;
+        //protected void btnShowSelectList_Click(object sender, EventArgs e)
+        //{
+        //    lblFileName.Visible = btnShowSelectList.Visible = txtFileName.Visible = false;
+        //    lblSelectList.Visible = btnShowAddNewList.Visible = lstSelectList.Visible = btnDeleteList.Visible = true;
+        //    btnAddUpdateList.Text = "Update";
+        //    lblListAdded.Text = "";
+        //    lblPopUpIcon.CssClass = "";
+        //    pnlPopUp.Visible = false;
 
-        }
+        //}
 
         protected void lstSelectList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -349,7 +371,6 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnDeleteList_Click(object sender, EventArgs e)
         {
-            //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = true;
             pnlConfirmDelete.Visible = true;
             pnlConfirmDelete.CssClass = "dnnFormItem popup warning";
             lblConfirmIcon.CssClass = "popup-icon link-delete";
@@ -388,8 +409,9 @@ namespace JS.Modules.JSImageRotator
             if (lstSelectList.Items.Count == 0)
             {
                 lblFileName.Visible = txtFileName.Visible = true;
-                lblSelectList.Visible = btnShowAddNewList.Visible = lstSelectList.Visible = btnDeleteList.Visible = btnShowSelectList.Visible = false;
-                btnGenerate.Text = "Add List";
+                lblSelectList.Visible = lstSelectList.Visible = btnDeleteList.Visible = false;
+                btnAddUpdateList.Text = "Create";
+                btnShowAddNewList.Enabled = lnkSelect.Enabled = false;
             }
             foreach (var img in ai)
             {
@@ -399,8 +421,8 @@ namespace JS.Modules.JSImageRotator
                     ic.UpdateImage(img);
                 }
             }
-                rptImageList.DataSource = ic.GetImages(ModuleId);
-                rptImageList.DataBind();
+            rptImageList.DataSource = ic.GetImages(ModuleId);
+            rptImageList.DataBind();
         }
 
         protected void btnNo_Click(object sender, EventArgs e)
@@ -450,6 +472,11 @@ namespace JS.Modules.JSImageRotator
                     }
                 }
             }
+        }
+
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+            pnlPopUp.Visible = false;
         }
     }
 }

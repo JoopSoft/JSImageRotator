@@ -168,7 +168,7 @@
   <data name="lblSelectList.Text" xml:space="preserve">
     <value>Available Lists</value>
   </data>
-  <data name="btnGenerate.Text" xml:space="preserve">
+  <data name="btnAdd.Text" xml:space="preserve">
     <value>Create</value>
   </data>
   <data name="lblConfirmDelete.Text" xml:space="preserve">
@@ -224,5 +224,8 @@
   </data>
   <data name="btnClose.Text" xml:space="preserve">
     <value>Close</value>
+  </data>
+  <data name="btnUpdate.Text" xml:space="preserve">
+    <value>Update</value>
   </data>
 </root>

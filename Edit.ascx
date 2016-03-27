@@ -34,11 +34,11 @@
                 <asp:HyperLink ID="lnkSelect" runat="server" CssClass="btn btn-primary link-list"
                     ResourceKey="lnkSelect-RRRRRR" data-toggle="tooltip" ToolTip='View Image Lists' />
 
-                <asp:LinkButton ID="btnShowSelectList" runat="server" CssClass="btn btn-primary link-exch" OnClick="btnShowSelectList_Click"
-                    ResourceKey="btnShowSelectList_RRRRRR" data-toggle="tooltip" ToolTip='Select From List' Visible="false" />
+<%--                <asp:LinkButton ID="btnShowSelectList" runat="server" CssClass="btn btn-primary link-exch" OnClick="btnShowSelectList_Click"
+                    ResourceKey="btnShowSelectList_RRRRRR" data-toggle="tooltip" ToolTip='Select From List' Visible="false" />--%>
 
                 <asp:LinkButton ID="btnShowAddNewList" runat="server" CssClass="btn btn-primary link-exch" OnClick="btnShowAddNewList_Click"
-                    ResourceKey="btnShowAddList-RRRRR" data-toggle="tooltip" ToolTip='Create New List' Visible="false" />
+                    ResourceKey="btnShowAddList-RRRRR" data-toggle="tooltip" ToolTip='Create New List' />
             </div>
         </div>
 
@@ -54,8 +54,8 @@
                 <dnn:label ID="lblFileName" runat="server" />
                 <asp:TextBox ID="txtFileName" runat="server" CssClass="form-control grouped" />
 
-                <asp:LinkButton ID="btnGenerate" runat="server" CssClass="btn btn-primary link-add" OnClick="btnGenerate_Click"
-                    ResourceKey="btnGenerate" data-toggle="tooltip" ToolTip='Create New List' />
+                <asp:LinkButton ID="btnAddUpdateList" runat="server" CssClass="btn btn-primary link-add" OnClick="btnAddUpdateList_Click"
+                    Text="Create" data-toggle="tooltip" ToolTip='Create New List' />
                 
             </div>
 
@@ -66,7 +66,7 @@
                         <asp:Label ID="lblListAdded" runat="server" CssClass="popup-msg" />
                     </h3>
                     <asp:LinkButton ID="btnClose" runat="server" CssClass="close-action btn btn-default link-close" 
-                        OnClick="btnNo_Click" ResourceKey="btnClose-RRRRRRRRRRRRRR" 
+                        OnClick="btnClose_Click" ResourceKey="btnClose-RRRRRRRRRRRRRR" 
                         data-toggle="tooltip" ToolTip='Close' />
 
                 </div>

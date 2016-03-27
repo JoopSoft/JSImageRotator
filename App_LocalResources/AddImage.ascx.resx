@@ -168,4 +168,13 @@
   <data name="btnDeleteImg.Text" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="lblAvailableLists.Help" xml:space="preserve">
+    <value>Select To Add The Image to List</value>
+  </data>
+  <data name="lblAvailableLists.Text" xml:space="preserve">
+    <value>Add to List</value>
+  </data>
+  <data name="lblConfirmDelete.Text" xml:space="preserve">
+    <value>Are you sure you want to Delete this Image!</value>
+  </data>
 </root>
