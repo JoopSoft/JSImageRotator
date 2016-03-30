@@ -28,9 +28,11 @@
             <div class="dnnFormItem">
                 <%--<dnn:label ID="lblUploadImage" runat="server" />--%>
                 <dnn:label ID="lblImgSelected" runat="server" />
-                <asp:Image ID="imgPreview" runat="server" CssClass="news-image" Visible="false" AlternateText="News image" ImageUrl="~/DesktopModules/JSNewsModule/Images/Default Image.png" />
+                <asp:Image ID="imgPreview" runat="server" CssClass="rotator-image" Visible="false" AlternateText="Rotator Image" ImageUrl="~/DesktopModules/JSNewsModule/Images/Default Image.png" />
                 <asp:LinkButton ID="btnDeleteImg" runat="server" CssClass="btn btn-danger link-delete" Visible="false" ResourceKey="btnDeleteImg.Text" OnClick="btnDeleteImg_Click" />
                 <asp:TextBox ID="txtImageUrl" runat="server" CssClass="form-control" Enabled="false" />
+            </div>
+            <div class="dnnFormItem">
                 <dnn:label ID="lblAvailableLists" runat="server" Visible="false" />
                 <asp:CheckBox ID="cbAddToList" runat="server" Visible="false" OnCheckedChanged="cbAddToList_CheckedChanged" AutoPostBack="true" />
                 <asp:DropDownList ID="lstAvailableLists" runat="server" Visible="false" />

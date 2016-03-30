@@ -95,7 +95,6 @@ namespace JS.Modules.JSImageRotator
             }
         }
 
-
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
@@ -104,29 +103,6 @@ namespace JS.Modules.JSImageRotator
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
-        }
-
-        public void rptImages_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            if (e.CommandName == "Delete")
-            {
-                var ic = new ImageController();
-                ic.DeleteImage(Convert.ToInt32(e.CommandArgument), ModuleId);
-                rptImageList.DataSource = ic.GetImages(ModuleId);
-                rptImageList.DataBind();
-            }
-
-        }
-
-        protected void rptImages_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
-            {
-                var i = (Images)e.Item.DataItem;
-                var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
-                lnkDelete.CommandArgument = i.ImageId.ToString();
-                ClientAPI.AddButtonConfirm(lnkDelete, Localization.GetString("ConfirmDelete", LocalResourceFile));
-            }
         }
 
         protected void cbSelect_CheckedChanged(object sender, EventArgs e)
@@ -151,51 +127,7 @@ namespace JS.Modules.JSImageRotator
                 }
             }
             cbSelectAll.Checked = allChecked;
-            lblListAdded.Text = "";
-            pnlPopUp.Visible = false;
-            pnlPopUp.CssClass = "";
-            lblPopUpIcon.CssClass = "";
         }
-
-        //protected bool Generate()
-        //{
-        //    if (File.Exists(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json")))
-        //    {
-        //        if (cbOverwrite.Checked)
-        //        {
-        //            File.Delete(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json"));
-        //        }
-        //        else
-        //        {
-        //            lblOverwriteError.Text = "The File Already Exists! If You want to overwrite it check the Overwrite Checkbox below!";
-        //            return false;
-        //        }
-        //    }
-        //    var ic = new ImageController();
-        //    var il = ic.GetImages(ModuleId);
-        //    List<ImageJ> Slides = new List<ImageJ>();
-        //    foreach (var img in il)
-        //    {
-        //        ImageJ li = new ImageJ();
-        //        li.ImageTitle = img.ImageTitle;
-        //        li.ImageDescription = img.ImageDescription;
-        //        li.ImagePhotographer = img.ImagePhotographer;
-        //        li.ImageContact = img.ImageContact;
-        //        li.ImageUrl = img.ImageUrl;
-        //        Slides.Add(li);
-        //    }
-        //    DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
-        //    using (FileStream fs = File.Open((Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json")), FileMode.CreateNew))
-        //    using (StreamWriter sw = new StreamWriter(fs))
-        //    using (JsonWriter jw = new JsonTextWriter(sw))
-        //    {
-        //        jw.Formatting = Formatting.Indented;
-
-        //        JsonSerializer serializer = new JsonSerializer();
-        //        serializer.Serialize(jw, Slides, typeof(ImageJ));
-        //    }
-        //    return true;
-        //}
 
         protected void cbSelectAll_CheckedChanged(object sender, EventArgs e)
         {
@@ -208,11 +140,6 @@ namespace JS.Modules.JSImageRotator
             }
             rptImageList.DataSource = ic.GetImages(ModuleId);
             rptImageList.DataBind();
-            lblListAdded.Text = "";
-            pnlPopUp.Visible = false;
-            pnlPopUp.CssClass = "";
-            lblPopUpIcon.CssClass = "";
-
         }
 
         protected void btnAddUpdateList_Click(object sender, EventArgs e)
@@ -299,7 +226,6 @@ namespace JS.Modules.JSImageRotator
                 lblPopUpIcon.CssClass = "popup-icon link-success";
                 lblListAdded.Text = "Added List " + listName + " with Selected Images";
                 txtFileName.Text = "";
-                //btnShowSelectList.Visible = true;
                 lstSelectList.Items.Add(listName);
                 btnShowAddNewList.Enabled = lnkSelect.Enabled = true;
             }
@@ -324,6 +250,7 @@ namespace JS.Modules.JSImageRotator
                 lblPopUpIcon.CssClass = "";
                 pnlPopUp.Visible = false;
                 btnShowAddNewList.ToolTip = "Create New List";
+                lblJsonTitle.Text = "Update Image Lists";
             }
             else
             {
@@ -335,19 +262,9 @@ namespace JS.Modules.JSImageRotator
                 pnlPopUp.Visible = false;
                 pnlPopUp.CssClass = "";
                 btnShowAddNewList.ToolTip = "Edit Available Lists";
+                lblJsonTitle.Text = "Create Image Lists";
             }
         }
-
-        //protected void btnShowSelectList_Click(object sender, EventArgs e)
-        //{
-        //    lblFileName.Visible = btnShowSelectList.Visible = txtFileName.Visible = false;
-        //    lblSelectList.Visible = btnShowAddNewList.Visible = lstSelectList.Visible = btnDeleteList.Visible = true;
-        //    btnAddUpdateList.Text = "Update";
-        //    lblListAdded.Text = "";
-        //    lblPopUpIcon.CssClass = "";
-        //    pnlPopUp.Visible = false;
-
-        //}
 
         protected void lstSelectList_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -372,57 +289,70 @@ namespace JS.Modules.JSImageRotator
         protected void btnDeleteList_Click(object sender, EventArgs e)
         {
             pnlConfirmDelete.Visible = true;
-            pnlConfirmDelete.CssClass = "dnnFormItem popup warning";
+            pnlConfirmDelete.CssClass = "DeleteList dnnFormItem popup warning";
             lblConfirmIcon.CssClass = "popup-icon link-delete";
+            lblConfirmDelete.Text = "Are you sure you want to Delete this List!";
         }
 
         protected void btnYes_Click(object sender, EventArgs e)
         {
-            int listId = 0;
             var ic = new ImageController();
-            var ai = ic.GetImages(ModuleId);
-            var il = ic.GetLists(ModuleId);
-            foreach (var l in il)
+            if (pnlConfirmDelete.CssClass.Contains("DeleteList"))
             {
-                if (l.ListName == lstSelectList.SelectedValue)
+                int listId = 0;
+                var ai = ic.GetImages(ModuleId);
+                var il = ic.GetLists(ModuleId);
+                foreach (var l in il)
                 {
-                    listId = l.ImageListId;
+                    if (l.ListName == lstSelectList.SelectedValue)
+                    {
+                        listId = l.ImageListId;
+                    }
                 }
-            }
-            ic.DeleteList(listId, ModuleId);
-            foreach (var i in ai)
-            {
-                if (i.ListsIn.Contains(lstSelectList.SelectedValue + ".json"))
+                ic.DeleteList(listId, ModuleId);
+                foreach (var i in ai)
                 {
-                    string remove = lstSelectList.SelectedValue + ".json, ";
-                    i.ListsIn = i.ListsIn.Replace(remove, "");
-                    ic.UpdateImage(i);
+                    if (i.ListsIn.Contains(lstSelectList.SelectedValue + ".json"))
+                    {
+                        string remove = lstSelectList.SelectedValue + ".json, ";
+                        i.ListsIn = i.ListsIn.Replace(remove, "");
+                        ic.UpdateImage(i);
+                    }
                 }
-            }
-            lstSelectList.Items.Remove(lstSelectList.SelectedItem);
-            //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
-            pnlConfirmDelete.Visible = false;
-            pnlConfirmDelete.CssClass = "";
-            lblConfirmIcon.CssClass = "";
+                lstSelectList.Items.Remove(lstSelectList.SelectedItem);
+                pnlConfirmDelete.Visible = false;
+                pnlConfirmDelete.CssClass = "";
+                lblConfirmIcon.CssClass = "";
 
 
-            if (lstSelectList.Items.Count == 0)
-            {
-                lblFileName.Visible = txtFileName.Visible = true;
-                lblSelectList.Visible = lstSelectList.Visible = btnDeleteList.Visible = false;
-                btnAddUpdateList.Text = "Create";
-                btnShowAddNewList.Enabled = lnkSelect.Enabled = false;
-            }
-            foreach (var img in ai)
-            {
-                if (img.ListsIn.Contains(lstSelectList.SelectedValue) && lstSelectList.SelectedValue != "")
+                if (lstSelectList.Items.Count == 0)
                 {
-                    img.IsSelected = true;
-                    ic.UpdateImage(img);
+                    lblFileName.Visible = txtFileName.Visible = true;
+                    lblSelectList.Visible = lstSelectList.Visible = btnDeleteList.Visible = false;
+                    btnAddUpdateList.Text = "Create";
+                    btnShowAddNewList.Enabled = lnkSelect.Enabled = false;
                 }
+                foreach (var img in ai)
+                {
+                    if (img.ListsIn.Contains(lstSelectList.SelectedValue) && lstSelectList.SelectedValue != "")
+                    {
+                        img.IsSelected = true;
+                        ic.UpdateImage(img);
+                    }
+                }
+                rptImageList.DataSource = ic.GetImages(ModuleId);
+                rptImageList.DataBind();
             }
-            rptImageList.DataSource = ic.GetImages(ModuleId);
-            rptImageList.DataBind();
+            else if (pnlConfirmDelete.CssClass.Contains("DeleteImage"))
+            {
+                ic.DeleteImage(Convert.ToInt32(lblDeleteImageID.Text), ModuleId);
+                File.Delete(Server.MapPath(lblDeleteImageUrl.Text));
+                rptImageList.DataSource = ic.GetImages(ModuleId);
+                rptImageList.DataBind();
+                pnlConfirmDelete.Visible = false;
+                pnlConfirmDelete.CssClass = "";
+                lblConfirmIcon.CssClass = "";
+            }
         }
 
         protected void btnNo_Click(object sender, EventArgs e)
@@ -446,15 +376,20 @@ namespace JS.Modules.JSImageRotator
                 var imgPhotographer = ri.FindControl("txtPhotographer") as TextBox;
                 var imgContact = ri.FindControl("txtContact") as TextBox;
                 var btnEdit = ri.FindControl("btnEdit") as LinkButton;
+                var tableRow = ri.FindControl("tableRow") as TableRow;
+                var lnkDelete = ri.FindControl("lnkDelete") as LinkButton;
                 if (sender.Equals(btnEdit))
                 {
                     if (!imgTitle.Enabled)
                     {
                         imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = true;
-                        //btnEdit.Text = "Save";
-                        //btnEdit.Text = "<i class='fa fa-floppy-o'></i>";
+                        tableRow.CssClass = "active";
+                        lnkDelete.CssClass = "btn btn-primary link-cancel";
+                        lnkDelete.ToolTip = "Cancel";
                         btnEdit.ToolTip = "Save";
                         btnEdit.CssClass = "btn btn-primary link-save";
+                        //btnEdit.Text = "Save";
+                        //btnEdit.Text = "<i class='fa fa-floppy-o'></i>";
                     }
                     else
                     {
@@ -465,10 +400,13 @@ namespace JS.Modules.JSImageRotator
                         i.ImageContact = imgContact.Text.Trim();
                         ic.UpdateImage(i);
                         imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = false;
-                        //btnEdit.Text = "Edit";
-                        //btnEdit.Text = "<i class='fa fa-pencil'></i>";
+                        tableRow.CssClass = "";
+                        lnkDelete.CssClass = "btn btn-danger link-delete";
+                        lnkDelete.ToolTip = "Delete";
                         btnEdit.ToolTip = "Edit";
                         btnEdit.CssClass = "btn btn-primary link-edit";
+                        //btnEdit.Text = "Edit";
+                        //btnEdit.Text = "<i class='fa fa-pencil'></i>";
                     }
                 }
             }
@@ -478,5 +416,121 @@ namespace JS.Modules.JSImageRotator
         {
             pnlPopUp.Visible = false;
         }
+
+        protected void lnkDelete_Click(object sender, EventArgs e)
+        {
+            var ic = new ImageController();
+            foreach (RepeaterItem ri in rptImageList.Items)
+            {
+                var imgId = ri.FindControl("ImgId") as Label;
+                var imgPreview = ri.FindControl("imgPreview") as Image;
+                var imgTitle = ri.FindControl("txtTitle") as TextBox;
+                var imgDescription = ri.FindControl("txtDescription") as TextBox;
+                var imgPhotographer = ri.FindControl("txtPhotographer") as TextBox;
+                var imgContact = ri.FindControl("txtContact") as TextBox;
+                var btnEdit = ri.FindControl("btnEdit") as LinkButton;
+                var tableRow = ri.FindControl("tableRow") as TableRow;
+                var lnkDelete = ri.FindControl("lnkDelete") as LinkButton;
+                if (sender.Equals(lnkDelete))
+                {
+                    if (!imgTitle.Enabled)
+                    {
+                        pnlConfirmDelete.Visible = true;
+                        pnlConfirmDelete.CssClass = "DeleteImage dnnFormItem popup warning";
+                        lblConfirmIcon.CssClass = "popup-icon link-delete";
+                        lblConfirmDelete.Text = "Are you sure you want to Delete this Image!";
+                        lblDeleteImageID.Text = imgId.Text;
+                        lblDeleteImageUrl.Text = imgPreview.ImageUrl;
+                    }
+                    else
+                    {
+                        imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = false;
+                        tableRow.CssClass = "";
+                        lnkDelete.CssClass = "btn btn-danger link-delete";
+                        lnkDelete.ToolTip = "Delete";
+                        btnEdit.ToolTip = "Edit";
+                        btnEdit.CssClass = "btn btn-primary link-edit";
+                        //btnEdit.Text = "Edit";
+                        //btnEdit.Text = "<i class='fa fa-pencil'></i>";
+                    }
+                    break;
+                }
+            }
+        }
+
+        #region Unused Methods
+        //protected void btnShowSelectList_Click(object sender, EventArgs e)
+        //{
+        //    lblFileName.Visible = btnShowSelectList.Visible = txtFileName.Visible = false;
+        //    lblSelectList.Visible = btnShowAddNewList.Visible = lstSelectList.Visible = btnDeleteList.Visible = true;
+        //    btnAddUpdateList.Text = "Update";
+        //    lblListAdded.Text = "";
+        //    lblPopUpIcon.CssClass = "";
+        //    pnlPopUp.Visible = false;
+
+        //}
+
+        //public void rptImages_ItemCommand(object source, RepeaterCommandEventArgs e)
+        //{
+        //    if (e.CommandName == "Delete")
+        //    {
+        //            var ic = new ImageController();
+        //            ic.DeleteImage(Convert.ToInt32(e.CommandArgument), ModuleId);
+        //            rptImageList.DataSource = ic.GetImages(ModuleId);
+        //            rptImageList.DataBind();
+        //    }
+        //}
+
+        //protected void rptImages_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        //{
+        //    if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+        //    {
+        //        var i = (Images)e.Item.DataItem;
+        //        var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
+        //        lnkDelete.CommandArgument = i.ImageId.ToString();
+        //        ClientAPI.AddButtonConfirm(lnkDelete, Localization.GetString("ConfirmDelete", LocalResourceFile));
+        //    }
+        //}
+
+        //protected bool Generate()
+        //{
+        //    if (File.Exists(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json")))
+        //    {
+        //        if (cbOverwrite.Checked)
+        //        {
+        //            File.Delete(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json"));
+        //        }
+        //        else
+        //        {
+        //            lblOverwriteError.Text = "The File Already Exists! If You want to overwrite it check the Overwrite Checkbox below!";
+        //            return false;
+        //        }
+        //    }
+        //    var ic = new ImageController();
+        //    var il = ic.GetImages(ModuleId);
+        //    List<ImageJ> Slides = new List<ImageJ>();
+        //    foreach (var img in il)
+        //    {
+        //        ImageJ li = new ImageJ();
+        //        li.ImageTitle = img.ImageTitle;
+        //        li.ImageDescription = img.ImageDescription;
+        //        li.ImagePhotographer = img.ImagePhotographer;
+        //        li.ImageContact = img.ImageContact;
+        //        li.ImageUrl = img.ImageUrl;
+        //        Slides.Add(li);
+        //    }
+        //    DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
+        //    using (FileStream fs = File.Open((Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json")), FileMode.CreateNew))
+        //    using (StreamWriter sw = new StreamWriter(fs))
+        //    using (JsonWriter jw = new JsonTextWriter(sw))
+        //    {
+        //        jw.Formatting = Formatting.Indented;
+
+        //        JsonSerializer serializer = new JsonSerializer();
+        //        serializer.Serialize(jw, Slides, typeof(ImageJ));
+        //    }
+        //    return true;
+        //}
+        #endregion
     }
 }
