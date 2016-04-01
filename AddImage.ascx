@@ -25,18 +25,18 @@
                 <asp:FileUpload ID="btnImageSelect" runat="server" />
                 <asp:LinkButton ID="btnImageUpload" runat="server" ResourceKey="btnUpload" CssClass="dnnSecondaryAction link-upload" OnClick="btnImageUpload_Click" />
             </div>
-            <div class="dnnFormItem">
+            <asp:Panel ID="pnlImgSelected" runat="server" CssClass="dnnFormItem">
                 <%--<dnn:label ID="lblUploadImage" runat="server" />--%>
                 <dnn:label ID="lblImgSelected" runat="server" />
                 <asp:Image ID="imgPreview" runat="server" CssClass="rotator-image" Visible="false" AlternateText="Rotator Image" ImageUrl="~/DesktopModules/JSNewsModule/Images/Default Image.png" />
                 <asp:LinkButton ID="btnDeleteImg" runat="server" CssClass="btn btn-danger link-delete" Visible="false" ResourceKey="btnDeleteImg.Text" OnClick="btnDeleteImg_Click" />
                 <asp:TextBox ID="txtImageUrl" runat="server" CssClass="form-control" Enabled="false" />
-            </div>
-            <div class="dnnFormItem">
+            </asp:Panel>
+            <asp:Panel ID="pnlAddToList" runat="server" CssClass="dnnFormItem">
                 <dnn:label ID="lblAvailableLists" runat="server" Visible="false" />
                 <asp:CheckBox ID="cbAddToList" runat="server" Visible="false" OnCheckedChanged="cbAddToList_CheckedChanged" AutoPostBack="true" />
                 <asp:DropDownList ID="lstAvailableLists" runat="server" Visible="false" />
-            </div>
+            </asp:Panel>
             <asp:Panel ID="pnlConfirmDelete" runat="server" Visible="false">
                 <div class="popup-wrapper">
                     <asp:Label ID="lblConfirmIcon" runat="server" />
@@ -69,12 +69,14 @@
                 <dnn:label ID="lblContact" runat="server" />
                 <asp:TextBox ID="txtContact" runat="server" CssClass="form-control" />
             </div>
-            <div class="dnnFormItem controls">
-                <asp:LinkButton ID="btnAddImage" runat="server" OnClick="btnAddImage_Click" resourcekey="btnAddImage" CssClass="btn btn-primary link-add" />
-                <asp:HyperLink ID="btnSubmit" runat="server" resourcekey="btnSubmit" CssClass="btn btn-primary link-list" />
-                <asp:LinkButton ID="btnCancel" runat="server" OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="btn btn-default link-cancel" />
-            </div>
         </fieldset>
+    </div>
+    <div class="dnnForm controls">
+        <div class="dnnFormItem">
+            <asp:LinkButton ID="btnAddImage" runat="server" OnClick="btnAddImage_Click" resourcekey="btnAddImage" CssClass="btn btn-primary link-add" />
+            <asp:HyperLink ID="btnSubmit" runat="server" resourcekey="btnSubmit" CssClass="btn btn-primary link-list" />
+            <asp:LinkButton ID="btnCancel" runat="server" OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="btn btn-default link-cancel" />
+        </div>
     </div>
 </div>
 

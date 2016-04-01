@@ -397,6 +397,9 @@ namespace JS.Modules.JSImageRotator
                         lnkDelete.ToolTip = "Cancel";
                         btnEdit.ToolTip = "Save";
                         btnEdit.CssClass = "btn btn-primary link-save";
+
+                        pnlOverlay.Visible = true;
+                        lblEditIcon.CssClass = "popup-icon link-edit";
                         //btnEdit.Text = "Save";
                         //btnEdit.Text = "<i class='fa fa-floppy-o'></i>";
                     }
@@ -414,6 +417,10 @@ namespace JS.Modules.JSImageRotator
                         lnkDelete.ToolTip = "Delete";
                         btnEdit.ToolTip = "Edit";
                         btnEdit.CssClass = "btn btn-primary link-edit";
+
+                        pnlOverlay.Visible = false;
+                        lblEditIcon.CssClass = "";
+
                         //btnEdit.Text = "Edit";
                         //btnEdit.Text = "<i class='fa fa-pencil'></i>";
                     }

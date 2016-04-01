@@ -100,6 +100,12 @@
 
             </div>
 
+            <asp:Panel ID="pnlOverlay" runat="server" CssClass="dnnFormItem popup success" Visible="false">
+                <div class="popup-wrapper">
+                    <asp:Label ID="lblEditIcon" runat="server" />
+                </div>
+            </asp:Panel>
+
             <div class="dnnFormItem">
                 <h3>
                     <asp:Label ID="lblTableTitle" runat="server" ResourceKey="lblTableTitle" />
@@ -206,14 +212,15 @@
                 </tfoot>--%>
                 </table>
             </div>
-
-            <div class="dnnFormItem controls">
-                <asp:LinkButton ID="btnSubmit" runat="server"
-                    OnClick="btnSubmit_Click" ResourceKey="btnSubmit" CssClass="btn btn-primary link-save" />
-                <asp:LinkButton ID="btnCancel" runat="server"
-                    OnClick="btnCancel_Click" ResourceKey="btnCancel" CssClass="btn btn-default link-cancel" />
-            </div>
         </fieldset>
+    </div>
+    <div class="dnnForm controls">
+        <div class="dnnFormItem">
+            <asp:LinkButton ID="btnSubmit" runat="server"
+                OnClick="btnSubmit_Click" ResourceKey="btnSubmit" CssClass="btn btn-primary link-save" />
+            <asp:LinkButton ID="btnCancel" runat="server"
+                OnClick="btnCancel_Click" ResourceKey="btnCancel" CssClass="btn btn-default link-cancel" />
+        </div>
     </div>
 
     <div class="modal fade bs-example-modal-sm" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">

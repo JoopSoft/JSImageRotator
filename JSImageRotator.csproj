@@ -140,6 +140,7 @@
     <Content Include="module.min.css">
       <DependentUpon>module.css</DependentUpon>
     </Content>
+    <Content Include="radiobutton.png" />
     <Content Include="Select.ascx" />
     <Content Include="Edit.ascx" />
     <Content Include="License.txt" />

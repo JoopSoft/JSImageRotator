@@ -141,17 +141,18 @@
                 </tfoot>--%>
                 </table>
             </div>
-
-
-            <div class="dnnFormItem controls">
-                <asp:LinkButton ID="btnSubmit" runat="server"
-                    OnClick="btnSubmit_Click" resourcekey="btnSubmit" CssClass="btn btn-primary link-save" />
-                <asp:LinkButton ID="btnCancel" runat="server"
-                    OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="btn btn-default link-cancel" />
-            </div>
         </fieldset>
     </div>
+    <div class="dnnForm controls">
+        <div class="dnnFormItem">
+            <asp:LinkButton ID="btnSubmit" runat="server"
+                OnClick="btnSubmit_Click" resourcekey="btnSubmit" CssClass="btn btn-primary link-save" />
+            <asp:LinkButton ID="btnCancel" runat="server"
+                OnClick="btnCancel_Click" resourcekey="btnCancel" CssClass="btn btn-default link-cancel" />
+        </div>
+    </div>
 </div>
+
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <%--BASE JS--%>

@@ -211,6 +211,24 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.HyperLink lnkAddModal;
         
         /// <summary>
+        /// pnlOverlay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlOverlay;
+        
+        /// <summary>
+        /// lblEditIcon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEditIcon;
+        
+        /// <summary>
         /// lblTableTitle control.
         /// </summary>
         /// <remarks>
