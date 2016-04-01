@@ -124,7 +124,9 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnDeleteList_Click(object sender, EventArgs e)
         {
-            lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = true;
+            pnlConfirmDelete.Visible = true;
+            pnlConfirmDelete.CssClass = "dnnFormItem popup warning";
+            //lblConfirmIcon.CssClass = "popup-icon link-delete";
         }
 
         protected void btnYes_Click(object sender, EventArgs e)
@@ -160,6 +162,7 @@ namespace JS.Modules.JSImageRotator
                     dbi.Add(img);
                 }
             }
+            pnlConfirmDelete.Visible = false;
             rptImageList.DataSource = dbi;
             rptImageList.DataBind();
         }

@@ -26,7 +26,7 @@
         <div class="dnnFormSectionHead">
             <div class="dnnFormItem JSRotatorMenu">
                 <h3 class="dnnFormMessage dnnFormTitle no-spacing">
-                    <asp:Label ID="lblJsonTitle" runat="server" ResourceKey="lblJsonTitle" />
+                    <asp:Label ID="lblJsonTitle" runat="server" Text="Create Image Lists" />
                 </h3>
                 <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add"
                     ResourceKey="lnkAdd-RRRRR" data-toggle="tooltip" ToolTip='Add New Image' />
@@ -34,11 +34,11 @@
                 <asp:HyperLink ID="lnkSelect" runat="server" CssClass="btn btn-primary link-list"
                     ResourceKey="lnkSelect-RRRRRR" data-toggle="tooltip" ToolTip='View Image Lists' />
 
-                <asp:LinkButton ID="btnShowSelectList" runat="server" CssClass="btn btn-primary link-exch" OnClick="btnShowSelectList_Click"
-                    ResourceKey="btnShowSelectList_RRRRRR" data-toggle="tooltip" ToolTip='Select From List' Visible="false" />
+<%--                <asp:LinkButton ID="btnShowSelectList" runat="server" CssClass="btn btn-primary link-exch" OnClick="btnShowSelectList_Click"
+                    ResourceKey="btnShowSelectList_RRRRRR" data-toggle="tooltip" ToolTip='Select From List' Visible="false" />--%>
 
                 <asp:LinkButton ID="btnShowAddNewList" runat="server" CssClass="btn btn-primary link-exch" OnClick="btnShowAddNewList_Click"
-                    ResourceKey="btnShowAddList-RRRRR" data-toggle="tooltip" ToolTip='Create New List' Visible="false" />
+                    ResourceKey="btnShowAddList-RRRRR" data-toggle="tooltip" ToolTip='Create New List' />
             </div>
         </div>
 
@@ -54,8 +54,8 @@
                 <dnn:label ID="lblFileName" runat="server" />
                 <asp:TextBox ID="txtFileName" runat="server" CssClass="form-control grouped" />
 
-                <asp:LinkButton ID="btnGenerate" runat="server" CssClass="btn btn-primary link-add" OnClick="btnGenerate_Click"
-                    ResourceKey="btnGenerate" data-toggle="tooltip" ToolTip='Create New List' />
+                <asp:LinkButton ID="btnAddUpdateList" runat="server" CssClass="btn btn-primary link-add" OnClick="btnAddUpdateList_Click"
+                    Text="Create" data-toggle="tooltip" ToolTip='Create New List' />
                 
             </div>
 
@@ -66,18 +66,20 @@
                         <asp:Label ID="lblListAdded" runat="server" CssClass="popup-msg" />
                     </h3>
                     <asp:LinkButton ID="btnClose" runat="server" CssClass="close-action btn btn-default link-close" 
-                        OnClick="btnNo_Click" ResourceKey="btnClose-RRRRRRRRRRRRRR" 
+                        OnClick="btnClose_Click" ResourceKey="btnClose-RRRRRRRRRRRRRR" 
                         data-toggle="tooltip" ToolTip='Close' />
 
                 </div>
             </asp:Panel>
 
-            <asp:Panel ID="pnlConfirmDelete" runat="server" Visible="false">
+            <asp:Panel ID="pnlConfirmDelete" runat="server" Visible="false" >
                 <div class="popup-wrapper">
                     <asp:Label ID="lblConfirmIcon" runat="server" />
                     <h3>
                         <asp:Label ID="lblConfirmDelete" runat="server" CssClass="popup-msg" 
-                            ResourceKey="lblConfirmDelete" />
+                            ResourceKey="lblConfirmDelete-RR" />
+                        <asp:Label ID="lblDeleteImageID" runat="server" Visible="false" />
+                        <asp:Label ID="lblDeleteImageUrl" runat="server" Visible="false" />
                     </h3>
                     <asp:LinkButton ID="btnYes" runat="server" CssClass="primary-action btn btn-danger link-delete"
                         OnClick="btnYes_Click" ResourceKey="btnYes" 
@@ -129,49 +131,51 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <asp:Repeater ID="rptImageList" runat="server" OnItemDataBound="rptImages_ItemDataBound" OnItemCommand="rptImages_ItemCommand">
+                        <asp:Repeater ID="rptImageList" runat="server" >
                             <HeaderTemplate>
                             </HeaderTemplate>
                             <ItemTemplate>
-                                <tr>
-                                    <td>
+                                <asp:TableRow ID="tableRow" runat="server">
+                                    <asp:TableCell>
                                         <asp:Label ID="imgId" runat="server" Visible="false" Text='<%#DataBinder.Eval(Container.DataItem, "ImageId").ToString() %>' />
-                                        <asp:CheckBox ID="cbSelect" runat="server" AutoPostBack="true" Checked='<%#((DataBinder.Eval(Container.DataItem,"IsSelected")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"IsSelected")==true)) %>' OnCheckedChanged="cbSelect_CheckedChanged" />
-                                    </td>
-                                    <td>
-                                        <asp:Image runat="server" CssClass="row-img"
+                                        <asp:CheckBox ID="cbSelect" runat="server" AutoPostBack="false" 
+                                            Checked='<%#((DataBinder.Eval(Container.DataItem,"IsSelected")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"IsSelected")==true)) %>' 
+                                            OnCheckedChanged="cbSelect_CheckedChanged" />
+                                    </asp:TableCell>
+                                    <asp:TableCell>
+                                        <asp:Image ID="imgPreview" runat="server" CssClass="row-img"
                                             ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' />
-                                    </td>
-                                    <td>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                         <asp:TextBox ID="txtTitle" runat="server" Enabled="false"
                                             data-toggle="tooltip" ToolTip='Edit title'
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageTitle").ToString() %>' />
-                                    </td>
-                                    <td>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                         <asp:TextBox ID="txtDescription" runat="server" CssClass="ellipsis" Enabled="false"
                                             data-toggle="tooltip" ToolTip='Edit description'
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageDescription").ToString() %>' />
-                                    </td>
-                                    <td>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                         <asp:TextBox ID="txtPhotographer" runat="server" Enabled="false"
                                             data-toggle="tooltip" ToolTip='Edit photographer'
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImagePhotographer").ToString() %>' />
-                                    </td>
-                                    <td>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                         <asp:TextBox ID="txtContact" runat="server" Enabled="false"
                                             data-toggle="tooltip" ToolTip='Edit contact'
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageContact").ToString() %>' />
-                                    </td>
-                                    <td>
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                         <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn btn-primary link-edit"
                                             OnClick="btnEdit_Click" data-toggle="tooltip" ToolTip="Edit" /> <%--Text="Edit"--%>
                                         <%--<asp:LinkButton ID="btnCancel" runat="server" CssClass="btn btn-primary link-cancel" 
                                             ResourceKey="CancelItem-RRRRRRRRRRRRRRRRR" data-toggle="tooltip" ToolTip="Cancel"  />--%>
                                         <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete"
                                             ResourceKey="DeleteItem-RRRRRRRRRRRRRR" CommandName="Delete" 
-                                            data-toggle="tooltip" ToolTip="Delete" />
-                                    </td>
-                                </tr>
+                                            OnClick="lnkDelete_Click" data-toggle="tooltip" ToolTip="Delete" />
+                                    </asp:TableCell>
+                                </asp:TableRow>
                             </ItemTemplate>
                             <FooterTemplate>
                             </FooterTemplate>
@@ -231,8 +235,7 @@
 
                         <div class="form-group">
                             <asp:Label ID="lblImgSelected" runat="server" />
-                            <asp:Image ID="imgPreview" runat="server" CssClass="news-image" AlternateText="News image"
-                                ImageUrl="~/DesktopModules/JSNewsModule/Images/Default Image.png" />
+                            <asp:Image ID="imgPreview" runat="server" CssClass="rotator-image" AlternateText="Rotator Image" />
                             <asp:LinkButton ID="btnDeleteImg" runat="server" CssClass="btn btn-danger link-delete"
                                 ResourceKey="DeleteItem" />
                             <asp:TextBox ID="txtImageUrl" runat="server" CssClass="form-control" Enabled="false" />

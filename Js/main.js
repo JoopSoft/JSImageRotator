@@ -95,7 +95,6 @@
         });
 
 
-        $('#table-list tbody tr:eq(1)').addClass('active');
         
         //if ($('#table-list').exists()) $('#table-list').DataTable({
         //    //"dom": '<"toolbar">frtip',
