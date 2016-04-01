@@ -145,11 +145,20 @@ namespace JS.Modules.JSImageRotator
         protected void btnAddUpdateList_Click(object sender, EventArgs e)
         {
             var ic = new ImageController();
-            var i = ic.GetImages(ModuleId);
             bool selectedImagePresent = false;
             bool lstExists = false;
             bool isNew = txtFileName.Visible;
             string listName;
+            foreach (RepeaterItem ri in rptImageList.Items)
+            {
+                var imgId = ri.FindControl("ImgId") as Label;
+                var ci = ic.GetImage(Convert.ToInt32(imgId.Text), ModuleId);
+                var cbSelect = ri.FindControl("cbSelect") as CheckBox;
+                ci.IsSelected = cbSelect.Checked;
+                ic.UpdateImage(ci);
+            }
+            var i = ic.GetImages(ModuleId);
+
             if (isNew)
             {
                 listName = txtFileName.Text.Trim();

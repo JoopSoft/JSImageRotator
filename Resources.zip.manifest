@@ -1,0 +1,144 @@
+﻿<dotnetnuke type="ResourceFile" version="5.0">
+  <files>
+    <file>
+      <path />
+      <name>AddImage.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Edit.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>License.txt</name>
+    </file>
+    <file>
+      <path />
+      <name>module.css</name>
+    </file>
+    <file>
+      <path />
+      <name>module.min.css</name>
+    </file>
+    <file>
+      <path />
+      <name>ReleaseNotes.txt</name>
+    </file>
+    <file>
+      <path />
+      <name>Select.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>Settings.ascx</name>
+    </file>
+    <file>
+      <path />
+      <name>variables.css</name>
+    </file>
+    <file>
+      <path />
+      <name>variables.min.css</name>
+    </file>
+    <file>
+      <path />
+      <name>View.ascx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>AddImage.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>Edit.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>Select.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>Settings.ascx.resx</name>
+    </file>
+    <file>
+      <path>App_LocalResources/</path>
+      <name>View.ascx.resx</name>
+    </file>
+    <file>
+      <path>Documentation/</path>
+      <name>Documentation.css</name>
+    </file>
+    <file>
+      <path>Documentation/</path>
+      <name>Documentation.html</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>00.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>101016-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>103533-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>10497-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>11.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>3.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>303-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>3869-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>3879-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>4855-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>4857-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>5-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>5330-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>836-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>9264-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>9800-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Js/</path>
+      <name>main.js</name>
+    </file>
+  </files>
+</dotnetnuke>

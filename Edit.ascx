@@ -138,7 +138,7 @@
                                 <asp:TableRow ID="tableRow" runat="server">
                                     <asp:TableCell>
                                         <asp:Label ID="imgId" runat="server" Visible="false" Text='<%#DataBinder.Eval(Container.DataItem, "ImageId").ToString() %>' />
-                                        <asp:CheckBox ID="cbSelect" runat="server" AutoPostBack="true" 
+                                        <asp:CheckBox ID="cbSelect" runat="server" AutoPostBack="false" 
                                             Checked='<%#((DataBinder.Eval(Container.DataItem,"IsSelected")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"IsSelected")==true)) %>' 
                                             OnCheckedChanged="cbSelect_CheckedChanged" />
                                     </asp:TableCell>
