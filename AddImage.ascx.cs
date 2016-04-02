@@ -185,8 +185,7 @@ namespace JS.Modules.JSImageRotator
             pnlConfirmDelete.Visible = false;
             pnlConfirmDelete.CssClass = "";
             lblConfirmIcon.CssClass = "";
-            imgPreview.Visible = false;
-            btnDeleteImg.Visible = false;
+            lblAvailableLists.Visible = cbAddToList.Visible = lstAvailableLists.Visible = imgPreview.Visible = btnDeleteImg.Visible = false;
             txtImageUrl.Text = "";
             pnlMsgBox.Visible = true;
             lblAddedImage.Text = "<i class='fa fa-check'></i> Image Deleted";
@@ -206,6 +205,7 @@ namespace JS.Modules.JSImageRotator
             lstAvailableLists.Visible = cbAddToList.Checked;
             var ic = new ImageController();
             var al = ic.GetLists(ModuleId);
+            lstAvailableLists.Items.Clear();
             foreach (var l in al)
             {
                 if (l != null)

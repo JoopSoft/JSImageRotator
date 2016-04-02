@@ -156,6 +156,8 @@ namespace JS.Modules.JSImageRotator
                 lblFileName.Visible = txtFileName.Visible = false;
                 lblSelectList.Visible = lstSelectList.Visible = btnDeleteList.Visible = true;
                 btnAddUpdateList.Text = "Update";
+                btnAddUpdateList.CssClass = "btn btn-primary link-save";
+                btnAddUpdateList.ToolTip = "Update List";
                 lblListAdded.Text = "";
                 lblPopUpIcon.CssClass = "";
                 pnlPopUp.Visible = false;
@@ -168,6 +170,8 @@ namespace JS.Modules.JSImageRotator
                 lblFileName.Visible = txtFileName.Visible = true;
                 lblSelectList.Visible = lstSelectList.Visible = btnDeleteList.Visible = false;
                 btnAddUpdateList.Text = "Create";
+                btnAddUpdateList.CssClass = "btn btn-primary link-add";
+                btnAddUpdateList.ToolTip = "Create New List";
                 lblListAdded.Text = "";
                 lblPopUpIcon.CssClass = "";
                 pnlPopUp.Visible = false;
