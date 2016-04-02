@@ -215,7 +215,7 @@ namespace JS.Modules.JSImageRotator
 
             using (StreamWriter swriter = new StreamWriter(path, false))
             {
-                str = "slides:" + Environment.NewLine + str;
+                str = "\"slides\":" + Environment.NewLine + str;
                 str = "{" + Environment.NewLine + str;
                 swriter.Write(str);
             }
