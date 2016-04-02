@@ -78,6 +78,7 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            Generate();
             Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
         }
 
@@ -171,5 +172,56 @@ namespace JS.Modules.JSImageRotator
         {
             lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
         }
+
+        protected void Generate()
+        {
+            var ic = new ImageController();
+            var il = ic.GetImages(ModuleId);
+            List<ImageJ> Slides = new List<ImageJ>();
+            foreach (var img in il)
+            {
+                if (img.ListsIn.Contains(lstImageLists.SelectedValue + ".json"))
+                {
+                    ImageJ li = new ImageJ();
+                    li.ImageTitle = img.ImageTitle;
+                    li.ImageDescription = img.ImageDescription;
+                    li.ImagePhotographer = img.ImagePhotographer;
+                    li.ImageContact = img.ImageContact;
+                    li.ImageUrl = img.ImageUrl;
+                    Slides.Add(li);
+                }
+            }
+            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
+            if (File.Exists(Server.MapPath("~/DesktopModules/JSImageRotator/Json/Slides.json")))
+            {
+                File.Delete(Server.MapPath("~/DesktopModules/JSImageRotator/Json/Slides.json"));
+            }
+            using (FileStream fs = File.Open((Server.MapPath("~/DesktopModules/JSImageRotator/Json/Slides.json")), FileMode.CreateNew))
+            using (StreamWriter sw = new StreamWriter(fs))
+            using (JsonWriter jw = new JsonTextWriter(sw))
+            {
+                jw.Formatting = Formatting.Indented;
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(jw, Slides, typeof(ImageJ));
+            }
+            string path = Server.MapPath("~/DesktopModules/JSImageRotator/Json/Slides.json");
+            string str;
+            using (StreamReader sreader = new StreamReader(path))
+            {
+                str = sreader.ReadToEnd();
+            }
+
+            File.Delete(path);
+
+            using (StreamWriter swriter = new StreamWriter(path, false))
+            {
+                str = "slides:" + Environment.NewLine + str;
+                str = "{" + Environment.NewLine + str;
+                swriter.Write(str);
+            }
+            string appendText = Environment.NewLine + "}";
+            File.AppendAllText(Server.MapPath("~/DesktopModules/JSImageRotator/Json/Slides.json"), appendText);
+        }
+
     }
 }

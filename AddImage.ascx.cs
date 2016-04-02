@@ -153,7 +153,7 @@ namespace JS.Modules.JSImageRotator
 
                     lblAddedImage.Text = "<i class='fa fa-check'></i> Image Added";
                     txtImageUrl.Text = txtTitle.Text = txtDescription.Text = txtPhotographer.Text = txtContact.Text = "";
-                    lblAvailableLists.Visible = cbAddToList.Visible = imgPreview.Visible = btnDeleteImg.Visible = false;
+                    lblAvailableLists.Visible = cbAddToList.Visible = lstAvailableLists.Visible = imgPreview.Visible = btnDeleteImg.Visible = false;
                 }
                 else
                 {

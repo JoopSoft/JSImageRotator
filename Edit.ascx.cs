@@ -97,6 +97,8 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            Generate();
+            AddUpdateList();
             Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
         }
 
@@ -144,108 +146,7 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnAddUpdateList_Click(object sender, EventArgs e)
         {
-            var ic = new ImageController();
-            bool selectedImagePresent = false;
-            bool lstExists = false;
-            bool isNew = txtFileName.Visible;
-            string listName;
-            foreach (RepeaterItem ri in rptImageList.Items)
-            {
-                var imgId = ri.FindControl("ImgId") as Label;
-                var ci = ic.GetImage(Convert.ToInt32(imgId.Text), ModuleId);
-                var cbSelect = ri.FindControl("cbSelect") as CheckBox;
-                ci.IsSelected = cbSelect.Checked;
-                ic.UpdateImage(ci);
-            }
-            var i = ic.GetImages(ModuleId);
-
-            if (isNew)
-            {
-                listName = txtFileName.Text.Trim();
-            }
-            else
-            {
-                listName = lstSelectList.SelectedValue;
-            }
-            var il = ic.GetLists(ModuleId);
-            foreach (var img in i)
-            {
-                if (img.IsSelected)
-                {
-                    selectedImagePresent = true;
-                }
-                if (img.IsSelected && img.ListsIn == null && listName != "")
-                {
-                    img.ListsIn += listName + ".json, ";
-                    ic.UpdateImage(img);
-                }
-                else if (img.IsSelected && !img.ListsIn.Contains(listName + ".json") && listName != "")
-                {
-                    img.ListsIn += listName + ".json, ";
-                    ic.UpdateImage(img);
-                }
-                if (!img.IsSelected && img.ListsIn != null)
-                {
-                    if (!img.IsSelected && img.ListsIn.Contains(listName + ".json"))
-                    {
-                        string remove = listName + ".json, ";
-                        img.ListsIn = img.ListsIn.Replace(remove, "");
-                        ic.UpdateImage(img);
-                    }
-                }
-            }
-            foreach (var lst in il)
-            {
-                if (lst.ListName == listName)
-                {
-                    lstExists = true;
-                }
-            }
-            if (!selectedImagePresent && listName == "")
-            {
-                pnlPopUp.Visible = true;
-                pnlPopUp.CssClass = "dnnFormItem popup warning";
-                lblPopUpIcon.CssClass = "popup-icon link-warning";
-                lblListAdded.Text = "No Image Selected and FileName field is empty";
-            }
-            else if (!selectedImagePresent && listName != "")
-            {
-                pnlPopUp.Visible = true;
-                pnlPopUp.CssClass = "dnnFormItem popup warning";
-                lblPopUpIcon.CssClass = "popup-icon link-warning";
-                lblListAdded.Text = "No Image Selected";
-            }
-            else if (selectedImagePresent && listName == "")
-            {
-                pnlPopUp.Visible = true;
-                pnlPopUp.CssClass = "dnnFormItem popup warning";
-                lblPopUpIcon.CssClass = "popup-icon link-warning";
-                lblListAdded.Text = "FileName field is empty";
-            }
-            else if (!lstExists)
-            {
-                var nil = new ImageLists
-                {
-                    ListName = listName,
-                    ModuleId = ModuleId
-                };
-                ic.AddImageList(nil);
-                pnlPopUp.Visible = true;
-                pnlPopUp.CssClass = "dnnFormItem popup success";
-                lblPopUpIcon.CssClass = "popup-icon link-success";
-                lblListAdded.Text = "Added List " + listName + " with Selected Images";
-                txtFileName.Text = "";
-                lstSelectList.Items.Add(listName);
-                btnShowAddNewList.Enabled = lnkSelect.Enabled = true;
-            }
-            else
-            {
-                pnlPopUp.Visible = true;
-                pnlPopUp.CssClass = "dnnFormItem popup success";
-                lblPopUpIcon.CssClass = "popup-icon link-success";
-                lblListAdded.Text = "Updated List " + listName + " with Selected Images";
-                txtFileName.Text = "";
-            }
+            AddUpdateList();
         }
 
         protected void btnShowAddNewList_Click(object sender, EventArgs e)
@@ -260,6 +161,7 @@ namespace JS.Modules.JSImageRotator
                 pnlPopUp.Visible = false;
                 btnShowAddNewList.ToolTip = "Create New List";
                 lblJsonTitle.Text = "Update Image Lists";
+                btnSubmit.Text = "Update And Save";
             }
             else
             {
@@ -272,6 +174,7 @@ namespace JS.Modules.JSImageRotator
                 pnlPopUp.CssClass = "";
                 btnShowAddNewList.ToolTip = "Edit Available Lists";
                 lblJsonTitle.Text = "Create Image Lists";
+                btnSubmit.Text = "Create And Save";
             }
         }
 
@@ -474,6 +377,170 @@ namespace JS.Modules.JSImageRotator
             }
         }
 
+        protected void Generate()
+        {
+            var ic = new ImageController();
+            foreach (RepeaterItem ri in rptImageList.Items)
+            {
+                var imgId = ri.FindControl("ImgId") as Label;
+                var ci = ic.GetImage(Convert.ToInt32(imgId.Text), ModuleId);
+                var cbSelect = ri.FindControl("cbSelect") as CheckBox;
+                ci.IsSelected = cbSelect.Checked;
+                ic.UpdateImage(ci);
+            }
+            var il = ic.GetImages(ModuleId);
+            List<ImageJ> Slides = new List<ImageJ>();
+            foreach (var img in il)
+            {
+                if (img.IsSelected)
+                {
+                    ImageJ li = new ImageJ();
+                    li.ImageTitle = img.ImageTitle;
+                    li.ImageDescription = img.ImageDescription;
+                    li.ImagePhotographer = img.ImagePhotographer;
+                    li.ImageContact = img.ImageContact;
+                    li.ImageUrl = img.ImageUrl;
+                    Slides.Add(li);
+                }
+            }
+            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
+            if (File.Exists(Server.MapPath("~/DesktopModules/JSImageRotator/Json/Slides.json")))
+            {
+                File.Delete(Server.MapPath("~/DesktopModules/JSImageRotator/Json/Slides.json"));
+            }
+            using (FileStream fs = File.Open((Server.MapPath("~/DesktopModules/JSImageRotator/Json/Slides.json")), FileMode.CreateNew))
+            using (StreamWriter sw = new StreamWriter(fs))
+            using (JsonWriter jw = new JsonTextWriter(sw))
+            {
+                jw.Formatting = Formatting.Indented;
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(jw, Slides, typeof(ImageJ));
+            }
+            string path = Server.MapPath("~/DesktopModules/JSImageRotator/Json/Slides.json");
+            string str;
+            using (StreamReader sreader = new StreamReader(path))
+            {
+                str = sreader.ReadToEnd();
+            }
+
+            File.Delete(path);
+
+            using (StreamWriter swriter = new StreamWriter(path, false))
+            {
+                str = "slides:" + Environment.NewLine + str;
+                str = "{" + Environment.NewLine + str;
+                swriter.Write(str);
+            }
+            string appendText = Environment.NewLine + "}";
+            File.AppendAllText(Server.MapPath("~/DesktopModules/JSImageRotator/Json/Slides.json"), appendText);
+        }
+
+        protected void AddUpdateList()
+        {
+            var ic = new ImageController();
+            bool selectedImagePresent = false;
+            bool lstExists = false;
+            bool isNew = txtFileName.Visible;
+            string listName;
+            foreach (RepeaterItem ri in rptImageList.Items)
+            {
+                var imgId = ri.FindControl("ImgId") as Label;
+                var ci = ic.GetImage(Convert.ToInt32(imgId.Text), ModuleId);
+                var cbSelect = ri.FindControl("cbSelect") as CheckBox;
+                ci.IsSelected = cbSelect.Checked;
+                ic.UpdateImage(ci);
+            }
+            var i = ic.GetImages(ModuleId);
+
+            if (isNew)
+            {
+                listName = txtFileName.Text.Trim();
+            }
+            else
+            {
+                listName = lstSelectList.SelectedValue;
+            }
+            var il = ic.GetLists(ModuleId);
+            foreach (var img in i)
+            {
+                if (img.IsSelected)
+                {
+                    selectedImagePresent = true;
+                }
+                if (img.IsSelected && img.ListsIn == null && listName != "")
+                {
+                    img.ListsIn += listName + ".json, ";
+                    ic.UpdateImage(img);
+                }
+                else if (img.IsSelected && !img.ListsIn.Contains(listName + ".json") && listName != "")
+                {
+                    img.ListsIn += listName + ".json, ";
+                    ic.UpdateImage(img);
+                }
+                if (!img.IsSelected && img.ListsIn != null)
+                {
+                    if (!img.IsSelected && img.ListsIn.Contains(listName + ".json"))
+                    {
+                        string remove = listName + ".json, ";
+                        img.ListsIn = img.ListsIn.Replace(remove, "");
+                        ic.UpdateImage(img);
+                    }
+                }
+            }
+            foreach (var lst in il)
+            {
+                if (lst.ListName == listName)
+                {
+                    lstExists = true;
+                }
+            }
+            if (!selectedImagePresent && listName == "")
+            {
+                pnlPopUp.Visible = true;
+                pnlPopUp.CssClass = "dnnFormItem popup warning";
+                lblPopUpIcon.CssClass = "popup-icon link-warning";
+                lblListAdded.Text = "No Image Selected and FileName field is empty";
+            }
+            else if (!selectedImagePresent && listName != "")
+            {
+                pnlPopUp.Visible = true;
+                pnlPopUp.CssClass = "dnnFormItem popup warning";
+                lblPopUpIcon.CssClass = "popup-icon link-warning";
+                lblListAdded.Text = "No Image Selected";
+            }
+            else if (selectedImagePresent && listName == "")
+            {
+                pnlPopUp.Visible = true;
+                pnlPopUp.CssClass = "dnnFormItem popup warning";
+                lblPopUpIcon.CssClass = "popup-icon link-warning";
+                lblListAdded.Text = "FileName field is empty";
+            }
+            else if (!lstExists)
+            {
+                var nil = new ImageLists
+                {
+                    ListName = listName,
+                    ModuleId = ModuleId
+                };
+                ic.AddImageList(nil);
+                pnlPopUp.Visible = true;
+                pnlPopUp.CssClass = "dnnFormItem popup success";
+                lblPopUpIcon.CssClass = "popup-icon link-success";
+                lblListAdded.Text = "Added List " + listName + " with Selected Images";
+                txtFileName.Text = "";
+                lstSelectList.Items.Add(listName);
+                btnShowAddNewList.Enabled = lnkSelect.Enabled = true;
+            }
+            else
+            {
+                pnlPopUp.Visible = true;
+                pnlPopUp.CssClass = "dnnFormItem popup success";
+                lblPopUpIcon.CssClass = "popup-icon link-success";
+                lblListAdded.Text = "Updated List " + listName + " with Selected Images";
+                txtFileName.Text = "";
+            }
+        }
+
         #region Unused Methods
         //protected void btnShowSelectList_Click(object sender, EventArgs e)
         //{
@@ -508,45 +575,6 @@ namespace JS.Modules.JSImageRotator
         //    }
         //}
 
-        //protected bool Generate()
-        //{
-        //    if (File.Exists(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json")))
-        //    {
-        //        if (cbOverwrite.Checked)
-        //        {
-        //            File.Delete(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json"));
-        //        }
-        //        else
-        //        {
-        //            lblOverwriteError.Text = "The File Already Exists! If You want to overwrite it check the Overwrite Checkbox below!";
-        //            return false;
-        //        }
-        //    }
-        //    var ic = new ImageController();
-        //    var il = ic.GetImages(ModuleId);
-        //    List<ImageJ> Slides = new List<ImageJ>();
-        //    foreach (var img in il)
-        //    {
-        //        ImageJ li = new ImageJ();
-        //        li.ImageTitle = img.ImageTitle;
-        //        li.ImageDescription = img.ImageDescription;
-        //        li.ImagePhotographer = img.ImagePhotographer;
-        //        li.ImageContact = img.ImageContact;
-        //        li.ImageUrl = img.ImageUrl;
-        //        Slides.Add(li);
-        //    }
-        //    DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
-        //    using (FileStream fs = File.Open((Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + txtFileName.Text.Trim() + ".json")), FileMode.CreateNew))
-        //    using (StreamWriter sw = new StreamWriter(fs))
-        //    using (JsonWriter jw = new JsonTextWriter(sw))
-        //    {
-        //        jw.Formatting = Formatting.Indented;
-
-        //        JsonSerializer serializer = new JsonSerializer();
-        //        serializer.Serialize(jw, Slides, typeof(ImageJ));
-        //    }
-        //    return true;
-        //}
         #endregion
     }
 }

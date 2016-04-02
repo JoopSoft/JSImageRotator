@@ -73,8 +73,44 @@
       <name>Documentation.html</name>
     </file>
     <file>
+      <path>Ellipsis/</path>
+      <name>jquery.ellipsis.js</name>
+    </file>
+    <file>
+      <path>Ellipsis/</path>
+      <name>jquery.ellipsis.min.js</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>11259-1920x1080.jpg</name>
+    </file>
+    <file>
+      <path>Images/</path>
+      <name>3869-1920x1080.jpg</name>
+    </file>
+    <file>
       <path>Js/</path>
       <name>main.js</name>
+    </file>
+    <file>
+      <path>Temp Fixes/</path>
+      <name>JS-Image-Rotator_Fixes.txt</name>
+    </file>
+    <file>
+      <path>Vegas/</path>
+      <name>vegas.css</name>
+    </file>
+    <file>
+      <path>Vegas/</path>
+      <name>vegas.js</name>
+    </file>
+    <file>
+      <path>Vegas/</path>
+      <name>vegas.min.css</name>
+    </file>
+    <file>
+      <path>Vegas/</path>
+      <name>vegas.min.js</name>
     </file>
   </files>
 </dotnetnuke>
