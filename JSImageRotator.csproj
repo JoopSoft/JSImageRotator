@@ -147,6 +147,8 @@
     <Content Include="ReleaseNotes.txt" />
     <Content Include="Settings.ascx" />
     <Content Include="Temp Fixes\JS-Image-Rotator_Fixes.txt" />
+    <Content Include="Temp Fixes\JS_Image-Rotator_Bootstrap_Select_Settings.txt" />
+    <Content Include="Temp Fixes\JS_Image-Rotator_Vegas_Settings.txt" />
     <Content Include="variables.css">
       <DependentUpon>variables.scss</DependentUpon>
     </Content>

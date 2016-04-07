@@ -94,12 +94,12 @@ namespace JS.Modules.JSImageRotator
                         lblAvailableLists.Visible = cbAddToList.Visible = true;
                     }
                 }
-                pnlMsgBox.Visible = true;
+                //pnlMsgBox.Visible = true;
                 lblAddedImage.Text = "<i class='fa fa-check'></i> Image Uploaded";
             }
             else
             {
-                pnlMsgBox.Visible = true;
+                //pnlMsgBox.Visible = true;
                 lblAddedImage.Text = "<i class='fa fa-check'></i> Please Select an Image to Upload";
             }
         }
@@ -149,7 +149,7 @@ namespace JS.Modules.JSImageRotator
                     {
                         ic.AddImage(i);
                     }
-                    pnlMsgBox.Visible = true;
+                    //pnlMsgBox.Visible = true;
 
                     lblAddedImage.Text = "<i class='fa fa-check'></i> Image Added";
                     txtImageUrl.Text = txtTitle.Text = txtDescription.Text = txtPhotographer.Text = txtContact.Text = "";
@@ -157,13 +157,13 @@ namespace JS.Modules.JSImageRotator
                 }
                 else
                 {
-                    pnlMsgBox.Visible = true;
+                    //pnlMsgBox.Visible = true;
                     lblAddedImage.Text = "<i class='fa fa-warning'></i> Please Fill All Fields";
                 }
             }
             else
             {
-                pnlMsgBox.Visible = true;
+                //pnlMsgBox.Visible = true;
                 lblAddedImage.Text = "<i class='fa fa-warning'></i> Please Upload Image First";
             }
         }
@@ -172,10 +172,10 @@ namespace JS.Modules.JSImageRotator
         {
             //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = true;
             pnlConfirmDelete.Visible = true;
-            pnlConfirmDelete.CssClass = "dnnFormItem popup warning";
+            pnlConfirmDelete.CssClass = "dnnFormItem popup confirm-box warning";
             lblConfirmIcon.CssClass = "popup-icon link-delete";
             lblAvailableLists.Visible = cbAddToList.Visible = imgPreview.Visible = btnDeleteImg.Visible = false;
-            pnlMsgBox.Visible = false;
+            //pnlMsgBox.Visible = false;
         }
 
         protected void btnYes_Click(object sender, EventArgs e)
@@ -187,7 +187,7 @@ namespace JS.Modules.JSImageRotator
             lblConfirmIcon.CssClass = "";
             lblAvailableLists.Visible = cbAddToList.Visible = lstAvailableLists.Visible = imgPreview.Visible = btnDeleteImg.Visible = false;
             txtImageUrl.Text = "";
-            pnlMsgBox.Visible = true;
+            //pnlMsgBox.Visible = true;
             lblAddedImage.Text = "<i class='fa fa-check'></i> Image Deleted";
         }
 
@@ -213,7 +213,7 @@ namespace JS.Modules.JSImageRotator
                     lstAvailableLists.Items.Add(l.ListName);
                 }
             }
-            pnlMsgBox.Visible = false;
+            //pnlMsgBox.Visible = false;
         }
     }
 }

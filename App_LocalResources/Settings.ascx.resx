@@ -117,7 +117,139 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BasicSettings.Text" xml:space="preserve">
+    <value>Basic settings</value>
+  </data>
   <data name="ControlTitle_settings.Text" xml:space="preserve">
     <value>JSImageRotator Settings</value>
+  </data>
+  <data name="lblAlign.Help" xml:space="preserve">
+    <value>Horizontal alignment of the image in the slide.</value>
+  </data>
+  <data name="lblAlign.Text" xml:space="preserve">
+    <value>Align</value>
+  </data>
+  <data name="lblAnimation.Help" xml:space="preserve">
+    <value>Set the animation of the slides.</value>
+  </data>
+  <data name="lblAnimation.Text" xml:space="preserve">
+    <value>Animation</value>
+  </data>
+  <data name="lblAnimDuration.Help" xml:space="preserve">
+    <value>Set the animation duration in milliseconds.</value>
+  </data>
+  <data name="lblAnimDuration.Text" xml:space="preserve">
+    <value>Animation Duration</value>
+  </data>
+  <data name="lblAnimRegister.Help" xml:space="preserve">
+    <value>Add custom animations to the animations list available in random mode.</value>
+  </data>
+  <data name="lblAnimRegister.Text" xml:space="preserve">
+    <value>Animation Register</value>
+  </data>
+  <data name="lblAutoplay.Help" xml:space="preserve">
+    <value>Start the Slideshow automatically.</value>
+  </data>
+  <data name="lblAutoplay.Text" xml:space="preserve">
+    <value>Autoplay</value>
+  </data>
+  <data name="lblColor.Help" xml:space="preserve">
+    <value>Slide background color.</value>
+  </data>
+  <data name="lblColor.Text" xml:space="preserve">
+    <value>Background Color</value>
+  </data>
+  <data name="lblCover.Help" xml:space="preserve">
+    <value>"true" the slide image is scaled to fit the container. "false" the slide image is displayed entirely. "repeat" the slide image is repeated.</value>
+  </data>
+  <data name="lblCover.Text" xml:space="preserve">
+    <value>Cover</value>
+  </data>
+  <data name="lblDelay.Help" xml:space="preserve">
+    <value>Delay beetween slides in milliseconds.</value>
+  </data>
+  <data name="lblDelay.Text" xml:space="preserve">
+    <value>Delay</value>
+  </data>
+  <data name="lblOverlay.Help" xml:space="preserve">
+    <value>Display/hide the overlay.</value>
+  </data>
+  <data name="lblOverlay.Text" xml:space="preserve">
+    <value>Overlay</value>
+  </data>
+  <data name="lblPreload.Help" xml:space="preserve">
+    <value>Preload both images and videos at start.</value>
+  </data>
+  <data name="lblPreload.Text" xml:space="preserve">
+    <value>Preload</value>
+  </data>
+  <data name="lblPreloadImage.Help" xml:space="preserve">
+    <value>Preload images at start. "Preload" must be false.</value>
+  </data>
+  <data name="lblPreloadImage.Text" xml:space="preserve">
+    <value>Preload Image</value>
+  </data>
+  <data name="lblPreloadVideo.Help" xml:space="preserve">
+    <value>Preload videos at start. "Preload" must be false.</value>
+  </data>
+  <data name="lblPreloadVideo.Text" xml:space="preserve">
+    <value>Preload Video</value>
+  </data>
+  <data name="lblRotatorType.Help" xml:space="preserve">
+    <value>Choose the Rotator type</value>
+  </data>
+  <data name="lblRotatorType.Text" xml:space="preserve">
+    <value>Rotator Type</value>
+  </data>
+  <data name="lblShuffle.Help" xml:space="preserve">
+    <value>The array of slides is shuffled before.</value>
+  </data>
+  <data name="lblShuffle.Text" xml:space="preserve">
+    <value>Shuffle</value>
+  </data>
+  <data name="lblSlide.Help" xml:space="preserve">
+    <value>Index number of initial slide.</value>
+  </data>
+  <data name="lblSlide.Text" xml:space="preserve">
+    <value>Slide</value>
+  </data>
+  <data name="lblSlides.Help" xml:space="preserve">
+    <value>Array of slides.</value>
+  </data>
+  <data name="lblSlides.Text" xml:space="preserve">
+    <value>Slides</value>
+  </data>
+  <data name="lblTimer.Help" xml:space="preserve">
+    <value>Display/hide timer bar.</value>
+  </data>
+  <data name="lblTimer.Text" xml:space="preserve">
+    <value>Timer</value>
+  </data>
+  <data name="lblTransDuration.Help" xml:space="preserve">
+    <value>Set the transition duration in milliseconds.</value>
+  </data>
+  <data name="lblTransDuration.Text" xml:space="preserve">
+    <value>Transition Duration</value>
+  </data>
+  <data name="lblTransition.Help" xml:space="preserve">
+    <value>Set the transition between slides.</value>
+  </data>
+  <data name="lblTransition.Text" xml:space="preserve">
+    <value>Transition</value>
+  </data>
+  <data name="lblTransRegister.Help" xml:space="preserve">
+    <value>Add custom transitions to the transitions list available in random mode.</value>
+  </data>
+  <data name="lblTransRegister.Text" xml:space="preserve">
+    <value>Transition Register</value>
+  </data>
+  <data name="lblVAlign.Help" xml:space="preserve">
+    <value>Vertical alignment of the image in the slide.</value>
+  </data>
+  <data name="lblVAlign.Text" xml:space="preserve">
+    <value>Vertical Align</value>
+  </data>
+  <data name="Title.Text" xml:space="preserve">
+    <value>JSImageRotator - Settings</value>
   </data>
 </root>

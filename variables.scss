@@ -25,29 +25,44 @@ $large:             #333;
 
 //$tooltip:           rgba(59,30,119, 0.9);
 $tooltip:           rgba(0,0,0, 0.8);
-$overlay:           rgba(0,0,0,0.75);
-
-$activeColor: #27ae60; //green
-$darkenColor: darken($activeColor, 20%);
+//$overlay:           rgba(0,0,0,0.75);
+$overlay:           rgba(255,255,255,0.7);
+$activeColor:       #27ae60; //green
+$darkenColor:       darken($activeColor, 20%);
 
 $dark: rgba(59,30,119, 1);
 $dark-alpha-null: rgba(59,30,119, 0);
+$dark-alpha-xsm: rgba(59,30,119, 0.15);
 $dark-alpha: rgba(59,30,119, 0.25);
 $dark-alpha-md: rgba(59,30,119, 0.5);
 $dark-alpha-lg: rgba(59,30,119, 0.7);
 $dark-alpha-xlg: rgba(59,30,119, 0.8);
+$dark-alpha-hover: rgba(59,30,119, 0.05);
 
 $light: rgba(255,255,255, 1);
 $light-alpha-null: rgba(255,255,255, 0);
+$light-alpha-xsm: rgba(255,255,255, 0.15);
 $light-alpha: rgba(255,255,255, 0.35);
 $light-alpha-md: rgba(255,255,255, 0.5);
 $light-alpha-lg: rgba(255,255,255, 0.7);
 $light-alpha-xlg: rgba(255,255,255, 0.8);
 
+
 $none: none;
 $all: all 300ms ease-out;
 $bgColor: background-color 300ms ease-out;
 $color: color 300ms ease-out;
+$width: width 3000ms ease-out;
+
+
+@keyframes roll {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 @mixin bg-size($bgsize){
     -webkit-background-size: $bgsize;
@@ -75,6 +90,13 @@ $color: color 300ms ease-out;
 	-moz-transition: $transitions;
 	-o-transition: $transitions;
 	transition: $transitions;
+}
+
+@mixin transition-delay($delay) {
+    -webkit-transition-delay: $delay;
+    -moz-transition-delay: $delay;
+    -o-transition-delay: $delay;
+    transition-delay: $delay;
 }
 
 @mixin border-radius($radius) {

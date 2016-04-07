@@ -164,6 +164,7 @@ namespace JS.Modules.JSImageRotator
                 btnShowAddNewList.ToolTip = "Create New List";
                 lblJsonTitle.Text = "Update Image Lists";
                 btnSubmit.Text = "Update And Save";
+                btnSubmit.ToolTip = "Update And Save";
             }
             else
             {
@@ -179,6 +180,7 @@ namespace JS.Modules.JSImageRotator
                 btnShowAddNewList.ToolTip = "Edit Available Lists";
                 lblJsonTitle.Text = "Create Image Lists";
                 btnSubmit.Text = "Create And Save";
+                btnSubmit.ToolTip = "Create And Save";
             }
         }
 
@@ -205,8 +207,8 @@ namespace JS.Modules.JSImageRotator
         protected void btnDeleteList_Click(object sender, EventArgs e)
         {
             pnlConfirmDelete.Visible = true;
-            pnlConfirmDelete.CssClass = "DeleteList dnnFormItem popup warning";
-            lblConfirmIcon.CssClass = "popup-icon link-delete";
+            pnlConfirmDelete.CssClass = "DeleteList dnnFormItem popup confirm-box warning";
+            lblConfirmIcon.CssClass = "popup-icon link-delete no-txt";
             lblConfirmDelete.Text = "Are you sure you want to Delete this List!";
         }
 
@@ -300,15 +302,16 @@ namespace JS.Modules.JSImageRotator
                     {
                         imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = true;
                         tableRow.CssClass = "active";
-                        lnkDelete.CssClass = "btn btn-primary link-cancel";
+                        lnkDelete.CssClass = "btn btn-primary link-cancel no-txt";
                         lnkDelete.ToolTip = "Cancel";
                         btnEdit.ToolTip = "Save";
-                        btnEdit.CssClass = "btn btn-primary link-save";
+                        btnEdit.CssClass = "btn btn-primary link-save no-txt";
 
                         pnlOverlay.Visible = true;
-                        lblEditIcon.CssClass = "popup-icon link-edit";
-                        //btnEdit.Text = "Save";
-                        //btnEdit.Text = "<i class='fa fa-floppy-o'></i>";
+                        pnlOverlay.CssClass = "dnnFormItem popup overlay";
+
+                        lblOverlayIcon.CssClass = "popup-icon link-edit-square no-txt";
+                        lblOverlayMsg.Text = "Edit selected slide";
                     }
                     else
                     {
@@ -320,16 +323,13 @@ namespace JS.Modules.JSImageRotator
                         ic.UpdateImage(i);
                         imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = false;
                         tableRow.CssClass = "";
-                        lnkDelete.CssClass = "btn btn-danger link-delete";
+                        lnkDelete.CssClass = "btn btn-danger link-delete no-txt";
                         lnkDelete.ToolTip = "Delete";
                         btnEdit.ToolTip = "Edit";
-                        btnEdit.CssClass = "btn btn-primary link-edit";
+                        btnEdit.CssClass = "btn btn-primary link-edit no-txt";
 
                         pnlOverlay.Visible = false;
-                        lblEditIcon.CssClass = "";
 
-                        //btnEdit.Text = "Edit";
-                        //btnEdit.Text = "<i class='fa fa-pencil'></i>";
                     }
                 }
             }
@@ -359,8 +359,8 @@ namespace JS.Modules.JSImageRotator
                     if (!imgTitle.Enabled)
                     {
                         pnlConfirmDelete.Visible = true;
-                        pnlConfirmDelete.CssClass = "DeleteImage dnnFormItem popup warning";
-                        lblConfirmIcon.CssClass = "popup-icon link-delete";
+                        pnlConfirmDelete.CssClass = "DeleteImage dnnFormItem popup confirm-box warning";
+                        lblConfirmIcon.CssClass = "popup-icon link-delete no-txt";
                         lblConfirmDelete.Text = "Are you sure you want to Delete this Image!";
                         lblDeleteImageID.Text = imgId.Text;
                         lblDeleteImageUrl.Text = imgPreview.ImageUrl;
@@ -373,8 +373,8 @@ namespace JS.Modules.JSImageRotator
                         lnkDelete.ToolTip = "Delete";
                         btnEdit.ToolTip = "Edit";
                         btnEdit.CssClass = "btn btn-primary link-edit";
-                        //btnEdit.Text = "Edit";
-                        //btnEdit.Text = "<i class='fa fa-pencil'></i>";
+                        pnlOverlay.Visible = false;
+                        
                     }
                     break;
                 }
@@ -399,11 +399,12 @@ namespace JS.Modules.JSImageRotator
                 if (img.IsSelected)
                 {
                     ImageJ li = new ImageJ();
-                    li.ImageTitle = img.ImageTitle;
-                    li.ImageDescription = img.ImageDescription;
-                    li.ImagePhotographer = img.ImagePhotographer;
-                    li.ImageContact = img.ImageContact;
-                    li.ImageUrl = img.ImageUrl;
+                    li.Title = img.ImageTitle;
+                    li.Description = img.ImageDescription;
+                    li.Photographer = img.ImagePhotographer;
+                    li.Contact = img.ImageContact;
+                    string src = img.ImageUrl.Remove(0, 1);
+                    li.src = src;
                     Slides.Add(li);
                 }
             }
@@ -501,23 +502,23 @@ namespace JS.Modules.JSImageRotator
             if (!selectedImagePresent && listName == "")
             {
                 pnlPopUp.Visible = true;
-                pnlPopUp.CssClass = "dnnFormItem popup warning";
-                lblPopUpIcon.CssClass = "popup-icon link-warning";
-                lblListAdded.Text = "No Image Selected and FileName field is empty";
+                pnlPopUp.CssClass = "dnnFormItem popup auto-close-box warning";
+                lblPopUpIcon.CssClass = "popup-icon link-warning no-txt";
+                lblListAdded.Text = "No image selected and filename field is empty";
             }
             else if (!selectedImagePresent && listName != "")
             {
                 pnlPopUp.Visible = true;
-                pnlPopUp.CssClass = "dnnFormItem popup warning";
-                lblPopUpIcon.CssClass = "popup-icon link-warning";
+                pnlPopUp.CssClass = "dnnFormItem popup auto-close-box warning";
+                lblPopUpIcon.CssClass = "popup-icon link-warning no-txt";
                 lblListAdded.Text = "No Image Selected";
             }
             else if (selectedImagePresent && listName == "")
             {
                 pnlPopUp.Visible = true;
-                pnlPopUp.CssClass = "dnnFormItem popup warning";
-                lblPopUpIcon.CssClass = "popup-icon link-warning";
-                lblListAdded.Text = "FileName field is empty";
+                pnlPopUp.CssClass = "dnnFormItem popup auto-close-box warning";
+                lblPopUpIcon.CssClass = "popup-icon link-warning no-txt";
+                lblListAdded.Text = "Filename field is empty";
             }
             else if (!lstExists)
             {
@@ -528,9 +529,9 @@ namespace JS.Modules.JSImageRotator
                 };
                 ic.AddImageList(nil);
                 pnlPopUp.Visible = true;
-                pnlPopUp.CssClass = "dnnFormItem popup success";
-                lblPopUpIcon.CssClass = "popup-icon link-success";
-                lblListAdded.Text = "Added List " + listName + " with Selected Images";
+                pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
+                lblPopUpIcon.CssClass = "popup-icon link-success no-txt";
+                lblListAdded.Text = "\"" + listName + "\" was created with selected images";
                 txtFileName.Text = "";
                 lstSelectList.Items.Add(listName);
                 btnShowAddNewList.Enabled = lnkSelect.Enabled = true;
@@ -538,9 +539,9 @@ namespace JS.Modules.JSImageRotator
             else
             {
                 pnlPopUp.Visible = true;
-                pnlPopUp.CssClass = "dnnFormItem popup success";
-                lblPopUpIcon.CssClass = "popup-icon link-success";
-                lblListAdded.Text = "Updated List " + listName + " with Selected Images";
+                pnlPopUp.CssClass = "dnnFormItem popup auto-close-box success";
+                lblPopUpIcon.CssClass = "popup-icon link-success no-txt";
+                lblListAdded.Text = "\"" + listName + "\" was updated with selected images";
                 txtFileName.Text = "";
             }
         }

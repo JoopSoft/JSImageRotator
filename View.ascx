@@ -6,10 +6,15 @@
 
 <div class="JSRotator">
 
-    <!--BG CONTROLS-->
-    <div class="container ppControlHolder">
-        <button id="ppControl" type="button"></button>
-        <label id="ppLabel"></label>
+    <%--BG CONTROLS--%>
+    <div class="ppControlHolder body">
+        <div class="btn-group">
+            <button id="ppControl" type="button" class="btn btn-primary" 
+                data-toggle="tooltip" title="Pause"></button>
+            <button id="ppInfo" type="button" class="btn btn-primary" 
+                data-toggle="tooltip" title="Info"></button>
+        </div>
+        <div id="ppLabel"></div>
     </div>
 </div>
 
@@ -17,21 +22,20 @@
 <script type="text/javascript" src="<%= ModulePath %>Js/main.js"></script>
 
 <script type="text/javascript">
-    //var $localPath = '/Portals/0/',
     var $localPath = '<%= ModulePath %>Images/',
+        //$localPath = '/Portals/0/',
         $modulePath = '<%= ModulePath %>',
-
-        <%--$skinPath = '<%= SkinPath %>',--%>
 
         $play = 'fa-play-circle-o',
         $pause = 'fa-pause-circle-o',
-        $camera = 'fa-camera';
+        $info = '<i class="fa fa-info fa-2x"></i>',
+        $camera = '<i class="fa fa-camera"></i>',
+        $image = '<i class="fa fa-image"></i>',
+        $mail = '<i class="fa fa-envelope"></i>',
 
-    var $jsonData = 'json/';
+        $jsonData = $modulePath + 'Json/Slides.json';
 
-
-
-    //console.log($modulePath + ' / ' + $localPath);
+    //console.log($modulePath + ' / ' + $localPath + ' / ' + $jsonData);
 
     //$('#playControl').on('click', function () {
     //    $('body').vegas('play');
@@ -40,46 +44,78 @@
     //    $('body').vegas('pause');
     //});
 
-    $('#ppControl').html('<i class="fa ' + $pause + ' fa-5x"></i>');
+    $('#ppControl')
+        .html('<i class="fa ' + $pause + ' fa-2x"></i>')
+        .bind('click', function () {
+            $('body').vegas('toggle');
 
-    $('#ppControl').bind('click', function () {
-        $('body').vegas('toggle');
+            $(this).find('i').toggleClass($play + ' ' + $pause);
+        });
 
-        $(this).find('i').toggleClass($play + ' ' + $pause);
-
-    });
-
-    //$(function () {
-    //    $('body').vegas({
-    //        delay: 30000,
-    //        timer: true,
-    //        shuffle: true,
-    //        transition: 'fade',
-    //        transitionDuration: 3000,
-    //        animation: 'random',
-    //        autoplay: false,
-    //        overlay: $modulePath + '/Vegas/overlays/01.png',
-    //        slides: [
-    //            { src: $localPath + '1.jpg',  photographer: 'Mihail Hubchev - Winter in Shiroka laka village' }//,
-    //            //{ src: $localPath + '2.jpg',  photographer: 'Teodor Varbanov' },
-    //            //{ src: $localPath + '3.jpg',  photographer: 'Vanya Padalova' },
-    //            //{ src: $localPath + '4.jpg',  photographer: 'Tencho Petkov - Monyak pano' },
-    //            //{ src: $localPath + '5.jpg',  photographer: 'Alexander Karadzhov' },
-    //            //{ src: $localPath + '6.jpg',  photographer: 'Elena Mandjukova' },
-    //            //{ src: $localPath + '7.jpg',  photographer: 'Borislava Ivanova - Lake' },
-    //            //{ src: $localPath + '8.jpg',  photographer: 'Gergana Todorova - Lake' },
-    //            //{ src: $localPath + '9.jpg',  photographer: 'Ivailo Madzharov - "Autumn"' },
-    //            //{ src: $localPath + '10.jpg', photographer: 'Chavdar Selinski - "Old bridge"' },
-    //            //{ src: $localPath + '11.jpg', photographer: 'Chavdar Selinski - "Agushev konak" - Mogilitsa village' },
-    //            //{ src: $localPath + '12.jpg', photographer: 'Mihail Hubchev - Church "St. Visarion Smolyanski" - Smolyan' },
-    //            //{ src: $localPath + '13.jpg', photographer: 'Mihail Hubchev - "Winter"' }
-    //        ],
-    //        walk: function (index, slideSettings) {
-    //            //console.log("Slide index " + index + " image " + slideSettings.src + '' + slideSettings.photographer);
-    //            $('#ppLabel').html('<i class="fa ' + $camera + '"></i> ' + slideSettings.photographer);
-    //
-    //        }
-    //    });
+    $('#ppInfo')
+        .html($info);
+    //.popover({
+    //    title: slideSettings.Title,
+    //    content: '<span>' + $camera + ' ' + slideSettings.Photographer + '</span><span>' + $mail + ' <a href="mailto:' + slideSettings.Contact + '" title="Send mail to ' + slideSettings.Contact + '">' + slideSettings.Contact + '</a></span>',
+    //    template: '<div class="popover" role="tooltip">'
+    //                + '<div class="arrow"></div>'
+    //                + '<h3 class="popover-title"></h3>'
+    //                + '<div class="popover-content"></div>'
+    //              + '</div>',
+    //    placement: 'bottom'
     //});
-    //
+
+    function jqXHR(url, beforeLoad, cache) {
+        return $.ajax({
+            url: url,
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            type: 'get',
+            cache: cache,
+            beforeSend: beforeLoad
+        })
+		.always(function () {
+		    //console.log("complete");
+		});
+    }
+
+    //GET CUSTOM ELEMENTS JSON CONTENT
+    jqXHR($jsonData,
+            function () {
+                //console.log('Before load func');
+            }, false)
+    		.done(function (data) {
+    		    var $slides = data.slides;
+
+    		    console.log($slides);
+
+    		    $('body').vegas({
+    		        delay: 30000,
+    		        timer: true,
+    		        shuffle: true,
+    		        transition: 'fade',
+    		        transitionDuration: 3000,
+    		        animation: null, //'random',
+    		        autoplay: false,
+    		        overlay: $modulePath + '/Vegas/overlays/01.png',
+                    slides: $slides,
+    		        walk: function (index, slideSettings) {
+    		            //console.log("Slide index " + index + " image " + slideSettings.src + '' + slideSettings.photographer);
+    		            //$('#ppLabel')
+                        //    .html('<h3>' + slideSettings.Title + '</h3>'
+                        //            //+ '<span>' + $image + ' ' + slideSettings.Description + '</span>'
+                        //            + '<span>' + $camera + ' ' + slideSettings.Photographer + '</span>'
+                        //            + '<span>' + $mail + ' <a href="mailto:' + slideSettings.Contact + '" title="Send mail to ' + slideSettings.Contact + '">' + slideSettings.Contact + '</a></span>'                    
+                        //        );
+
+                    }
+    		    });
+
+    		})
+    		.fail(function (jqXHR, textStatus) {
+    		    console.log('Error func');
+    		});
+
+
+
 </script>

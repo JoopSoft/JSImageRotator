@@ -1,0 +1,111 @@
+http://vegas.jaysalvat.com/documentation/settings/
+
+
+SETTINGS
+Slideshow options and settings
+
+-----------------------------------------------------------------------------------------------------------
+OPTION					DEFAULT			DESCRIPTION
+-----------------------------------------------------------------------------------------------------------
+slide					0				Index number of initial slide.
+
+preload					false			Preload both images and videos at start.
+
+preload­Image			false			Preload images at start. "Preload" must be false.
+
+preload­Video			false			Preload videos at start. "Preload" must be false.
+
+timer					true			Display/hide timer bar. The timer class is .vegas-timer-progress .
+
+overlay					false			Display/hide the overlay. 
+										Could be true false or the path of an overlay image pattern. These image can be found in the overlays folder. 
+										Read the Overlay section for more information.
+
+autoplay				true			Start the Slideshow automatically.
+
+shuffle					false			The array of slides is shuffled before.
+
+delay					5000			Delay beetween slides in milliseconds.
+
+cover					true			"true" the slide image is scaled to fit the container. 
+										"false" the slide image is displayed entirely. 
+										"repeat" the slide image is repeated.
+
+color					-				Slide background color.
+
+align					center			Horizontal alignment of the image in the slide. 
+										Could be center top right bottom left or a percentage.
+
+valign					center			Vertical alignment of the image in the slide.
+										Could be center top right bottom left or a percentage.
+
+transition				fade			Set the transition between slides. 
+										Could be a transition name, random or an array of transition picked randomly.
+										Read the Transition section for more information.
+
+transition­Duration		1000			Set the transition duration in milliseconds. 
+										Could be auto so the transition duration will be equal to the slide delay.
+
+transition­Register		-				Add custom transitions to the transitions list available in random mode. 
+										Read the Transition section for more information.
+
+animation				-				Set the animation of the slides. 
+										Could be an animation name, random or an array of transition picked randomly.
+										Read the Transition section for more information.
+
+animation­Duration		auto			Set the animation duration in milliseconds. 
+										Could be auto so the animation duration will be equal to the slide delay .
+
+animation­Register		-				Add custom animations to the animations list available in random mode. 
+										Read the Transition section for more information.
+
+slides					-				Array of slides.
+										Read the slide option section for more information.
+-----------------------------------------------------------------------------------------------------------
+
+SLIDE SETTINGS
+Specific slide options and settings.
+
+-----------------------------------------------------------------------------------------------------------
+OPTION					DEFAULT			DESCRIPTION
+-----------------------------------------------------------------------------------------------------------
+src						-				Path of the image.
+
+video					-				Path of the video. Could be a string or an array of sources.
+										Read the Video section for more information.
+delay					5000			Delay beetween slides in milliseconds.
+
+cover					true			true the background image is scaled to fit the container.
+										false the background image is displayed entirely.
+color					-				Slide background color.
+
+align					center			Horizontal alignment of the image in the slide.
+										Could be center top right bottom left or a percentage.
+valign					center			Vertical alignment of the image in the slide.
+										Could be center top right bottom left or a percentage.
+transition				fade			Set the transition of this slide. Could be a transition name, random or an array of transition picked randomly.
+										Read the Transition section for more information.
+transition­Duration		1000			Set the transition duration in milliseconds. Could be auto so the transition duration will be equal to the slide delay .
+
+animation				-				Set the animation of this slide. Could be an animation name, random or an array of transition picked randomly.
+										Read the Transition section for more information.
+animation­Duration		auto			Set the animation duration in milliseconds. Could be auto so the animation duration will be equal to the slide delay .
+-----------------------------------------------------------------------------------------------------------
+
+
+CALLBACKS AND EVENTS
+VEGAS provides callback functions and events triggers on init, play, pause and slide change.
+
+-----------------------------------------------------------------------------------------------------------
+OPTION					EVENT			DESCRIPTION
+-----------------------------------------------------------------------------------------------------------
+init					vegasinit		Function called when Vegas is applied to an element.
+play					vegasplay		Function called when Vegas starts to play the slideshow.
+pause					vegaspause		Function called when Vegas pauses the slideshow.
+walk					vegaswalk		Function called when Vegas changes the slide.
+-----------------------------------------------------------------------------------------------------------
+
+
+
+
+

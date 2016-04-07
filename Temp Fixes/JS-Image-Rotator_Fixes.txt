@@ -1,64 +1,28 @@
-﻿Working Here [AddNewImge]: Чупи ми се ЕДИТА след като добавя нова снимка ако не съществува във някой от списъците
+﻿!Done [Edit]: Да се направят CLOSE EVENTS на всички попъпи за всички съобщения, които са налични..
 
-Done [AddNewImge]: Ако имаме създаден списък да имаме дропдаун, който да ни позволява след [+] Add да се добавя към избрания от този списък и да бъде чекнат в таблицата на ЕДИТА. (Ако нямаме създаден списък дропдауна да не се показва)
+!Done [Edit]: Ако е възможно :) да се унифицира попъпа в кода за CONFIRMАTION & STANDART POP-UPS, т.е да се ползва една контрола в която да се зарежда различен тип инфо в еднакви тагове..
 
-Done [AddNewImge]: Снимка и Delete бутон visible toggle on image uploded
+EDIT: Remove autopostback method from C# for all check box in table
 
-Done [Edit]: Когато сме в режим на избор от дропдауна бутона CREATE да става UPDATE (ToolTip: Update List) и да обновява списъка при чекване на някои от записите..(Мисля, че ивента работи, но е хубаво да се погледне).
+EDIT: Duplicate popup in update mode
 
-	*Заб: Да бъде видим/активен само при направени промени в таблицата
+ADDIMAGE: pnlImgSelected, pnlAddToList - hidden(Before uploaded)
 
-Done [Edit]: CREATE IMAGE LISTS в левия горен ъгъл, да се променя при смяна на избор на режима на редакция на списъците, т.е при дропдаун да показва едно заглавие при създаване на нов списък да се показва друго..
+ADD IMAGE: Delete popup after closing don't hide grouped image, delete and image name text..(After uploaded)
 
-Done [Edit]: Когато редактираме ред от таблицата и само когато сме в активен режим на редакция да се:
+ADD, EDIT, SELECT: Hide dnnFormMessage control buttons when is not needed.. 
+	add custom classes: reps.: 
+	- no-controls - no buttons
+	- one-controls - 1 button
+	- two-controls - 2 buttons
+	- three-controls - 3 buttons
+	- four-controls - 4 button (max number of buttons)
 
-	//- Добавя бутон след имиджа, чрез който да се извиква попъп за избор от качените до този момент имиджи..
-	Done - Да се добавя клас 'active' само на реда, който се редактира
-	Done - Тогълва DELETE бутона с CANCEL такъв, който да отказва промяната
+	*Optional: Settings link button from these popups..
 
-Done [Edit]: Да се опита чек-боксовете да се чекват без да се извиква POSTBACK 	*Можем да опитаме с някакъв скрипт.. :)
+VIEW: First add image button on view when we've no record yet..
 
-Done [Edit]: Да се направят CLOSE EVENTS на всички попъпи за всички съобщения, които са налични..
-
-Done [Edit]: Ако е възможно :) да се унифицира попъпа в кода за CONFIRMАTION & STANDART POP-UPS, т.е да се ползва една контрола в която да се зарежда различен тип инфо в еднакви тагове..
-
-Done [Select]: DELETE бутона не изтрива текущия списък, Confirm box не се показва..
-
-Done [Select]: SAVE primary action => SELECT LIST, като при изход прилага избрания списък и го зарежда във VIEW
-
-
-
-Done [View]: Де се създаве JSON структура с име на масива, с едно постоянно име, което да не се променя	
-
-
-
-[Дискусии]: 
-	- Как да бъдат зареждани иконите в модулите(Директно в C# кода или през javascript)
-
-Done JSON Structure:
-
-{
-	"slides": [
-		{ 
-			"src": "2.jpg", 
-			"photographer": "Teodor Varbanov" 
-			...
-		},
-		{ 
-			"src": "2.jpg", 
-			"photographer": "Teodor Varbanov" 
-			...
-		},
-		...
-		{ 
-			"src": "2.jpg", 
-			"photographer": "Teodor Varbanov" 
-			...
-		}
-	]
-}	
-
-
+SETTINGS: Animation and Transition should be with example box (How it looks like each of effects) 
 
 
 

@@ -7,10 +7,10 @@ namespace JS.Modules.JSImageRotator.Components
 {
     public class ImageJ
     {
-        public string ImageTitle { get; set; }
-        public string ImageDescription { get; set; }
-        public string ImagePhotographer { get; set; }
-        public string ImageContact { get; set; }
-        public string ImageUrl { get; set; }
+        public string src { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Photographer { get; set; }
+        public string Contact { get; set; }
     }
 }

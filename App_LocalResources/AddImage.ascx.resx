@@ -124,7 +124,7 @@
     <value>Cancel</value>
   </data>
   <data name="btnSubmit.Text" xml:space="preserve">
-    <value>Image List</value>
+    <value>Image Lists</value>
   </data>
   <data name="btnUpload.Text" xml:space="preserve">
     <value>Upload</value>
@@ -163,7 +163,7 @@
     <value>Title</value>
   </data>
   <data name="btnAddImage.Text" xml:space="preserve">
-    <value>Add New</value>
+    <value>Add Image</value>
   </data>
   <data name="btnDeleteImg.Text" xml:space="preserve">
     <value>Delete</value>
@@ -176,5 +176,8 @@
   </data>
   <data name="lblConfirmDelete.Text" xml:space="preserve">
     <value>Are you sure you want to Delete this Image!</value>
+  </data>
+  <data name="btnYes.Text" xml:space="preserve">
+    <value>Delete</value>
   </data>
 </root>
