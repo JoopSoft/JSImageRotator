@@ -31,6 +31,42 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.DropDownList ddRotatorType;
         
         /// <summary>
+        /// lblPPControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblPPControl;
+        
+        /// <summary>
+        /// cbPPControl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbPPControl;
+        
+        /// <summary>
+        /// lblSlideInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblSlideInfo;
+        
+        /// <summary>
+        /// cbSlideInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbSlideInfo;
+        
+        /// <summary>
         /// lblSlide control.
         /// </summary>
         /// <remarks>

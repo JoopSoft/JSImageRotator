@@ -294,9 +294,7 @@
             title: null,
             width: '50%' 
         });
-
-
-
+        
     });
 
 }(jQuery, window.Sys));

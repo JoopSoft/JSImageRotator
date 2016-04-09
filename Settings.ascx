@@ -22,6 +22,16 @@
                 </asp:DropDownList>
             </div>
             <div class="dnnFormItem">
+                <dnn:Label ID="lblPPControl" runat="server" />
+                <asp:CheckBox ID="cbPPControl" runat="server"
+                    Checked="true" />
+            </div>
+            <div class="dnnFormItem">
+                <dnn:Label ID="lblSlideInfo" runat="server" />
+                <asp:CheckBox ID="cbSlideInfo" runat="server" 
+                    Checked="true" />
+            </div>
+            <div class="dnnFormItem">
                 <dnn:Label ID="lblSlide" runat="server" />
                 <asp:TextBox ID="txtSlide" runat="server" CssClass="form-control"
                     Text="0" />
@@ -136,7 +146,7 @@
             <div class="dnnFormItem group">
                 <dnn:Label ID="lblAnimation" runat="server" />
                 <asp:DropDownList ID="ddAnimation" runat="server" CssClass="selectpicker multi-select" multiple >
-                    <asp:ListItem>Random</asp:ListItem>                    
+                    <asp:ListItem>Random</asp:ListItem>
                     <asp:ListItem>Kenburns</asp:ListItem>
                     <asp:ListItem>Kenburns Up</asp:ListItem>
                     <asp:ListItem>Kenburns Down</asp:ListItem>
@@ -159,16 +169,22 @@
             </div>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblSlides" runat="server" />
-                <asp:TextBox ID="txtSlides" runat="server" CssClass="form-control" 
+                <asp:TextBox ID="txtSlides" runat="server" CssClass="form-control"
                     Text="Json/Slides.json" Enabled="false" />
-            </div>            
+            </div>
             
         </fieldset>
     </div>
 </div>
 
+<script type="text/javascript">
+
+    var $fullURL = '<%= ModulePath %>';
+    //console.log($fullURL);
+</script>
+
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 
 <%--<script type="text/javascript" src="<%= ModulePath %>Ellipsis/jquery.ellipsis.min.js"></script>--%>
-<script type="text/javascript" src="<%= ModulePath %>Js/main.js"></script>
+<script type="text/javascript" src="<%= ModulePath %>Js/main.js" defer></script>

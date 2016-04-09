@@ -19,7 +19,7 @@
 </div>
 
 <script type="text/javascript" src="<%= ModulePath %>Vegas/vegas.min.js"></script>
-<script type="text/javascript" src="<%= ModulePath %>Js/main.js"></script>
+<script type="text/javascript" src="<%= ModulePath %>Js/main.js" defer></script>
 
 <script type="text/javascript">
     var $localPath = '<%= ModulePath %>Images/',
@@ -98,7 +98,17 @@
     		        animation: null, //'random',
     		        autoplay: false,
     		        overlay: $modulePath + '/Vegas/overlays/01.png',
-                    slides: $slides,
+    		        slides: $slides,
+
+    		        init: function (globalSettings) {
+    		            console.log("Init");
+    		        },
+    		        play: function (index, slideSettings) {
+    		            console.log("Play");
+    		        },
+    		        pause: function (index, slideSettings) {
+    		            console.log("Pause");   
+    		        },
     		        walk: function (index, slideSettings) {
     		            //console.log("Slide index " + index + " image " + slideSettings.src + '' + slideSettings.photographer);
     		            //$('#ppLabel')
@@ -108,7 +118,8 @@
                         //            + '<span>' + $mail + ' <a href="mailto:' + slideSettings.Contact + '" title="Send mail to ' + slideSettings.Contact + '">' + slideSettings.Contact + '</a></span>'                    
                         //        );
 
-                    }
+    		        }
+    		        
     		    });
 
     		})

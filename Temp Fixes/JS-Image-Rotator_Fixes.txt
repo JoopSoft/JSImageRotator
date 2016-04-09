@@ -16,14 +16,25 @@ ADD, EDIT, SELECT: Hide dnnFormMessage control buttons when is not needed..
 	- one-controls - 1 button
 	- two-controls - 2 buttons
 	- three-controls - 3 buttons
-	- four-controls - 4 button (max number of buttons)
+	- four-controls - 4 buttons (max number of buttons)
 
 	*Optional: Settings link button from these popups..
 
 VIEW: First add image button on view when we've no record yet..
 
-SETTINGS: Animation and Transition should be with example box (How it looks like each of effects) 
+SETTINGS: Animation and Transition should be with example box (How it looks like each effects) 
 
+SETTINGS: 
+	- Allign & Valign options - Enable/Disable
+	- Transition & Animation options - Enable/Disable
+
+* All Text field must be validated by RequiredFieldValidator control:
+	Ex.: <asp:requiredfieldvalidator id="valPassword" runat="server" cssclass="NormalRed" display="Dynamic" errormessage="<br>Password Is Required."
+				controltovalidate="txtPassword" resourcekey="valPassword"></asp:requiredfieldvalidator></td>
+		 <asp:comparevalidator id="valConfirm2" runat="server" cssclass="NormalRed" display="Dynamic" errormessage="<br>Password Values Entered Do Not Match."
+		 	controltovalidate="txtConfirm" resourcekey="valConfirm2" controltocompare="txtPassword"></asp:comparevalidator></td>
+		 <asp:regularexpressionvalidator id="valEmail2" runat="server" cssclass="NormalRed" display="Dynamic" errormessage="<br>Email Must be Valid."
+		 	controltovalidate="txtEmail" resourcekey="valEmail2" validationexpression="[\w\.-]+(\+[\w-]*)?@([\w-]+\.)+[\w-]+"></asp:regularexpressionvalidator></td>
 
 
 

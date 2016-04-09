@@ -252,4 +252,16 @@
   <data name="Title.Text" xml:space="preserve">
     <value>JSImageRotator - Settings</value>
   </data>
+  <data name="lblPPControl.Help" xml:space="preserve">
+    <value>Show/Hide play/pause controls.</value>
+  </data>
+  <data name="lblPPControl.Text" xml:space="preserve">
+    <value>Play/Pause Control</value>
+  </data>
+  <data name="lblSlideInfo.Help" xml:space="preserve">
+    <value>Show/Hide slide info controls.</value>
+  </data>
+  <data name="lblSlideInfo.Text" xml:space="preserve">
+    <value>Slide Info</value>
+  </data>
 </root>
