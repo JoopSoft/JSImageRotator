@@ -15,16 +15,16 @@
         </div>
         <div class="dnnFormSectionHead">
             <div class="dnnFormItem JSRotatorMenu">
-                <h3 class="dnnFormMessage two-controls dnnFormTitle no-spacing">
+                <asp:Panel ID="headerMenu" runat="server" CssClass="dnnFormMessage two-controls dnnFormTitle no-spacing">
                     <asp:Label ID="lblAddedImage" runat="server" Text="Adding New Image" />
-                </h3>
+                </asp:Panel>
                 <%--<asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add no-txt"
                     data-toggle="tooltip" ToolTip="Add New Image" />--%>
 
-                <asp:HyperLink ID="btnSubmit" runat="server" CssClass="btn btn-primary link-edit-square no-txt" 
+                <asp:HyperLink ID="btnEdit" runat="server" CssClass="btn btn-primary link-edit-square no-txt" 
                     data-toggle="tooltip" ToolTip="Edit Lists" Visible="true" />
 
-                <asp:HyperLink ID="lnkSelect" runat="server" CssClass="btn btn-primary link-list no-txt"
+                <asp:HyperLink ID="btnLists" runat="server" CssClass="btn btn-primary link-list no-txt"
                     data-toggle="tooltip" ToolTip="View Image Lists" Visible="true" />
 
                 <%--<asp:LinkButton ID="btnShowAddNewList" runat="server" CssClass="btn btn-primary link-exch no-txt" 
@@ -39,20 +39,19 @@
                 <asp:LinkButton ID="btnImageUpload" runat="server" CssClass="dnnSecondaryAction link-upload"  
                     OnClick="btnImageUpload_Click" ResourceKey="btnUpload" />
             </div>
-            <asp:Panel ID="pnlImgSelected" runat="server" CssClass="dnnFormItem group">
+            <asp:Panel ID="pnlImgSelected" runat="server" CssClass="dnnFormItem group" Visible="false">
                 <dnn:label ID="lblImgSelected" runat="server" />
                 <asp:Image ID="imgPreview" runat="server" CssClass="rotator-image" 
-                    Visible="false" AlternateText="Rotator Image" ImageUrl="~/DesktopModules/JSNewsModule/Images/Default Image.png" />
-                <asp:LinkButton ID="btnDeleteImg" runat="server" CssClass="btn btn-danger link-delete" Visible="false" 
+                    AlternateText="Rotator Image" ImageUrl="~/DesktopModules/JSNewsModule/Images/Default Image.png" />
+                <asp:LinkButton ID="btnDeleteImg" runat="server" CssClass="btn btn-danger link-delete" 
                     OnClick="btnDeleteImg_Click" ResourceKey="btnDeleteImg" />
                 <asp:TextBox ID="txtImageUrl" runat="server" CssClass="form-control txt-img-url" Enabled="false" />
             </asp:Panel>
-            <asp:Panel ID="pnlAddToList" runat="server" CssClass="dnnFormItem group">
-                <dnn:label ID="lblAvailableLists" runat="server" Visible="false" />
-                <asp:CheckBox ID="cbAddToList" runat="server" Visible="false" 
+            <asp:Panel ID="pnlAddToList" runat="server" CssClass="dnnFormItem group" Visible="false">
+                <dnn:label ID="lblAvailableLists" runat="server" />
+                <asp:CheckBox ID="cbAddToList" runat="server" 
                     OnCheckedChanged="cbAddToList_CheckedChanged" AutoPostBack="true" />
-                <asp:DropDownList ID="lstAvailableLists" runat="server" CssClass="selectpicker show-tick single-select cb-group"
-                    Visible="false" />
+                <asp:DropDownList ID="lstAvailableLists" runat="server" CssClass="selectpicker show-tick single-select cb-group" Visible="false" />
             </asp:Panel>
             
             <asp:Panel ID="pnlConfirmDelete" runat="server" Visible="false">

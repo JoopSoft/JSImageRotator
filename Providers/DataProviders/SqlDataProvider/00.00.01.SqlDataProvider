@@ -22,7 +22,7 @@ CREATE TABLE {databaseOwner}{objectQualifier}JSImageRotator_Images
 	[ImageUrl] NVARCHAR(MAX) NOT NULL,
 	[ListsIn] NVARCHAR(MAX) NULL,
 	[IsSelected] BIT NOT NULL,
-	[ModuleId] INT NOT NULL,
+	[ModuleId] INT NOT NULL
 )
 GO
 
@@ -38,13 +38,56 @@ CREATE TABLE {databaseOwner}{objectQualifier}JSImageRotator_ImageLists
 (
 	[ImageListId] INT NOT NULL IDENTITY (1, 1),
 	[ListName] NVARCHAR(MAX) NOT NULL,
-	[ModuleId] INT NOT NULL,
+	[ModuleId] INT NOT NULL
 )
 GO
 
 
 ALTER TABLE {databaseOwner}[{objectQualifier}JSImageRotator_ImageLists] ADD CONSTRAINT [PK_{objectQualifier}JSImageRotator_ImageLists] PRIMARY KEY CLUSTERED ([ImageListId])
 GO
+
+IF EXISTS (SELECT * FROM sys.objects WHERE [object_id] = OBJECT_ID(N'{databaseOwner}[{objectQualifier}JSImageRotator_Settings]') AND type in (N'U'))
+	DROP TABLE {databaseOwner}[{objectQualifier}JSImageRotator_Settings]
+GO
+
+CREATE TABLE {databaseOwner}{objectQualifier}JSImageRotator_Settings
+(
+	[SettingsId] INT NOT NULL,
+	[RotatorType] NVARCHAR(MAX) NOT NULL,
+	[PlayPauseControl] BIT NOT NULL,
+	[SlideInfo] BIT NOT NULL,
+	[Preload] BIT NOT NULL,
+	[PreloadImage] BIT NOT NULL,
+	[PreloadVideo] BIT NOT NULL,
+	[Timer] BIT NOT NULL,
+	[Overlay] BIT NOT NULL,
+	[Autoplay] BIT NOT NULL,
+	[Shuffle] BIT NOT NULL,
+	[Delay] INT NOT NULL,
+	[Cover] BIT NOT NULL,
+	[BackgroundColor] NVARCHAR(MAX) NULL,
+	[Align] NVARCHAR(MAX) NOT NULL,
+	[VerticalAlign] NVARCHAR(MAX) NOT NULL,
+	[Transition] NVARCHAR(MAX) NOT NULL,
+	[TransitionDuration] INT NOT NULL,
+	[TransitionRegister] NVARCHAR(MAX) NULL,
+	[Animation] NVARCHAR(MAX) NOT NULL,
+	[AnimationDuration] INT NOT NULL,
+	[AnimationRegister] NVARCHAR(MAX) NULL
+)
+GO
+
+
+ALTER TABLE {databaseOwner}[{objectQualifier}JSImageRotator_Settings] ADD CONSTRAINT [PK_{objectQualifier}JSImageRotator_Settings] PRIMARY KEY CLUSTERED ([SettingsId])
+GO
+
+INSERT INTO {databaseOwner}[{objectQualifier}JSImageRotator_Settings]
+([SettingsId], [RotatorType], [PlayPauseControl], [SlideInfo], [Preload], [PreloadImage], [PreloadVideo], [Timer], [Overlay], [Autoplay], [Shuffle], [Delay], [Cover], [BackgroundColor],
+ [Align], [VerticalAlign], [Transition], [TransitionDuration], [TransitionRegister], [Animation], [AnimationDuration], [AnimationRegister])
+VALUES
+(0, 'Body', 1, 1, 0, 0, 0, 1, 0, 1, 0, 5000, 1, null, 'Center', 'Center', 'Random', 1000, null, 'Select', 5000, null)
+GO
+
 
 
 /************************************************************/

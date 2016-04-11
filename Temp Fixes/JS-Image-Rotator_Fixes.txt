@@ -1,16 +1,12 @@
-﻿!Done [Edit]: Да се направят CLOSE EVENTS на всички попъпи за всички съобщения, които са налични..
+﻿[Done] EDIT: Remove autopostback method from C# for all check box in table
 
-!Done [Edit]: Ако е възможно :) да се унифицира попъпа в кода за CONFIRMАTION & STANDART POP-UPS, т.е да се ползва една контрола в която да се зарежда различен тип инфо в еднакви тагове..
+[Done] EDIT: Duplicate popup in update mode
 
-EDIT: Remove autopostback method from C# for all check box in table
+[Done] ADDIMAGE: pnlImgSelected, pnlAddToList - hidden(Before uploaded)
 
-EDIT: Duplicate popup in update mode
+[Done] ADD IMAGE: Delete popup after closing don't hide grouped image, delete and image name text..(After uploaded)
 
-ADDIMAGE: pnlImgSelected, pnlAddToList - hidden(Before uploaded)
-
-ADD IMAGE: Delete popup after closing don't hide grouped image, delete and image name text..(After uploaded)
-
-ADD, EDIT, SELECT: Hide dnnFormMessage control buttons when is not needed.. 
+[Done] ADD, EDIT, SELECT: Hide dnnFormMessage control buttons when is not needed.. 
 	add custom classes: reps.: 
 	- no-controls - no buttons
 	- one-controls - 1 button
@@ -20,7 +16,7 @@ ADD, EDIT, SELECT: Hide dnnFormMessage control buttons when is not needed..
 
 	*Optional: Settings link button from these popups..
 
-VIEW: First add image button on view when we've no record yet..
+[Done] VIEW: First add image button on view when we've no record yet..
 
 SETTINGS: Animation and Transition should be with example box (How it looks like each effects) 
 

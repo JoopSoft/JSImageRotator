@@ -34,7 +34,7 @@
             <div class="dnnFormItem">
                 <dnn:Label ID="lblSlide" runat="server" />
                 <asp:TextBox ID="txtSlide" runat="server" CssClass="form-control"
-                    Text="0" />
+                    Text="0" Enabled="false" />
             </div>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblPreload" runat="server" />

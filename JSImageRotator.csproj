@@ -80,6 +80,7 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\CustomSettings.cs" />
     <Compile Include="Components\FeatureController.cs" />
     <Compile Include="Components\ImageController.cs" />
     <Compile Include="Components\ImageJ.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="AddImage.ascx.designer.cs">
       <DependentUpon>AddImage.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Components\SettingsController.cs" />
     <Compile Include="Select.ascx.cs">
       <DependentUpon>Select.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

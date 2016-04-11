@@ -46,7 +46,7 @@ namespace JS.Modules.JSImageRotator
                 if (!Page.IsPostBack)
                 {
                     lnkAdd.NavigateUrl = EditUrl("AddImage");
-                    lnkSelect.NavigateUrl = EditUrl("Select");
+                    lnkLists.NavigateUrl = EditUrl("Select");
                     bool listPresent = false;
                     var ic = new ImageController();
                     var il = ic.GetLists(ModuleId);
@@ -60,7 +60,7 @@ namespace JS.Modules.JSImageRotator
                     }
                     if (!listPresent)
                     {
-                        btnShowAddNewList.Enabled = lnkSelect.Enabled = false;
+                        btnShowAddNewList.Enabled = lnkLists.Enabled = false;
                     }
                     var i = ic.GetImages(ModuleId);
                     bool allSelected = true;
@@ -87,6 +87,7 @@ namespace JS.Modules.JSImageRotator
                     }
                     rptImageList.DataSource = ic.GetImages(ModuleId);
                     rptImageList.DataBind();
+                    ShowHideMenuControls();
                 }
             }
             catch (Exception exc) //Module failed to load
@@ -109,6 +110,7 @@ namespace JS.Modules.JSImageRotator
 
         protected void cbSelect_CheckedChanged(object sender, EventArgs e)
         {
+            pnlPopUp.Visible = false;
             var ic = new ImageController();
             bool allChecked = true;
             foreach (RepeaterItem ri in rptImageList.Items)
@@ -133,6 +135,7 @@ namespace JS.Modules.JSImageRotator
 
         protected void cbSelectAll_CheckedChanged(object sender, EventArgs e)
         {
+            pnlPopUp.Visible = false;
             var ic = new ImageController();
             var i = ic.GetImages(ModuleId);
             foreach (var img in i)
@@ -146,11 +149,14 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnAddUpdateList_Click(object sender, EventArgs e)
         {
+            pnlPopUp.Visible = false;
             AddUpdateList();
+            ShowHideMenuControls();
         }
 
         protected void btnShowAddNewList_Click(object sender, EventArgs e)
         {
+            pnlPopUp.Visible = false;
             if (btnAddUpdateList.Text == "Create")
             {
                 lblFileName.Visible = txtFileName.Visible = false;
@@ -186,6 +192,7 @@ namespace JS.Modules.JSImageRotator
 
         protected void lstSelectList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            pnlPopUp.Visible = false;
             var ic = new ImageController();
             var ai = ic.GetImages(ModuleId);
             foreach (var i in ai)
@@ -206,6 +213,7 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnDeleteList_Click(object sender, EventArgs e)
         {
+            pnlPopUp.Visible = false;
             pnlConfirmDelete.Visible = true;
             pnlConfirmDelete.CssClass = "DeleteList dnnFormItem popup confirm-box warning";
             lblConfirmIcon.CssClass = "popup-icon link-delete no-txt";
@@ -214,6 +222,7 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnYes_Click(object sender, EventArgs e)
         {
+            pnlPopUp.Visible = false;
             var ic = new ImageController();
             if (pnlConfirmDelete.CssClass.Contains("DeleteList"))
             {
@@ -248,7 +257,7 @@ namespace JS.Modules.JSImageRotator
                     lblFileName.Visible = txtFileName.Visible = true;
                     lblSelectList.Visible = lstSelectList.Visible = btnDeleteList.Visible = false;
                     btnAddUpdateList.Text = "Create";
-                    btnShowAddNewList.Enabled = lnkSelect.Enabled = false;
+                    btnShowAddNewList.Enabled = lnkLists.Enabled = false;
                 }
                 foreach (var img in ai)
                 {
@@ -263,6 +272,8 @@ namespace JS.Modules.JSImageRotator
             }
             else if (pnlConfirmDelete.CssClass.Contains("DeleteImage"))
             {
+                bool notEmptyList = false;
+                bool imagePresent = false;
                 ic.DeleteImage(Convert.ToInt32(lblDeleteImageID.Text), ModuleId);
                 File.Delete(Server.MapPath(lblDeleteImageUrl.Text));
                 rptImageList.DataSource = ic.GetImages(ModuleId);
@@ -270,12 +281,38 @@ namespace JS.Modules.JSImageRotator
                 pnlConfirmDelete.Visible = false;
                 pnlConfirmDelete.CssClass = "";
                 lblConfirmIcon.CssClass = "";
+                var ai = ic.GetImages(ModuleId);
+                var al = ic.GetLists(ModuleId);
+                foreach (var lst in al)
+                {
+                    foreach (var img in ai)
+                    {
+                        if (img.ListsIn.Contains(lst.ListName))
+                        {
+                            notEmptyList = true;
+                        }
+                    }
+                    if (!notEmptyList)
+                    {
+                        ic.DeleteList(lst.ImageListId, ModuleId);
+                    }
+                    notEmptyList = false;
+                }
+                foreach (var img in ai)
+                {
+                    imagePresent = true;
+                }
+                if (!imagePresent)
+                {
+                    Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
+                }
             }
+            ShowHideMenuControls();
         }
 
         protected void btnNo_Click(object sender, EventArgs e)
         {
-            //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
+            pnlPopUp.Visible = false;
             pnlConfirmDelete.Visible = false;
             pnlConfirmDelete.CssClass = "";
             lblConfirmIcon.CssClass = "";
@@ -285,6 +322,7 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
+            pnlPopUp.Visible = false;
             var ic = new ImageController();
             foreach (RepeaterItem ri in rptImageList.Items)
             {
@@ -342,6 +380,7 @@ namespace JS.Modules.JSImageRotator
 
         protected void lnkDelete_Click(object sender, EventArgs e)
         {
+            pnlPopUp.Visible = false;
             var ic = new ImageController();
             foreach (RepeaterItem ri in rptImageList.Items)
             {
@@ -374,7 +413,6 @@ namespace JS.Modules.JSImageRotator
                         btnEdit.ToolTip = "Edit";
                         btnEdit.CssClass = "btn btn-primary link-edit";
                         pnlOverlay.Visible = false;
-                        
                     }
                     break;
                 }
@@ -534,7 +572,7 @@ namespace JS.Modules.JSImageRotator
                 lblListAdded.Text = "\"" + listName + "\" was created with selected images";
                 txtFileName.Text = "";
                 lstSelectList.Items.Add(listName);
-                btnShowAddNewList.Enabled = lnkSelect.Enabled = true;
+                btnShowAddNewList.Enabled = lnkLists.Enabled = true;
             }
             else
             {
@@ -545,6 +583,33 @@ namespace JS.Modules.JSImageRotator
                 txtFileName.Text = "";
             }
         }
+
+        protected void ShowHideMenuControls()
+        {
+            bool listPresent = false;
+            var ic = new ImageController();
+            var al = ic.GetLists(ModuleId);
+            var ai = ic.GetImages(ModuleId);
+            foreach (var lst in al)
+            {
+                if (lst.ImageListId != 0)
+                {
+                    listPresent = true;
+                    break;
+                }
+            }
+            if (listPresent)
+            {
+                btnShowAddNewList.Visible = lnkLists.Visible = true;
+                headerMenu.CssClass = "dnnFormMessage three-controls dnnFormTitle no-spacing";
+            }
+            else
+            {
+                btnShowAddNewList.Visible = lnkLists.Visible = false;
+                headerMenu.CssClass = "dnnFormMessage one-control dnnFormTitle no-spacing";
+            }
+        }
+
 
         #region Unused Methods
         //protected void btnShowSelectList_Click(object sender, EventArgs e)

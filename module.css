@@ -83,7 +83,7 @@
           font-size: 1.286em; }
           .JSRotator .dnnForm .dnnFormSectionHead .JSRotatorMenu .dnnFormMessage.no-controls {
             width: 100%; }
-          .JSRotator .dnnForm .dnnFormSectionHead .JSRotatorMenu .dnnFormMessage.one-controls {
+          .JSRotator .dnnForm .dnnFormSectionHead .JSRotatorMenu .dnnFormMessage.one-control {
             width: calc(100% - 45px); }
           .JSRotator .dnnForm .dnnFormSectionHead .JSRotatorMenu .dnnFormMessage.two-controls {
             width: calc(100% - 90px); }

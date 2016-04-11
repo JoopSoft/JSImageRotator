@@ -228,6 +228,7 @@
         $('.JSRotator table tbody .cbSelect input:checkbox').bind('change', function () {
             var $n = $('.JSRotator table tbody .cbSelect input:checked').length,
                 $t = $('.JSRotator table tbody .cbSelect input:checkbox').length;
+           
 
             if ($n === $t) $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', true);
             else $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', false);

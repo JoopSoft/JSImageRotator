@@ -16,6 +16,7 @@ namespace JS.Modules.JSImageRotator.Components
 {
     class ImageController
     {
+        //Image Controllers
         public void AddImage(Images i)
         {
             using (IDataContext ctx = DataContext.Instance())
@@ -70,6 +71,8 @@ namespace JS.Modules.JSImageRotator.Components
                 rep.Update(i);
             }
         }
+
+        //List Controllers
         public ImageLists GetList(int listId, int moduleId)
         {
             ImageLists l;
@@ -115,7 +118,5 @@ namespace JS.Modules.JSImageRotator.Components
                 rep.Delete(l);
             }
         }
-
-
     }
 }

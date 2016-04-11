@@ -65,14 +65,6 @@
       <name>View.ascx.resx</name>
     </file>
     <file>
-      <path>Documentation/</path>
-      <name>Documentation.css</name>
-    </file>
-    <file>
-      <path>Documentation/</path>
-      <name>Documentation.html</name>
-    </file>
-    <file>
       <path>Ellipsis/</path>
       <name>jquery.ellipsis.js</name>
     </file>
@@ -82,11 +74,7 @@
     </file>
     <file>
       <path>Images/</path>
-      <name>11259-1920x1080.jpg</name>
-    </file>
-    <file>
-      <path>Images/</path>
-      <name>3869-1920x1080.jpg</name>
+      <name>Picturesque_scenery_240006.jpg</name>
     </file>
     <file>
       <path>Js/</path>
@@ -95,6 +83,14 @@
     <file>
       <path>Temp Fixes/</path>
       <name>JS-Image-Rotator_Fixes.txt</name>
+    </file>
+    <file>
+      <path>Temp Fixes/</path>
+      <name>JS_Image-Rotator_Bootstrap_Select_Settings.txt</name>
+    </file>
+    <file>
+      <path>Temp Fixes/</path>
+      <name>JS_Image-Rotator_Vegas_Settings.txt</name>
     </file>
     <file>
       <path>Vegas/</path>

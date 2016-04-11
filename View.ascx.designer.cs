@@ -11,5 +11,23 @@ namespace JS.Modules.JSImageRotator {
     
     
     public partial class View {
+        
+        /// <summary>
+        /// pnlFirstButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlFirstButton;
+        
+        /// <summary>
+        /// lnkFirstButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkFirstButton;
     }
 }

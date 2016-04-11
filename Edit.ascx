@@ -17,12 +17,12 @@
         </div>
         <div class="dnnFormSectionHead">
             <div class="dnnFormItem JSRotatorMenu">
-                <h3 class="dnnFormMessage three-controls dnnFormTitle no-spacing">
+                <asp:Panel ID="headerMenu" runat="server" CssClass="dnnFormMessage three-controls dnnFormTitle no-spacing">
                     <asp:Label ID="lblJsonTitle" runat="server" Text="Create Image Lists" />
-                </h3>
+                </asp:Panel>
                 <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add no-txt"
                     data-toggle="tooltip" ToolTip="Add New Image" />
-                <asp:HyperLink ID="lnkSelect" runat="server" CssClass="btn btn-primary link-list no-txt"
+                <asp:HyperLink ID="lnkLists" runat="server" CssClass="btn btn-primary link-list no-txt"
                     data-toggle="tooltip" ToolTip="View Image Lists" />
                 <asp:LinkButton ID="btnShowAddNewList" runat="server" CssClass="btn btn-primary link-exch no-txt" 
                     data-toggle="tooltip" ToolTip="Edit Available Lists"

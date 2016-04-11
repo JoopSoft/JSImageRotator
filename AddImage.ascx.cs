@@ -39,20 +39,9 @@ namespace JS.Modules.JSImageRotator
                 //Implement your edit logic for your module
                 if (!Page.IsPostBack)
                 {
-                    btnSubmit.NavigateUrl = EditUrl();
-                    if (ImageId > 0)
-                    {
-                        var ic = new ImageController();
-                        var i = ic.GetImage(ImageId, ModuleId);
-                        if (i != null)
-                        {
-                            i.ImageUrl = txtImageUrl.Text = i.ImageUrl;
-                            txtTitle.Text = i.ImageTitle;
-                            txtDescription.Text = i.ImageDescription;
-                            txtPhotographer.Text = i.ImagePhotographer;
-                            txtContact.Text = i.ImageContact;
-                        }
-                    }
+                    btnEdit.NavigateUrl = EditUrl();
+                    btnLists.NavigateUrl = EditUrl("Select");
+                    ShowHideMenuControls();
                 }
             }
             catch (Exception exc) //Module failed to load
@@ -86,12 +75,11 @@ namespace JS.Modules.JSImageRotator
                 if (btnImageSelect.FileName != null)
                 {
                     txtImageUrl.Text = btnImageSelect.FileName;
-                    btnDeleteImg.Visible = true;
-                    imgPreview.Visible = true;
+                    pnlImgSelected.Visible = true;
                     imgPreview.ImageUrl = "~/DesktopModules/JSImageRotator/Images/" + btnImageSelect.FileName;
                     if (listPresent)
                     {
-                        lblAvailableLists.Visible = cbAddToList.Visible = true;
+                        pnlAddToList.Visible = true;
                     }
                 }
                 //pnlMsgBox.Visible = true;
@@ -153,7 +141,8 @@ namespace JS.Modules.JSImageRotator
 
                     lblAddedImage.Text = "<i class='fa fa-check'></i> Image Added";
                     txtImageUrl.Text = txtTitle.Text = txtDescription.Text = txtPhotographer.Text = txtContact.Text = "";
-                    lblAvailableLists.Visible = cbAddToList.Visible = lstAvailableLists.Visible = imgPreview.Visible = btnDeleteImg.Visible = false;
+                    pnlImgSelected.Visible = pnlImgSelected.Visible = pnlAddToList.Visible = false;
+                    ShowHideMenuControls();
                 }
                 else
                 {
@@ -174,7 +163,6 @@ namespace JS.Modules.JSImageRotator
             pnlConfirmDelete.Visible = true;
             pnlConfirmDelete.CssClass = "dnnFormItem popup confirm-box warning";
             lblConfirmIcon.CssClass = "popup-icon link-delete";
-            lblAvailableLists.Visible = cbAddToList.Visible = imgPreview.Visible = btnDeleteImg.Visible = false;
             //pnlMsgBox.Visible = false;
         }
 
@@ -185,7 +173,7 @@ namespace JS.Modules.JSImageRotator
             pnlConfirmDelete.Visible = false;
             pnlConfirmDelete.CssClass = "";
             lblConfirmIcon.CssClass = "";
-            lblAvailableLists.Visible = cbAddToList.Visible = lstAvailableLists.Visible = imgPreview.Visible = btnDeleteImg.Visible = false;
+            pnlImgSelected.Visible = pnlAddToList.Visible = false;
             txtImageUrl.Text = "";
             //pnlMsgBox.Visible = true;
             lblAddedImage.Text = "<i class='fa fa-check'></i> Image Deleted";
@@ -193,11 +181,9 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnNo_Click(object sender, EventArgs e)
         {
-            //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
             pnlConfirmDelete.Visible = false;
             pnlConfirmDelete.CssClass = "";
             lblConfirmIcon.CssClass = "";
-            txtImageUrl.Text = "";
         }
 
         protected void cbAddToList_CheckedChanged(object sender, EventArgs e)
@@ -214,6 +200,50 @@ namespace JS.Modules.JSImageRotator
                 }
             }
             //pnlMsgBox.Visible = false;
+        }
+
+        protected void ShowHideMenuControls()
+        {
+            bool listPresent = false;
+            bool imagePresent = false;
+            var ic = new ImageController();
+            var al = ic.GetLists(ModuleId);
+            var ai = ic.GetImages(ModuleId);
+            foreach (var lst in al)
+            {
+                if (lst.ImageListId != 0)
+                {
+                    listPresent = true;
+                    break;
+                }
+            }
+            foreach (var img in ai)
+            {
+                if (img.ImageId != 0)
+                {
+                    imagePresent = true;
+                    break;
+                }
+            }
+            if (imagePresent)
+            {
+                if (listPresent)
+                {
+                    btnEdit.Visible = btnLists.Visible = true;
+                    headerMenu.CssClass = "dnnFormMessage two-controls dnnFormTitle no-spacing";
+                }
+                else
+                {
+                    btnEdit.Visible = true;
+                    btnLists.Visible = false;
+                    headerMenu.CssClass = "dnnFormMessage one-control dnnFormTitle no-spacing";
+                }
+            }
+            else
+            {
+                btnEdit.Visible = btnLists.Visible = false;
+                headerMenu.CssClass = "dnnFormMessage no-controls dnnFormTitle no-spacing";
+            }
         }
     }
 }

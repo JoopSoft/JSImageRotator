@@ -41,6 +41,47 @@ namespace JS.Modules.JSImageRotator
         {
             try
             {
+                if (IsEditable)
+                {
+                    var ic = new ImageController();
+                    var ai = ic.GetImages(ModuleId);
+                    var al = ic.GetLists(ModuleId);
+                    bool imagePresent = false;
+                    bool listPresent = false;
+                    foreach (var img in ai)
+                    {
+                        imagePresent = true;
+                    }
+                    foreach (var lst in al)
+                    {
+                        listPresent = true;
+                    }
+                    if (imagePresent)
+                    {
+                        if (listPresent)
+                        {
+                            pnlFirstButton.Visible = false;
+                        }
+                        else
+                        {
+                            pnlFirstButton.Visible = true;
+                            lnkFirstButton.Text = "Create Image List";
+                            lnkFirstButton.ToolTip = "Create Image List";
+                            lnkFirstButton.NavigateUrl = EditUrl();
+                        }
+                    }
+                    else
+                    {
+                        pnlFirstButton.Visible = true;
+                        lnkFirstButton.Text = "Add Image";
+                        lnkFirstButton.ToolTip = "Add Image";
+                        lnkFirstButton.NavigateUrl = EditUrl("AddImage");
+                    }
+                }
+                else
+                {
+                    pnlFirstButton.Visible = false;
+                }
             }
             catch (Exception exc) //Module failed to load
             {
@@ -52,12 +93,50 @@ namespace JS.Modules.JSImageRotator
         {
             get
             {
+                var ic = new ImageController();
+                var ai = ic.GetImages(ModuleId);
+                var al = ic.GetLists(ModuleId);
+                bool imagePresent = false;
+                bool listPresent = false;
+                foreach (var img in ai)
+                {
+                    imagePresent = true;
+                }
+                foreach (var lst in al)
+                {
+                    listPresent = true;
+                }
                 var actions = new ModuleActionCollection
+                {
                     {
+                        GetNextActionID(), Localization.GetString("AddImage", LocalResourceFile), "", "", "",
+                        EditUrl("AddImage"), false, SecurityAccessLevel.Edit, true, false
+                    }
+                };
+                if (imagePresent)
+                {
+                    if (listPresent)
+                    {
+                        actions = new ModuleActionCollection
+                    {
+                        {
+                            GetNextActionID(), Localization.GetString("AddImage", LocalResourceFile), "", "", "",
+                            EditUrl("AddImage"), false, SecurityAccessLevel.Edit, true, false
+                        },
+                        {
+                            GetNextActionID(), Localization.GetString("EditModule", LocalResourceFile), "", "", "",
+                            EditUrl(), false, SecurityAccessLevel.Edit, true, false
+                        },
                         {
                             GetNextActionID(), Localization.GetString("Select", LocalResourceFile), "", "", "",
                             EditUrl("Select"), false, SecurityAccessLevel.Edit, true, false
-                        },
+                        }
+                    };
+                    }
+                    else
+                    {
+                        actions = new ModuleActionCollection
+                    {
                         {
                             GetNextActionID(), Localization.GetString("AddImage", LocalResourceFile), "", "", "",
                             EditUrl("AddImage"), false, SecurityAccessLevel.Edit, true, false
@@ -67,6 +146,8 @@ namespace JS.Modules.JSImageRotator
                             EditUrl(), false, SecurityAccessLevel.Edit, true, false
                         }
                     };
+                    }
+                }
                 return actions;
             }
         }

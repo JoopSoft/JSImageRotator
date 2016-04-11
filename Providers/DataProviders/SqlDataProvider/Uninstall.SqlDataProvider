@@ -5,3 +5,8 @@ GO
 IF EXISTS (SELECT * FROM sys.objects WHERE [object_id] = OBJECT_ID(N'{databaseOwner}[{objectQualifier}JSImageRotator_ImageLists]') AND type in (N'U'))
 	DROP TABLE {databaseOwner}[{objectQualifier}JSImageRotator_ImageLists]
 GO
+
+IF EXISTS (SELECT * FROM sys.objects WHERE [object_id] = OBJECT_ID(N'{databaseOwner}[{objectQualifier}JSImageRotator_Settings]') AND type in (N'U'))
+	DROP TABLE {databaseOwner}[{objectQualifier}JSImageRotator_Settings]
+GO
+

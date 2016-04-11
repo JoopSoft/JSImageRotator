@@ -17,7 +17,9 @@
         <div id="ppLabel"></div>
     </div>
 </div>
-
+<asp:Panel ID="pnlFirstButton" runat="server">
+    <asp:HyperLink ID="lnkFirstButton" runat="server" CssClass="btn btn-primary" />
+</asp:Panel>
 <script type="text/javascript" src="<%= ModulePath %>Vegas/vegas.min.js"></script>
 <script type="text/javascript" src="<%= ModulePath %>Js/main.js" defer></script>
 
@@ -25,6 +27,7 @@
     var $localPath = '<%= ModulePath %>Images/',
         //$localPath = '/Portals/0/',
         $modulePath = '<%= ModulePath %>',
+        $moduleId = '.DnnModule-<%= ModuleId %>',
 
         $play = 'fa-play-circle-o',
         $pause = 'fa-pause-circle-o',
@@ -34,8 +37,9 @@
         $mail = '<i class="fa fa-envelope"></i>',
 
         $jsonData = $modulePath + 'Json/Slides.json';
-
+    
     //console.log($modulePath + ' / ' + $localPath + ' / ' + $jsonData);
+    console.log($moduleId);
 
     //$('#playControl').on('click', function () {
     //    $('body').vegas('play');
@@ -89,8 +93,12 @@
 
     		    console.log($slides);
 
-    		    $('body').vegas({
-    		        delay: 30000,
+    		    $('body')
+    		    //$($moduleId)
+                //    .addClass('JSRotator-container')
+                //    .parent()
+                    .vegas({
+    		            delay: 30000,
     		        timer: true,
     		        shuffle: true,
     		        transition: 'fade',

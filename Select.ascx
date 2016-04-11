@@ -41,7 +41,8 @@
                         <asp:Label ID="lblConfirmDelete" runat="server" CssClass="popup-msg" ResourceKey="lblConfirmDelete" Visible="false" />
                     </h3>
                     <asp:LinkButton ID="btnYes" runat="server" CssClass="btn btn-danger link-delete" 
-                        OnClick="btnYes_Click" resourcekey="btnYes" />
+                        OnClick="btnYes_Click" resourcekey="btnYes"></asp:LinkButton>
+
                     <asp:LinkButton ID="btnNo" runat="server" CssClass="btn btn-default link-cancel"
                         OnClick="btnNo_Click" resourcekey="btnNo" />
                 </div>
@@ -69,8 +70,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <asp:Repeater ID="rptImageList" runat="server" 
-                            OnItemDataBound="rptImages_ItemDataBound" OnItemCommand="rptImages_ItemCommand">
+                        <asp:Repeater ID="rptImageList" runat="server">
                             <HeaderTemplate>
                             </HeaderTemplate>
                             <ItemTemplate>

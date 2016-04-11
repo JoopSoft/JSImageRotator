@@ -87,26 +87,6 @@ namespace JS.Modules.JSImageRotator
             Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
         }
 
-        public void rptImages_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            if (e.CommandName == "Delete")
-            {
-                var ic = new ImageController();
-                ic.DeleteImage(Convert.ToInt32(e.CommandArgument), ModuleId);
-                rptImageList.DataSource = ic.GetImages(ModuleId);
-                rptImageList.DataBind();
-            }
-
-        }
-
-        protected void rptImages_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
-            {
-                var i = (Images)e.Item.DataItem;
-            }
-        }
-
         protected void lstImageLists_SelectedIndexChanged(object sender, EventArgs e)
         {
             var ic = new ImageController();
@@ -127,7 +107,6 @@ namespace JS.Modules.JSImageRotator
         {
             pnlConfirmDelete.Visible = true;
             pnlConfirmDelete.CssClass = "dnnFormItem popup warning";
-            //lblConfirmIcon.CssClass = "popup-icon link-delete";
         }
 
         protected void btnYes_Click(object sender, EventArgs e)
@@ -166,6 +145,16 @@ namespace JS.Modules.JSImageRotator
             pnlConfirmDelete.Visible = false;
             rptImageList.DataSource = dbi;
             rptImageList.DataBind();
+            bool listPresent = false;
+            il = ic.GetLists(ModuleId);
+            foreach (var lst in il)
+            {
+                listPresent = true;
+            }
+            if (!listPresent)
+            {
+                Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
+            }
         }
 
         protected void btnNo_Click(object sender, EventArgs e)

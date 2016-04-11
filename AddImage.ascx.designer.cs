@@ -13,6 +13,15 @@ namespace JS.Modules.JSImageRotator {
     public partial class AddImage {
         
         /// <summary>
+        /// headerMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel headerMenu;
+        
+        /// <summary>
         /// lblAddedImage control.
         /// </summary>
         /// <remarks>
@@ -22,22 +31,22 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.Label lblAddedImage;
         
         /// <summary>
-        /// btnSubmit control.
+        /// btnEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink btnSubmit;
+        protected global::System.Web.UI.WebControls.HyperLink btnEdit;
         
         /// <summary>
-        /// lnkSelect control.
+        /// btnLists control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkSelect;
+        protected global::System.Web.UI.WebControls.HyperLink btnLists;
         
         /// <summary>
         /// lblImage control.

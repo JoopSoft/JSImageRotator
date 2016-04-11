@@ -13,6 +13,15 @@ namespace JS.Modules.JSImageRotator {
     public partial class Edit {
         
         /// <summary>
+        /// headerMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel headerMenu;
+        
+        /// <summary>
         /// lblJsonTitle control.
         /// </summary>
         /// <remarks>
@@ -31,13 +40,13 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.HyperLink lnkAdd;
         
         /// <summary>
-        /// lnkSelect control.
+        /// lnkLists control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkSelect;
+        protected global::System.Web.UI.WebControls.HyperLink lnkLists;
         
         /// <summary>
         /// btnShowAddNewList control.
