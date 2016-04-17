@@ -1,4 +1,6 @@
 ﻿/*globals jQuery, window, Sys */
+'use strict';
+
 (function ($, Sys) {
     //function dnnEditBasicSettings() {
     //    $('#dnnEditBasicSettings').dnnPanels();
@@ -13,36 +15,38 @@
         //});
 
         //CUSTOM MODULE FOR CHECKING EXISTING AN ELEMENS
-        $.fn.exists = function () { return this.length > 0; }
+        $.fn.exists = function () {
+            return this.length > 0;
+        };
 
         //CUSTOM SMALL MODULE FOR GET ENTER KEY PRESS
         $.fn.enterKey = function (fnc) {
             return this.each(function () {
                 $(this).keyup(function (ev) {
-                    var keycode = (ev.keyCode ? ev.keyCode : ev.which);
+                    var keycode = ev.keyCode ? ev.keyCode : ev.which;
                     if (keycode == 13) {
                         fnc.call(this, ev);
                     }
-                })
-            })
-        }
+                });
+            });
+        };
         //CUSTOM SMALL MODULE FOR GET ESCAPE KEY PRESS
         $.fn.escapeKey = function (fnc) {
             return this.each(function () {
                 $(this).keyup(function (ev) {
-                    var keycode = (ev.keyCode ? ev.keyCode : ev.which);
+                    var keycode = ev.keyCode ? ev.keyCode : ev.which;
                     if (keycode == '27') {
                         fnc.call(this, ev);
                         console.log('asdafsjghd');
                     }
-                })
-            })
-        }
+                });
+            });
+        };
 
         $.fn.JSKeyUp = function () {
             return this.each(function () {
                 $(this).keyup(function (e) {
-                    var code = (e.keyCode ? e.keyCode : e.which);
+                    var code = e.keyCode ? e.keyCode : e.which;
 
                     switch (code) {
                         case 27:
@@ -55,11 +59,9 @@
                             alert('SPACE');
                             break;
                     }
-
-                })
-            })
-        }
-
+                });
+            });
+        };
 
         var $lnkAdd = '<i class="fa fa-plus-circle"></i>',
             $lnkEdit = '<i class="fa fa-pencil"></i>',
@@ -78,7 +80,6 @@
             $lnkImage = '<i class="fa fa-picture-o"></i>',
             $lnkClose = '<i class="fa fa-close"></i>',
             $lnkWarning = '<i class="fa fa-warning"></i>',
-
             $lnkPrev = '<i class="fa fa-angle-left"></i>',
             $lnkNext = '<i class="fa fa-angle-right"></i>',
             $largeIcon = 'fa-lg';
@@ -127,7 +128,6 @@
 
         $('.JSRotator a.dnnFormHelp').prepend($lnkInfo);
 
-
         //CUTTING TEXT BY ELLIPSIS PLUGIN
         if ($('.JSRotator .select .ellipsis').exists()) $('.JSRotator .select .ellipsis').ellipsis({
             row: 2,
@@ -139,52 +139,39 @@
             onlyFullWords: false
         });
 
-
-
         //FUNCTIONS BY BOOTSTRAP FRAMEWORK
         //$('.JSRotator [data-toggle="collapse"]').collapse();
 
         //$('.JSRotator [data-toggle="popover"]').popover();
 
         //ADDING TOOLTIP TO ALL ELEMENTS CONTAINS DATA-TOGGLE ATTRIBUTES
-        $('.JSRotator [data-toggle="tooltip"]')
-            .tooltip({
-                placement: 'auto bottom',
-            });
-        
+        $('.JSRotator [data-toggle="tooltip"]').tooltip({
+            placement: 'auto bottom'
+        });
 
         $('.dnnFormItem table input[type=text]').focus(function () {
             var $this = $(this);
 
-            $('.dnnFormItem table tr.active td')
-                .addClass('no-edit-cell');
+            $('.dnnFormItem table tr.active td').addClass('no-edit-cell');
 
-            $this
-                .tooltip('destroy')
-                .keyup(function (e) {
-                    var code = (e.keyCode ? e.keyCode : e.which);
-                    if (code === 27) {
-                        $('.dnnFormItem table tr.active td').removeClass('no-edit-cell');
-                        $this.closest('td').removeClass('edit-cell').find('button').remove();
-                        $this.blur().tooltip({ placement: 'auto bottom' });
-                    }
-                })
-                .closest('td').removeClass('no-edit-cell').addClass('edit-cell');
+            $this.tooltip('destroy').keyup(function (e) {
+                var code = e.keyCode ? e.keyCode : e.which;
+                if (code === 27) {
+                    $('.dnnFormItem table tr.active td').removeClass('no-edit-cell');
+                    $this.closest('td').removeClass('edit-cell').find('button').remove();
+                    $this.blur().tooltip({ placement: 'auto bottom' });
+                }
+            }).closest('td').removeClass('no-edit-cell').addClass('edit-cell');
 
-            if (!$this.closest('td').find('button').exists()) $this.closest('td').append($('<button>', { 'class': 'btn btn-primary' })
-                    .html($lnkSuccess)
-                    .bind('click', function () {
-                        $(this).remove();
-                        $('.dnnFormItem table tr.active td').removeClass('no-edit-cell');
-                        $this.closest('td').removeClass('edit-cell');
-                        $this.blur().tooltip({ placement: 'auto bottom' });
-
-                    }))
-                    .find('i').addClass('fa-2x');
+            if (!$this.closest('td').find('button').exists()) $this.closest('td').append($('<button>', { 'class': 'btn btn-primary' }).html($lnkSuccess).bind('click', function () {
+                $(this).remove();
+                $('.dnnFormItem table tr.active td').removeClass('no-edit-cell');
+                $this.closest('td').removeClass('edit-cell');
+                $this.blur().tooltip({ placement: 'auto bottom' });
+            })).find('i').addClass('fa-2x');
         });
 
         $('.dnnFormItem table tr.active td:last').find('i').addClass('fa-lg');
-
 
         //REMOVING TOOLTIPS FROM ALL DISABLED ELEMENTS
         $('.JSRotator [disbled="disabled"], .JSRotator .aspNetDisabled, .JSRotator .dnnDisabled').tooltip('destroy');
@@ -200,8 +187,7 @@
 
             if ($this.is('.auto-close-box')) {
 
-                $this.find('.popup-wrapper')
-                    .append($('<div>', { 'class': 'progress-bar' }).css('width', '0%'));
+                $this.find('.popup-wrapper').append($('<div>', { 'class': 'progress-bar' }).css('width', '0%'));
 
                 var $interval = setInterval(function () {
 
@@ -214,31 +200,48 @@
                         $('.JSRotator .popup.auto-close-box').remove();
                     }
                     //console.log($timer);
-
                 }, 1000);
             }
 
             //if ($this.is('.confirm-box')) $('.JSNews .popup.confirm-box').remove();
-
-
         });
-
 
         //CHECKBOX DEFINITION: SELECT/DESELECT ALL CHECKBOXES
         $('.JSRotator table tbody .cbSelect input:checkbox').bind('change', function () {
             var $n = $('.JSRotator table tbody .cbSelect input:checked').length,
                 $t = $('.JSRotator table tbody .cbSelect input:checkbox').length;
-           
 
-            if ($n === $t) $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', true);
-            else $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', false);
+            if ($n === $t) $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', true);else $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', false);
         });
 
         $('.JSRotator table thead .cbSelectAll input:checkbox').bind('change', function () {
             $('.JSRotator table tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
         });
 
+        //DISPALY/HIDE PANEL DEFINITION
+        $('.JSRotator .hidder input:checkbox').each(function () {
+            var $this = $(this),
+                $target = $this.parent().data('target');
 
+            if ($this.is(':checked')) $($target).removeClass('hidden');else $($target).addClass('hidden');
+        }).bind('change', function () {
+            var $this = $(this),
+                $target = $this.parent().data('target');
+
+            if ($this.is(':checked')) $($target).removeClass('hidden');else $($target).addClass('hidden');
+        });
+
+        $('.JSRotator .unhidder input:checkbox').each(function () {
+            var $this = $(this),
+                $target = $this.parent().data('target');
+
+            if ($this.is(':checked')) $($target).addClass('hidden');else $($target).removeClass('hidden');
+        }).bind('change', function () {
+            var $this = $(this),
+                $target = $this.parent().data('target');
+
+            if ($this.is(':checked')) $($target).addClass('hidden');else $($target).removeClass('hidden');
+        });
 
         //SELECT PICKER CUSTOM PLUGIN DEFINITION
         //SINGLE SELECT OPTIONS
@@ -293,9 +296,8 @@
             style: 'btn-primary',
             tickIcon: 'glyphicon-ok',
             title: null,
-            width: '50%' 
+            width: '50%'
         });
-        
     });
+})(jQuery, window.Sys);
 
-}(jQuery, window.Sys));

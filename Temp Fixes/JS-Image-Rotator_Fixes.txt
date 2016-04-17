@@ -34,3 +34,114 @@ SETTINGS:
 
 
 
+{
+"slides": [
+  {
+    "slideType": "image",
+    "src": "/DesktopModules/JSImageRotator/Images/IMG_1981.JPG",
+    "video": null,
+    "Title": "Shiroka Laka village",
+    "Description": "image desc",
+    "Photographer": "Mihail Hubchev",
+    "Contact": "m.hubchev@abv.bg"
+  },
+  {
+    "slideType": "video",
+    "src": "/DesktopModules/JSImageRotator/Images/IMG_1981.JPG",
+    "video": {
+        "src": "/DesktopModules/JSImageRotator/Videos/IMG_1981.mp4",
+        "loop": false,
+        "mute": true      
+    },
+    "Title": "Shiroka Laka village",
+    "Description": "image desc",
+    "Photographer": "Mihail Hubchev",
+    "Contact": "m.hubchev@abv.bg"
+  },
+  {
+    "slideType": "video",
+    "src": "/DesktopModules/JSImageRotator/Images/IMG_1981.JPG",
+    "video": {
+        "src": [
+            "/DesktopModules/JSImageRotator/Videos/IMG_1981.mp4",
+            "/DesktopModules/JSImageRotator/Videos/IMG_1981.webm",
+            "/DesktopModules/JSImageRotator/Videos/IMG_1981.ogv"
+            ],
+        "loop": false,
+        "mute": true
+        }    
+    },
+    "Title": "Shiroka Laka village",
+    "Description": "image desc",
+    "Photographer": "Mihail Hubchev",
+    "Contact": "m.hubchev@abv.bg"
+],
+
+"settings": [
+    "rotatorType": "body",          // {string:body/container}
+    "ppControl": true,              // {true/false}
+    "slideInfo": true,              // {true/false}
+    "slide": 0,                     // {number}
+    "preload": false,               // {true/false}
+    "preloadImage": false,          // preload must be false
+    "preloadVideo": false,          // preload must be false
+    "timer": true,                  // {true/false}
+    "overlay": false,               // {true/false/string:path}
+    "autoplay": true,               // {true/false}
+    "shuffle": false,               // {true/false}
+    "delay": 5000,                  // {number}
+    "cover": true,                  // {true/false/string:repeat}
+    "backgroundColor": null,        // HEX or RGBA colors
+    
+    "align": "center",              // {string/number}    
+    "vAlign": "center",             // {string/number}
+    
+    "transition": "random",         // {string/array}
+    "transitionDuration": 1000,     // {number/string:auto}
+    "transitionRegister": null,     // {string/array}
+    
+    "animation": "random",          // {string/array}
+    "animationDuration": "auto",    // {number/string:auto}
+    "animationRegister": null       // {string/array}
+    ]
+}
+
+------------------------------------------------------------------------
+
+JSON - All props should be starting with lowercase letter in json structure..
+    
+    
+DONE - [Add Image]: 
+		Add dropdown to select "slideType": "Image", "Video" (Default value : Image) before Image upload group.
+		If video selected adding two new checkboxes:
+			- loop: true/false {Default: false}
+			- mute: true/false {Default: true}
+
+	*LOGIC CONNECTION
+      
+      
+DONE - (*Settings can be addes globally or manually for each of slides..!!!)
+    - Add checkbox "Use global setting" {Default:true} using global settings beneath contact section. 
+        If unchecked show another options that can be saved for each of slides..
+        - animation and transition only
+    
+    //Ex.:
+    // ...
+    //transition: 'slideLeft2',
+    //
+    //    slides: [
+    //        { src: '/img/slide1.jpg' },
+    //        { src: '/img/slide2.jpg', transition: 'slideRight2' }
+    //    ]
+    // ...
+
+	*LOGIC CONNECTION
+
+DONE - [Settings]: Cover checkbox replaced with dropdown with three values -True, False, Repeat..
+	*LOGIC CONNECTION
+	
+DONE - [Settings]: Disabled animationRegister, transitionRegister: Move to 2nd verse of module. 
+	*LOGIC CONNECTION
+	
+
+

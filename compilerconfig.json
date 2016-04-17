@@ -6,5 +6,9 @@
   {
     "outputFile": "variables.css",
     "inputFile": "variables.scss"
+  },
+  {
+    "outputFile": "Js/main.js",
+    "inputFile": "Js/JSScript.js"
   }
 ]

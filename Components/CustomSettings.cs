@@ -29,7 +29,7 @@ namespace JS.Modules.JSImageRotator.Components
         public bool Autoplay { get; set; }
         public bool Shuffle { get; set; }
         public int Delay { get; set; }
-        public bool Cover { get; set; }
+        public string Cover { get; set; }
         public string BackgroundColor { get; set; }
         public string Align { get; set; }
         public string VerticalAlign { get; set; }

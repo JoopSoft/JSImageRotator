@@ -863,6 +863,39 @@
     padding: 0; }
   .JSRotator .bs-searchbox + .bs-actionsbox {
     padding: 0; }
+  .JSRotator .btn {
+    line-height: normal;
+    border: none;
+    padding: 10px 15px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    -o-transition: all 300ms ease-out;
+    transition: all 300ms ease-out; }
+    .JSRotator .btn.btn-primary {
+      background-color: rgba(59, 30, 119, 0.7); }
+      .JSRotator .btn.btn-primary:hover, .JSRotator .btn.btn-primary:focus, .JSRotator .btn.btn-primary:active {
+        background-color: rgba(59, 30, 119, 0.8); }
+    .JSRotator .btn.btn-default {
+      color: rgba(59, 30, 119, 0.7);
+      background: rgba(59, 30, 119, 0.15); }
+      .JSRotator .btn.btn-default:hover, .JSRotator .btn.btn-default:focus, .JSRotator .btn.btn-default:active {
+        color: #fff;
+        background-color: rgba(59, 30, 119, 0.7); }
+    .JSRotator .btn:hover, .JSRotator .btn:focus, .JSRotator .btn:active {
+      border: none;
+      outline: none;
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+      -o-box-shadow: none;
+      box-shadow: none; }
+    .JSRotator .btn[disabled=disabled], .JSRotator .btn.aspNetDisabled, .JSRotator .btn.dnnDisabled {
+      color: rgba(255, 255, 255, 0.5); }
+      .JSRotator .btn[disabled=disabled]:hover, .JSRotator .btn.aspNetDisabled:hover, .JSRotator .btn.dnnDisabled:hover {
+        background-color: rgba(59, 30, 119, 0.7); }
   .JSRotator .dropdown-menu {
     border: 1px solid rgba(59, 30, 119, 0.7);
     border-top: none;

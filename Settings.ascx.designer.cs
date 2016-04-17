@@ -13,6 +13,33 @@ namespace JS.Modules.JSImageRotator {
     public partial class Settings {
         
         /// <summary>
+        /// fontAwesomeCss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnCssInclude fontAwesomeCss;
+        
+        /// <summary>
+        /// bootstrapCss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnCssInclude bootstrapCss;
+        
+        /// <summary>
+        /// bootstrapSelectCss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnCssInclude bootstrapSelectCss;
+        
+        /// <summary>
         /// lblRotatorType control.
         /// </summary>
         /// <remarks>
@@ -256,13 +283,13 @@ namespace JS.Modules.JSImageRotator {
         protected global::DotNetNuke.UI.UserControls.LabelControl lblCover;
         
         /// <summary>
-        /// cbCover control.
+        /// ddCover control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbCover;
+        protected global::System.Web.UI.WebControls.DropDownList ddCover;
         
         /// <summary>
         /// lblColor control.
@@ -373,24 +400,6 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.TextBox txtTransDuration;
         
         /// <summary>
-        /// lblTransRegister control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblTransRegister;
-        
-        /// <summary>
-        /// txtTransRegister control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTransRegister;
-        
-        /// <summary>
         /// lblAnimation control.
         /// </summary>
         /// <remarks>
@@ -445,24 +454,6 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.TextBox txtAnimDuration;
         
         /// <summary>
-        /// lblAnimRegister control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblAnimRegister;
-        
-        /// <summary>
-        /// txtAnimRegister control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAnimRegister;
-        
-        /// <summary>
         /// lblSlides control.
         /// </summary>
         /// <remarks>
@@ -479,5 +470,32 @@ namespace JS.Modules.JSImageRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSlides;
+        
+        /// <summary>
+        /// bootstrapJs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnJsInclude bootstrapJs;
+        
+        /// <summary>
+        /// bootstrapSelectJs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnJsInclude bootstrapSelectJs;
+        
+        /// <summary>
+        /// mainJs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnJsInclude mainJs;
     }
 }

@@ -1,27 +1,30 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="View.ascx.cs" Inherits="JS.Modules.JSImageRotator.View" %>
+<%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
-
-<link type="text/css" href="<%= ModulePath %>Vegas/vegas.min.css" rel="stylesheet" />
+<dnn:DnnCssInclude ID="fontAwesomeCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+<dnn:DnnCssInclude ID="vegasCss" runat="server" FilePath="~/DesktopModules/JSImageRotator/Vegas/vegas.min.css" />
 
 <div class="JSRotator">
-
-    <%--BG CONTROLS--%>
-    <div class="ppControlHolder body">
-        <div class="btn-group">
-            <button id="ppControl" type="button" class="btn btn-primary" 
-                data-toggle="tooltip" title="Pause"></button>
-            <button id="ppInfo" type="button" class="btn btn-primary" 
-                data-toggle="tooltip" title="Info"></button>
+    <div class="view">
+        <%--BG CONTROLS--%>
+        <div class="ppControlHolder body">
+            <div class="btn-group">
+                <button id="ppControl" type="button" class="btn btn-primary"
+                    data-toggle="tooltip" title="Pause">
+                </button>
+                <button id="ppInfo" type="button" class="btn btn-primary"
+                    data-toggle="tooltip" title="Info">
+                </button>
+            </div>
+            <div id="ppLabel"></div>
         </div>
-        <div id="ppLabel"></div>
+
+        <%--FIRST CONTROLS--%>
+        <asp:Panel ID="pnlFirstButton" runat="server">
+            <asp:HyperLink ID="lnkFirstButton" runat="server" CssClass="btn btn-primary link-add" />
+        </asp:Panel>
     </div>
 </div>
-<asp:Panel ID="pnlFirstButton" runat="server">
-    <asp:HyperLink ID="lnkFirstButton" runat="server" CssClass="btn btn-primary" />
-</asp:Panel>
-<script type="text/javascript" src="<%= ModulePath %>Vegas/vegas.min.js"></script>
-<script type="text/javascript" src="<%= ModulePath %>Js/main.js" defer></script>
 
 <script type="text/javascript">
     var $localPath = '<%= ModulePath %>Images/',
@@ -138,3 +141,8 @@
 
 
 </script>
+
+<dnn:DnnJsInclude ID="vegasJs" runat="server" FilePath="~/DesktopModules/JSImageRotator/Vegas/vegas.min.js" Priority="21" />
+<dnn:DnnJsInclude ID="mainJs" runat="server" FilePath="~/DesktopModules/JSImageRotator/Js/main.min.js" Priority="22" />
+
+

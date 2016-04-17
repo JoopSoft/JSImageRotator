@@ -1,9 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Settings.ascx.cs" Inherits="JS.Modules.JSImageRotator.Settings" %>
 <%@ Register TagName="label" TagPrefix="dnn" Src="~/controls/LabelControl.ascx" %>
+<%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
-<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"/>
-<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+<dnn:DnnCssInclude ID="fontAwesomeCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+<dnn:DnnCssInclude ID="bootstrapCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
+<dnn:DnnCssInclude ID="bootstrapSelectCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" />
 
 <div class="JSRotator">
     <div class="dnnForm settings">
@@ -88,8 +89,11 @@
             </div>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblCover" runat="server" />
-                <asp:CheckBox ID="cbCover" runat="server" 
-                    Checked="true" />
+                <asp:DropDownList ID="ddCover" runat="server" CssClass="selectpicker show-tick single-select" >
+                    <asp:ListItem value="true" Selected="True">True</asp:ListItem>
+                    <asp:ListItem value="false">False</asp:ListItem>
+                    <asp:ListItem value="repeat">Repeat</asp:ListItem>
+                </asp:DropDownList>
             </div>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblColor" runat="server" />
@@ -161,10 +165,13 @@
                 <asp:TextBox ID="txtTransDuration" runat="server" CssClass="form-control" 
                     Text="1000" />
             </div>
-            <div class="dnnFormItem">
+<%--
+            MOVE TO 2ND VERSE OF MODULE
+                <div class="dnnFormItem">
                 <dnn:Label ID="lblTransRegister" runat="server" />
                 <asp:TextBox ID="txtTransRegister" runat="server" CssClass="form-control" />
             </div>
+--%>
             <div class="dnnFormItem group">
                 <dnn:Label ID="lblAnimation" runat="server" />
                 <asp:ListBox ID="lbAnimation" runat="server" CssClass="selectpicker multi-select" SelectionMode="Multiple" >
@@ -193,10 +200,13 @@
                 <asp:TextBox ID="txtAnimDuration" runat="server" CssClass="form-control" 
                     Text="5000" />
             </div>
-            <div class="dnnFormItem">
+<%--
+                MOVE TO 2ND VERSE OF MODULE
+                            <div class="dnnFormItem">
                 <dnn:Label ID="lblAnimRegister" runat="server" />
                 <asp:TextBox ID="txtAnimRegister" runat="server" CssClass="form-control" />
             </div>
+--%>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblSlides" runat="server" />
                 <asp:TextBox ID="txtSlides" runat="server" CssClass="form-control"
@@ -213,8 +223,7 @@
     //console.log($fullURL);
 </script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+<dnn:DnnJsInclude ID="bootstrapJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" Priority="19" />
+<dnn:DnnJsInclude ID="bootstrapSelectJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js" Priority="20" />
+<dnn:DnnJsInclude ID="mainJs" runat="server" FilePath="~/DesktopModules/JSImageRotator/Js/main.min.js" Priority="21" />
 
-<%--<script type="text/javascript" src="<%= ModulePath %>Ellipsis/jquery.ellipsis.min.js"></script>--%>
-<script type="text/javascript" src="<%= ModulePath %>Js/main.js" defer></script>

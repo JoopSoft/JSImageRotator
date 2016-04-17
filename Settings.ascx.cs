@@ -71,7 +71,7 @@ namespace JS.Modules.JSImageRotator
                             cbAutoplay.Checked = s.Autoplay;
                             cbShuffle.Checked = s.Shuffle;
                             txtDelay.Text = s.Delay.ToString();
-                            cbCover.Checked = s.Cover;
+                            ddCover.SelectedValue = s.Cover;
                             txtColor.Text = s.BackgroundColor;
                             ddAlign.SelectedValue = s.Align;
                             ddVAlign.SelectedValue = s.VerticalAlign;
@@ -83,7 +83,7 @@ namespace JS.Modules.JSImageRotator
                                 }
                             }
                             txtTransDuration.Text = s.TransitionDuration.ToString();
-                            txtTransRegister.Text = s.TransitionRegister;
+                            //txtTransRegister.Text = s.TransitionRegister; - 2nd verse of module
                             foreach (ListItem li in lbAnimation.Items)
                             {
                                 if (s.Animation.Contains("\"" + li.Value + "\""))
@@ -92,7 +92,7 @@ namespace JS.Modules.JSImageRotator
                                 }
                             }
                             txtAnimDuration.Text = s.AnimationDuration.ToString();
-                            txtAnimRegister.Text = s.AnimationRegister;
+                            //txtAnimRegister.Text = s.AnimationRegister; - 2nd verse of module
                         }
                         else
                         {
@@ -109,7 +109,7 @@ namespace JS.Modules.JSImageRotator
                             cbAutoplay.Checked = ds.Autoplay;
                             cbShuffle.Checked = ds.Shuffle;
                             txtDelay.Text = ds.Delay.ToString();
-                            cbCover.Checked = ds.Cover;
+                            ddCover.SelectedValue = ds.Cover;
                             txtColor.Text = ds.BackgroundColor;
                             ddAlign.SelectedValue = ds.Align;
                             ddVAlign.SelectedValue = ds.VerticalAlign;
@@ -121,7 +121,7 @@ namespace JS.Modules.JSImageRotator
                                 }
                             }
                             txtTransDuration.Text = ds.TransitionDuration.ToString();
-                            txtTransRegister.Text = ds.TransitionRegister;
+                            //txtTransRegister.Text = ds.TransitionRegister; - 2nd verse of module
                             foreach (ListItem li in lbAnimation.Items)
                             {
                                 if (s.Animation.Contains("\"" + li.Value + "\""))
@@ -130,7 +130,7 @@ namespace JS.Modules.JSImageRotator
                                 }
                             }
                             txtAnimDuration.Text = ds.AnimationDuration.ToString();
-                            txtAnimRegister.Text = ds.AnimationRegister;
+                            //txtAnimRegister.Text = ds.AnimationRegister; - 2nd verse of module
                         }
                     }
                 }
@@ -199,16 +199,16 @@ namespace JS.Modules.JSImageRotator
                         Autoplay = cbAutoplay.Checked,
                         Shuffle = cbShuffle.Checked,
                         Delay = Convert.ToInt32(txtDelay.Text.Trim()),
-                        Cover = cbCover.Checked,
+                        Cover = ddCover.SelectedValue,
                         BackgroundColor = txtColor.Text.Trim(),
                         Align = ddAlign.SelectedValue,
                         VerticalAlign = ddVAlign.SelectedValue,
                         Transition = transitionValues,
                         TransitionDuration = Convert.ToInt32(txtTransDuration.Text.Trim()),
-                        TransitionRegister = txtTransRegister.Text.Trim(),
+                        //TransitionRegister = txtTransRegister.Text.Trim(), - 2nd verse of module
                         Animation = animationValues,
                         AnimationDuration = Convert.ToInt32(txtAnimDuration.Text.Trim()),
-                        AnimationRegister = txtAnimRegister.Text.Trim()
+                        //AnimationRegister = txtAnimRegister.Text.Trim() - 2nd verse of module
                     };
                     sc.AddSettings(ns);
                     Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
@@ -246,16 +246,16 @@ namespace JS.Modules.JSImageRotator
                     s.Autoplay = cbAutoplay.Checked;
                     s.Shuffle = cbShuffle.Checked;
                     s.Delay = Convert.ToInt32(txtDelay.Text.Trim());
-                    s.Cover = cbCover.Checked;
+                    s.Cover = ddCover.SelectedValue;
                     s.BackgroundColor = txtColor.Text.Trim();
                     s.Align = ddAlign.SelectedValue;
                     s.VerticalAlign = ddVAlign.SelectedValue;
                     s.Transition = transitionValues;
                     s.TransitionDuration = Convert.ToInt32(txtTransDuration.Text.Trim());
-                    s.TransitionRegister = txtTransRegister.Text.Trim();
+                    //s.TransitionRegister = txtTransRegister.Text.Trim(); - 2nd verse of module
                     s.Animation = animationValues;
                     s.AnimationDuration = Convert.ToInt32(txtAnimDuration.Text.Trim());
-                    s.AnimationRegister = txtAnimRegister.Text.Trim();
+                    //s.AnimationRegister = txtAnimRegister.Text.Trim(); - 2nd verse of module
                     sc.UpdateSettings(s);
                     Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
                 }

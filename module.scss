@@ -520,7 +520,7 @@
                     float: left;
 
                     &.cb-group {
-                        width: calc(50% - 30px)!important;
+                        width: calc(50% - 30px) !important;
                     }
                 }
             }
@@ -891,6 +891,55 @@
 
     .bs-searchbox + .bs-actionsbox {
         padding: 0;
+    }
+
+    .btn {
+        line-height: normal;
+        border: $none;
+        padding: 10px 15px;
+
+        @include border-radius(0);
+        @include transition($all);
+
+        &.btn-primary {
+            background-color: $dark-alpha-lg;
+
+            &:hover,
+            &:focus,
+            &:active {
+                background-color: $dark-alpha-xlg;
+            }
+        }
+
+        &.btn-default {
+            color: $dark-alpha-lg;
+            background: $dark-alpha-xsm;
+
+            &:hover,
+            &:focus,
+            &:active {
+                color: $white;
+                background-color: $dark-alpha-lg;
+            }
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            border: $none;
+            outline: $none;
+            @include box-shadow($none);
+        }
+
+        &[disabled=disabled],
+        &.aspNetDisabled,
+        &.dnnDisabled {
+            color: $light-alpha-md;
+
+            &:hover {
+                background-color: $dark-alpha-lg;
+            }
+        }
     }
 
     .dropdown-menu {

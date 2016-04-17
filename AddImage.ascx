@@ -1,9 +1,10 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="AddImage.ascx.cs" Inherits="JS.Modules.JSImageRotator.AddImage" %>
 <%@ Register TagPrefix="dnn" TagName="label" Src="~/controls/LabelControl.ascx" %>
+<%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 
-<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"/>
-<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+<dnn:DnnCssInclude ID="fontAwesomeCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+<dnn:DnnCssInclude ID="bootstrapCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
+<dnn:DnnCssInclude ID="bootstrapSelectCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" />
 
 <div class="JSRotator">
     <div class="dnnForm add-img">
@@ -31,13 +32,35 @@
                     data-toggle="tooltip" ToolTip="Create New List" />--%>
             </div>
         </div>
-                
+
         <fieldset>
+            <div class="dnnFormItem">
+                <dnn:Label ID="lblSlideType" runat="server" />
+                <asp:DropDownList ID="ddSlideType" runat="server" CssClass="selectpicker show-tick single-select hidder" data-target=".videoAttr">
+                    <asp:ListItem Value="image" Selected="True">Image</asp:ListItem>
+                    <asp:ListItem Value="video">Video</asp:ListItem>
+                </asp:DropDownList>
+            </div>
             <div class="dnnFormItem">
                 <dnn:label ID="lblImage" runat="server" />
                 <asp:FileUpload ID="btnImageSelect" runat="server" />
                 <asp:LinkButton ID="btnImageUpload" runat="server" CssClass="dnnSecondaryAction link-upload"  
                     OnClick="btnImageUpload_Click" ResourceKey="btnUpload" />
+            </div>
+            <div class="videoAttr dnnFormItem">
+                <dnn:label ID="lblVideo" runat="server" />
+                <asp:FileUpload ID="btnVideoSelect" runat="server" />
+                <asp:LinkButton ID="btnVideoUpload" runat="server" CssClass="dnnSecondaryAction link-upload"  
+                    OnClick="btnImageUpload_Click" ResourceKey="btnUpload" />
+            </div>
+            <div class="videoAttr dnnFormItem">
+                <dnn:label ID="lblLoop" runat="server" />
+                <asp:CheckBox ID="cbLoop" runat="server" />
+            </div>
+            <div class="videoAttr dnnFormItem">
+                <dnn:label ID="lblMute" runat="server" />
+                <asp:CheckBox ID="cbMute" runat="server" 
+                    Checked="true" />
             </div>
             <asp:Panel ID="pnlImgSelected" runat="server" CssClass="dnnFormItem group" Visible="false">
                 <dnn:label ID="lblImgSelected" runat="server" />
@@ -85,6 +108,60 @@
                 <dnn:label ID="lblContact" runat="server" />
                 <asp:TextBox ID="txtContact" runat="server" CssClass="form-control" />
             </div>
+            <div class="dnnFormItem">
+                <dnn:label ID="lblGlobalFx" runat="server" />
+                <asp:CheckBox ID="cbGlobalFx" runat="server" CssClass="unhidder" data-target=".globalFx"
+                    Checked="true" />
+            </div>
+            <div class="globalFx dnnFormItem group">
+                <dnn:Label ID="lblAnimation" runat="server" />
+                <asp:ListBox ID="lbAnimation" runat="server" CssClass="selectpicker multi-select" SelectionMode="Multiple">
+                    <asp:ListItem>Random</asp:ListItem>
+                    <asp:ListItem>Kenburns</asp:ListItem>
+                    <asp:ListItem>Kenburns Up</asp:ListItem>
+                    <asp:ListItem>Kenburns Down</asp:ListItem>
+                    <asp:ListItem>Kenburns Right</asp:ListItem>
+                    <asp:ListItem>Kenburns Left</asp:ListItem>
+                    <asp:ListItem>Kenburns Up Left</asp:ListItem>
+                    <asp:ListItem>Kenburns Up Right</asp:ListItem>
+                    <asp:ListItem>Kenburns Down Left</asp:ListItem>
+                    <asp:ListItem>Kenburns Down Right</asp:ListItem>
+                </asp:ListBox>
+            </div>
+            <div class="globalFx dnnFormItem group">
+                <dnn:Label ID="lblTransition" runat="server" />
+                <asp:ListBox ID="lbTransition" runat="server" CssClass="selectpicker multi-select" SelectionMode="Multiple">
+                    <asp:ListItem>Random</asp:ListItem>
+                    <asp:ListItem>Fade</asp:ListItem>
+                    <asp:ListItem>Fade 2</asp:ListItem>
+                    <asp:ListItem>Slide Left</asp:ListItem>
+                    <asp:ListItem>Slide Left 2</asp:ListItem>
+                    <asp:ListItem>Slide Right</asp:ListItem>
+                    <asp:ListItem>Slide Right 2</asp:ListItem>
+                    <asp:ListItem>Slide Up</asp:ListItem>
+                    <asp:ListItem>Slide Up 2</asp:ListItem>
+                    <asp:ListItem>Slide Down</asp:ListItem>
+                    <asp:ListItem>Slide Down 2</asp:ListItem>
+                    <asp:ListItem>Zoom In</asp:ListItem>
+                    <asp:ListItem>Zoom In 2</asp:ListItem>
+                    <asp:ListItem>Zoom Out</asp:ListItem>
+                    <asp:ListItem>Zoom Out 2</asp:ListItem>
+                    <asp:ListItem>Swirl Left</asp:ListItem>
+                    <asp:ListItem>Swirl Left 2</asp:ListItem>
+                    <asp:ListItem>Swirl Right</asp:ListItem>
+                    <asp:ListItem>Swirl Right 2</asp:ListItem>
+                    <asp:ListItem>Burn</asp:ListItem>
+                    <asp:ListItem>Burn 2</asp:ListItem>
+                    <asp:ListItem>Blur</asp:ListItem>
+                    <asp:ListItem>Blur 2</asp:ListItem>
+                    <asp:ListItem>Flash</asp:ListItem>
+                    <asp:ListItem>Flash 2</asp:ListItem>
+                    <asp:ListItem>Negative</asp:ListItem>
+                    <asp:ListItem>Negative 2</asp:ListItem>
+                </asp:ListBox>
+            </div>
+
+
         </fieldset>
     </div>
     <div class="dnnForm controls">
@@ -97,6 +174,27 @@
     </div>
 </div>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
-<script type="text/javascript" src="<%= ModulePath %>Js/main.js" defer></script>
+<script type="text/javascript">
+    var $ddSlideType = '<%= ddSlideType.ClientID %>';
+
+    $('#' + $ddSlideType)
+        .each(function () {
+            var $this = $(this),
+                $target = $this.data('target');
+        
+            if ($this.val() !== 'image') $($target).removeClass('hidden');
+            else $($target).addClass('hidden');
+        })
+        .bind('change', function () {
+            var $this = $(this),
+                $target = $(this).data('target');
+        
+            if ($this.val() !== 'image') $($target).removeClass('hidden');
+            else $($target).addClass('hidden');
+        });
+    
+</script>
+
+<dnn:DnnJsInclude ID="bootstrapJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" Priority="19" />
+<dnn:DnnJsInclude ID="bootstrapSelectJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js" Priority="20" />
+<dnn:DnnJsInclude ID="mainJs" runat="server" FilePath="~/DesktopModules/JSImageRotator/Js/main.min.js" Priority="21" />

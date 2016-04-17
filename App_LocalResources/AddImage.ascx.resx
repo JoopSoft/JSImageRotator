@@ -133,31 +133,31 @@
     <value>Expand All</value>
   </data>
   <data name="lblContact.Help" xml:space="preserve">
-    <value>Contact Information</value>
+    <value>Contact Information.</value>
   </data>
   <data name="lblContact.Text" xml:space="preserve">
     <value>Contact</value>
   </data>
   <data name="lblDescription.Help" xml:space="preserve">
-    <value>Enter a Description for the Image</value>
+    <value>Enter a Description for the Image.</value>
   </data>
   <data name="lblDescription.Text" xml:space="preserve">
     <value>Description</value>
   </data>
   <data name="lblImage.Help" xml:space="preserve">
-    <value>URL of the uploaded Image</value>
+    <value>URL of the uploaded Image.</value>
   </data>
   <data name="lblImage.Text" xml:space="preserve">
     <value>Image</value>
   </data>
   <data name="lblPhotographer.Help" xml:space="preserve">
-    <value>Enter the Name of the Photographer</value>
+    <value>Enter the Name of the Photographer.</value>
   </data>
   <data name="lblPhotographer.Text" xml:space="preserve">
     <value>Photographer</value>
   </data>
   <data name="lblTitle.Help" xml:space="preserve">
-    <value>Enter the Title of the Image</value>
+    <value>Enter the Title of the Image.</value>
   </data>
   <data name="lblTitle.Text" xml:space="preserve">
     <value>Title</value>
@@ -169,7 +169,7 @@
     <value>Delete</value>
   </data>
   <data name="lblAvailableLists.Help" xml:space="preserve">
-    <value>Select To Add The Image to List</value>
+    <value>Select To Add The Image to List.</value>
   </data>
   <data name="lblAvailableLists.Text" xml:space="preserve">
     <value>Add to List</value>
@@ -179,5 +179,47 @@
   </data>
   <data name="btnYes.Text" xml:space="preserve">
     <value>Delete</value>
+  </data>
+  <data name="lblAnimation.Help" xml:space="preserve">
+    <value>Set the animation of the slides.</value>
+  </data>
+  <data name="lblAnimation.Text" xml:space="preserve">
+    <value>Animation</value>
+  </data>
+  <data name="lblGlobalFx.Help" xml:space="preserve">
+    <value>Use global effects for all slides.</value>
+  </data>
+  <data name="lblGlobalFx.Text" xml:space="preserve">
+    <value>Global Effects</value>
+  </data>
+  <data name="lblLoop.Help" xml:space="preserve">
+    <value>Loop the video.</value>
+  </data>
+  <data name="lblLoop.Text" xml:space="preserve">
+    <value>Loop</value>
+  </data>
+  <data name="lblMute.Help" xml:space="preserve">
+    <value>Mute the sound of the video</value>
+  </data>
+  <data name="lblMute.Text" xml:space="preserve">
+    <value>Mute</value>
+  </data>
+  <data name="lblSlideType.Help" xml:space="preserve">
+    <value>Chose slide type (Image/Video).</value>
+  </data>
+  <data name="lblSlideType.Text" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="lblTransition.Help" xml:space="preserve">
+    <value>Set the transition between slides.</value>
+  </data>
+  <data name="lblTransition.Text" xml:space="preserve">
+    <value>Transition</value>
+  </data>
+  <data name="lblVideo.Help" xml:space="preserve">
+    <value>URL of the uploaded Video.</value>
+  </data>
+  <data name="lblVideo.Text" xml:space="preserve">
+    <value>Video</value>
   </data>
 </root>
