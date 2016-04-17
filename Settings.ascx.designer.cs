@@ -175,6 +175,24 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.CheckBox cbOverlay;
         
         /// <summary>
+        /// lblOverlayType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblOverlayType;
+        
+        /// <summary>
+        /// ddOverlayType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddOverlayType;
+        
+        /// <summary>
         /// lblAutoplay control.
         /// </summary>
         /// <remarks>
@@ -310,13 +328,31 @@ namespace JS.Modules.JSImageRotator {
         protected global::DotNetNuke.UI.UserControls.LabelControl lblTransition;
         
         /// <summary>
-        /// ddTransition control.
+        /// lbTransition control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddTransition;
+        protected global::System.Web.UI.WebControls.ListBox lbTransition;
+        
+        /// <summary>
+        /// lblTransDurationType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblTransDurationType;
+        
+        /// <summary>
+        /// rblTransDurationType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblTransDurationType;
         
         /// <summary>
         /// lblTransDuration control.
@@ -364,13 +400,31 @@ namespace JS.Modules.JSImageRotator {
         protected global::DotNetNuke.UI.UserControls.LabelControl lblAnimation;
         
         /// <summary>
-        /// ddAnimation control.
+        /// lbAnimation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddAnimation;
+        protected global::System.Web.UI.WebControls.ListBox lbAnimation;
+        
+        /// <summary>
+        /// lblAnimDurationType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblAnimDurationType;
+        
+        /// <summary>
+        /// rblAnimDurationType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblAnimDurationType;
         
         /// <summary>
         /// lblAnimDuration control.

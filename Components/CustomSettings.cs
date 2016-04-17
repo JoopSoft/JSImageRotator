@@ -9,9 +9,9 @@ namespace JS.Modules.JSImageRotator.Components
 {
     [TableName("JSImageRotator_Settings")]
     //setup the primary key for table
-    [PrimaryKey("SettingsId", AutoIncrement = true)]
+    [PrimaryKey("SettingsId", AutoIncrement = false)]
     //configure caching using PetaPoco
-    [Cacheable("Settings", CacheItemPriority.Default, 20)]
+    [Cacheable("CustomSettings", CacheItemPriority.Default, 20)]
     //scope the objects to the ModuleId of a module on a page (or copy of a module on a page)
     [Scope("ModuleId")]
     class CustomSettings
@@ -25,6 +25,7 @@ namespace JS.Modules.JSImageRotator.Components
         public bool PreloadVideo { get; set; }
         public bool Timer { get; set; }
         public bool Overlay { get; set; }
+        public string OverlayType { get; set; }
         public bool Autoplay { get; set; }
         public bool Shuffle { get; set; }
         public int Delay { get; set; }

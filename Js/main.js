@@ -270,7 +270,7 @@
         });
         //MULTI SELECT OPTIONS
         if ($('.JSRotator .selectpicker.multi-select').exists()) $('.JSRotator .selectpicker.multi-select').selectpicker({
-            actionsBox: true,
+            actionsBox: false,
             //container: false,
             //countSelectedText:'',
             //dropupAuto: true,

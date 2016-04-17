@@ -99,34 +99,34 @@
                 //    .parent()
                     .vegas({
     		            delay: 30000,
-    		        timer: true,
-    		        shuffle: true,
-    		        transition: 'fade',
-    		        transitionDuration: 3000,
-    		        animation: null, //'random',
-    		        autoplay: false,
-    		        overlay: $modulePath + '/Vegas/overlays/01.png',
-    		        slides: $slides,
+    		            timer: true,
+    		            shuffle: true,
+    		            transition: 'fade',
+    		            transitionDuration: 3000,
+    		            animation: null, //'random',
+    		            autoplay: false,
+    		            overlay: $modulePath + '/Vegas/overlays/01.png',
+    		            slides: $slides,
 
-    		        init: function (globalSettings) {
-    		            console.log("Init");
-    		        },
-    		        play: function (index, slideSettings) {
-    		            console.log("Play");
-    		        },
-    		        pause: function (index, slideSettings) {
-    		            console.log("Pause");   
-    		        },
-    		        walk: function (index, slideSettings) {
-    		            //console.log("Slide index " + index + " image " + slideSettings.src + '' + slideSettings.photographer);
-    		            //$('#ppLabel')
-                        //    .html('<h3>' + slideSettings.Title + '</h3>'
-                        //            //+ '<span>' + $image + ' ' + slideSettings.Description + '</span>'
-                        //            + '<span>' + $camera + ' ' + slideSettings.Photographer + '</span>'
-                        //            + '<span>' + $mail + ' <a href="mailto:' + slideSettings.Contact + '" title="Send mail to ' + slideSettings.Contact + '">' + slideSettings.Contact + '</a></span>'                    
-                        //        );
+    		            init: function (globalSettings) {
+    		                console.log("Init");
+    		            },
+    		            play: function (index, slideSettings) {
+    		                console.log("Play");
+    		            },
+    		            pause: function (index, slideSettings) {
+    		                console.log("Pause");   
+    		            },
+    		            walk: function (index, slideSettings) {
+    		                //console.log("Slide index " + index + " image " + slideSettings.src + '' + slideSettings.photographer);
+    		                //$('#ppLabel')
+                            //    .html('<h3>' + slideSettings.Title + '</h3>'
+                            //            //+ '<span>' + $image + ' ' + slideSettings.Description + '</span>'
+                            //            + '<span>' + $camera + ' ' + slideSettings.Photographer + '</span>'
+                            //            + '<span>' + $mail + ' <a href="mailto:' + slideSettings.Contact + '" title="Send mail to ' + slideSettings.Contact + '">' + slideSettings.Contact + '</a></span>'                    
+                            //        );
 
-    		        }
+    		            }
     		        
     		    });
 

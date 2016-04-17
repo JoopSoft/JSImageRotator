@@ -16,34 +16,44 @@ namespace JS.Modules.JSImageRotator.Components
 {
     class SettingsController
     {
-        public void AddSettings(CustomSettings cs)
+        public void AddSettings(CustomSettings s)
         {
             using (IDataContext ctx = DataContext.Instance())
             {
                 var rep = ctx.GetRepository<CustomSettings>();
-                rep.Insert(cs);
+                rep.Insert(s);
             }
         }
 
-        public CustomSettings GetSettings(int settingsId, int moduleId)
+        public CustomSettings LoadSingleSettings(int settingsId)
         {
-            CustomSettings cs;
+            CustomSettings s;
             using (IDataContext ctx = DataContext.Instance())
             {
                 var rep = ctx.GetRepository<CustomSettings>();
-                cs = rep.GetById(settingsId, moduleId);
+                s = rep.GetById(settingsId);
             }
-            return cs;
+            return s;
         }
 
-        public void UpdateSettings(CustomSettings cs)
+        public IEnumerable<CustomSettings> LoadSettings()
+        {
+            IEnumerable<CustomSettings> s;
+            using (IDataContext ctx = DataContext.Instance())
+            {
+                var rep = ctx.GetRepository<CustomSettings>();
+                s = rep.Get();
+            }
+            return s;
+        }
+
+        public void UpdateSettings(CustomSettings s)
         {
             using (IDataContext ctx = DataContext.Instance())
             {
                 var rep = ctx.GetRepository<CustomSettings>();
-                rep.Update(cs);
+                rep.Update(s);
             }
         }
-
     }
 }

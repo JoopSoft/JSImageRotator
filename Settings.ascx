@@ -17,7 +17,7 @@
             <div class="dnnFormItem group">
                 <dnn:Label ID="lblRotatorType" runat="server" />
                 <asp:DropDownList ID="ddRotatorType" runat="server" CssClass="selectpicker show-tick single-select" >
-                    <asp:ListItem Selected>Body</asp:ListItem>
+                    <asp:ListItem>Body</asp:ListItem>
                     <asp:ListItem>Container</asp:ListItem>
                 </asp:DropDownList>
             </div>
@@ -58,6 +58,21 @@
                 <asp:CheckBox ID="cbOverlay" runat="server" />
             </div>
             <div class="dnnFormItem">
+                <dnn:Label ID="lblOverlayType" runat="server" />
+                <asp:DropDownList ID="ddOverlayType" runat="server" CssClass="selectpicker show-tick single-select" >
+                    <asp:ListItem Text="Overlay Type 01" Value="01.png" />
+                    <asp:ListItem Text="Overlay Type 02" Value="02.png" />
+                    <asp:ListItem Text="Overlay Type 03" Value="03.png" />
+                    <asp:ListItem Text="Overlay Type 04" Value="04.png" />
+                    <asp:ListItem Text="Overlay Type 05" Value="05.png" />
+                    <asp:ListItem Text="Overlay Type 06" Value="06.png" />
+                    <asp:ListItem Text="Overlay Type 07" Value="07.png" />
+                    <asp:ListItem Text="Overlay Type 08" Value="08.png" />
+                    <asp:ListItem Text="Overlay Type 09" Value="09.png" />
+                    <asp:ListItem Text="Overlay Type 10" Value="10.png" />
+                </asp:DropDownList>
+            </div>
+            <div class="dnnFormItem">
                 <dnn:Label ID="lblAutoplay" runat="server" />
                 <asp:CheckBox ID="cbAutoplay" runat="server" 
                     Checked="true" />
@@ -83,7 +98,7 @@
             <div class="dnnFormItem group">
                 <dnn:Label ID="lblAlign" runat="server" />
                 <asp:DropDownList ID="ddAlign" runat="server" CssClass="selectpicker show-tick single-select" >
-                    <asp:ListItem Selected="True">Center</asp:ListItem>
+                    <asp:ListItem>Center</asp:ListItem>
                     <asp:ListItem>Top</asp:ListItem>
                     <asp:ListItem>Right</asp:ListItem>
                     <asp:ListItem>Bottom</asp:ListItem>
@@ -94,7 +109,7 @@
             <div class="dnnFormItem group">
                 <dnn:Label ID="lblVAlign" runat="server" />
                 <asp:DropDownList ID="ddVAlign" runat="server" CssClass="selectpicker show-tick single-select" >
-                    <asp:ListItem Selected="True">Center</asp:ListItem>
+                    <asp:ListItem>Center</asp:ListItem>
                     <asp:ListItem>Top</asp:ListItem>
                     <asp:ListItem>Right</asp:ListItem>
                     <asp:ListItem>Bottom</asp:ListItem>
@@ -104,8 +119,8 @@
             </div>
             <div class="dnnFormItem group">
                 <dnn:Label ID="lblTransition" runat="server" />
-                <asp:DropDownList ID="ddTransition" runat="server" CssClass="selectpicker multi-select" multiple >
-                    <asp:ListItem Selected="True">Random</asp:ListItem>                    
+                <asp:ListBox ID="lbTransition" runat="server" CssClass="selectpicker multi-select" SelectionMode="Multiple" >
+                    <asp:ListItem>Random</asp:ListItem>                    
                     <asp:ListItem>Fade</asp:ListItem>
                     <asp:ListItem>Fade 2</asp:ListItem>
                     <asp:ListItem>Slide Left</asp:ListItem>
@@ -132,8 +147,15 @@
                     <asp:ListItem>Flash 2</asp:ListItem>
                     <asp:ListItem>Negative</asp:ListItem>
                     <asp:ListItem>Negative 2</asp:ListItem>
-                </asp:DropDownList>
+                </asp:ListBox>
             </div>
+            <div class="dnnFormItem">
+                <dnn:Label ID="lblTransDurationType" runat="server" />
+                <asp:RadioButtonList ID="rblTransDurationType" runat="server"  RepeatDirection="Horizontal">
+                    <asp:ListItem>Auto</asp:ListItem>
+                    <asp:ListItem>Manual</asp:ListItem>
+                </asp:RadioButtonList>
+            </div> 
             <div class="dnnFormItem">
                 <dnn:Label ID="lblTransDuration" runat="server" />
                 <asp:TextBox ID="txtTransDuration" runat="server" CssClass="form-control" 
@@ -145,7 +167,7 @@
             </div>
             <div class="dnnFormItem group">
                 <dnn:Label ID="lblAnimation" runat="server" />
-                <asp:DropDownList ID="ddAnimation" runat="server" CssClass="selectpicker multi-select" multiple >
+                <asp:ListBox ID="lbAnimation" runat="server" CssClass="selectpicker multi-select" SelectionMode="Multiple" >
                     <asp:ListItem>Random</asp:ListItem>
                     <asp:ListItem>Kenburns</asp:ListItem>
                     <asp:ListItem>Kenburns Up</asp:ListItem>
@@ -156,12 +178,20 @@
                     <asp:ListItem>Kenburns Up Right</asp:ListItem>
                     <asp:ListItem>Kenburns Down Left</asp:ListItem>
                     <asp:ListItem>Kenburns Down Right</asp:ListItem>
-                </asp:DropDownList>
-            </div>            
+                </asp:ListBox>
+            </div>           
+            
+            <div class="dnnFormItem">
+                <dnn:Label ID="lblAnimDurationType" runat="server" />
+                <asp:RadioButtonList ID="rblAnimDurationType" runat="server"  RepeatDirection="Horizontal">
+                    <asp:ListItem>Auto</asp:ListItem>
+                    <asp:ListItem>Manual</asp:ListItem>
+                </asp:RadioButtonList>
+            </div>             
             <div class="dnnFormItem">
                 <dnn:Label ID="lblAnimDuration" runat="server" />
                 <asp:TextBox ID="txtAnimDuration" runat="server" CssClass="form-control" 
-                    Text="Auto" />
+                    Text="5000" />
             </div>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblAnimRegister" runat="server" />

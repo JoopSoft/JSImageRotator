@@ -61,6 +61,7 @@ CREATE TABLE {databaseOwner}{objectQualifier}JSImageRotator_Settings
 	[PreloadVideo] BIT NOT NULL,
 	[Timer] BIT NOT NULL,
 	[Overlay] BIT NOT NULL,
+	[OverlayType] NVARCHAR(50) NOT NULL,
 	[Autoplay] BIT NOT NULL,
 	[Shuffle] BIT NOT NULL,
 	[Delay] INT NOT NULL,
@@ -82,10 +83,10 @@ ALTER TABLE {databaseOwner}[{objectQualifier}JSImageRotator_Settings] ADD CONSTR
 GO
 
 INSERT INTO {databaseOwner}[{objectQualifier}JSImageRotator_Settings]
-([SettingsId], [RotatorType], [PlayPauseControl], [SlideInfo], [Preload], [PreloadImage], [PreloadVideo], [Timer], [Overlay], [Autoplay], [Shuffle], [Delay], [Cover], [BackgroundColor],
+([SettingsId], [RotatorType], [PlayPauseControl], [SlideInfo], [Preload], [PreloadImage], [PreloadVideo], [Timer], [Overlay], [OverlayType], [Autoplay], [Shuffle], [Delay], [Cover], [BackgroundColor],
  [Align], [VerticalAlign], [Transition], [TransitionDuration], [TransitionRegister], [Animation], [AnimationDuration], [AnimationRegister])
 VALUES
-(0, 'Body', 1, 1, 0, 0, 0, 1, 0, 1, 0, 5000, 1, null, 'Center', 'Center', 'Random', 1000, null, 'Select', 5000, null)
+(0, 'Body', 1, 1, 0, 0, 0, 1, 0, '01.png', 1, 0, 5000, 1, null, 'Center', 'Center', 'Random', 1000, null, 'Select', 5000, null)
 GO
 
 

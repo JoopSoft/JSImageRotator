@@ -447,11 +447,11 @@ namespace JS.Modules.JSImageRotator
                 }
             }
             DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
-            if (File.Exists(Server.MapPath("~/DesktopModules/JSImageRotator/Json/Slides.json")))
+            if (File.Exists(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Slides.json")))
             {
-                File.Delete(Server.MapPath("~/DesktopModules/JSImageRotator/Json/Slides.json"));
+                File.Delete(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Slides.json"));
             }
-            using (FileStream fs = File.Open((Server.MapPath("~/DesktopModules/JSImageRotator/Json/Slides.json")), FileMode.CreateNew))
+            using (FileStream fs = File.Open((Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Slides.json")), FileMode.CreateNew))
             using (StreamWriter sw = new StreamWriter(fs))
             using (JsonWriter jw = new JsonTextWriter(sw))
             {
@@ -459,7 +459,7 @@ namespace JS.Modules.JSImageRotator
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(jw, Slides, typeof(ImageJ));
             }
-            string path = Server.MapPath("~/DesktopModules/JSImageRotator/Json/Slides.json");
+            string path = Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Slides.json");
             string str;
             using (StreamReader sreader = new StreamReader(path))
             {
@@ -475,7 +475,7 @@ namespace JS.Modules.JSImageRotator
                 swriter.Write(str);
             }
             string appendText = Environment.NewLine + "}";
-            File.AppendAllText(Server.MapPath("~/DesktopModules/JSImageRotator/Json/Slides.json"), appendText);
+            File.AppendAllText(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Slides.json"), appendText);
         }
 
         protected void AddUpdateList()

@@ -264,4 +264,25 @@
   <data name="lblSlideInfo.Text" xml:space="preserve">
     <value>Slide Info</value>
   </data>
+  <data name="lblOverlayType.Help" xml:space="preserve">
+    <value>Choose overlay type image.</value>
+  </data>
+  <data name="lblOverlayType.Text" xml:space="preserve">
+    <value>Overlay Type</value>
+  </data>
+  <data name="lblAnimDurationType.Help" xml:space="preserve">
+    <value>Choose animation type.</value>
+  </data>
+  <data name="lblAnimDurationType.Text" xml:space="preserve">
+    <value>Animation Type</value>
+  </data>
+  <data name="lblTransDurationType.Help" xml:space="preserve">
+    <value>Choose transition type.</value>
+  </data>
+  <data name="lblTransDurationType.Text" xml:space="preserve">
+    <value>Transition Type</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
 </root>
