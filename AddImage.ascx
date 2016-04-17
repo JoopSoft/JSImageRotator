@@ -177,7 +177,7 @@
 <script type="text/javascript">
     var $ddSlideType = '<%= ddSlideType.ClientID %>';
 
-    $('#' + $ddSlideType)
+    $('.JSRotator #' + $ddSlideType)
         .each(function () {
             var $this = $(this),
                 $target = $this.data('target');
