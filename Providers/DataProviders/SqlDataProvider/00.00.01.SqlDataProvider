@@ -15,7 +15,9 @@ GO
 CREATE TABLE {databaseOwner}{objectQualifier}JSImageRotator_Images
 (
 	[ImageId] INT NOT NULL IDENTITY (1, 1),
+	[SlideType] NVARCHAR(50) NOT NULL,
 	[ImageTitle] NVARCHAR(MAX) NOT NULL,
+	[Video] NVARCHAR(MAX) NOT NULL,
 	[ImageDescription] NVARCHAR(MAX) NOT NULL,
 	[ImagePhotographer] NVARCHAR(MAX) NOT NULL,
 	[ImageContact] NVARCHAR(MAX) NOT NULL,
@@ -70,9 +72,11 @@ CREATE TABLE {databaseOwner}{objectQualifier}JSImageRotator_Settings
 	[Align] NVARCHAR(MAX) NOT NULL,
 	[VerticalAlign] NVARCHAR(MAX) NOT NULL,
 	[Transition] NVARCHAR(MAX) NOT NULL,
+	[AutoTransitionDuration] NVARCHAR(50) NOT NULL,
 	[TransitionDuration] INT NOT NULL,
 	[TransitionRegister] NVARCHAR(MAX) NULL,
 	[Animation] NVARCHAR(MAX) NOT NULL,
+	[AutoAnimationDuration] NVARCHAR(50) NOT NULL,
 	[AnimationDuration] INT NOT NULL,
 	[AnimationRegister] NVARCHAR(MAX) NULL
 )
@@ -84,9 +88,9 @@ GO
 
 INSERT INTO {databaseOwner}[{objectQualifier}JSImageRotator_Settings]
 ([SettingsId], [RotatorType], [PlayPauseControl], [SlideInfo], [Preload], [PreloadImage], [PreloadVideo], [Timer], [Overlay], [OverlayType], [Autoplay], [Shuffle], [Delay], [Cover], [BackgroundColor],
- [Align], [VerticalAlign], [Transition], [TransitionDuration], [TransitionRegister], [Animation], [AnimationDuration], [AnimationRegister])
+ [Align], [VerticalAlign], [Transition], [AutoTransitionDuration], [TransitionDuration], [TransitionRegister], [Animation], [AutoAnimationDuration], [AnimationDuration], [AnimationRegister])
 VALUES
-(0, 'Body', 1, 1, 0, 0, 0, 1, 0, '01.png', 1, 0, 5000, 1, null, 'Center', 'Center', 'Random', 1000, null, 'Select', 5000, null)
+(0, 'Body', 1, 1, 0, 0, 0, 1, 0, '01.png', 1, 0, 5000, 1, null, 'Center', 'Center', 'Random', 'Auto', 1000, null, 'Select', 'Auto', 5000, null)
 GO
 
 

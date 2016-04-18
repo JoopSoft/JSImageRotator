@@ -172,7 +172,9 @@ namespace JS.Modules.JSImageRotator
                 if (img.ListsIn.Contains(lstImageLists.SelectedValue + ".json"))
                 {
                     ImageJ li = new ImageJ();
+                    li.SlideType = img.SlideType;
                     li.Title = img.ImageTitle;
+                    li.Video = img.Video;
                     li.Description = img.ImageDescription;
                     li.Photographer = img.ImagePhotographer;
                     li.Contact = img.ImageContact;

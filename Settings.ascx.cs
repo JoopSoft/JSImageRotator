@@ -15,6 +15,7 @@ using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
 using JS.Modules.JSImageRotator.Components;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace JS.Modules.JSImageRotator
 {
@@ -82,6 +83,7 @@ namespace JS.Modules.JSImageRotator
                                     li.Selected = true;
                                 }
                             }
+                            rblTransDurationType.SelectedValue = s.AutoTransitionDuration;
                             txtTransDuration.Text = s.TransitionDuration.ToString();
                             //txtTransRegister.Text = s.TransitionRegister; - 2nd verse of module
                             foreach (ListItem li in lbAnimation.Items)
@@ -91,6 +93,7 @@ namespace JS.Modules.JSImageRotator
                                     li.Selected = true;
                                 }
                             }
+                            rblAnimDurationType.SelectedValue = s.AutoAnimationDuration;
                             txtAnimDuration.Text = s.AnimationDuration.ToString();
                             //txtAnimRegister.Text = s.AnimationRegister; - 2nd verse of module
                         }
@@ -120,6 +123,7 @@ namespace JS.Modules.JSImageRotator
                                     li.Selected = true;
                                 }
                             }
+                            rblTransDurationType.SelectedValue = ds.AutoTransitionDuration;
                             txtTransDuration.Text = ds.TransitionDuration.ToString();
                             //txtTransRegister.Text = ds.TransitionRegister; - 2nd verse of module
                             foreach (ListItem li in lbAnimation.Items)
@@ -129,6 +133,7 @@ namespace JS.Modules.JSImageRotator
                                     li.Selected = true;
                                 }
                             }
+                            rblAnimDurationType.SelectedValue = ds.AutoAnimationDuration;
                             txtAnimDuration.Text = ds.AnimationDuration.ToString();
                             //txtAnimRegister.Text = ds.AnimationRegister; - 2nd verse of module
                         }
@@ -204,14 +209,15 @@ namespace JS.Modules.JSImageRotator
                         Align = ddAlign.SelectedValue,
                         VerticalAlign = ddVAlign.SelectedValue,
                         Transition = transitionValues,
+                        AutoTransitionDuration = rblTransDurationType.SelectedValue,
                         TransitionDuration = Convert.ToInt32(txtTransDuration.Text.Trim()),
                         //TransitionRegister = txtTransRegister.Text.Trim(), - 2nd verse of module
                         Animation = animationValues,
+                        AutoAnimationDuration = rblAnimDurationType.SelectedValue,
                         AnimationDuration = Convert.ToInt32(txtAnimDuration.Text.Trim()),
                         //AnimationRegister = txtAnimRegister.Text.Trim() - 2nd verse of module
                     };
                     sc.AddSettings(ns);
-                    Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
                 }
                 else
                 {
@@ -251,22 +257,74 @@ namespace JS.Modules.JSImageRotator
                     s.Align = ddAlign.SelectedValue;
                     s.VerticalAlign = ddVAlign.SelectedValue;
                     s.Transition = transitionValues;
+                    s.AutoTransitionDuration = rblTransDurationType.SelectedValue;
                     s.TransitionDuration = Convert.ToInt32(txtTransDuration.Text.Trim());
                     //s.TransitionRegister = txtTransRegister.Text.Trim(); - 2nd verse of module
                     s.Animation = animationValues;
+                    s.AutoAnimationDuration = rblAnimDurationType.SelectedValue;
                     s.AnimationDuration = Convert.ToInt32(txtAnimDuration.Text.Trim());
                     //s.AnimationRegister = txtAnimRegister.Text.Trim(); - 2nd verse of module
+                    string fileName = (Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Settings.json"));
+                    DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
+                    if (File.Exists(fileName))
+                    {
+                        File.Delete(fileName);
+                    }
+                    using (FileStream fs = File.Open(fileName, FileMode.CreateNew)) { }
+                    File.AppendAllText(fileName, "{");
+                    AddLine("\"Settings\": [");
+                    AddLine("\"rotatorType\": " + "\"" + s.RotatorType + "\"");
+                    AddLine("\"ppControl\": " + "\"" + s.PlayPauseControl + "\"");
+                    AddLine("\"slideInfo\": " + "\"" + s.SlideInfo + "\"");
+                    AddLine("\"slide\": " + "\"0\"");
+                    AddLine("\"preload\": " + "\"" + s.Preload + "\"");
+                    AddLine("\"preloadImage\": " + "\"" + s.PreloadImage + "\"");
+                    AddLine("\"preloadVideo\": " + "\"" + s.PreloadVideo + "\"");
+                    AddLine("\"timer\": " + "\"" + s.Timer + "\"");
+                    AddLine("\"overlay\": " + "\"" + s.Overlay + "\"");
+                    AddLine("\"autoplay\": " + "\"" + s.Autoplay + "\"");
+                    AddLine("\"shuffle\": " + "\"" + s.Shuffle + "\"");
+                    AddLine("\"delay\": " + "\"" + s.Delay + "\"");
+                    AddLine("\"cover\": " + "\"" + s.Cover + "\"");
+                    AddLine("\"backgroundColor\": " + "\"" + s.BackgroundColor + "\"");
+                    AddLine("\"align\": " + "\"" + s.Align + "\"");
+                    AddLine("\"vAlign\": " + "\"" + s.VerticalAlign + "\"");
+                    AddLine("\"transition\": " + "\"" + s.Transition + "\"");
+                    AddLine("\"transitionDuration\": " + "\"" + s.TransitionDuration + "\"");
+                    AddLine("\"transitionRegister\": " + "\"" + s.TransitionRegister + "\"");
+                    AddLine("\"animation\": " + "\"" + s.Animation + "\"");
+                    AddLine("\"animationDuration\": " + "\"" + s.AnimationDuration + "\"");
+                    AddLine("\"animationRegister\": " + "\"" + s.AnimationRegister + "\"");
+                    AddLine("]");
+                    AddLine("{");
                     sc.UpdateSettings(s);
-                    Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
                 }
-
+                Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
             }
             catch (Exception exc) //Module failed to load
             {
                 Exceptions.ProcessModuleLoadException(this, exc);
             }
-}
+        }
 
+        public void Generate()
+        {
+            var sc = new SettingsController();
+            var s = sc.LoadSingleSettings(ModuleId);
+            string fileName = (Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Settings.json"));
+            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
+            if (File.Exists(fileName))
+            {
+                File.Delete(fileName);
+            }
+            using (FileStream fs = File.Open(fileName, FileMode.CreateNew)) { }
+            AddLine("\"rotatorType\": " + "\"" + s.RotatorType + "\"");
+        }
+        public void AddLine(string appendText)
+        {
+            string fileName = (Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Settings.json"));
+            File.AppendAllText(fileName, Environment.NewLine + appendText);
+        }
         #endregion
     }
 }

@@ -108,8 +108,10 @@ namespace JS.Modules.JSImageRotator
                     if (ImageId > 0)
                     {
                         i = ic.GetImage(ImageId, ModuleId);
+                        i.SlideType = ddSlideType.SelectedValue;
                         i.ImageUrl = imgPreview.ImageUrl;
                         i.ImageTitle = txtTitle.Text.Trim();
+                        i.Video = imgPreview.ImageUrl;
                         i.ImageDescription = txtDescription.Text.Trim();
                         i.ImagePhotographer = txtPhotographer.Text.Trim();
                         i.ImageContact = txtContact.Text.Trim();
@@ -119,8 +121,10 @@ namespace JS.Modules.JSImageRotator
                     {
                         i = new Images()
                         {
+                            SlideType = ddSlideType.SelectedValue,
                             ImageUrl = imgPreview.ImageUrl,
                             ImageTitle = txtTitle.Text.Trim(),
+                            Video = imgPreview.ImageUrl,
                             ImageDescription = txtDescription.Text.Trim(),
                             ImagePhotographer = txtPhotographer.Text.Trim(),
                             ImageContact = txtContact.Text.Trim(),

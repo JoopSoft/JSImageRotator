@@ -34,9 +34,11 @@ namespace JS.Modules.JSImageRotator.Components
         public string Align { get; set; }
         public string VerticalAlign { get; set; }
         public string Transition { get; set; }
+        public string AutoTransitionDuration { get; set; }
         public int TransitionDuration  { get; set; }
         public string TransitionRegister { get; set; }
         public string Animation { get; set; }
+        public string AutoAnimationDuration { get; set; }
         public int AnimationDuration { get; set; }
         public string AnimationRegister { get; set; }
     }

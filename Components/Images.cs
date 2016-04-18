@@ -29,7 +29,9 @@ namespace JS.Modules.JSImageRotator.Components
     class Images
     {
         public int ImageId { get; set; }
+        public string SlideType { get; set; }
         public string ImageTitle { get; set; }
+        public string Video { get; set; }
         public string ImageDescription { get; set; }
         public string ImagePhotographer { get; set; }
         public string ImageContact { get; set; }

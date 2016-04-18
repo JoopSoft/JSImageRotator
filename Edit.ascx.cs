@@ -437,7 +437,9 @@ namespace JS.Modules.JSImageRotator
                 if (img.IsSelected)
                 {
                     ImageJ li = new ImageJ();
+                    li.SlideType = img.SlideType;
                     li.Title = img.ImageTitle;
+                    li.Video = img.Video;
                     li.Description = img.ImageDescription;
                     li.Photographer = img.ImagePhotographer;
                     li.Contact = img.ImageContact;
