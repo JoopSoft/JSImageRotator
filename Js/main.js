@@ -271,6 +271,7 @@
             title: null,
             width: '50%'
         });
+
         //MULTI SELECT OPTIONS
         if ($('.JSRotator .selectpicker.multi-select').exists()) $('.JSRotator .selectpicker.multi-select').selectpicker({
             actionsBox: false,
@@ -298,6 +299,8 @@
             title: null,
             width: '50%'
         });
+
+        //$('.selectpicker').selectpicker('val', 'Mustard');
     });
 })(jQuery, window.Sys);
 

@@ -36,7 +36,7 @@
         <fieldset>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblSlideType" runat="server" />
-                <asp:DropDownList ID="ddSlideType" runat="server" CssClass="selectpicker show-tick single-select hidder" data-target=".videoAttr">
+                <asp:DropDownList ID="ddSlideType" runat="server" CssClass="selectpicker show-tick single-select" data-target=".videoAttr">
                     <asp:ListItem Value="image" Selected="True">Image</asp:ListItem>
                     <asp:ListItem Value="video">Video</asp:ListItem>
                 </asp:DropDownList>
@@ -175,22 +175,21 @@
 </div>
 
 <script type="text/javascript">
-    var $ddSlideType = '<%= ddSlideType.ClientID %>';
 
-    $('.JSRotator #' + $ddSlideType)
+    $('.JSRotator #<%= ddSlideType.ClientID %>')
         .each(function () {
             var $this = $(this),
                 $target = $this.data('target');
         
-            if ($this.val() !== 'image') $($target).removeClass('hidden');
-            else $($target).addClass('hidden');
+            if ($this.val() !== 'image') $($target).show();
+            else $($target).hide();
         })
         .bind('change', function () {
             var $this = $(this),
-                $target = $(this).data('target');
+                $target = $this.data('target');
         
-            if ($this.val() !== 'image') $($target).removeClass('hidden');
-            else $($target).addClass('hidden');
+            if ($this.val() !== 'image') $($target).show();
+            else $($target).hide();
         });
     
 </script>

@@ -155,15 +155,15 @@
             </div>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblTransDurationType" runat="server" />
-                <asp:RadioButtonList ID="rblTransDurationType" runat="server"  RepeatDirection="Horizontal">
-                    <asp:ListItem>Auto</asp:ListItem>
-                    <asp:ListItem>Manual</asp:ListItem>
+                <asp:RadioButtonList ID="rblTransDurationType" runat="server" CssClass="hidder" data-target=".transDur"
+                    RepeatDirection="Horizontal">
+                    <asp:ListItem Value="auto">Auto</asp:ListItem>
+                    <asp:ListItem Value="1000" Selected="True">Manual</asp:ListItem>
                 </asp:RadioButtonList>
             </div> 
-            <div class="dnnFormItem">
+            <div class="transDur dnnFormItem">
                 <dnn:Label ID="lblTransDuration" runat="server" />
-                <asp:TextBox ID="txtTransDuration" runat="server" CssClass="form-control" 
-                    Text="1000" />
+                <asp:TextBox ID="txtTransDuration" runat="server" CssClass="form-control" />
             </div>
 <%--
             MOVE TO 2ND VERSE OF MODULE
@@ -190,15 +190,15 @@
             
             <div class="dnnFormItem">
                 <dnn:Label ID="lblAnimDurationType" runat="server" />
-                <asp:RadioButtonList ID="rblAnimDurationType" runat="server"  RepeatDirection="Horizontal">
-                    <asp:ListItem>Auto</asp:ListItem>
-                    <asp:ListItem>Manual</asp:ListItem>
+                <asp:RadioButtonList ID="rblAnimDurationType" runat="server" CssClass="hidder" data-target=".animDur"
+                    RepeatDirection="Horizontal">
+                    <asp:ListItem Value="auto" Selected="True">Auto</asp:ListItem>
+                    <asp:ListItem Value="5000">Manual</asp:ListItem>
                 </asp:RadioButtonList>
             </div>             
-            <div class="dnnFormItem">
+            <div class="animDur dnnFormItem">
                 <dnn:Label ID="lblAnimDuration" runat="server" />
-                <asp:TextBox ID="txtAnimDuration" runat="server" CssClass="form-control" 
-                    Text="5000" />
+                <asp:TextBox ID="txtAnimDuration" runat="server" CssClass="form-control" />
             </div>
 <%--
                 MOVE TO 2ND VERSE OF MODULE
@@ -219,8 +219,26 @@
 
 <script type="text/javascript">
 
-    var $fullURL = '<%= ModulePath %>';
-    //console.log($fullURL);
+    $('.JSRotator #<%= rblTransDurationType.ClientID %> input:radio, .JSRotator #<%= rblAnimDurationType.ClientID %> input:radio')
+        .each(function () {
+            var $this = $(this),
+                $target = $this.closest('.hidder').data('target');
+
+            if ($this.is(':checked')) {
+                if ($this.val() !== 'auto') $($target).show();
+                else $($target).hide();
+            }
+        })
+        .bind('change', function () {
+            var $this = $(this),
+                $target = $this.closest('.hidder').data('target');
+
+            if ($this.is(':checked')) {
+                if ($this.val() !== 'auto') $($target).show();
+                else $($target).hide();
+            }
+        });
+
 </script>
 
 <dnn:DnnJsInclude ID="bootstrapJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" Priority="19" />

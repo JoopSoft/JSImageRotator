@@ -160,7 +160,7 @@
     <value>Background Color</value>
   </data>
   <data name="lblCover.Help" xml:space="preserve">
-    <value>"true" the slide image is scaled to fit the container. "false" the slide image is displayed entirely. "repeat" the slide image is repeated.</value>
+    <value>&lt;ul&gt;&lt;li&gt;&lt;b&gt;&lt;i&gt;True&lt;/i&gt;&lt;/b&gt; - The slide image is scaled to fit the container. &lt;li&gt;&lt;b&gt;&lt;i&gt;False&lt;/i&gt;&lt;/b&gt; - The slide image is displayed entirely. &lt;li&gt;&lt;b&gt;&lt;i&gt;Repeat&lt;/i&gt;&lt;/b&gt; - The slide image is repeated.</value>
   </data>
   <data name="lblCover.Text" xml:space="preserve">
     <value>Cover</value>
@@ -253,7 +253,7 @@
     <value>JSImageRotator - Settings</value>
   </data>
   <data name="lblPPControl.Help" xml:space="preserve">
-    <value>Show/Hide play/pause controls.</value>
+    <value>Display/Hide play/pause controls.</value>
   </data>
   <data name="lblPPControl.Text" xml:space="preserve">
     <value>Play/Pause Control</value>
@@ -271,13 +271,13 @@
     <value>Overlay Type</value>
   </data>
   <data name="lblAnimDurationType.Help" xml:space="preserve">
-    <value>Choose animation type.</value>
+    <value>Choose animation type: &lt;ul&gt;&lt;li&gt;&lt;b&gt;&lt;i&gt;Auto&lt;/i&gt;&lt;/b&gt; - Animation duration will be equal to the slide delay.&lt;li&gt;&lt;b&gt;&lt;i&gt;Manual&lt;/i&gt;&lt;/b&gt; - Set the animation duration in milliseconds.</value>
   </data>
   <data name="lblAnimDurationType.Text" xml:space="preserve">
     <value>Animation Type</value>
   </data>
   <data name="lblTransDurationType.Help" xml:space="preserve">
-    <value>Choose transition type.</value>
+    <value>Choose transition type: &lt;ul&gt;&lt;li&gt;&lt;b&gt;&lt;i&gt;Auto&lt;/i&gt;&lt;/b&gt; - Transition duration will be equal to the slide delay.&lt;li&gt;&lt;b&gt;&lt;i&gt;Manual&lt;/i&gt;&lt;/b&gt; - Set the transition duration in milliseconds.</value>
   </data>
   <data name="lblTransDurationType.Text" xml:space="preserve">
     <value>Transition Type</value>
