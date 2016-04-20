@@ -445,6 +445,8 @@ namespace JS.Modules.JSImageRotator
                     li.Contact = img.ImageContact;
                     string src = img.ImageUrl.Remove(0, 1);
                     li.src = src;
+                    li.Animation = img.Animation;
+                    li.Transition = img.Transition;
                     Slides.Add(li);
                 }
             }
