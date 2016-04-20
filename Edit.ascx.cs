@@ -334,11 +334,13 @@ namespace JS.Modules.JSImageRotator
                 var btnEdit = ri.FindControl("btnEdit") as LinkButton;
                 var tableRow = ri.FindControl("tableRow") as TableRow;
                 var lnkDelete = ri.FindControl("lnkDelete") as LinkButton;
+                var ddAnimation = ri.FindControl("ddAnimation") as DropDownList;
+                var ddTransition = ri.FindControl("ddTransition") as DropDownList;
                 if (sender.Equals(btnEdit))
                 {
                     if (!imgTitle.Enabled)
                     {
-                        imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = true;
+                        imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = ddAnimation.Enabled = ddTransition.Enabled = true;
                         tableRow.CssClass = "active";
                         lnkDelete.CssClass = "btn btn-primary link-cancel no-txt";
                         lnkDelete.ToolTip = "Cancel";
@@ -359,7 +361,7 @@ namespace JS.Modules.JSImageRotator
                         i.ImagePhotographer = imgPhotographer.Text.Trim();
                         i.ImageContact = imgContact.Text.Trim();
                         ic.UpdateImage(i);
-                        imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = false;
+                        imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = ddAnimation.Enabled = ddTransition.Enabled = false;
                         tableRow.CssClass = "";
                         lnkDelete.CssClass = "btn btn-danger link-delete no-txt";
                         lnkDelete.ToolTip = "Delete";
@@ -437,9 +439,7 @@ namespace JS.Modules.JSImageRotator
                 if (img.IsSelected)
                 {
                     ImageJ li = new ImageJ();
-                    li.SlideType = img.SlideType;
                     li.Title = img.ImageTitle;
-                    li.Video = img.Video;
                     li.Description = img.ImageDescription;
                     li.Photographer = img.ImagePhotographer;
                     li.Contact = img.ImageContact;

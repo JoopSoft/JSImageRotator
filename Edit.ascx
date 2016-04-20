@@ -126,41 +126,32 @@
                                         <asp:CheckBox ID="cbSelect" runat="server" CssClass="cbSelect" AutoPostBack="false" 
                                             Checked='<%#((DataBinder.Eval(Container.DataItem,"IsSelected")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"IsSelected")==true)) %>' 
                                             OnCheckedChanged="cbSelect_CheckedChanged" />
-                                    </asp:TableCell>
-                                    <asp:TableCell>
+                                    </asp:TableCell><asp:TableCell>
                                         <asp:Image ID="imgPreview" runat="server" CssClass="row-img"
                                             ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' />
-                                    </asp:TableCell>
-                                    <asp:TableCell>
+                                    </asp:TableCell><asp:TableCell>
                                         <asp:TextBox ID="txtTitle" runat="server" CssClass="ellipsis" Enabled="false"
                                             data-toggle="tooltip" ToolTip="Edit Title"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageTitle").ToString() %>' />
-                                    </asp:TableCell>
-                                    <asp:TableCell>
+                                    </asp:TableCell><asp:TableCell>
                                         <asp:TextBox ID="txtDescription" runat="server" CssClass="ellipsis" Enabled="false"
                                             data-toggle="tooltip" ToolTip="Edit Description"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageDescription").ToString() %>' />
-                                    </asp:TableCell>
-                                    <asp:TableCell>
+                                    </asp:TableCell><asp:TableCell>
                                         <asp:TextBox ID="txtPhotographer" runat="server" CssClass="ellipsis" Enabled="false"
                                             data-toggle="tooltip" ToolTip="Edit Photographer"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImagePhotographer").ToString() %>' />
-                                    </asp:TableCell>
-                                    <asp:TableCell>
+                                    </asp:TableCell><asp:TableCell>
                                         <asp:TextBox ID="txtContact" runat="server" CssClass="ellipsis" Enabled="false"
                                             data-toggle="tooltip" ToolTip="Edit Contact"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageContact").ToString() %>' />
-                                    </asp:TableCell>
-                                    <asp:TableCell>
+                                    </asp:TableCell><asp:TableCell>
                                         <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn btn-primary link-edit no-txt"
                                             OnClick="btnEdit_Click" data-toggle="tooltip" ToolTip="Edit" />
                                         <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete no-txt"
                                             OnClick="lnkDelete_Click" data-toggle="tooltip" ToolTip="Delete"
                                             CommandName="Delete" />
-                                    </asp:TableCell>
-                                </asp:TableRow>
-                            </ItemTemplate>
-                            <FooterTemplate>
+                                    </asp:TableCell></asp:TableRow></ItemTemplate><FooterTemplate>
                             </FooterTemplate>
                         </asp:Repeater>
                     </tbody>
@@ -192,8 +183,7 @@
                 </table>
             </div>
         </fieldset>
-    </div>
-    <div class="dnnForm controls">
+     </div><div class="dnnForm controls">
         <div class="dnnFormItem">
             <asp:LinkButton ID="btnSubmit" runat="server" CssClass="btn btn-primary link-save"
                 OnClick="btnSubmit_Click" Text="Create And Save" ToolTip="Create And Save" />

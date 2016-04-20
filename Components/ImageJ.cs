@@ -9,6 +9,8 @@ namespace JS.Modules.JSImageRotator.Components
     {
         public string SlideType { get; set; }
         public string src { get; set; }
+        public string Transition { get; set; }
+        public string Animation { get; set; }
         public string Video { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

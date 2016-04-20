@@ -271,7 +271,8 @@ namespace JS.Modules.JSImageRotator
                         File.Delete(fileName);
                     }
                     using (FileStream fs = File.Open(fileName, FileMode.CreateNew)) { }
-                    File.AppendAllText(fileName, "{");
+                    //File.AppendAllText(fileName, "{");
+                    AddLine("{");
                     AddLine("\"Settings\": [");
                     AddLine("\"rotatorType\": " + "\"" + s.RotatorType + "\"");
                     AddLine("\"ppControl\": " + "\"" + s.PlayPauseControl + "\"");
@@ -289,14 +290,28 @@ namespace JS.Modules.JSImageRotator
                     AddLine("\"backgroundColor\": " + "\"" + s.BackgroundColor + "\"");
                     AddLine("\"align\": " + "\"" + s.Align + "\"");
                     AddLine("\"vAlign\": " + "\"" + s.VerticalAlign + "\"");
-                    AddLine("\"transition\": " + "\"" + s.Transition + "\"");
-                    AddLine("\"transitionDuration\": " + "\"" + s.TransitionDuration + "\"");
+                    AddLine("\"transition\": " + s.Transition);
+                    if (rblTransDurationType.SelectedValue == "Auto")
+                    {
+                        AddLine("\"transitionDuration\": " + "\"Auto\"");
+                    }
+                    else
+                    {
+                        AddLine("\"transitionDuration\": " + "\"" + s.TransitionDuration + "\"");
+                    }
                     AddLine("\"transitionRegister\": " + "\"" + s.TransitionRegister + "\"");
-                    AddLine("\"animation\": " + "\"" + s.Animation + "\"");
+                    AddLine("\"animation\": " + s.Animation);
+                    if (rblAnimDurationType.SelectedValue == "Auto")
+                    {
+                        AddLine("\"animationDuration\": " + "\"Auto\"");
+                    }
+                    else
+                    {
                     AddLine("\"animationDuration\": " + "\"" + s.AnimationDuration + "\"");
+                    }
                     AddLine("\"animationRegister\": " + "\"" + s.AnimationRegister + "\"");
                     AddLine("]");
-                    AddLine("{");
+                    AddLine("}");
                     sc.UpdateSettings(s);
                 }
                 Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
@@ -307,23 +322,10 @@ namespace JS.Modules.JSImageRotator
             }
         }
 
-        public void Generate()
-        {
-            var sc = new SettingsController();
-            var s = sc.LoadSingleSettings(ModuleId);
-            string fileName = (Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Settings.json"));
-            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
-            if (File.Exists(fileName))
-            {
-                File.Delete(fileName);
-            }
-            using (FileStream fs = File.Open(fileName, FileMode.CreateNew)) { }
-            AddLine("\"rotatorType\": " + "\"" + s.RotatorType + "\"");
-        }
         public void AddLine(string appendText)
         {
             string fileName = (Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Settings.json"));
-            File.AppendAllText(fileName, Environment.NewLine + appendText);
+            File.AppendAllText(fileName, appendText + Environment.NewLine);
         }
         #endregion
     }

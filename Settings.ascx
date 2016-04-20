@@ -157,8 +157,8 @@
                 <dnn:Label ID="lblTransDurationType" runat="server" />
                 <asp:RadioButtonList ID="rblTransDurationType" runat="server" CssClass="hidder" data-target=".transDur"
                     RepeatDirection="Horizontal">
-                    <asp:ListItem Value="auto">Auto</asp:ListItem>
-                    <asp:ListItem Value="1000" Selected="True">Manual</asp:ListItem>
+                    <asp:ListItem>Auto</asp:ListItem>
+                    <asp:ListItem>Manual</asp:ListItem>
                 </asp:RadioButtonList>
             </div> 
             <div class="transDur dnnFormItem">
@@ -192,8 +192,8 @@
                 <dnn:Label ID="lblAnimDurationType" runat="server" />
                 <asp:RadioButtonList ID="rblAnimDurationType" runat="server" CssClass="hidder" data-target=".animDur"
                     RepeatDirection="Horizontal">
-                    <asp:ListItem Value="auto" Selected="True">Auto</asp:ListItem>
-                    <asp:ListItem Value="5000">Manual</asp:ListItem>
+                    <asp:ListItem>Auto</asp:ListItem>
+                    <asp:ListItem>Manual</asp:ListItem>
                 </asp:RadioButtonList>
             </div>             
             <div class="animDur dnnFormItem">
@@ -225,7 +225,7 @@
                 $target = $this.closest('.hidder').data('target');
 
             if ($this.is(':checked')) {
-                if ($this.val() !== 'auto') $($target).show();
+                if ($this.val() !== 'Auto') $($target).show();
                 else $($target).hide();
             }
         })
@@ -234,7 +234,7 @@
                 $target = $this.closest('.hidder').data('target');
 
             if ($this.is(':checked')) {
-                if ($this.val() !== 'auto') $($target).show();
+                if ($this.val() !== 'Auto') $($target).show();
                 else $($target).hide();
             }
         });

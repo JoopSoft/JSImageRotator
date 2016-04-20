@@ -35,32 +35,10 @@
 
         <fieldset>
             <div class="dnnFormItem">
-                <dnn:Label ID="lblSlideType" runat="server" />
-                <asp:DropDownList ID="ddSlideType" runat="server" CssClass="selectpicker show-tick single-select" data-target=".videoAttr">
-                    <asp:ListItem Value="image" Selected="True">Image</asp:ListItem>
-                    <asp:ListItem Value="video">Video</asp:ListItem>
-                </asp:DropDownList>
-            </div>
-            <div class="dnnFormItem">
                 <dnn:label ID="lblImage" runat="server" />
                 <asp:FileUpload ID="btnImageSelect" runat="server" />
                 <asp:LinkButton ID="btnImageUpload" runat="server" CssClass="dnnSecondaryAction link-upload"  
                     OnClick="btnImageUpload_Click" ResourceKey="btnUpload" />
-            </div>
-            <div class="videoAttr dnnFormItem">
-                <dnn:label ID="lblVideo" runat="server" />
-                <asp:FileUpload ID="btnVideoSelect" runat="server" />
-                <asp:LinkButton ID="btnVideoUpload" runat="server" CssClass="dnnSecondaryAction link-upload"  
-                    OnClick="btnImageUpload_Click" ResourceKey="btnUpload" />
-            </div>
-            <div class="videoAttr dnnFormItem">
-                <dnn:label ID="lblLoop" runat="server" />
-                <asp:CheckBox ID="cbLoop" runat="server" />
-            </div>
-            <div class="videoAttr dnnFormItem">
-                <dnn:label ID="lblMute" runat="server" />
-                <asp:CheckBox ID="cbMute" runat="server" 
-                    Checked="true" />
             </div>
             <asp:Panel ID="pnlImgSelected" runat="server" CssClass="dnnFormItem group" Visible="false">
                 <dnn:label ID="lblImgSelected" runat="server" />
@@ -115,7 +93,7 @@
             </div>
             <div class="globalFx dnnFormItem group">
                 <dnn:Label ID="lblAnimation" runat="server" />
-                <asp:ListBox ID="lbAnimation" runat="server" CssClass="selectpicker multi-select" SelectionMode="Multiple">
+                <asp:DropDownList ID="ddAnimation" runat="server" CssClass="selectpicker multi-select">
                     <asp:ListItem>Random</asp:ListItem>
                     <asp:ListItem>Kenburns</asp:ListItem>
                     <asp:ListItem>Kenburns Up</asp:ListItem>
@@ -126,11 +104,11 @@
                     <asp:ListItem>Kenburns Up Right</asp:ListItem>
                     <asp:ListItem>Kenburns Down Left</asp:ListItem>
                     <asp:ListItem>Kenburns Down Right</asp:ListItem>
-                </asp:ListBox>
+                </asp:DropDownList>
             </div>
             <div class="globalFx dnnFormItem group">
                 <dnn:Label ID="lblTransition" runat="server" />
-                <asp:ListBox ID="lbTransition" runat="server" CssClass="selectpicker multi-select" SelectionMode="Multiple">
+                <asp:DropDownList ID="ddTransition" runat="server" CssClass="selectpicker multi-select" >
                     <asp:ListItem>Random</asp:ListItem>
                     <asp:ListItem>Fade</asp:ListItem>
                     <asp:ListItem>Fade 2</asp:ListItem>
@@ -158,7 +136,7 @@
                     <asp:ListItem>Flash 2</asp:ListItem>
                     <asp:ListItem>Negative</asp:ListItem>
                     <asp:ListItem>Negative 2</asp:ListItem>
-                </asp:ListBox>
+                </asp:DropDownList>
             </div>
 
 
@@ -174,7 +152,7 @@
     </div>
 </div>
 
-<script type="text/javascript">
+<%--<script type="text/javascript">
 
     $('.JSRotator #<%= ddSlideType.ClientID %>')
         .each(function () {
@@ -192,7 +170,7 @@
             else $($target).hide();
         });
     
-</script>
+</script>--%>
 
 <dnn:DnnJsInclude ID="bootstrapJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" Priority="19" />
 <dnn:DnnJsInclude ID="bootstrapSelectJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js" Priority="20" />

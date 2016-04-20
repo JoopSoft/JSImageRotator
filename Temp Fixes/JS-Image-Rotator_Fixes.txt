@@ -143,14 +143,6 @@ DONE - [Settings]: Cover checkbox replaced with dropdown with three values -True
 DONE - [Settings]: Disabled animationRegister, transitionRegister: Move to 2nd verse of module. 
 	*LOGIC CONNECTION
 	
-[SETTINGS]: Additional DB table cols for: 
-		- Animation Radio button list (rblAnimDurationType) selected value - {Auto/Manual}
-		- Transition Radio button list (rblTransDurationType) selected value - {Auto/Manual}
-		- Remove selected attributes from designer (both of them)
-		
-		- *Get values from rblist's and pushed to TransitionDuration and AnimationDuration..
-
-
 	Multiselect boxes: lbAnimation, lbTransition:
 
 		- If Random is checked > deselect the rest of items

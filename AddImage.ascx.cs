@@ -94,6 +94,32 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnAddImage_Click(object sender, EventArgs e)
         {
+            var sc = new SettingsController();
+            var als = sc.LoadSettings();
+            var s = new CustomSettings();
+            string animation;
+            string transition;
+            foreach (var stng in als)
+            {
+                if (stng.SettingsId == ModuleId)
+                {
+                    s = sc.LoadSingleSettings(ModuleId);
+                    break;
+                }
+                else
+                {
+                    s = sc.LoadSingleSettings(0);
+                }
+            }
+            if (cbGlobalFx.Checked)
+            {
+                transition = animation = "Default";
+            }
+            else
+            {
+                animation = ddAnimation.SelectedValue;
+                transition = ddTransition.SelectedValue;
+            }
             if (txtImageUrl.Text != "")
             {
                 if (txtTitle.Text != "" && txtDescription.Text != "" && txtPhotographer.Text != "" && txtContact.Text != "")
@@ -105,33 +131,32 @@ namespace JS.Modules.JSImageRotator
                     {
                         listToAdd = lstAvailableLists.SelectedValue;
                     }
-                    if (ImageId > 0)
+                    //if (ImageId > 0)
+                    //{
+                    //    i = ic.GetImage(ImageId, ModuleId);
+                    //    i.ImageUrl = imgPreview.ImageUrl;
+                    //    i.ImageTitle = txtTitle.Text.Trim();
+                    //    i.ImageDescription = txtDescription.Text.Trim();
+                    //    i.ImagePhotographer = txtPhotographer.Text.Trim();
+                    //    i.ImageContact = txtContact.Text.Trim();
+                    //    i.ListsIn = listToAdd + ".json, ";
+                    //}
+                    //else
+                    //{
+                    i = new Images()
                     {
-                        i = ic.GetImage(ImageId, ModuleId);
-                        i.SlideType = ddSlideType.SelectedValue;
-                        i.ImageUrl = imgPreview.ImageUrl;
-                        i.ImageTitle = txtTitle.Text.Trim();
-                        i.Video = imgPreview.ImageUrl;
-                        i.ImageDescription = txtDescription.Text.Trim();
-                        i.ImagePhotographer = txtPhotographer.Text.Trim();
-                        i.ImageContact = txtContact.Text.Trim();
-                        i.ListsIn = listToAdd + ".json, ";
-                    }
-                    else
-                    {
-                        i = new Images()
-                        {
-                            SlideType = ddSlideType.SelectedValue,
-                            ImageUrl = imgPreview.ImageUrl,
-                            ImageTitle = txtTitle.Text.Trim(),
-                            Video = imgPreview.ImageUrl,
-                            ImageDescription = txtDescription.Text.Trim(),
-                            ImagePhotographer = txtPhotographer.Text.Trim(),
-                            ImageContact = txtContact.Text.Trim(),
-                            IsSelected = false,
-                            ListsIn = listToAdd + ".json, "
-                        };
-                    }
+                        ImageUrl = imgPreview.ImageUrl,
+                        ImageTitle = txtTitle.Text.Trim(),
+                        ImageDescription = txtDescription.Text.Trim(),
+                        ImagePhotographer = txtPhotographer.Text.Trim(),
+                        ImageContact = txtContact.Text.Trim(),
+                        IsSelected = false,
+                        DefaultSettings = cbGlobalFx.Checked,
+                        Animation = animation,
+                        Transition = transition,
+                        ListsIn = listToAdd + ".json, "
+                    };
+                    //}
                     i.ModuleId = ModuleId;
                     if (i.ImageId > 0)
                     {

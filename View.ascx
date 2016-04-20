@@ -9,12 +9,12 @@
         <%--BG CONTROLS--%>
         <div class="ppControlHolder body">
             <div class="btn-group">
-                <button id="ppControl" type="button" class="btn btn-primary"
+                <asp:LinkButton ID="ppControl" runat="server" CssClass="btn btn-primary"
                     data-toggle="tooltip" title="Pause">
-                </button>
-                <button id="ppInfo" type="button" class="btn btn-primary"
+                </asp:LinkButton>
+                <asp:LinkButton ID="slideInfo" runat="server" CssClass="btn btn-primary"
                     data-toggle="tooltip" title="Info">
-                </button>
+                </asp:LinkButton>
             </div>
             <div id="ppLabel"></div>
         </div>
@@ -32,6 +32,8 @@
         $modulePath = '<%= ModulePath %>',
         $moduleId = '.DnnModule-<%= ModuleId %>',
 
+        $ppControl = <%= ppControl.ClientID %>,
+
         $play = 'fa-play-circle-o',
         $pause = 'fa-pause-circle-o',
         $info = '<i class="fa fa-info fa-2x"></i>',
@@ -39,7 +41,7 @@
         $image = '<i class="fa fa-image"></i>',
         $mail = '<i class="fa fa-envelope"></i>',
 
-        $jsonData = $modulePath + 'Json/Slides.json';
+        $jsonData = $modulePath + 'Json/<%= ModuleId %>_Slides.json';
     
     //console.log($modulePath + ' / ' + $localPath + ' / ' + $jsonData);
     console.log($moduleId);
@@ -51,7 +53,7 @@
     //    $('body').vegas('pause');
     //});
 
-    $('#ppControl')
+    $('#<%= ppControl.ClientID %>')
         .html('<i class="fa ' + $pause + ' fa-2x"></i>')
         .bind('click', function () {
             $('body').vegas('toggle');
@@ -59,7 +61,7 @@
             $(this).find('i').toggleClass($play + ' ' + $pause);
         });
 
-    $('#ppInfo')
+    $('#<%= slideInfo.ClientID %>')
         .html($info);
     //.popover({
     //    title: slideSettings.Title,
