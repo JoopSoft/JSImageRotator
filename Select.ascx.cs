@@ -166,6 +166,21 @@ namespace JS.Modules.JSImageRotator
         {
             var ic = new ImageController();
             var il = ic.GetImages(ModuleId);
+            var sc = new SettingsController();
+            var als = sc.LoadSettings();
+            var s = new CustomSettings();
+            foreach (var stng in als)
+            {
+                if (stng.SettingsId == ModuleId)
+                {
+                    s = sc.LoadSingleSettings(ModuleId);
+                    break;
+                }
+                else
+                {
+                    s = sc.LoadSingleSettings(0);
+                }
+            }
             List<ImageJ> Slides = new List<ImageJ>();
             foreach (var img in il)
             {
