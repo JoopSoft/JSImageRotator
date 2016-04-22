@@ -162,4 +162,10 @@
   <data name="lblConfirmDelete.Text" xml:space="preserve">
     <value>Are you sure you want to Delete this List!</value>
   </data>
+  <data name="thAnimation.Text" xml:space="preserve">
+    <value>Animation</value>
+  </data>
+  <data name="thTransition.Text" xml:space="preserve">
+    <value>Transition</value>
+  </data>
 </root>

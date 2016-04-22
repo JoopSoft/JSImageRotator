@@ -149,4 +149,45 @@ DONE - [Settings]: Disabled animationRegister, transitionRegister: Move to 2nd v
 		- All items couldn't be checked
 		- If All items without Random is checked > Random must be checked and the rest items not..
 
+add image: hide upload button before choosen file isn't selected..
 
+select: popup delete design
+
+view: info btn attach info box fireing by click event.
+
+edit: Update list > Select list from available > checkbox dont work..
+
+edit: dropdowns should be styling properly..
+
+view: Display/Hide pnlAdmin on edit mode - Three buttons for Add, Edit and Select
+
+popups: big icons..
+
+edit, add, settings, select: color separate elements..
+
+view: push rotator type to pnlControlHolder {Body:Container}
+
+VIEW: Connect JSON..
+
+ALL BOOL VALUES MUST BE LOWERCASE PRE-FORMATED.. > SAVE TO JSON (JSON can't read bool values with Capitalize letters)
+
+"Cover" setting didn't save the "Repeat" value on DB..
+
+"Overlay path" didn't save on DB..
+
+"Slide" Initial number must be saved to DB, also save to JSON dynamically..
+	Set default value 0 to settings textbox.
+
+
+*Transition and Animation new settings.
+
+ScrollTop when is needed..
+
+!Add: Ако се използват global fx да не се генерира JSON in slides с тези нови сетинги.. 
+	Ако не може да се отави 'random' value, понеже се чупи плъгина..
+
+
+*Slide settings са доста повече от animation and transition - останалите добавяме във 2ра вер.
+
+
+main.js: optimize code

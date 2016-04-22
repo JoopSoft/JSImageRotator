@@ -181,16 +181,16 @@
     <value>Delete</value>
   </data>
   <data name="lblAnimation.Help" xml:space="preserve">
-    <value>Set the animation of the slides.</value>
+    <value>Set the specific animation of the slides.</value>
   </data>
   <data name="lblAnimation.Text" xml:space="preserve">
-    <value>Animation</value>
+    <value>Specific Animation</value>
   </data>
   <data name="lblGlobalFx.Help" xml:space="preserve">
-    <value>Use global effects for all slides.</value>
+    <value>Use default slideshow options and settings.</value>
   </data>
   <data name="lblGlobalFx.Text" xml:space="preserve">
-    <value>Global Effects</value>
+    <value>Default Settings</value>
   </data>
   <data name="lblLoop.Help" xml:space="preserve">
     <value>Loop the video.</value>
@@ -211,10 +211,10 @@
     <value>Type</value>
   </data>
   <data name="lblTransition.Help" xml:space="preserve">
-    <value>Set the transition between slides.</value>
+    <value>Set the specific transition between slides.</value>
   </data>
   <data name="lblTransition.Text" xml:space="preserve">
-    <value>Transition</value>
+    <value>Specific Transition</value>
   </data>
   <data name="lblVideo.Help" xml:space="preserve">
     <value>URL of the uploaded Video.</value>

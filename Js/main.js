@@ -30,6 +30,7 @@
                 });
             });
         };
+
         //CUSTOM SMALL MODULE FOR GET ESCAPE KEY PRESS
         $.fn.escapeKey = function (fnc) {
             return this.each(function () {
@@ -75,6 +76,7 @@
             $lnkCancel = '<i class="fa fa-ban"></i>',
             $lnkSuccess = '<i class="fa fa-check-circle"></i>',
             $lnkInfo = '<i class="fa fa-info-circle"></i>',
+            $lnkInfo2x = '<i class="fa fa-info fa-2x"></i>',
             $lnkList = '<i class="fa fa-list"></i>',
             $lnkExch = '<i class="fa fa-exchange"></i>',
             $lnkImage = '<i class="fa fa-picture-o"></i>',
@@ -96,6 +98,7 @@
         $('.JSRotator .link-save').prepend($lnkSave + ' ');
         $('.JSRotator .link-cancel').prepend($lnkCancel + ' ');
         $('.JSRotator .link-info').prepend($lnkInfo + ' ');
+        $('.JSRotator .link-info2x').prepend($lnkInfo2x + ' ');
         $('.JSRotator .link-prev').prepend($lnkPrev + ' ');
         $('.JSRotator .link-close').prepend($lnkClose + ' ');
         $('.JSRotator .link-warning').prepend($lnkWarning + ' ');
@@ -117,6 +120,7 @@
         $('.JSRotator .link-save.no-txt').html($lnkSave);
         $('.JSRotator .link-cancel.no-txt').html($lnkCancel);
         $('.JSRotator .link-info.no-txt').html($lnkInfo);
+        $('.JSRotator .link-info2x.no-txt').html($lnkInfo2x);
         $('.JSRotator .link-prev.no-txt').html($lnkPrev);
         $('.JSRotator .link-next.no-txt').html($lnkNext);
         $('.JSRotator .link-close.no-txt').html($lnkClose);
@@ -144,7 +148,6 @@
 
         //$('.JSRotator [data-toggle="popover"]').popover();
 
-        //ADDING TOOLTIP TO ALL ELEMENTS CONTAINS DATA-TOGGLE ATTRIBUTES
         $('.JSRotator [data-toggle="tooltip"]').tooltip({
             placement: 'auto bottom'
         });
@@ -220,27 +223,23 @@
 
         //DISPALY/HIDE PANEL DEFINITION
         $('.JSRotator .hidder input:checkbox').each(function () {
-            var $this = $(this),
-                $target = $this.parent().data('target');
+            var $target = $(this).parent().data('target');
 
-            if ($this.is(':checked')) $($target).removeClass('hidden');else $($target).addClass('hidden');
+            if ($(this).is(':checked')) $($target).show();else $($target).hide();
         }).bind('change', function () {
-            var $this = $(this),
-                $target = $this.parent().data('target');
+            var $target = $(this).parent().data('target');
 
-            if ($this.is(':checked')) $($target).removeClass('hidden');else $($target).addClass('hidden');
+            if ($(this).is(':checked')) $($target).show();else $($target).hide();
         });
 
         $('.JSRotator .unhidder input:checkbox').each(function () {
-            var $this = $(this),
-                $target = $this.parent().data('target');
+            var $target = $(this).parent().data('target');
 
-            if ($this.is(':checked')) $($target).addClass('hidden');else $($target).removeClass('hidden');
+            if ($(this).is(':checked')) $($target).hide();else $($target).show();
         }).bind('change', function () {
-            var $this = $(this),
-                $target = $this.parent().data('target');
+            var $target = $(this).parent().data('target');
 
-            if ($this.is(':checked')) $($target).addClass('hidden');else $($target).removeClass('hidden');
+            if ($(this).is(':checked')) $($target).hide();else $($target).show();
         });
 
         //SELECT PICKER CUSTOM PLUGIN DEFINITION
@@ -298,6 +297,34 @@
             tickIcon: 'glyphicon-ok',
             title: null,
             width: '50%'
+        });
+
+        //SINGLE SELECT ON TABLE
+        if ($('.JSRotator .selectpicker.table-select').exists()) $('.JSRotator .selectpicker.table-select').selectpicker({
+            actionsBox: false,
+            //container: false,
+            //countSelectedText:'',
+            //dropupAuto: true,
+            //header: false,
+            //hideDisabled: false,
+            //iconBase: 'glyphicon',
+            liveSearch: false,
+            liveSearchPlaceholder: 'Search',
+            maxOptions: 1,
+            mobile: false,
+            multipleSeparator: ' | ',
+            noneSelectedText: 'Select',
+            selectedTextFormat: 'values',
+            selectOnTab: false,
+            showContent: true,
+            showIcon: true,
+            showSubtext: false,
+            showTick: false,
+            size: 'auto',
+            style: 'btn-primary',
+            tickIcon: 'glyphicon-ok',
+            title: null,
+            width: '100%'
         });
 
         //$('.selectpicker').selectpicker('val', 'Mustard');

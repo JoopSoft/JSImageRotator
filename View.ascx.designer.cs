@@ -31,22 +31,40 @@ namespace JS.Modules.JSImageRotator {
         protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnCssInclude vegasCss;
         
         /// <summary>
-        /// ppControl control.
+        /// mainCss control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ppControl;
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnCssInclude mainCss;
         
         /// <summary>
-        /// slideInfo control.
+        /// pnlControlHolder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton slideInfo;
+        protected global::System.Web.UI.WebControls.Panel pnlControlHolder;
+        
+        /// <summary>
+        /// btnPlayPause control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink btnPlayPause;
+        
+        /// <summary>
+        /// pnlSlideInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlSlideInfo;
         
         /// <summary>
         /// pnlFirstButton control.
@@ -65,6 +83,42 @@ namespace JS.Modules.JSImageRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink lnkFirstButton;
+        
+        /// <summary>
+        /// pnlAdmin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlAdmin;
+        
+        /// <summary>
+        /// lnkAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkAdd;
+        
+        /// <summary>
+        /// lnkEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkEdit;
+        
+        /// <summary>
+        /// lnkView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkView;
         
         /// <summary>
         /// vegasJs control.

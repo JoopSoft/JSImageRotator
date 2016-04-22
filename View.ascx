@@ -3,77 +3,89 @@
 
 <dnn:DnnCssInclude ID="fontAwesomeCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
 <dnn:DnnCssInclude ID="vegasCss" runat="server" FilePath="~/DesktopModules/JSImageRotator/Vegas/vegas.min.css" />
+<dnn:DnnCssInclude ID="mainCss" runat="server" FilePath="~/DesktopModules/JSImageRotator/module.min.css" />
+
 
 <div class="JSRotator">
     <div class="view">
         <%--BG CONTROLS--%>
-        <div class="ppControlHolder body">
+        <asp:Panel ID="pnlControlHolder" runat="server" CssClass="pnlControlHolder">
             <div class="btn-group">
-                <asp:LinkButton ID="ppControl" runat="server" CssClass="btn btn-primary"
-                    data-toggle="tooltip" title="Pause">
-                </asp:LinkButton>
-                <asp:LinkButton ID="slideInfo" runat="server" CssClass="btn btn-primary"
-                    data-toggle="tooltip" title="Info">
-                </asp:LinkButton>
+                <asp:HyperLink ID="btnPlayPause" runat="server" CssClass="btn btn-primary"
+                    ToolTip="Pause" >
+                </asp:HyperLink>
+                <%--<asp:HyperLink ID="btnSlideInfo" runat="server" CssClass="btn btn-primary"
+                    data-toggle="tooltip" >
+                </asp:HyperLink>--%>
             </div>
-            <div id="ppLabel"></div>
-        </div>
+            <asp:Panel ID="pnlSlideInfo" runat="server" CssClass="pnl-info" ></asp:Panel>
+        </asp:Panel>
 
         <%--FIRST CONTROLS--%>
         <asp:Panel ID="pnlFirstButton" runat="server">
             <asp:HyperLink ID="lnkFirstButton" runat="server" CssClass="btn btn-primary link-add" />
         </asp:Panel>
+
+        <%--EDIT MODE GROUP BUTTONS--%>
+        <asp:Panel ID="pnlAdmin" runat="server" Visible="true" CssClass="pnl-admin">
+            <div class="btn-group" role="group" aria-label="Control buttons">
+                <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add"
+                    ResourceKey="lnkAdd" data-toggle="tooltip" ToolTip="Add New Image" />
+                <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary link-edit-square"
+                    ResourceKey="lnkEdit" data-toggle="tooltip" ToolTip="Edit Image Lists" />
+                <asp:LinkButton ID="lnkView" runat="server" CssClass="btn btn-primary link-list"
+                    ResourceKey="lnkView" data-toggle="tooltip" ToolTip="View Image Lists" />
+            </div>
+        </asp:Panel>
+
     </div>
 </div>
 
 <script type="text/javascript">
-    var $localPath = '<%= ModulePath %>Images/',
-        //$localPath = '/Portals/0/',
-        $modulePath = '<%= ModulePath %>',
-        $moduleId = '.DnnModule-<%= ModuleId %>',
+    var $moduleId = '.DnnModule-<%= ModuleId %>',
 
-        $ppControl = <%= ppControl.ClientID %>,
+        $lnkPlay = 'fa-play',
+        $lnkPause = 'fa-pause',
+        $lnkInfo = 'fa fa-info',
+        $lnkClose = 'fa fa-close',
+        $lnkCamera = '<i class="fa fa-camera"></i>',
+        $lnkImage = '<i class="fa fa-image"></i>',
+        $lnkMail = '<i class="fa fa-envelope"></i>',
 
-        $play = 'fa-play-circle-o',
-        $pause = 'fa-pause-circle-o',
-        $info = '<i class="fa fa-info fa-2x"></i>',
-        $camera = '<i class="fa fa-camera"></i>',
-        $image = '<i class="fa fa-image"></i>',
-        $mail = '<i class="fa fa-envelope"></i>',
+        $slidesData = '<%= ModulePath %>Json/<%= ModuleId %>_Slides.json',
+        $settingsData = '<%= ModulePath %>Json/<%= ModuleId %>_Settings.json',
 
-        $jsonData = $modulePath + 'Json/<%= ModuleId %>_Slides.json';
+        $settings = {};
     
-    //console.log($modulePath + ' / ' + $localPath + ' / ' + $jsonData);
-    console.log($moduleId);
 
-    //$('#playControl').on('click', function () {
-    //    $('body').vegas('play');
-    //});
-    //$('#pauseControl').on('click', function () {
-    //    $('body').vegas('pause');
-    //});
+    //$('#<= btnSlideInfo.ClientID %>')
+    //    .html('<i class="fa ' + $lnkInfo + ' fa-2x"></i>')
+    //    .addClass('active')
+    //    .each(function () {
+    //        $(this)
+    //            .attr('data-original-title', function(index, title){
+    //                return title === 'Close' ? 'Info' : 'Close';
+    //            })
+    //            .find('i').toggleClass($lnkInfo + ' ' + $lnkClose);
+    //
+    //        if($(this).is('.active')) $('#<= pnlSlideInfo.ClientID %>').show();
+    //        else $('#<= pnlSlideInfo.ClientID %>').hide();
+    //    })
+    //    .bind('click', function () {
+    //        $(this)
+    //            .toggleClass('active')
+    //            .attr('data-original-title', function(index, title){
+    //                return title === 'Info' ? 'Close' : 'Info';
+    //            })                
+    //            .find('i').toggleClass($lnkInfo + ' ' + $lnkClose);
+    //
+    //        if($(this).is('.active')) $('#<= pnlSlideInfo.ClientID %>').fadeIn();
+    //        else $('#<= pnlSlideInfo.ClientID %>').fadeOut();          
+    //    });
+    //
 
-    $('#<%= ppControl.ClientID %>')
-        .html('<i class="fa ' + $pause + ' fa-2x"></i>')
-        .bind('click', function () {
-            $('body').vegas('toggle');
 
-            $(this).find('i').toggleClass($play + ' ' + $pause);
-        });
-
-    $('#<%= slideInfo.ClientID %>')
-        .html($info);
-    //.popover({
-    //    title: slideSettings.Title,
-    //    content: '<span>' + $camera + ' ' + slideSettings.Photographer + '</span><span>' + $mail + ' <a href="mailto:' + slideSettings.Contact + '" title="Send mail to ' + slideSettings.Contact + '">' + slideSettings.Contact + '</a></span>',
-    //    template: '<div class="popover" role="tooltip">'
-    //                + '<div class="arrow"></div>'
-    //                + '<h3 class="popover-title"></h3>'
-    //                + '<div class="popover-content"></div>'
-    //              + '</div>',
-    //    placement: 'bottom'
-    //});
-
+    //PREDEFINED AJAX REQUEST
     function jqXHR(url, beforeLoad, cache) {
         return $.ajax({
             url: url,
@@ -86,61 +98,114 @@
 		.always(function () {
 		    //console.log("complete");
 		});
-    }
+    };
 
-    //GET CUSTOM ELEMENTS JSON CONTENT
-    jqXHR($jsonData,
+
+    //GET JSON SETTINGS CONTENT
+    jqXHR($settingsData,
             function () {
-                //console.log('Before load func');
-            }, false)
+                //console.log('Before load JSON');
+            }, true)
     		.done(function (data) {
-    		    var $slides = data.slides;
+    		    //var $settings = data.settings;
+    		    $settings = data.settings;
 
-    		    console.log($slides);
+    		})
+    		.fail(function (jqXHR, textStatus) {
+    		    console.log('Error loading JSON');
+    		});
 
-    		    $('body')
-    		    //$($moduleId)
-                //    .addClass('JSRotator-container')
-                //    .parent()
-                    .vegas({
-    		            delay: 30000,
-    		            timer: true,
-    		            shuffle: true,
-    		            transition: 'fade',
-    		            transitionDuration: 3000,
-    		            animation: null, //'random',
-    		            autoplay: false,
-    		            overlay: $modulePath + '/Vegas/overlays/01.png',
-    		            slides: $slides,
+    $(window).load(function () {
 
-    		            init: function (globalSettings) {
-    		                console.log("Init");
-    		            },
-    		            play: function (index, slideSettings) {
-    		                console.log("Play");
-    		            },
-    		            pause: function (index, slideSettings) {
-    		                console.log("Pause");   
-    		            },
-    		            walk: function (index, slideSettings) {
-    		                //console.log("Slide index " + index + " image " + slideSettings.src + '' + slideSettings.photographer);
-    		                //$('#ppLabel')
-                            //    .html('<h3>' + slideSettings.Title + '</h3>'
-                            //            //+ '<span>' + $image + ' ' + slideSettings.Description + '</span>'
-                            //            + '<span>' + $camera + ' ' + slideSettings.Photographer + '</span>'
-                            //            + '<span>' + $mail + ' <a href="mailto:' + slideSettings.Contact + '" title="Send mail to ' + slideSettings.Contact + '">' + slideSettings.Contact + '</a></span>'                    
-                            //        );
+        $('#<%= btnPlayPause.ClientID %>')//
+            .html('<i class="fa ' + (($settings.autoplay === true) ? $lnkPause : $lnkPlay) + '"></i>')
+            .each(function () {
+                $(this)
+                    .attr('title', function (index, title) {
+                        return $settings.autoplay === true ? 'Pause' : 'Play';
+                    })
+                .find('i').addClass(($settings.rotatorType !== 'body') ? '' : 'fa-2x');
+            })
+            .bind('click', function () {
+                $(this)
+                    .attr('title', function (index, title) {
+                        return title === 'Pause' || '' ? 'Play' : 'Pause';
+                    })
+                    .find('i').toggleClass($lnkPlay + ' ' + $lnkPause);
 
+                $(($settings.rotatorType !== 'body') ? $moduleId : 'body')
+                    .vegas('toggle');
+
+            });
+
+        //GET JSON SLIDES CONTENT
+        jqXHR($slidesData,
+                function () {
+                    //console.log('Before load func');
+                }, false)
+                .done(function (data) {
+                    var $slides = data.slides;
+
+                    $('#<%= pnlControlHolder.ClientID %>')
+                        .addClass(($settings.rotatorType !== 'body') ? $settings.rotatorType : 'body');
+
+                    $($moduleId).css('min-height', '150px');
+
+
+                    $(($settings.rotatorType !== 'body') ? $moduleId : 'body')
+                        .vegas({
+                            //ppControl: $settings.ppControl,
+                            //slideInfo: $settings.slideInfo,
+                            slide: $settings.slide,
+                            preload: $settings.preload,
+                            preloadImage: $settings.preloadImage,
+                            preloadVideo: $settings.preloadVideo,
+                            timer: $settings.timer,
+                            overlay: (($settings.overlay === true) ? '<%= ModulePath %>Vegas/overlays/' + $settings.overlayType : false),
+                            autoplay: $settings.autoplay,
+                            shuffle: $settings.shuffle,
+                            delay: $settings.delay,
+                            cover: $settings.cover,
+                            color: $settings.backgroundColor,
+                            align: $settings.align,
+                            valign: $settings.vAlign,
+
+                            transition: $settings.transition,
+                            transitionDuration: $settings.transitionDuration,
+                            transitionRegister: $settings.transitionRegister,
+
+                            animation: $settings.animation,
+                            animationDuration: $settings.animationDuration,
+                            animationRegister: $settings.animationRegister,
+                            
+                            slides: $slides,
+
+                            init: function (globalSettings) {
+                                console.log("Init");
+                            },
+                            play: function (index, slideSettings) {
+                                console.log("Play");
+                            },
+                            pause: function (index, slideSettings) {
+                                console.log("Pause");
+                            },
+                            walk: function (index, slideSettings) {
+                                $('#<%= pnlSlideInfo.ClientID %>')
+    		                    .html('<h3>' + slideSettings.title + '</h3>'
+                                        //+ '<span>' + $image + ' ' + slideSettings.description + '</span>'
+                                        + '<span>' + $lnkCamera + ' ' + slideSettings.photographer + '</span>'
+                                        + '<span>' + $lnkMail + ' <a href="mailto:' + slideSettings.contact + '" title="Send mail to ' + slideSettings.contact + '">' + slideSettings.contact + '</a></span>'
+                                    );
     		            }
-    		        
-    		    });
 
+                    });
     		})
     		.fail(function (jqXHR, textStatus) {
     		    console.log('Error func');
     		});
 
 
+    });
 
 </script>
 

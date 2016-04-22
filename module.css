@@ -558,8 +558,7 @@
           box-shadow: none; }
       .JSRotator .dnnForm.add-img select, .JSRotator .dnnForm.select select, .JSRotator .dnnForm.edit select, .JSRotator .dnnForm.settings select {
         padding: 0 5px;
-        width: auto;
-        min-width: 100px; }
+        width: 100px; }
       .JSRotator .dnnForm.add-img .dnnFormItem table tr > th, .JSRotator .dnnForm.select .dnnFormItem table tr > th, .JSRotator .dnnForm.edit .dnnFormItem table tr > th, .JSRotator .dnnForm.settings .dnnFormItem table tr > th {
         color: rgba(255, 255, 255, 0.8);
         background-color: rgba(59, 30, 119, 0.8);
@@ -569,6 +568,8 @@
           background-position: -100px 0px; }
         .JSRotator .dnnForm.add-img .dnnFormItem table tr > th .dnnCheckbox-checked img, .JSRotator .dnnForm.select .dnnFormItem table tr > th .dnnCheckbox-checked img, .JSRotator .dnnForm.edit .dnnFormItem table tr > th .dnnCheckbox-checked img, .JSRotator .dnnForm.settings .dnnFormItem table tr > th .dnnCheckbox-checked img {
           background-position: -150px 0px; }
+        .JSRotator .dnnForm.add-img .dnnFormItem table tr > th.custom-fx, .JSRotator .dnnForm.select .dnnFormItem table tr > th.custom-fx, .JSRotator .dnnForm.edit .dnnFormItem table tr > th.custom-fx, .JSRotator .dnnForm.settings .dnnFormItem table tr > th.custom-fx {
+          min-width: 130px; }
       .JSRotator .dnnForm.add-img .dnnFormItem table tr > td, .JSRotator .dnnForm.select .dnnFormItem table tr > td, .JSRotator .dnnForm.edit .dnnFormItem table tr > td, .JSRotator .dnnForm.settings .dnnFormItem table tr > td {
         vertical-align: middle; }
         .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="text"],
@@ -623,12 +624,16 @@
           margin: 0;
           padding: 0;
           text-align: center; }
+        .JSRotator .dnnForm.add-img .dnnFormItem table tr > td .btn, .JSRotator .dnnForm.select .dnnFormItem table tr > td .btn, .JSRotator .dnnForm.edit .dnnFormItem table tr > td .btn, .JSRotator .dnnForm.settings .dnnFormItem table tr > td .btn {
+          height: 30px; }
+        .JSRotator .dnnForm.add-img .dnnFormItem table tr > td.custom-fx, .JSRotator .dnnForm.select .dnnFormItem table tr > td.custom-fx, .JSRotator .dnnForm.edit .dnnFormItem table tr > td.custom-fx, .JSRotator .dnnForm.settings .dnnFormItem table tr > td.custom-fx {
+          min-width: 130px; }
       .JSRotator .dnnForm.add-img .dnnFormItem table tr.active, .JSRotator .dnnForm.select .dnnFormItem table tr.active, .JSRotator .dnnForm.edit .dnnFormItem table tr.active, .JSRotator .dnnForm.settings .dnnFormItem table tr.active {
         position: fixed;
         z-index: 9999;
         background: none;
-        width: 90%;
-        left: 5%;
+        width: 95%;
+        left: 2.5%;
         top: calc((100% - 50px)/2);
         -moz-box-shadow: 0 8px 30px -6px #000;
         -webkit-box-shadow: 0 8px 30px -6px #000;
@@ -831,28 +836,73 @@
       border: none;
       margin: 0;
       padding: 0; }
-  .JSRotator .ppControlHolder {
-    /*animation: roll 3s infinite;*/ }
-    .JSRotator .ppControlHolder.body {
-      position: fixed;
-      top: 100px;
-      left: 10px; }
-    .JSRotator .ppControlHolder #ppControl {
-      /*background: $none;*/
-      /*border: $none;*/
-      /*color: $dark-alpha-lg;*/
-      /*display: inline-block;*/
-      /*vertical-align: top;*/ }
-    .JSRotator .ppControlHolder #ppLabel {
-      /*display: inline-block;*/ }
-      .JSRotator .ppControlHolder #ppLabel h1, .JSRotator .ppControlHolder #ppLabel h2, .JSRotator .ppControlHolder #ppLabel h3, .JSRotator .ppControlHolder #ppLabel h4, .JSRotator .ppControlHolder #ppLabel h5, .JSRotator .ppControlHolder #ppLabel h6 {
-        margin: 0;
-        color: rgba(59, 30, 119, 0.7); }
-      .JSRotator .ppControlHolder #ppLabel span {
-        display: block;
-        color: rgba(59, 30, 119, 0.7); }
-      .JSRotator .ppControlHolder #ppLabel a {
-        color: rgba(59, 30, 119, 0.7); }
+  .JSRotator .pnlControlHolder .pnl-info {
+    background: rgba(0, 0, 0, 0.5);
+    float: left; }
+    .JSRotator .pnlControlHolder .pnl-info h1, .JSRotator .pnlControlHolder .pnl-info h2, .JSRotator .pnlControlHolder .pnl-info h3, .JSRotator .pnlControlHolder .pnl-info h4, .JSRotator .pnlControlHolder .pnl-info h5, .JSRotator .pnlControlHolder .pnl-info h6 {
+      color: #fff;
+      float: left; }
+    .JSRotator .pnlControlHolder .pnl-info span {
+      display: block;
+      color: #fff;
+      float: left; }
+    .JSRotator .pnlControlHolder .pnl-info a {
+      color: #fff; }
+  .JSRotator .pnlControlHolder .btn-group {
+    float: left;
+    text-align: center; }
+    .JSRotator .pnlControlHolder .btn-group .btn {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 0; }
+      .JSRotator .pnlControlHolder .btn-group .btn:hover, .JSRotator .pnlControlHolder .btn-group .btn:focus, .JSRotator .pnlControlHolder .btn-group .btn:active, .JSRotator .pnlControlHolder .btn-group .btn.active {
+        background-color: rgba(0, 0, 0, 0.8); }
+  .JSRotator .pnlControlHolder.body {
+    position: fixed;
+    bottom: 10px;
+    left: 10px; }
+    .JSRotator .pnlControlHolder.body .pnl-info {
+      height: 50px;
+      line-height: 50px; }
+      .JSRotator .pnlControlHolder.body .pnl-info h1, .JSRotator .pnlControlHolder.body .pnl-info h2, .JSRotator .pnlControlHolder.body .pnl-info h3, .JSRotator .pnlControlHolder.body .pnl-info h4, .JSRotator .pnlControlHolder.body .pnl-info h5, .JSRotator .pnlControlHolder.body .pnl-info h6 {
+        height: 50px;
+        line-height: 45px;
+        margin: 0 10px; }
+      .JSRotator .pnlControlHolder.body .pnl-info span {
+        margin-right: 10px; }
+    .JSRotator .pnlControlHolder.body .btn-group {
+      padding: 0; }
+      .JSRotator .pnlControlHolder.body .btn-group .btn {
+        width: 50px;
+        height: 50px;
+        line-height: 60px; }
+  .JSRotator .pnlControlHolder.container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    width: 100%; }
+    .JSRotator .pnlControlHolder.container .pnl-info {
+      height: 30px;
+      line-height: 30px; }
+      .JSRotator .pnlControlHolder.container .pnl-info h1, .JSRotator .pnlControlHolder.container .pnl-info h2, .JSRotator .pnlControlHolder.container .pnl-info h3, .JSRotator .pnlControlHolder.container .pnl-info h4, .JSRotator .pnlControlHolder.container .pnl-info h5, .JSRotator .pnlControlHolder.container .pnl-info h6 {
+        height: 30px;
+        line-height: 28px;
+        margin: 0 10px; }
+      .JSRotator .pnlControlHolder.container .pnl-info h3 {
+        font-size: 1.571em; }
+      .JSRotator .pnlControlHolder.container .pnl-info span {
+        margin-right: 10px; }
+    .JSRotator .pnlControlHolder.container .btn-group {
+      padding: 0; }
+      .JSRotator .pnlControlHolder.container .btn-group .btn {
+        width: 30px;
+        height: 30px;
+        line-height: 30px; }
+  .JSRotator .btn-group .btn + .btn,
+  .JSRotator .btn-group .btn + .btn-group,
+  .JSRotator .btn-group .btn-group + .btn,
+  .JSRotator .btn-group .btn-group + .btn-group {
+    margin-left: 0; }
   .JSRotator .dropup .dropdown-menu {
     border: 1px solid rgba(59, 30, 119, 0.7);
     border-bottom: none;
@@ -877,7 +927,7 @@
     transition: all 300ms ease-out; }
     .JSRotator .btn.btn-primary {
       background-color: rgba(59, 30, 119, 0.7); }
-      .JSRotator .btn.btn-primary:hover, .JSRotator .btn.btn-primary:focus, .JSRotator .btn.btn-primary:active {
+      .JSRotator .btn.btn-primary:hover, .JSRotator .btn.btn-primary:focus, .JSRotator .btn.btn-primary:active, .JSRotator .btn.btn-primary.active {
         background-color: rgba(59, 30, 119, 0.8); }
     .JSRotator .btn.btn-default {
       color: rgba(59, 30, 119, 0.7);
@@ -943,13 +993,82 @@
       -moz-border-radius: 0;
       -ms-border-radius: 0;
       border-radius: 0; }
+  .JSRotator .ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .JSRotator .hidden {
+    display: none !important;
+    visibility: hidden !important; }
+  .JSRotator .aspNetDisabled,
+  .JSRotator a.aspNetDisabled,
+  .JSRotator .dnnDisabled,
+  .JSRotator a.dnnDisabled,
+  .JSRotator [disabled=disabled] {
+    color: rgba(59, 30, 119, 0.25);
+    cursor: default; }
+  .JSRotator .scroll-action {
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    display: none; }
+    .JSRotator .scroll-action.btn {
+      padding: 0;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      border-color: transparent;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      border-radius: 0;
+      -webkit-transition: background-color 300ms ease-out;
+      -moz-transition: background-color 300ms ease-out;
+      -o-transition: background-color 300ms ease-out;
+      transition: background-color 300ms ease-out; }
+      .JSRotator .scroll-action.btn.btn-primary {
+        background-color: rgba(59, 30, 119, 0.7);
+        border-color: transparent; }
+        .JSRotator .scroll-action.btn.btn-primary:hover {
+          background-color: rgba(59, 30, 119, 0.8);
+          border-color: transparent; }
+      .JSRotator .scroll-action.btn:hover {
+        border-color: transparent; }
+      .JSRotator .scroll-action.btn:active {
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        -o-box-shadow: none;
+        box-shadow: none; }
   .JSRotator .popover {
     z-index: 9999; }
   .JSRotator .row {
     margin: 0; }
     .JSRotator .row > div {
       padding: 0; }
-  .JSRotator .mark, .JSRotator mark {
-    padding: 0 !important;
-    background-color: transparent !important; }
+
+.vegas-timer-progress {
+  background: #27ae60;
+  position: relative;
+  z-index: 9999; }
+
+.mark, mark {
+  padding: 0 !important;
+  background-color: transparent !important; }
+
+.dnnDropDownList .selected-item {
+  margin: 0 0 0 15px !important; }
+  .dnnDropDownList .selected-item a {
+    height: auto !important; }
+    .dnnDropDownList .selected-item a:link, .dnnDropDownList .selected-item a:visited, .dnnDropDownList .selected-item a:hover, .dnnDropDownList .selected-item a:active {
+      height: auto !important; }
+
+.dnnPermissionsGrid > .dnnFormItem ul.token-input-list-facebook {
+  /*padding: 8px !important;*/ }
+
+.dnnPermissionsGrid > .dnnFormItem li.token-input-token-facebook {
+  margin: 3px !important;
+  padding: 3px 5px !important; }
+
+.dnnPermissionsGrid > .dnnFormItem li.token-input-input-token-facebook {
+  margin: 4px 0 !important;
+  padding: 4px 0 !important; }
 

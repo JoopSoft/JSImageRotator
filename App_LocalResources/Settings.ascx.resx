@@ -208,7 +208,7 @@
     <value>Shuffle</value>
   </data>
   <data name="lblSlide.Help" xml:space="preserve">
-    <value>Index number of initial slide.</value>
+    <value>Index number of initial slide. Default value is 0.</value>
   </data>
   <data name="lblSlide.Text" xml:space="preserve">
     <value>Slide</value>

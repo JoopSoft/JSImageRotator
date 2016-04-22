@@ -319,24 +319,6 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.CheckBox cbGlobalFx;
         
         /// <summary>
-        /// lblAnimation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblAnimation;
-        
-        /// <summary>
-        /// ddAnimation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddAnimation;
-        
-        /// <summary>
         /// lblTransition control.
         /// </summary>
         /// <remarks>
@@ -353,6 +335,24 @@ namespace JS.Modules.JSImageRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddTransition;
+        
+        /// <summary>
+        /// lblAnimation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblAnimation;
+        
+        /// <summary>
+        /// ddAnimation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddAnimation;
         
         /// <summary>
         /// btnAddImage control.

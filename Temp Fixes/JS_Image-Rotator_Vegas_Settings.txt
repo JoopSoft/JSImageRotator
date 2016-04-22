@@ -18,7 +18,8 @@ preload­Video			false			Preload videos at start. "Preload" must be false.
 timer					true			Display/hide timer bar. The timer class is .vegas-timer-progress .
 
 overlay					false			Display/hide the overlay. 
-										Could be true false or the path of an overlay image pattern. These image can be found in the overlays folder. 
+										Could be true false or the path of an overlay image pattern. 
+										These image can be found in the overlays folder. 
 										Read the Overlay section for more information.
 
 autoplay				true			Start the Slideshow automatically.

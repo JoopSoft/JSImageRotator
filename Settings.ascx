@@ -24,18 +24,16 @@
             </div>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblPPControl" runat="server" />
-                <asp:CheckBox ID="cbPPControl" runat="server"
-                    Checked="true" />
+                <asp:CheckBox ID="cbPPControl" runat="server" />
             </div>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblSlideInfo" runat="server" />
-                <asp:CheckBox ID="cbSlideInfo" runat="server" 
-                    Checked="true" />
+                <asp:CheckBox ID="cbSlideInfo" runat="server" />
             </div>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblSlide" runat="server" />
                 <asp:TextBox ID="txtSlide" runat="server" CssClass="form-control"
-                    Text="0" Enabled="false" />
+                    Text="0" />
             </div>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblPreload" runat="server" />
@@ -51,14 +49,13 @@
             </div>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblTimer" runat="server" />
-                <asp:CheckBox ID="cbTimer" runat="server" 
-                    Checked="true" />
+                <asp:CheckBox ID="cbTimer" runat="server" />
             </div>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblOverlay" runat="server" />
-                <asp:CheckBox ID="cbOverlay" runat="server" />
+                <asp:CheckBox ID="cbOverlay" runat="server" CssClass="hidder" data-target=".overlayType" />
             </div>
-            <div class="dnnFormItem">
+            <div class="overlayType dnnFormItem">
                 <dnn:Label ID="lblOverlayType" runat="server" />
                 <asp:DropDownList ID="ddOverlayType" runat="server" CssClass="selectpicker show-tick single-select" >
                     <asp:ListItem Text="Overlay Type 01" Value="01.png" />
@@ -75,8 +72,7 @@
             </div>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblAutoplay" runat="server" />
-                <asp:CheckBox ID="cbAutoplay" runat="server" 
-                    Checked="true" />
+                <asp:CheckBox ID="cbAutoplay" runat="server" />
             </div>
             <div class="dnnFormItem">
                 <dnn:Label ID="lblShuffle" runat="server" />
@@ -90,9 +86,9 @@
             <div class="dnnFormItem">
                 <dnn:Label ID="lblCover" runat="server" />
                 <asp:DropDownList ID="ddCover" runat="server" CssClass="selectpicker show-tick single-select" >
-                    <asp:ListItem value="true" Selected="True">True</asp:ListItem>
-                    <asp:ListItem value="false">False</asp:ListItem>
-                    <asp:ListItem value="repeat">Repeat</asp:ListItem>
+                    <asp:ListItem Value="True">True</asp:ListItem>
+                    <asp:ListItem Value="False">False</asp:ListItem>
+                    <asp:ListItem Value="Repeat">Repeat</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="dnnFormItem">
@@ -124,33 +120,33 @@
             <div class="dnnFormItem group">
                 <dnn:Label ID="lblTransition" runat="server" />
                 <asp:ListBox ID="lbTransition" runat="server" CssClass="selectpicker multi-select" SelectionMode="Multiple" >
-                    <asp:ListItem>Random</asp:ListItem>                    
-                    <asp:ListItem>Fade</asp:ListItem>
-                    <asp:ListItem>Fade 2</asp:ListItem>
-                    <asp:ListItem>Slide Left</asp:ListItem>
-                    <asp:ListItem>Slide Left 2</asp:ListItem>
-                    <asp:ListItem>Slide Right</asp:ListItem>
-                    <asp:ListItem>Slide Right 2</asp:ListItem>
-                    <asp:ListItem>Slide Up</asp:ListItem>
-                    <asp:ListItem>Slide Up 2</asp:ListItem>
-                    <asp:ListItem>Slide Down</asp:ListItem>
-                    <asp:ListItem>Slide Down 2</asp:ListItem>
-                    <asp:ListItem>Zoom In</asp:ListItem>
-                    <asp:ListItem>Zoom In 2</asp:ListItem>
-                    <asp:ListItem>Zoom Out</asp:ListItem>
-                    <asp:ListItem>Zoom Out 2</asp:ListItem>
-                    <asp:ListItem>Swirl Left</asp:ListItem>
-                    <asp:ListItem>Swirl Left 2</asp:ListItem>
-                    <asp:ListItem>Swirl Right</asp:ListItem>
-                    <asp:ListItem>Swirl Right 2</asp:ListItem>
-                    <asp:ListItem>Burn</asp:ListItem>
-                    <asp:ListItem>Burn 2</asp:ListItem>
-                    <asp:ListItem>Blur</asp:ListItem>
-                    <asp:ListItem>Blur 2</asp:ListItem>
-                    <asp:ListItem>Flash</asp:ListItem>
-                    <asp:ListItem>Flash 2</asp:ListItem>
-                    <asp:ListItem>Negative</asp:ListItem>
-                    <asp:ListItem>Negative 2</asp:ListItem>
+                    <asp:ListItem Value="random" >Random</asp:ListItem>                    
+                    <asp:ListItem Value="fade" >Fade</asp:ListItem>
+                    <asp:ListItem Value="fade2" >Fade 2</asp:ListItem>
+                    <asp:ListItem Value="slideLeft" >Slide Left</asp:ListItem>
+                    <asp:ListItem Value="slideLeft2" >Slide Left 2</asp:ListItem>
+                    <asp:ListItem Value="slideRight" >Slide Right</asp:ListItem>
+                    <asp:ListItem Value="slideRight2" >Slide Right 2</asp:ListItem>
+                    <asp:ListItem Value="slideUp" >Slide Up</asp:ListItem>
+                    <asp:ListItem Value="slideUp2" >Slide Up 2</asp:ListItem>
+                    <asp:ListItem Value="slideDown" >Slide Down</asp:ListItem>
+                    <asp:ListItem Value="slideDown2" >Slide Down 2</asp:ListItem>
+                    <asp:ListItem Value="zoomIn" >Zoom In</asp:ListItem>
+                    <asp:ListItem Value="zoomIn2" >Zoom In 2</asp:ListItem>
+                    <asp:ListItem Value="zoomOut" >Zoom Out</asp:ListItem>
+                    <asp:ListItem Value="zoomOut2" >Zoom Out 2</asp:ListItem>
+                    <asp:ListItem Value="swirlLeft" >Swirl Left</asp:ListItem>
+                    <asp:ListItem Value="swirlLeft2" >Swirl Left 2</asp:ListItem>
+                    <asp:ListItem Value="swirlRight" >Swirl Right</asp:ListItem>
+                    <asp:ListItem Value="swirlRight2" >Swirl Right 2</asp:ListItem>
+                    <asp:ListItem Value="burn" >Burn</asp:ListItem>
+                    <asp:ListItem Value="burn2" >Burn 2</asp:ListItem>
+                    <asp:ListItem Value="blur" >Blur</asp:ListItem>
+                    <asp:ListItem Value="blur2" >Blur 2</asp:ListItem>
+                    <asp:ListItem Value="flash" >Flash</asp:ListItem>
+                    <asp:ListItem Value="flash2" >Flash 2</asp:ListItem>
+                    <asp:ListItem Value="negative" >Negative</asp:ListItem>
+                    <asp:ListItem Value="negative2" >Negative 2</asp:ListItem>
                 </asp:ListBox>
             </div>
             <div class="dnnFormItem">
@@ -175,16 +171,16 @@
             <div class="dnnFormItem group">
                 <dnn:Label ID="lblAnimation" runat="server" />
                 <asp:ListBox ID="lbAnimation" runat="server" CssClass="selectpicker multi-select" SelectionMode="Multiple" >
-                    <asp:ListItem>Random</asp:ListItem>
-                    <asp:ListItem>Kenburns</asp:ListItem>
-                    <asp:ListItem>Kenburns Up</asp:ListItem>
-                    <asp:ListItem>Kenburns Down</asp:ListItem>
-                    <asp:ListItem>Kenburns Right</asp:ListItem>
-                    <asp:ListItem>Kenburns Left</asp:ListItem>
-                    <asp:ListItem>Kenburns Up Left</asp:ListItem>
-                    <asp:ListItem>Kenburns Up Right</asp:ListItem>
-                    <asp:ListItem>Kenburns Down Left</asp:ListItem>
-                    <asp:ListItem>Kenburns Down Right</asp:ListItem>
+                    <asp:ListItem Value="random">Random</asp:ListItem>
+                    <asp:ListItem Value="kenburns">Kenburns</asp:ListItem>
+                    <asp:ListItem Value="kenburnsUp">Kenburns Up</asp:ListItem>
+                    <asp:ListItem Value="kenburnsDown">Kenburns Down</asp:ListItem>
+                    <asp:ListItem Value="kenburnsRight">Kenburns Right</asp:ListItem>
+                    <asp:ListItem Value="kenburnsLeft">Kenburns Left</asp:ListItem>
+                    <asp:ListItem Value="kenburnsUpLeft">Kenburns Up Left</asp:ListItem>
+                    <asp:ListItem Value="kenburnsUpRight">Kenburns Up Right</asp:ListItem>
+                    <asp:ListItem Value="kenburnsDownLeft">Kenburns Down Left</asp:ListItem>
+                    <asp:ListItem Value="kenburnsDownRight">Kenburns Down Right</asp:ListItem>
                 </asp:ListBox>
             </div>           
             

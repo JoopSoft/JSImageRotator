@@ -67,6 +67,12 @@
                             <th>
                                 <asp:Label runat="server" ResourceKey="thContact" />
                             </th>
+                            <th>
+                                <asp:Label runat="server" ResourceKey="thTransition" />
+                            </th>
+                            <th>
+                                <asp:Label runat="server" ResourceKey="thAnimation" />
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -94,6 +100,14 @@
                                     <td>
                                         <asp:Label runat="server" CssClass="ellipsis" 
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageContact").ToString() %>' />
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" CssClass="ellipsis" 
+                                            Text='<%#DataBinder.Eval(Container.DataItem,"Transition").ToString() %>' />
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" CssClass="ellipsis" 
+                                            Text='<%#DataBinder.Eval(Container.DataItem,"Animation").ToString() %>' />
                                     </td>
                                 </tr>
                             </ItemTemplate>

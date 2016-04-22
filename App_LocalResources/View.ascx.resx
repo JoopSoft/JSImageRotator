@@ -129,13 +129,16 @@
   <data name="ConfirmDelete.Text" xml:space="preserve">
     <value>Are you sure you want to delete this Item</value>
   </data>
-  <data name="DeleteItem.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="EditItem.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
   <data name="EditModule.Text" xml:space="preserve">
     <value>Edit Image List</value>
+  </data>
+  <data name="lnkAdd.Text" xml:space="preserve">
+    <value>New Image</value>
+  </data>
+  <data name="lnkEdit.Text" xml:space="preserve">
+    <value>Edit Lists</value>
+  </data>
+  <data name="lnkView.Text" xml:space="preserve">
+    <value>View Lists</value>
   </data>
 </root>

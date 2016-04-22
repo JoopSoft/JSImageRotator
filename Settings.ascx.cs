@@ -273,44 +273,52 @@ namespace JS.Modules.JSImageRotator
                     using (FileStream fs = File.Open(fileName, FileMode.CreateNew)) { }
                     //File.AppendAllText(fileName, "{");
                     AddLine("{");
-                    AddLine("\"Settings\": [");
-                    AddLine("\"rotatorType\": " + "\"" + s.RotatorType + "\"");
-                    AddLine("\"ppControl\": " + "\"" + s.PlayPauseControl + "\"");
-                    AddLine("\"slideInfo\": " + "\"" + s.SlideInfo + "\"");
-                    AddLine("\"slide\": " + "\"0\"");
-                    AddLine("\"preload\": " + "\"" + s.Preload + "\"");
-                    AddLine("\"preloadImage\": " + "\"" + s.PreloadImage + "\"");
-                    AddLine("\"preloadVideo\": " + "\"" + s.PreloadVideo + "\"");
-                    AddLine("\"timer\": " + "\"" + s.Timer + "\"");
-                    AddLine("\"overlay\": " + "\"" + s.Overlay + "\"");
-                    AddLine("\"autoplay\": " + "\"" + s.Autoplay + "\"");
-                    AddLine("\"shuffle\": " + "\"" + s.Shuffle + "\"");
-                    AddLine("\"delay\": " + "\"" + s.Delay + "\"");
-                    AddLine("\"cover\": " + "\"" + s.Cover + "\"");
-                    AddLine("\"backgroundColor\": " + "\"" + s.BackgroundColor + "\"");
-                    AddLine("\"align\": " + "\"" + s.Align + "\"");
-                    AddLine("\"vAlign\": " + "\"" + s.VerticalAlign + "\"");
-                    AddLine("\"transition\": " + s.Transition);
+                    AddLine("\t\"settings\": {");
+                    AddLine("\t\t\"rotatorType\": " + "\"" + s.RotatorType.ToLower() + "\",");
+                    AddLine("\t\t\"ppControl\": " + s.PlayPauseControl.ToString().ToLower() + ",");
+                    AddLine("\t\t\"slideInfo\": " + s.SlideInfo.ToString().ToLower() + ",");
+                    AddLine("\t\t\"slide\": " + 0 + ",");
+                    AddLine("\t\t\"preload\": " + s.Preload.ToString().ToLower() + ",");
+                    AddLine("\t\t\"preloadImage\": " + s.PreloadImage.ToString().ToLower() + ",");
+                    AddLine("\t\t\"preloadVideo\": " + s.PreloadVideo.ToString().ToLower() + ",");
+                    AddLine("\t\t\"timer\": " + s.Timer.ToString().ToLower() + ",");
+                    AddLine("\t\t\"overlay\": " + s.Overlay.ToString().ToLower() + ",");
+                    AddLine("\t\t\"overlayType\": " + "\"" + s.OverlayType.ToString().ToLower() + "\",");
+                    AddLine("\t\t\"autoplay\": " + s.Autoplay.ToString().ToLower() + ",");
+                    AddLine("\t\t\"shuffle\": " + s.Shuffle.ToString().ToLower() + ",");
+                    AddLine("\t\t\"delay\": " + s.Delay + ",");
+                    if (ddCover.SelectedValue == "Repeat")
+                    {
+                        AddLine("\t\t\"cover\": " + "\"" + s.Cover.ToLower() + "\",");
+                    }
+                    else
+                    {
+                        AddLine("\t\t\"cover\": " + s.Cover.ToLower() + ",");
+                    }
+                    AddLine("\t\t\"backgroundColor\": " + "\"" + s.BackgroundColor + "\",");
+                    AddLine("\t\t\"align\": " + "\"" + s.Align.ToLower() + "\",");
+                    AddLine("\t\t\"vAlign\": " + "\"" + s.VerticalAlign.ToLower() + "\",");
+                    AddLine("\t\t\"transition\": " + s.Transition + ",");
                     if (rblTransDurationType.SelectedValue == "Auto")
                     {
-                        AddLine("\"transitionDuration\": " + "\"Auto\"");
+                        AddLine("\t\t\"transitionDuration\": " + "\"auto\",");
                     }
                     else
                     {
-                        AddLine("\"transitionDuration\": " + "\"" + s.TransitionDuration + "\"");
+                        AddLine("\t\t\"transitionDuration\": " + s.TransitionDuration + ",");
                     }
-                    AddLine("\"transitionRegister\": " + "\"" + s.TransitionRegister + "\"");
-                    AddLine("\"animation\": " + s.Animation);
+                    AddLine("\t\t\"transitionRegister\": " + "\"" + s.TransitionRegister + "\",");
+                    AddLine("\t\t\"animation\": " + s.Animation + ",");
                     if (rblAnimDurationType.SelectedValue == "Auto")
                     {
-                        AddLine("\"animationDuration\": " + "\"Auto\"");
+                        AddLine("\t\t\"animationDuration\": " + "\"auto\",");
                     }
                     else
                     {
-                    AddLine("\"animationDuration\": " + "\"" + s.AnimationDuration + "\"");
+                    AddLine("\t\t\"animationDuration\": " + s.AnimationDuration + ",");
                     }
-                    AddLine("\"animationRegister\": " + "\"" + s.AnimationRegister + "\"");
-                    AddLine("]");
+                    AddLine("\t\t\"animationRegister\": " + "\"" + s.AnimationRegister + "\"");
+                    AddLine("\t}");
                     AddLine("}");
                     sc.UpdateSettings(s);
                 }

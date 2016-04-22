@@ -61,8 +61,11 @@ namespace JS.Modules.JSImageRotator
                             s = sc.LoadSingleSettings(0);
                         }
                     }
-                    ppControl.Visible = s.PlayPauseControl;
-                    slideInfo.Visible = s.SlideInfo;
+                    btnPlayPause.Visible = s.PlayPauseControl;
+                    pnlSlideInfo.Visible = s.SlideInfo;
+                    //btnSlideInfo.Visible = pnlSlideInfo.Visible = s.SlideInfo;
+                    pnlControlHolder.Visible = btnPlayPause.Visible || pnlSlideInfo.Visible;
+                    pnlAdmin.Visible = true;
                     bool imagePresent = false;
                     bool listPresent = false;
                     foreach (var img in ai)
@@ -98,6 +101,7 @@ namespace JS.Modules.JSImageRotator
                 else
                 {
                     pnlFirstButton.Visible = false;
+                    pnlAdmin.Visible = false;
                 }
             }
             catch (Exception exc) //Module failed to load
