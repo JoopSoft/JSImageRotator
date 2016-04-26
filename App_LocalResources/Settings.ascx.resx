@@ -154,7 +154,7 @@
     <value>Autoplay</value>
   </data>
   <data name="lblColor.Help" xml:space="preserve">
-    <value>Slide background color.</value>
+    <value>Set slide background color when the image couldn't loaded properly.</value>
   </data>
   <data name="lblColor.Text" xml:space="preserve">
     <value>Background Color</value>
@@ -281,5 +281,11 @@
   </data>
   <data name="lblTransDurationType.Text" xml:space="preserve">
     <value>Transition Type</value>
+  </data>
+  <data name="lblMinHeight.Help" xml:space="preserve">
+    <value>Set the minimum container height in pixels.</value>
+  </data>
+  <data name="lblMinHeight.Text" xml:space="preserve">
+    <value>Container Height</value>
   </data>
 </root>

@@ -23,7 +23,7 @@
                 <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add no-txt"
                     data-toggle="tooltip" ToolTip="Add New Image" />
                 <asp:HyperLink ID="lnkLists" runat="server" CssClass="btn btn-primary link-list no-txt"
-                    data-toggle="tooltip" ToolTip="View Image Lists" />
+                    data-toggle="tooltip" ToolTip="Select Image Lists" />
                 <asp:LinkButton ID="btnShowAddNewList" runat="server" CssClass="btn btn-primary link-exch no-txt" 
                     data-toggle="tooltip" ToolTip="Edit Available Lists"
                     OnClick="btnShowAddNewList_Click" />
@@ -31,59 +31,25 @@
         </div>
 
         <fieldset>
-            <div class="dnnFormItem group">
-                <dnn:label ID="lblFileName" runat="server" />
-                <asp:TextBox ID="txtFileName" runat="server" CssClass="form-control grouped" />
+            <div class="fieldset">
+                <div class="dnnFormItem group">
+                    <dnn:label ID="lblFileName" runat="server" />
+                    <asp:TextBox ID="txtFileName" runat="server" CssClass="form-control grouped" />
 
-                <dnn:label ID="lblSelectList" runat="server" Visible="false" />
-                <asp:DropDownList ID="lstSelectList" runat="server" CssClass="selectpicker show-tick single-select" AutoPostBack="True" 
-                    OnSelectedIndexChanged="lstSelectList_SelectedIndexChanged" Visible="false" />
+                    <dnn:label ID="lblSelectList" runat="server" Visible="false" />
+                    <asp:DropDownList ID="lstSelectList" runat="server" CssClass="selectpicker show-tick single-select" AutoPostBack="True"
+                        OnSelectedIndexChanged="lstSelectList_SelectedIndexChanged" Visible="false" />
 
-                <asp:LinkButton ID="btnDeleteList" runat="server" CssClass="btn btn-danger link-delete no-txt" 
-                    data-toggle="tooltip" ToolTip="Delete Selected List"
-                    OnClick="btnDeleteList_Click" Visible="false" />
+                    <asp:LinkButton ID="btnDeleteList" runat="server" CssClass="btn btn-danger link-delete no-txt"
+                        data-toggle="tooltip" ToolTip="Delete Selected List"
+                        OnClick="btnDeleteList_Click" Visible="false" />
 
-                <asp:LinkButton ID="btnAddUpdateList" runat="server" CssClass="btn btn-primary link-add" 
-                    Text="Create" data-toggle="tooltip" ToolTip="Create New List" 
-                    OnClick="btnAddUpdateList_Click" />                
+                    <asp:LinkButton ID="btnAddUpdateList" runat="server" CssClass="btn btn-primary link-add"
+                        Text="Create" data-toggle="tooltip" ToolTip="Create New List"
+                        OnClick="btnAddUpdateList_Click" />
+                </div>
             </div>
 
-            <asp:Panel ID="pnlPopUp" runat="server" Visible="false" >
-                <div class="popup-wrapper">
-                    <asp:Label ID="lblPopUpIcon" runat="server" />
-                    <h3>
-                        <asp:Label ID="lblListAdded" runat="server" CssClass="popup-msg" />
-                    </h3>
-                    <asp:LinkButton ID="btnClose" runat="server" CssClass="close-action btn btn-default link-close no-txt" 
-                        OnClick="btnClose_Click" data-toggle="tooltip" ToolTip="Close" />
-                </div>
-            </asp:Panel>
-
-            <asp:Panel ID="pnlConfirmDelete" runat="server" Visible="false">
-                <div class="popup-wrapper">
-                    <asp:Label ID="lblConfirmIcon" runat="server" />
-                    <h3>
-                        <asp:Label ID="lblConfirmDelete" runat="server" CssClass="popup-msg" />
-                        <asp:Label ID="lblDeleteImageID" runat="server" Visible="false" />
-                        <asp:Label ID="lblDeleteImageUrl" runat="server" Visible="false" />
-                    </h3>
-                    <asp:LinkButton ID="btnYes" runat="server" CssClass="btn btn-danger link-delete"
-                        OnClick="btnYes_Click" ResourceKey="btnYes"
-                        data-toggle="tooltip" ToolTip="Delete List" />
-                    <asp:LinkButton ID="btnNo" runat="server" CssClass="close-action btn btn-default link-close no-txt"
-                        OnClick="btnNo_Click" data-toggle="tooltip" ToolTip="Close" />
-                </div>
-            </asp:Panel>
-            
-            <asp:Panel ID="pnlOverlay" runat="server" Visible="false">
-                <div class="popup-wrapper">
-                    <asp:Label ID="lblOverlayIcon" runat="server" />
-                    <h3>
-                        <asp:Label ID="lblOverlayMsg" runat="server" CssClass="popup-msg" />
-                    </h3>
-                </div>
-            </asp:Panel>
-            
             <div class="dnnFormItem">
                 <h3>
                     <asp:Label ID="lblTableTitle" runat="server" ResourceKey="lblTableTitle" />
@@ -129,77 +95,79 @@
                                 <asp:TableRow ID="tableRow" runat="server">
                                     <asp:TableCell>
                                         <asp:Label ID="imgId" runat="server" Visible="false" Text='<%#DataBinder.Eval(Container.DataItem, "ImageId").ToString() %>' />
-                                        <asp:CheckBox ID="cbSelect" runat="server" CssClass="cbSelect" AutoPostBack="false"
-                                            Checked='<%#((DataBinder.Eval(Container.DataItem,"IsSelected")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"IsSelected")==true)) %>'
-                                            OnCheckedChanged="cbSelect_CheckedChanged" />
+                                        <asp:CheckBox ID="cbSelect" runat="server" CssClass="cbSelect" 
+                                            AutoPostBack="false" OnCheckedChanged="cbSelect_CheckedChanged"
+                                            Checked='<%#((DataBinder.Eval(Container.DataItem,"IsSelected")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"IsSelected")==true)) %>' />
                                     </asp:TableCell>
                                     <asp:TableCell>
                                         <asp:Image ID="imgPreview" runat="server" CssClass="row-img"
                                             ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' />
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:TextBox ID="txtTitle" runat="server" CssClass="ellipsis" Enabled="false"
-                                            data-toggle="tooltip" ToolTip="Edit Title"
+                                        <asp:TextBox ID="txtTitle" runat="server" CssClass="ellipsis" 
+                                            Enabled="false" data-toggle="tooltip" ToolTip="Edit Title"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageTitle").ToString() %>' />
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:TextBox ID="txtDescription" runat="server" CssClass="ellipsis" Enabled="false"
-                                            data-toggle="tooltip" ToolTip="Edit Description"
+                                        <asp:TextBox ID="txtDescription" runat="server" CssClass="ellipsis" 
+                                            Enabled="false" data-toggle="tooltip" ToolTip="Edit Description"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageDescription").ToString() %>' />
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:TextBox ID="txtPhotographer" runat="server" CssClass="ellipsis" Enabled="false"
-                                            data-toggle="tooltip" ToolTip="Edit Photographer"
+                                        <asp:TextBox ID="txtPhotographer" runat="server" CssClass="ellipsis" 
+                                            Enabled="false" data-toggle="tooltip" ToolTip="Edit Photographer"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImagePhotographer").ToString() %>' />
                                     </asp:TableCell>
                                     <asp:TableCell>
-                                        <asp:TextBox ID="txtContact" runat="server" CssClass="ellipsis" Enabled="false"
-                                            data-toggle="tooltip" ToolTip="Edit Contact"
+                                        <asp:TextBox ID="txtContact" runat="server" CssClass="ellipsis" 
+                                            Enabled="false" data-toggle="tooltip" ToolTip="Edit Contact"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageContact").ToString() %>' />
                                     </asp:TableCell>
                                     <asp:TableCell CssClass="custom-fx">
-                                        <asp:DropDownList ID="ddTransition" runat="server" CssClass="selectpicker show-tick table-select" Enabled="false" >
-                                            <asp:ListItem>Random</asp:ListItem>
-                                            <asp:ListItem>Fade</asp:ListItem>
-                                            <asp:ListItem>Fade 2</asp:ListItem>
-                                            <asp:ListItem>Slide Left</asp:ListItem>
-                                            <asp:ListItem>Slide Left 2</asp:ListItem>
-                                            <asp:ListItem>Slide Right</asp:ListItem>
-                                            <asp:ListItem>Slide Right 2</asp:ListItem>
-                                            <asp:ListItem>Slide Up</asp:ListItem>
-                                            <asp:ListItem>Slide Up 2</asp:ListItem>
-                                            <asp:ListItem>Slide Down</asp:ListItem>
-                                            <asp:ListItem>Slide Down 2</asp:ListItem>
-                                            <asp:ListItem>Zoom In</asp:ListItem>
-                                            <asp:ListItem>Zoom In 2</asp:ListItem>
-                                            <asp:ListItem>Zoom Out</asp:ListItem>
-                                            <asp:ListItem>Zoom Out 2</asp:ListItem>
-                                            <asp:ListItem>Swirl Left</asp:ListItem>
-                                            <asp:ListItem>Swirl Left 2</asp:ListItem>
-                                            <asp:ListItem>Swirl Right</asp:ListItem>
-                                            <asp:ListItem>Swirl Right 2</asp:ListItem>
-                                            <asp:ListItem>Burn</asp:ListItem>
-                                            <asp:ListItem>Burn 2</asp:ListItem>
-                                            <asp:ListItem>Blur</asp:ListItem>
-                                            <asp:ListItem>Blur 2</asp:ListItem>
-                                            <asp:ListItem>Flash</asp:ListItem>
-                                            <asp:ListItem>Flash 2</asp:ListItem>
-                                            <asp:ListItem>Negative</asp:ListItem>
-                                            <asp:ListItem>Negative 2</asp:ListItem>
+                                        <asp:DropDownList ID="ddTransition" runat="server" CssClass="selectpicker show-tick table-select" 
+                                            Enabled="false" >
+                                            <asp:ListItem Value="random" Text="Random" />
+                                            <asp:ListItem Value="fade" Text="Fade" />
+                                            <asp:ListItem Value="fade2" Text="Fade 2" />
+                                            <asp:ListItem Value="slideLeft" Text="Slide Left" />
+                                            <asp:ListItem Value="slideLeft2" Text="Slide Left II" />
+                                            <asp:ListItem Value="slideRight" Text="Slide Right" />
+                                            <asp:ListItem Value="slideRight2" Text="Slide Right II" />
+                                            <asp:ListItem Value="slideUp" Text="Slide Up" />
+                                            <asp:ListItem Value="slideUp2" Text="Slide Up II" />
+                                            <asp:ListItem Value="slideDown" Text="Slide Down" />
+                                            <asp:ListItem Value="slideDown2" Text="Slide Down II" />
+                                            <asp:ListItem Value="zoomIn" Text="Zoom In" />
+                                            <asp:ListItem Value="zoomIn2" Text="Zoom In II" />
+                                            <asp:ListItem Value="zoomOut" Text="Zoom Out" />
+                                            <asp:ListItem Value="zoomOut2" Text="Zoom Out II" />
+                                            <asp:ListItem Value="swirlLeft" Text="Swirl Left" />
+                                            <asp:ListItem Value="swirlLeft2" Text="Swirl Left II" />
+                                            <asp:ListItem Value="swirlRight" Text="Swirl Right" />
+                                            <asp:ListItem Value="swirlRight2" Text="Swirl Right II" />
+                                            <asp:ListItem Value="burn" Text="Burn" />
+                                            <asp:ListItem Value="burn2" Text="Burn II" />
+                                            <asp:ListItem Value="blur" Text="Blur" />
+                                            <asp:ListItem Value="blur2" Text="Blur II" />
+                                            <asp:ListItem Value="flash" Text="Flash" />
+                                            <asp:ListItem Value="flash2" Text="Flash II" />
+                                            <asp:ListItem Value="negative" Text="Negative" />
+                                            <asp:ListItem Value="negative2" Text="Negative II" />
                                         </asp:DropDownList>
                                     </asp:TableCell>                                    
                                     <asp:TableCell CssClass="custom-fx">
-                                        <asp:DropDownList ID="ddAnimation" runat="server" CssClass="selectpicker show-tick table-select" Enabled="false" >
+                                        <asp:DropDownList ID="ddAnimation" runat="server" CssClass="selectpicker show-tick table-select" 
+                                            Enabled="false" >
                                             <asp:ListItem>Random</asp:ListItem>
                                             <asp:ListItem>Kenburns</asp:ListItem>
-                                            <asp:ListItem>Kenburns Up</asp:ListItem>
-                                            <asp:ListItem>Kenburns Down</asp:ListItem>
-                                            <asp:ListItem>Kenburns Right</asp:ListItem>
-                                            <asp:ListItem>Kenburns Left</asp:ListItem>
-                                            <asp:ListItem>Kenburns Up Left</asp:ListItem>
-                                            <asp:ListItem>Kenburns Up Right</asp:ListItem>
-                                            <asp:ListItem>Kenburns Down Left</asp:ListItem>
-                                            <asp:ListItem>Kenburns Down Right</asp:ListItem>
+                                            <asp:ListItem class="link-select-up"                      Value="kenburnsUp"          Text="Kenburns" />
+                                            <asp:ListItem class="link-select-down"                    Value="kenburnsDown"        Text="Kenburns" />
+                                            <asp:ListItem class="link-select-right"                   Value="kenburnsRight"       Text="Kenburns" />
+                                            <asp:ListItem class="link-select-left"                    Value="kenburnsLeft"        Text="Kenburns" />
+                                            <asp:ListItem class="link-select-up link-select-left"     Value="kenburnsUpLeft"      Text="Kenburns" />
+                                            <asp:ListItem class="link-select-up link-select-right"    Value="kenburnsUpRight"     Text="Kenburns" />
+                                            <asp:ListItem class="link-select-down link-select-left"   Value="kenburnsDownLeft"    Text="Kenburns" />
+                                            <asp:ListItem class="link-select-down link-select-right"  Value="kenburnsDownRight"   Text="Kenburns" />
                                         </asp:DropDownList>
                                     </asp:TableCell>                                    
                                     <asp:TableCell>
@@ -248,6 +216,45 @@
                 </tfoot>--%>
                 </table>
             </div>
+
+            <asp:Panel ID="pnlPopUp" runat="server" Visible="false" >
+                <div class="popup-wrapper">
+                    <asp:Label ID="lblPopUpIcon" runat="server" />
+                    <h3>
+                        <asp:Label ID="lblListAdded" runat="server" CssClass="popup-msg" />
+                    </h3>
+                    <asp:LinkButton ID="btnClose" runat="server" CssClass="close-action btn btn-default link-close no-txt" 
+                        OnClick="btnClose_Click" data-toggle="tooltip" ToolTip="Close" />
+                </div>
+            </asp:Panel>
+
+            <asp:Panel ID="pnlConfirmDelete" runat="server" Visible="false">
+                <div class="popup-wrapper">
+                    <asp:Label ID="lblConfirmIcon" runat="server" />
+                    <h3>
+                        <asp:Label ID="lblConfirmDelete" runat="server" CssClass="popup-msg" />
+                        <asp:Label ID="lblDeleteImageID" runat="server" Visible="false" />
+                        <asp:Label ID="lblDeleteImageUrl" runat="server" Visible="false" />
+                    </h3>
+                    <asp:LinkButton ID="btnYes" runat="server" CssClass="btn btn-danger link-delete"
+                        OnClick="btnYes_Click" ResourceKey="btnYes"
+                        data-toggle="tooltip" ToolTip="Delete List" />
+                    <asp:LinkButton ID="btnNo" runat="server" CssClass="close-action btn btn-default link-close no-txt"
+                        OnClick="btnNo_Click" data-toggle="tooltip" ToolTip="Close" />
+                </div>
+            </asp:Panel>
+            
+            <asp:Panel ID="pnlOverlay" runat="server" Visible="false">
+                <div class="popup-wrapper">
+                    <asp:Label ID="lblOverlayIcon" runat="server" />
+                    <h3>
+                        <asp:Label ID="lblOverlayMsg" runat="server" CssClass="popup-msg" />
+                    </h3>
+                </div>
+            </asp:Panel>
+            
+            <asp:LinkButton ID="btnScrollTop" runat="server" CssClass="scroll-action btn btn-primary link-up no-txt" 
+                ToolTip="Top"/>
         </fieldset>
     </div>
     <div class="dnnForm controls">

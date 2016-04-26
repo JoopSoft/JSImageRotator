@@ -107,87 +107,90 @@ SETTINGS:
 }
 
 ------------------------------------------------------------------------
-
-JSON - All props should be starting with lowercase letter in json structure..
-    
-    
-DONE - [Add Image]: 
+[ADD IMAGE]: MOVED TO 2ND VERSE
 		Add dropdown to select "slideType": "Image", "Video" (Default value : Image) before Image upload group.
 		If video selected adding two new checkboxes:
 			- loop: true/false {Default: false}
 			- mute: true/false {Default: true}
-
-	*LOGIC CONNECTION
-      
-      
-DONE - (*Settings can be addes globally or manually for each of slides..!!!)
-    - Add checkbox "Use global setting" {Default:true} using global settings beneath contact section. 
-        If unchecked show another options that can be saved for each of slides..
-        - animation and transition only
-    
-    //Ex.:
-    // ...
-    //transition: 'slideLeft2',
-    //
-    //    slides: [
-    //        { src: '/img/slide1.jpg' },
-    //        { src: '/img/slide2.jpg', transition: 'slideRight2' }
-    //    ]
-    // ...
-
-	*LOGIC CONNECTION
-
-DONE - [Settings]: Cover checkbox replaced with dropdown with three values -True, False, Repeat..
-	*LOGIC CONNECTION
 	
-DONE - [Settings]: Disabled animationRegister, transitionRegister: Move to 2nd verse of module. 
-	*LOGIC CONNECTION
-	
-	Multiselect boxes: lbAnimation, lbTransition:
+
+Multiselect boxes: lbAnimation, lbTransition:
 
 		- If Random is checked > deselect the rest of items
 		- All items couldn't be checked
 		- If All items without Random is checked > Random must be checked and the rest items not..
 
-add image: hide upload button before choosen file isn't selected..
 
-select: popup delete design
+!!!edit: Update list > Select list from available > checkbox dont work..
 
-view: info btn attach info box fireing by click event.
 
-edit: Update list > Select list from available > checkbox dont work..
+ADD-NEW: Add to available list remove postback.. Hide parent panel..
+Push available list to dropdown.. 
+	(Current method: Should be outside of the checkbox change method..)
 
-edit: dropdowns should be styling properly..
+VIEW: btnPlayPause or pnlSlideInfo - трябва да скриват pnlControlHolder при неактивен EDIT mode..
 
-view: Display/Hide pnlAdmin on edit mode - Three buttons for Add, Edit and Select
 
-popups: big icons..
+NEW SHORCUTS >
+VIEW: DONE	- Display/Hide pnlAdmin on edit mode 
+			- Three buttons for Add, Edit and Select links must be linked.. 
+			- ДА се попказва когато:
+				- Add image > first button "Add Image" не е видим.
+				- View Image List > first button "Create Image List" не е видим
+				- Edit Image List > Когато имаме ъплоаднат слайд
 
-edit, add, settings, select: color separate elements..
-
-view: push rotator type to pnlControlHolder {Body:Container}
-
-VIEW: Connect JSON..
-
-ALL BOOL VALUES MUST BE LOWERCASE PRE-FORMATED.. > SAVE TO JSON (JSON can't read bool values with Capitalize letters)
-
-"Cover" setting didn't save the "Repeat" value on DB..
+"Cover" setting didn't save the "Repeat" value on DB.. Must be lowercase in JSON..
 
 "Overlay path" didn't save on DB..
 
 "Slide" Initial number must be saved to DB, also save to JSON dynamically..
-	Set default value 0 to settings textbox.
+	Set default value 0 to settings textbox. Remove text property from Designer..
+
+!SETTINGS: Specific slide settings > default values: animataion: null, transition:'fade'
+
+!SETTINGS: txtMinHeight - нов запис DB за мин. височина на container.. Да се генерира в
+JSON структурата само когато е избран {Rotator Type:Container} като: "minHeight" : value, 
+Set this value via Main.js..
+
+*След изтриване на листовете да се нулира/изтрива и JSON файла..
+
 
 
 *Transition and Animation new settings.
-
-ScrollTop when is needed..
 
 !Add: Ако се използват global fx да не се генерира JSON in slides с тези нови сетинги.. 
 	Ако не може да се отави 'random' value, понеже се чупи плъгина..
 
 
-*Slide settings са доста повече от animation and transition - останалите добавяме във 2ра вер.
+*Slide settings са доста повече от 'animation' and 'transition' - останалите добавяме във 2ра вер.
+
+
+*JSON - All props should be starting with lowercase letter in json structure..
+
+Check for default values (Should be equal to SQL Request/Install module):
+        slide:              0,
+        delay:              5000,
+        preload:            false,
+        preloadImage:       false,
+        preloadVideo:       false,
+        timer:              true,
+        overlay:            false,
+        autoplay:           true,
+        shuffle:            false,
+        cover:              true,
+        color:              null,
+        align:              'center',
+        valign:             'center',
+        transition:         'fade',
+        transitionDuration: 1000,
+        transitionRegister: [],
+        animation:          null,
+        animationDuration:  'auto',
+        animationRegister:  [],
+        //init:  function () {},
+        //play:  function () {},
+        //pause: function () {},
+        //walk:  function () {},
 
 
 main.js: optimize code

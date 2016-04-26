@@ -20,6 +20,21 @@
     /*DNN RE-STYLING CHECK BOX CONTROL*/
     /*DON'T REORDER ROW DEFINITIONS*/
     /*RADIO BUTTONS GROUP*/ }
+    .JSRotator .dnnForm fieldset {
+      border: none;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 10px;
+      float: left;
+      clear: both;
+      width: 100%; }
+    .JSRotator .dnnForm .fieldset {
+      float: left;
+      padding: 15px 0;
+      margin: 0;
+      width: 100%; }
+      .JSRotator .dnnForm .fieldset:nth-child(even) {
+        background: rgba(59, 30, 119, 0.05); }
     .JSRotator .dnnForm .form-control {
       width: 45%;
       height: 35px;
@@ -135,7 +150,10 @@
     .JSRotator .dnnForm .dnnRadiobutton-disabled img {
       opacity: .5; }
     .JSRotator .dnnForm .dnnFormItem {
-      margin-bottom: 15px; }
+      margin-top: 15px;
+      float: left; }
+      .JSRotator .dnnForm .dnnFormItem:first-child {
+        margin-top: 0; }
       .JSRotator .dnnForm .dnnFormItem .rotator-image {
         width: auto;
         height: 35px;
@@ -186,9 +204,6 @@
         .JSRotator .dnnForm .dnnFormItem .dnnLabel + span {
           margin-top: 0;
           margin-bottom: 0; }
-      .JSRotator .dnnForm .dnnFormItem .table-list {
-        border: none;
-        width: 100%; }
       .JSRotator .dnnForm .dnnFormItem.popup {
         position: fixed;
         top: 0;
@@ -200,11 +215,11 @@
         height: 100%;
         z-index: 9998; }
         .JSRotator .dnnForm .dnnFormItem.popup.confirm-box .popup-wrapper {
-          top: calc((100% - 255px)/2); }
+          top: calc((100% - 315px)/2); }
         .JSRotator .dnnForm .dnnFormItem.popup.auto-close-box .popup-wrapper {
-          top: calc((100% - 205px)/2); }
+          top: calc((100% - 275px)/2); }
         .JSRotator .dnnForm .dnnFormItem.popup.overlay .popup-wrapper {
-          top: 40px;
+          top: 10px;
           position: relative; }
           .JSRotator .dnnForm .dnnFormItem.popup.overlay .popup-wrapper .popup-icon {
             color: rgba(59, 30, 119, 0.7); }
@@ -222,9 +237,11 @@
             padding: 0;
             margin: 0; }
           .JSRotator .dnnForm .dnnFormItem.popup .popup-wrapper .popup-icon {
-            display: block; }
+            display: block;
+            float: none;
+            margin: 0; }
             .JSRotator .dnnForm .dnnFormItem.popup .popup-wrapper .popup-icon .fa {
-              font-size: 10em;
+              font-size: 15em;
               text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15); }
           .JSRotator .dnnForm .dnnFormItem.popup .popup-wrapper .popup-msg {
             display: block;
@@ -233,9 +250,12 @@
             word-break: break-all; }
           .JSRotator .dnnForm .dnnFormItem.popup .popup-wrapper .btn-group {
             margin-top: 15px; }
+            .JSRotator .dnnForm .dnnFormItem.popup .popup-wrapper .btn-group .btn {
+              margin: 0; }
           .JSRotator .dnnForm .dnnFormItem.popup .popup-wrapper .btn {
             border: none;
-            margin: 15px 0 0 0; }
+            margin: 15px 0 0 0;
+            float: none; }
           .JSRotator .dnnForm .dnnFormItem.popup .popup-wrapper .progress-bar {
             position: absolute;
             left: 0;
@@ -356,7 +376,8 @@
     .JSRotator .dnnForm.controls {
       margin: 0;
       padding: 10px 0 0 0;
-      border-top: 1px solid rgba(59, 30, 119, 0.25); }
+      border-top: 1px solid rgba(59, 30, 119, 0.25);
+      float: left; }
     .JSRotator .dnnForm.add-img, .JSRotator .dnnForm.select, .JSRotator .dnnForm.edit, .JSRotator .dnnForm.settings {
       font-size: 14px;
       min-height: 475px; }
@@ -435,6 +456,12 @@
         width: auto;
         height: auto;
         font-weight: normal; }
+      .JSRotator .dnnForm.add-img .dnnFormItem input[type="checkbox"] + span,
+      .JSRotator .dnnForm.add-img .dnnFormItem input[type="radio"] + span, .JSRotator .dnnForm.select .dnnFormItem input[type="checkbox"] + span,
+      .JSRotator .dnnForm.select .dnnFormItem input[type="radio"] + span, .JSRotator .dnnForm.edit .dnnFormItem input[type="checkbox"] + span,
+      .JSRotator .dnnForm.edit .dnnFormItem input[type="radio"] + span, .JSRotator .dnnForm.settings .dnnFormItem input[type="checkbox"] + span,
+      .JSRotator .dnnForm.settings .dnnFormItem input[type="radio"] + span {
+        margin: 5px; }
       .JSRotator .dnnForm.add-img input[type="text"],
       .JSRotator .dnnForm.add-img select,
       .JSRotator .dnnForm.add-img textarea,
@@ -517,7 +544,7 @@
         .JSRotator .dnnForm.settings input[type="date"]:active,
         .JSRotator .dnnForm.settings input[type="date"]:focus {
           color: #3b1e77;
-          background: none;
+          background: #fff;
           border: 1px solid #3b1e77;
           outline: none;
           -moz-box-shadow: 0 0 6px 1px rgba(59, 30, 119, 0.5);
@@ -559,242 +586,274 @@
       .JSRotator .dnnForm.add-img select, .JSRotator .dnnForm.select select, .JSRotator .dnnForm.edit select, .JSRotator .dnnForm.settings select {
         padding: 0 5px;
         width: 100px; }
-      .JSRotator .dnnForm.add-img .dnnFormItem table tr > th, .JSRotator .dnnForm.select .dnnFormItem table tr > th, .JSRotator .dnnForm.edit .dnnFormItem table tr > th, .JSRotator .dnnForm.settings .dnnFormItem table tr > th {
-        color: rgba(255, 255, 255, 0.8);
-        background-color: rgba(59, 30, 119, 0.8);
+      .JSRotator .dnnForm.add-img .dnnFormItem table, .JSRotator .dnnForm.select .dnnFormItem table, .JSRotator .dnnForm.edit .dnnFormItem table, .JSRotator .dnnForm.settings .dnnFormItem table {
         border: none;
-        vertical-align: middle; }
-        .JSRotator .dnnForm.add-img .dnnFormItem table tr > th .dnnCheckbox img, .JSRotator .dnnForm.select .dnnFormItem table tr > th .dnnCheckbox img, .JSRotator .dnnForm.edit .dnnFormItem table tr > th .dnnCheckbox img, .JSRotator .dnnForm.settings .dnnFormItem table tr > th .dnnCheckbox img {
-          background-position: -100px 0px; }
-        .JSRotator .dnnForm.add-img .dnnFormItem table tr > th .dnnCheckbox-checked img, .JSRotator .dnnForm.select .dnnFormItem table tr > th .dnnCheckbox-checked img, .JSRotator .dnnForm.edit .dnnFormItem table tr > th .dnnCheckbox-checked img, .JSRotator .dnnForm.settings .dnnFormItem table tr > th .dnnCheckbox-checked img {
-          background-position: -150px 0px; }
-        .JSRotator .dnnForm.add-img .dnnFormItem table tr > th.custom-fx, .JSRotator .dnnForm.select .dnnFormItem table tr > th.custom-fx, .JSRotator .dnnForm.edit .dnnFormItem table tr > th.custom-fx, .JSRotator .dnnForm.settings .dnnFormItem table tr > th.custom-fx {
-          min-width: 130px; }
-      .JSRotator .dnnForm.add-img .dnnFormItem table tr > td, .JSRotator .dnnForm.select .dnnFormItem table tr > td, .JSRotator .dnnForm.edit .dnnFormItem table tr > td, .JSRotator .dnnForm.settings .dnnFormItem table tr > td {
-        vertical-align: middle; }
-        .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="text"],
-        .JSRotator .dnnForm.add-img .dnnFormItem table tr > td select,
-        .JSRotator .dnnForm.add-img .dnnFormItem table tr > td textarea,
-        .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="email"],
-        .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="search"],
-        .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="date"], .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="text"],
-        .JSRotator .dnnForm.select .dnnFormItem table tr > td select,
-        .JSRotator .dnnForm.select .dnnFormItem table tr > td textarea,
-        .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="email"],
-        .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="search"],
-        .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="date"], .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="text"],
-        .JSRotator .dnnForm.edit .dnnFormItem table tr > td select,
-        .JSRotator .dnnForm.edit .dnnFormItem table tr > td textarea,
-        .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="email"],
-        .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="search"],
-        .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="date"], .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="text"],
-        .JSRotator .dnnForm.settings .dnnFormItem table tr > td select,
-        .JSRotator .dnnForm.settings .dnnFormItem table tr > td textarea,
-        .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="email"],
-        .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="search"],
-        .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="date"] {
-          width: 100%; }
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="text"][disabled="disabled"],
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr > td select[disabled="disabled"],
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr > td textarea[disabled="disabled"],
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="email"][disabled="disabled"],
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="search"][disabled="disabled"],
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="date"][disabled="disabled"], .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="text"][disabled="disabled"],
-          .JSRotator .dnnForm.select .dnnFormItem table tr > td select[disabled="disabled"],
-          .JSRotator .dnnForm.select .dnnFormItem table tr > td textarea[disabled="disabled"],
-          .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="email"][disabled="disabled"],
-          .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="search"][disabled="disabled"],
-          .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="date"][disabled="disabled"], .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="text"][disabled="disabled"],
-          .JSRotator .dnnForm.edit .dnnFormItem table tr > td select[disabled="disabled"],
-          .JSRotator .dnnForm.edit .dnnFormItem table tr > td textarea[disabled="disabled"],
-          .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="email"][disabled="disabled"],
-          .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="search"][disabled="disabled"],
-          .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="date"][disabled="disabled"], .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="text"][disabled="disabled"],
-          .JSRotator .dnnForm.settings .dnnFormItem table tr > td select[disabled="disabled"],
-          .JSRotator .dnnForm.settings .dnnFormItem table tr > td textarea[disabled="disabled"],
-          .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="email"][disabled="disabled"],
-          .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="search"][disabled="disabled"],
-          .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="date"][disabled="disabled"] {
-            padding: 5px 8px 5px 0; }
-        .JSRotator .dnnForm.add-img .dnnFormItem table tr > td a, .JSRotator .dnnForm.select .dnnFormItem table tr > td a, .JSRotator .dnnForm.edit .dnnFormItem table tr > td a, .JSRotator .dnnForm.settings .dnnFormItem table tr > td a {
-          width: 50%;
-          min-width: 25px;
-          height: 30px;
-          line-height: 30px;
-          margin: 0;
-          padding: 0;
-          text-align: center; }
-        .JSRotator .dnnForm.add-img .dnnFormItem table tr > td .btn, .JSRotator .dnnForm.select .dnnFormItem table tr > td .btn, .JSRotator .dnnForm.edit .dnnFormItem table tr > td .btn, .JSRotator .dnnForm.settings .dnnFormItem table tr > td .btn {
-          height: 30px; }
-        .JSRotator .dnnForm.add-img .dnnFormItem table tr > td.custom-fx, .JSRotator .dnnForm.select .dnnFormItem table tr > td.custom-fx, .JSRotator .dnnForm.edit .dnnFormItem table tr > td.custom-fx, .JSRotator .dnnForm.settings .dnnFormItem table tr > td.custom-fx {
-          min-width: 130px; }
-      .JSRotator .dnnForm.add-img .dnnFormItem table tr.active, .JSRotator .dnnForm.select .dnnFormItem table tr.active, .JSRotator .dnnForm.edit .dnnFormItem table tr.active, .JSRotator .dnnForm.settings .dnnFormItem table tr.active {
-        position: fixed;
-        z-index: 9999;
-        background: none;
-        width: 95%;
-        left: 2.5%;
-        top: calc((100% - 50px)/2);
-        -moz-box-shadow: 0 8px 30px -6px #000;
-        -webkit-box-shadow: 0 8px 30px -6px #000;
-        -o-box-shadow: 0 8px 30px -6px #000;
-        box-shadow: 0 8px 30px -6px #000; }
-        .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td {
-          background-color: rgba(59, 30, 119, 0.7);
-          color: #fff;
-          z-index: 9999;
-          position: relative;
-          border: none; }
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="text"],
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td select,
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td textarea,
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="email"],
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="search"],
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="date"], .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="text"],
-          .JSRotator .dnnForm.select .dnnFormItem table tr.active > td select,
-          .JSRotator .dnnForm.select .dnnFormItem table tr.active > td textarea,
-          .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="email"],
-          .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="search"],
-          .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="date"], .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="text"],
-          .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td select,
-          .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td textarea,
-          .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="email"],
-          .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="search"],
-          .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="date"], .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="text"],
-          .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td select,
-          .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td textarea,
-          .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="email"],
-          .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="search"],
-          .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="date"] {
-            border: none;
-            background: none;
-            color: #fff;
-            cursor: pointer; }
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="text"]:hover,
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td select:hover,
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td textarea:hover,
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="email"]:hover,
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="search"]:hover,
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="date"]:hover, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="text"]:hover,
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td select:hover,
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td textarea:hover,
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="email"]:hover,
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="search"]:hover,
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="date"]:hover, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="text"]:hover,
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td select:hover,
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td textarea:hover,
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="email"]:hover,
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="search"]:hover,
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="date"]:hover, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="text"]:hover,
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td select:hover,
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td textarea:hover,
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="email"]:hover,
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="search"]:hover,
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="date"]:hover {
-              background: rgba(255, 255, 255, 0.15); }
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="text"]:focus,
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td select:focus,
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td textarea:focus,
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="email"]:focus,
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="search"]:focus,
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="date"]:focus, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="text"]:focus,
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td select:focus,
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td textarea:focus,
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="email"]:focus,
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="search"]:focus,
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="date"]:focus, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="text"]:focus,
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td select:focus,
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td textarea:focus,
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="email"]:focus,
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="search"]:focus,
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="date"]:focus, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="text"]:focus,
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td select:focus,
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td textarea:focus,
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="email"]:focus,
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="search"]:focus,
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="date"]:focus {
-              background-color: #fff;
-              color: #3b1e77; }
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="text"][disabled=disabled],
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td select[disabled=disabled],
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td textarea[disabled=disabled],
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="email"][disabled=disabled],
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="search"][disabled=disabled],
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="date"][disabled=disabled], .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="text"][disabled=disabled],
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td select[disabled=disabled],
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td textarea[disabled=disabled],
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="email"][disabled=disabled],
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="search"][disabled=disabled],
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="date"][disabled=disabled], .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="text"][disabled=disabled],
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td select[disabled=disabled],
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td textarea[disabled=disabled],
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="email"][disabled=disabled],
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="search"][disabled=disabled],
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="date"][disabled=disabled], .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="text"][disabled=disabled],
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td select[disabled=disabled],
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td textarea[disabled=disabled],
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="email"][disabled=disabled],
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="search"][disabled=disabled],
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="date"][disabled=disabled] {
-              color: #fff; }
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell {
-            display: block;
-            float: left;
-            width: 100%;
-            padding: 3px; }
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell input[type="text"],
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell select,
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell textarea,
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell input[type="email"],
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell input[type="search"],
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell input[type="date"], .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell input[type="text"],
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell select,
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell textarea,
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell input[type="email"],
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell input[type="search"],
-            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell input[type="date"], .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell input[type="text"],
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell select,
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell textarea,
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell input[type="email"],
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell input[type="search"],
-            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell input[type="date"], .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell input[type="text"],
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell select,
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell textarea,
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell input[type="email"],
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell input[type="search"],
-            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell input[type="date"] {
-              max-width: calc(100% - 50px);
-              line-height: 50px;
-              padding: 0 15px;
-              float: left;
-              background-color: #fff;
-              color: #3b1e77;
-              cursor: text;
-              -moz-box-shadow: none;
-              -webkit-box-shadow: none;
-              -o-box-shadow: none;
-              box-shadow: none; }
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell select, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell select, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell select, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell select {
-              cursor: default; }
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell .btn, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell .btn, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell .btn, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell .btn {
-              min-width: 50px;
-              padding: 0;
-              height: 50px;
-              color: rgba(59, 30, 119, 0.7);
-              background: #fff;
-              float: left; }
-              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell .btn:hover, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell .btn:hover, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell .btn:hover, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell .btn:hover {
-                background: #fff; }
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.no-edit-cell, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.no-edit-cell, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.no-edit-cell, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.no-edit-cell {
-            display: none; }
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .btn, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .btn, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .btn, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .btn {
-            background-color: transparent; }
-            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .btn:hover, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .btn:hover, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .btn:hover, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .btn:hover {
-              background: rgba(255, 255, 255, 0.15); }
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .dnnCheckbox img, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .dnnCheckbox img, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .dnnCheckbox img, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .dnnCheckbox img {
+        width: 100%; }
+        .JSRotator .dnnForm.add-img .dnnFormItem table tr > th, .JSRotator .dnnForm.select .dnnFormItem table tr > th, .JSRotator .dnnForm.edit .dnnFormItem table tr > th, .JSRotator .dnnForm.settings .dnnFormItem table tr > th {
+          color: rgba(255, 255, 255, 0.8);
+          background-color: rgba(59, 30, 119, 0.8);
+          border: none;
+          vertical-align: middle; }
+          .JSRotator .dnnForm.add-img .dnnFormItem table tr > th .dnnCheckbox img, .JSRotator .dnnForm.select .dnnFormItem table tr > th .dnnCheckbox img, .JSRotator .dnnForm.edit .dnnFormItem table tr > th .dnnCheckbox img, .JSRotator .dnnForm.settings .dnnFormItem table tr > th .dnnCheckbox img {
             background-position: -100px 0px; }
-          .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .dnnCheckbox-checked img, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .dnnCheckbox-checked img, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .dnnCheckbox-checked img, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .dnnCheckbox-checked img {
+          .JSRotator .dnnForm.add-img .dnnFormItem table tr > th .dnnCheckbox-checked img, .JSRotator .dnnForm.select .dnnFormItem table tr > th .dnnCheckbox-checked img, .JSRotator .dnnForm.edit .dnnFormItem table tr > th .dnnCheckbox-checked img, .JSRotator .dnnForm.settings .dnnFormItem table tr > th .dnnCheckbox-checked img {
             background-position: -150px 0px; }
+          .JSRotator .dnnForm.add-img .dnnFormItem table tr > th.custom-fx, .JSRotator .dnnForm.select .dnnFormItem table tr > th.custom-fx, .JSRotator .dnnForm.edit .dnnFormItem table tr > th.custom-fx, .JSRotator .dnnForm.settings .dnnFormItem table tr > th.custom-fx {
+            min-width: 130px; }
+        .JSRotator .dnnForm.add-img .dnnFormItem table tr > td, .JSRotator .dnnForm.select .dnnFormItem table tr > td, .JSRotator .dnnForm.edit .dnnFormItem table tr > td, .JSRotator .dnnForm.settings .dnnFormItem table tr > td {
+          vertical-align: middle;
+          border-bottom: 1px solid #ddd;
+          word-break: break-all;
+          word-wrap: break-word;
+          word-spacing: normal; }
+          .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="text"],
+          .JSRotator .dnnForm.add-img .dnnFormItem table tr > td select,
+          .JSRotator .dnnForm.add-img .dnnFormItem table tr > td textarea,
+          .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="email"],
+          .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="search"],
+          .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="date"], .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="text"],
+          .JSRotator .dnnForm.select .dnnFormItem table tr > td select,
+          .JSRotator .dnnForm.select .dnnFormItem table tr > td textarea,
+          .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="email"],
+          .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="search"],
+          .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="date"], .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="text"],
+          .JSRotator .dnnForm.edit .dnnFormItem table tr > td select,
+          .JSRotator .dnnForm.edit .dnnFormItem table tr > td textarea,
+          .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="email"],
+          .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="search"],
+          .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="date"], .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="text"],
+          .JSRotator .dnnForm.settings .dnnFormItem table tr > td select,
+          .JSRotator .dnnForm.settings .dnnFormItem table tr > td textarea,
+          .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="email"],
+          .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="search"],
+          .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="date"] {
+            width: 100%; }
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="text"][disabled="disabled"],
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr > td select[disabled="disabled"],
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr > td textarea[disabled="disabled"],
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="email"][disabled="disabled"],
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="search"][disabled="disabled"],
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr > td input[type="date"][disabled="disabled"], .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="text"][disabled="disabled"],
+            .JSRotator .dnnForm.select .dnnFormItem table tr > td select[disabled="disabled"],
+            .JSRotator .dnnForm.select .dnnFormItem table tr > td textarea[disabled="disabled"],
+            .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="email"][disabled="disabled"],
+            .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="search"][disabled="disabled"],
+            .JSRotator .dnnForm.select .dnnFormItem table tr > td input[type="date"][disabled="disabled"], .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="text"][disabled="disabled"],
+            .JSRotator .dnnForm.edit .dnnFormItem table tr > td select[disabled="disabled"],
+            .JSRotator .dnnForm.edit .dnnFormItem table tr > td textarea[disabled="disabled"],
+            .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="email"][disabled="disabled"],
+            .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="search"][disabled="disabled"],
+            .JSRotator .dnnForm.edit .dnnFormItem table tr > td input[type="date"][disabled="disabled"], .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="text"][disabled="disabled"],
+            .JSRotator .dnnForm.settings .dnnFormItem table tr > td select[disabled="disabled"],
+            .JSRotator .dnnForm.settings .dnnFormItem table tr > td textarea[disabled="disabled"],
+            .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="email"][disabled="disabled"],
+            .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="search"][disabled="disabled"],
+            .JSRotator .dnnForm.settings .dnnFormItem table tr > td input[type="date"][disabled="disabled"] {
+              padding: 5px 8px 5px 0; }
+          .JSRotator .dnnForm.add-img .dnnFormItem table tr > td a, .JSRotator .dnnForm.select .dnnFormItem table tr > td a, .JSRotator .dnnForm.edit .dnnFormItem table tr > td a, .JSRotator .dnnForm.settings .dnnFormItem table tr > td a {
+            width: 50%;
+            min-width: 25px;
+            height: 30px;
+            line-height: 30px;
+            margin: 0;
+            padding: 0;
+            text-align: center; }
+          .JSRotator .dnnForm.add-img .dnnFormItem table tr > td .btn, .JSRotator .dnnForm.select .dnnFormItem table tr > td .btn, .JSRotator .dnnForm.edit .dnnFormItem table tr > td .btn, .JSRotator .dnnForm.settings .dnnFormItem table tr > td .btn {
+            height: 30px; }
+          .JSRotator .dnnForm.add-img .dnnFormItem table tr > td.custom-fx, .JSRotator .dnnForm.select .dnnFormItem table tr > td.custom-fx, .JSRotator .dnnForm.edit .dnnFormItem table tr > td.custom-fx, .JSRotator .dnnForm.settings .dnnFormItem table tr > td.custom-fx {
+            min-width: 130px; }
+        .JSRotator .dnnForm.add-img .dnnFormItem table tr.active, .JSRotator .dnnForm.select .dnnFormItem table tr.active, .JSRotator .dnnForm.edit .dnnFormItem table tr.active, .JSRotator .dnnForm.settings .dnnFormItem table tr.active {
+          position: fixed;
+          z-index: 9999;
+          background: none;
+          width: 95%;
+          left: 2.5%;
+          top: calc((100% + 30px)/2);
+          -moz-box-shadow: 0 8px 30px -6px #000;
+          -webkit-box-shadow: 0 8px 30px -6px #000;
+          -o-box-shadow: 0 8px 30px -6px #000;
+          box-shadow: 0 8px 30px -6px #000; }
+          .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td {
+            background-color: rgba(59, 30, 119, 0.7);
+            color: #fff;
+            position: relative;
+            border: none; }
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="text"],
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td select,
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td textarea,
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="email"],
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="search"],
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="date"], .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="text"],
+            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td select,
+            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td textarea,
+            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="email"],
+            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="search"],
+            .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="date"], .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="text"],
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td select,
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td textarea,
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="email"],
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="search"],
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="date"], .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="text"],
+            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td select,
+            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td textarea,
+            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="email"],
+            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="search"],
+            .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="date"] {
+              border: none;
+              background: none;
+              color: #fff;
+              cursor: pointer; }
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="text"]:hover,
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td select:hover,
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td textarea:hover,
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="email"]:hover,
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="search"]:hover,
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="date"]:hover, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="text"]:hover,
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td select:hover,
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td textarea:hover,
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="email"]:hover,
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="search"]:hover,
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="date"]:hover, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="text"]:hover,
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td select:hover,
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td textarea:hover,
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="email"]:hover,
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="search"]:hover,
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="date"]:hover, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="text"]:hover,
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td select:hover,
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td textarea:hover,
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="email"]:hover,
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="search"]:hover,
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="date"]:hover {
+                background: rgba(255, 255, 255, 0.15); }
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="text"]:focus,
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td select:focus,
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td textarea:focus,
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="email"]:focus,
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="search"]:focus,
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="date"]:focus, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="text"]:focus,
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td select:focus,
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td textarea:focus,
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="email"]:focus,
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="search"]:focus,
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="date"]:focus, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="text"]:focus,
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td select:focus,
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td textarea:focus,
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="email"]:focus,
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="search"]:focus,
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="date"]:focus, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="text"]:focus,
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td select:focus,
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td textarea:focus,
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="email"]:focus,
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="search"]:focus,
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="date"]:focus {
+                background-color: #fff;
+                color: #3b1e77; }
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="text"][disabled=disabled],
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td select[disabled=disabled],
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td textarea[disabled=disabled],
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="email"][disabled=disabled],
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="search"][disabled=disabled],
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td input[type="date"][disabled=disabled], .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="text"][disabled=disabled],
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td select[disabled=disabled],
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td textarea[disabled=disabled],
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="email"][disabled=disabled],
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="search"][disabled=disabled],
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td input[type="date"][disabled=disabled], .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="text"][disabled=disabled],
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td select[disabled=disabled],
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td textarea[disabled=disabled],
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="email"][disabled=disabled],
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="search"][disabled=disabled],
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="date"][disabled=disabled], .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="text"][disabled=disabled],
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td select[disabled=disabled],
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td textarea[disabled=disabled],
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="email"][disabled=disabled],
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="search"][disabled=disabled],
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td input[type="date"][disabled=disabled] {
+                color: #fff; }
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell {
+              display: block;
+              float: left;
+              width: 100%;
+              padding: 3px; }
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell input[type="text"],
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell select,
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell textarea,
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell input[type="email"],
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell input[type="search"],
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell input[type="date"], .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell input[type="text"],
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell select,
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell textarea,
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell input[type="email"],
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell input[type="search"],
+              .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell input[type="date"], .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell input[type="text"],
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell select,
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell textarea,
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell input[type="email"],
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell input[type="search"],
+              .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell input[type="date"], .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell input[type="text"],
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell select,
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell textarea,
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell input[type="email"],
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell input[type="search"],
+              .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell input[type="date"] {
+                max-width: calc(100% - 50px);
+                line-height: 50px;
+                padding: 0 15px;
+                float: left;
+                background-color: #fff;
+                color: #3b1e77;
+                cursor: text;
+                -moz-box-shadow: none;
+                -webkit-box-shadow: none;
+                -o-box-shadow: none;
+                box-shadow: none; }
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell select, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell select, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell select, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell select {
+                cursor: default; }
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell .btn, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell .btn, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell .btn, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell .btn {
+                min-width: 50px;
+                padding: 0;
+                height: 50px;
+                color: rgba(59, 30, 119, 0.7);
+                background: #fff;
+                float: left; }
+                .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.edit-cell .btn:hover, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.edit-cell .btn:hover, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell .btn:hover, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.edit-cell .btn:hover {
+                  background: #fff; }
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td.no-edit-cell, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td.no-edit-cell, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.no-edit-cell, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td.no-edit-cell {
+              display: none; }
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .btn, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .btn, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .btn, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .btn {
+              background-color: transparent; }
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .btn:hover, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .btn:hover, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .btn:hover, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .btn:hover {
+                background: rgba(255, 255, 255, 0.15); }
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .btn[aria-expanded=true], .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .btn[aria-expanded=true], .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .btn[aria-expanded=true], .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .btn[aria-expanded=true] {
+                background-color: rgba(59, 30, 119, 0.7);
+                color: #fff; }
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .dropdown-menu, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .dropdown-menu, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .dropdown-menu, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .dropdown-menu {
+              background-color: rgba(59, 30, 119, 0.5);
+              border: none; }
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .dropdown-menu > li > a, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .dropdown-menu > li > a, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .dropdown-menu > li > a, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .dropdown-menu > li > a {
+                width: 100%;
+                padding: 0 10px;
+                text-align: left;
+                color: #fff; }
+                .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .dropdown-menu > li > a:focus, .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .dropdown-menu > li > a:hover, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .dropdown-menu > li > a:focus, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .dropdown-menu > li > a:hover, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .dropdown-menu > li > a:focus, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .dropdown-menu > li > a:hover, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .dropdown-menu > li > a:focus, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .dropdown-menu > li > a:hover {
+                  background-color: rgba(255, 255, 255, 0.8);
+                  color: #3b1e77; }
+                .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .dropdown-menu > li > a span.text, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .dropdown-menu > li > a span.text, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .dropdown-menu > li > a span.text, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .dropdown-menu > li > a span.text {
+                  margin: 0; }
+                .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .dropdown-menu > li > a span.check-mark, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .dropdown-menu > li > a span.check-mark, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .dropdown-menu > li > a span.check-mark, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .dropdown-menu > li > a span.check-mark {
+                  color: #3b1e77; }
+              .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .dropdown-menu > li.selected a, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .dropdown-menu > li.selected a, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .dropdown-menu > li.selected a, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .dropdown-menu > li.selected a {
+                background-color: rgba(255, 255, 255, 0.8);
+                color: #3b1e77; }
+                .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .dropdown-menu > li.selected a span.check-mark, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .dropdown-menu > li.selected a span.check-mark, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .dropdown-menu > li.selected a span.check-mark, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .dropdown-menu > li.selected a span.check-mark {
+                  top: 0;
+                  right: 7px;
+                  margin: 0;
+                  line-height: 30px; }
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .dnnCheckbox img, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .dnnCheckbox img, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .dnnCheckbox img, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .dnnCheckbox img {
+              background-position: -100px 0px; }
+            .JSRotator .dnnForm.add-img .dnnFormItem table tr.active > td .dnnCheckbox-checked img, .JSRotator .dnnForm.select .dnnFormItem table tr.active > td .dnnCheckbox-checked img, .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .dnnCheckbox-checked img, .JSRotator .dnnForm.settings .dnnFormItem table tr.active > td .dnnCheckbox-checked img {
+              background-position: -150px 0px; }
       .JSRotator .dnnForm.add-img .dnnFormItem .bs-searchbox input[type="text"],
       .JSRotator .dnnForm.add-img .dnnFormItem .bs-searchbox select,
       .JSRotator .dnnForm.add-img .dnnFormItem .bs-searchbox textarea,
@@ -824,6 +883,16 @@
     .JSRotator .dnnForm.edit .dnnFormItem img.row-img {
       height: 30px;
       width: auto; }
+    .JSRotator .dnnForm.settings .dnnFormItem table {
+      width: auto; }
+      .JSRotator .dnnForm.settings .dnnFormItem table tr > th {
+        border: none; }
+        .JSRotator .dnnForm.settings .dnnFormItem table tr > th:last-child {
+          min-width: 70px; }
+      .JSRotator .dnnForm.settings .dnnFormItem table tr > td {
+        border: none; }
+        .JSRotator .dnnForm.settings .dnnFormItem table tr > td:last-child {
+          min-width: 70px; }
     .JSRotator .dnnForm.select .link-delete {
       margin-right: 10px;
       float: right; }
@@ -832,10 +901,6 @@
     .JSRotator .dnnForm.select .dnnFormItem img.row-img {
       height: 40px;
       width: auto; }
-    .JSRotator .dnnForm fieldset {
-      border: none;
-      margin: 0;
-      padding: 0; }
   .JSRotator .pnlControlHolder .pnl-info {
     background: rgba(0, 0, 0, 0.5);
     float: left; }
@@ -913,6 +978,10 @@
     padding: 0; }
   .JSRotator .bs-searchbox + .bs-actionsbox {
     padding: 0; }
+  .JSRotator .pnl-admin .btn.btn-primary {
+    background-color: rgba(0, 0, 0, 0.5); }
+    .JSRotator .pnl-admin .btn.btn-primary:hover, .JSRotator .pnl-admin .btn.btn-primary:focus, .JSRotator .pnl-admin .btn.btn-primary:active, .JSRotator .pnl-admin .btn.btn-primary.active {
+      background-color: rgba(0, 0, 0, 0.8); }
   .JSRotator .btn {
     line-height: normal;
     border: none;
@@ -963,9 +1032,16 @@
       outline: none; }
       .JSRotator .dropdown-menu > li > a:hover {
         color: #3b1e77; }
-  .JSRotator .bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark {
-    margin-top: 10px;
-    color: rgba(59, 30, 119, 0.7); }
+  .JSRotator .bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a {
+    background: transparent; }
+    .JSRotator .bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark {
+      margin-top: 10px;
+      color: rgba(59, 30, 119, 0.7); }
+  .JSRotator .bootstrap-select.btn-group.show-tick .dropdown-menu li.disabled a {
+    color: #ccc;
+    background: rgba(59, 30, 119, 0.05); }
+    .JSRotator .bootstrap-select.btn-group.show-tick .dropdown-menu li.disabled a span.check-mark {
+      color: #ccc; }
   .JSRotator .tooltip {
     z-index: 9999; }
     .JSRotator .tooltip.in {
@@ -1006,11 +1082,18 @@
   .JSRotator [disabled=disabled] {
     color: rgba(59, 30, 119, 0.25);
     cursor: default; }
+  .JSRotator .popover {
+    z-index: 9999; }
+  .JSRotator .row {
+    margin: 0; }
+    .JSRotator .row > div {
+      padding: 0; }
   .JSRotator .scroll-action {
     position: fixed;
     bottom: 0;
     right: 15px;
-    display: none; }
+    display: none;
+    z-index: 9999; }
     .JSRotator .scroll-action.btn {
       padding: 0;
       width: 50px;
@@ -1038,12 +1121,9 @@
         -webkit-box-shadow: none;
         -o-box-shadow: none;
         box-shadow: none; }
-  .JSRotator .popover {
-    z-index: 9999; }
-  .JSRotator .row {
-    margin: 0; }
-    .JSRotator .row > div {
-      padding: 0; }
+  .JSRotator .dnnForm .dnnFormItem select option[disabled="disabled"],
+  .JSRotator .dnnForm .dnnFormItem select option[disabled] {
+    color: #ccc; }
 
 .vegas-timer-progress {
   background: #27ae60;

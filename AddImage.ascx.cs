@@ -80,6 +80,7 @@ namespace JS.Modules.JSImageRotator
                     if (listPresent)
                     {
                         pnlAddToList.Visible = true;
+                        cbAddToList.Checked = true;
                     }
                 }
                 //pnlMsgBox.Visible = true;
@@ -129,7 +130,7 @@ namespace JS.Modules.JSImageRotator
                     string listToAdd = "";
                     if (cbAddToList.Checked)
                     {
-                        listToAdd = lstAvailableLists.SelectedValue;
+                        listToAdd = ddAvailableLists.SelectedValue;
                     }
                     //if (ImageId > 0)
                     //{
@@ -171,6 +172,7 @@ namespace JS.Modules.JSImageRotator
                     lblAddedImage.Text = "<i class='fa fa-check'></i> Image Added";
                     txtImageUrl.Text = txtTitle.Text = txtDescription.Text = txtPhotographer.Text = txtContact.Text = "";
                     pnlImgSelected.Visible = pnlImgSelected.Visible = pnlAddToList.Visible = false;
+                    cbAddToList.Checked = false;
                     ShowHideMenuControls();
                 }
                 else
@@ -203,6 +205,7 @@ namespace JS.Modules.JSImageRotator
             pnlConfirmDelete.CssClass = "";
             lblConfirmIcon.CssClass = "";
             pnlImgSelected.Visible = pnlAddToList.Visible = false;
+            cbAddToList.Checked = false;
             txtImageUrl.Text = "";
             //pnlMsgBox.Visible = true;
             lblAddedImage.Text = "<i class='fa fa-check'></i> Image Deleted";
@@ -217,15 +220,17 @@ namespace JS.Modules.JSImageRotator
 
         protected void cbAddToList_CheckedChanged(object sender, EventArgs e)
         {
-            lstAvailableLists.Visible = cbAddToList.Checked;
+            //pnlAddToList.Visible = cbAddToList.Checked;
+            //ddAvailableLists.Visible = cbAddToList.Checked;
+
             var ic = new ImageController();
             var al = ic.GetLists(ModuleId);
-            lstAvailableLists.Items.Clear();
+            ddAvailableLists.Items.Clear();
             foreach (var l in al)
             {
                 if (l != null)
                 {
-                    lstAvailableLists.Items.Add(l.ListName);
+                    ddAvailableLists.Items.Add(l.ListName);
                 }
             }
             //pnlMsgBox.Visible = false;

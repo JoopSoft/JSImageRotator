@@ -86,7 +86,8 @@ valign					center			Vertical alignment of the image in the slide.
 										Could be center top right bottom left or a percentage.
 transition				fade			Set the transition of this slide. Could be a transition name, random or an array of transition picked randomly.
 										Read the Transition section for more information.
-transition­Duration		1000			Set the transition duration in milliseconds. Could be auto so the transition duration will be equal to the slide delay .
+transition­Duration		1000			Set the transition duration in milliseconds. 
+										Could be auto so the transition duration will be equal to the slide delay .
 
 animation				-				Set the animation of this slide. Could be an animation name, random or an array of transition picked randomly.
 										Read the Transition section for more information.

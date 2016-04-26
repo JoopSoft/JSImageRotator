@@ -141,4 +141,7 @@
   <data name="lnkView.Text" xml:space="preserve">
     <value>View Lists</value>
   </data>
+  <data name="Select.Text" xml:space="preserve">
+    <value>Select Image List</value>
+  </data>
 </root>

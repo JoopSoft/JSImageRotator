@@ -136,7 +136,7 @@
     <value>No</value>
   </data>
   <data name="btnYes.Text" xml:space="preserve">
-    <value>Yes</value>
+    <value>Delete</value>
   </data>
   <data name="lblImageLists.Help" xml:space="preserve">
     <value>Select Images From Available List</value>

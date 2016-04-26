@@ -94,6 +94,15 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.DropDownList lstImageLists;
         
         /// <summary>
+        /// rptImageList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptImageList;
+        
+        /// <summary>
         /// pnlConfirmDelete control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,15 @@ namespace JS.Modules.JSImageRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlConfirmDelete;
+        
+        /// <summary>
+        /// lblConfirmIcon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblConfirmIcon;
         
         /// <summary>
         /// lblConfirmDelete control.
@@ -130,13 +148,13 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.LinkButton btnNo;
         
         /// <summary>
-        /// rptImageList control.
+        /// btnScrollTop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptImageList;
+        protected global::System.Web.UI.WebControls.LinkButton btnScrollTop;
         
         /// <summary>
         /// btnSubmit control.

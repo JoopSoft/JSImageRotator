@@ -287,7 +287,7 @@ namespace JS.Modules.JSImageRotator
                     AddLine("\t\t\"autoplay\": " + s.Autoplay.ToString().ToLower() + ",");
                     AddLine("\t\t\"shuffle\": " + s.Shuffle.ToString().ToLower() + ",");
                     AddLine("\t\t\"delay\": " + s.Delay + ",");
-                    if (ddCover.SelectedValue == "Repeat")
+                    if (ddCover.SelectedValue == "repeat")
                     {
                         AddLine("\t\t\"cover\": " + "\"" + s.Cover.ToLower() + "\",");
                     }
@@ -297,9 +297,9 @@ namespace JS.Modules.JSImageRotator
                     }
                     AddLine("\t\t\"backgroundColor\": " + "\"" + s.BackgroundColor + "\",");
                     AddLine("\t\t\"align\": " + "\"" + s.Align.ToLower() + "\",");
-                    AddLine("\t\t\"vAlign\": " + "\"" + s.VerticalAlign.ToLower() + "\",");
+                    AddLine("\t\t\"valign\": " + "\"" + s.VerticalAlign.ToLower() + "\",");
                     AddLine("\t\t\"transition\": " + s.Transition + ",");
-                    if (rblTransDurationType.SelectedValue == "Auto")
+                    if (rblTransDurationType.SelectedValue == "auto")
                     {
                         AddLine("\t\t\"transitionDuration\": " + "\"auto\",");
                     }
@@ -309,7 +309,7 @@ namespace JS.Modules.JSImageRotator
                     }
                     AddLine("\t\t\"transitionRegister\": " + "\"" + s.TransitionRegister + "\",");
                     AddLine("\t\t\"animation\": " + s.Animation + ",");
-                    if (rblAnimDurationType.SelectedValue == "Auto")
+                    if (rblAnimDurationType.SelectedValue == "auto")
                     {
                         AddLine("\t\t\"animationDuration\": " + "\"auto\",");
                     }

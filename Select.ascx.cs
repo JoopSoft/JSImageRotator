@@ -106,7 +106,8 @@ namespace JS.Modules.JSImageRotator
         protected void btnDeleteList_Click(object sender, EventArgs e)
         {
             pnlConfirmDelete.Visible = true;
-            pnlConfirmDelete.CssClass = "dnnFormItem popup warning";
+            pnlConfirmDelete.CssClass = "dnnFormItem popup confirm-box warning";
+            lblConfirmIcon.CssClass = "popup-icon link-delete no-txt";
         }
 
         protected void btnYes_Click(object sender, EventArgs e)
@@ -133,7 +134,6 @@ namespace JS.Modules.JSImageRotator
                 }
             }
             lstImageLists.Items.Remove(lstImageLists.SelectedItem);
-            lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
             var dbi = new List<Images>();
             foreach (var img in ai)
             {
@@ -142,6 +142,7 @@ namespace JS.Modules.JSImageRotator
                     dbi.Add(img);
                 }
             }
+            //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
             pnlConfirmDelete.Visible = false;
             rptImageList.DataSource = dbi;
             rptImageList.DataBind();
@@ -159,7 +160,8 @@ namespace JS.Modules.JSImageRotator
 
         protected void btnNo_Click(object sender, EventArgs e)
         {
-            lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
+            //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
+            pnlConfirmDelete.Visible = false;
         }
 
         protected void Generate()

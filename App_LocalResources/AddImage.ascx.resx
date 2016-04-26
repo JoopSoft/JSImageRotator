@@ -151,7 +151,7 @@
     <value>Image</value>
   </data>
   <data name="lblPhotographer.Help" xml:space="preserve">
-    <value>Enter the Name of the Photographer.</value>
+    <value>Enter the name of the photographer.</value>
   </data>
   <data name="lblPhotographer.Text" xml:space="preserve">
     <value>Photographer</value>
@@ -169,7 +169,7 @@
     <value>Delete</value>
   </data>
   <data name="lblAvailableLists.Help" xml:space="preserve">
-    <value>Select To Add The Image to List.</value>
+    <value>Select to add the image to existing list.</value>
   </data>
   <data name="lblAvailableLists.Text" xml:space="preserve">
     <value>Add to List</value>
@@ -217,7 +217,7 @@
     <value>Specific Transition</value>
   </data>
   <data name="lblVideo.Help" xml:space="preserve">
-    <value>URL of the uploaded Video.</value>
+    <value>URL of the uploaded video.</value>
   </data>
   <data name="lblVideo.Text" xml:space="preserve">
     <value>Video</value>

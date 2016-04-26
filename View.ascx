@@ -22,22 +22,21 @@
         </asp:Panel>
 
         <%--FIRST CONTROLS--%>
-        <asp:Panel ID="pnlFirstButton" runat="server">
+        <asp:Panel ID="pnlFirstButton" runat="server" CssClass="btn-group">
             <asp:HyperLink ID="lnkFirstButton" runat="server" CssClass="btn btn-primary link-add" />
         </asp:Panel>
 
         <%--EDIT MODE GROUP BUTTONS--%>
-        <asp:Panel ID="pnlAdmin" runat="server" Visible="true" CssClass="pnl-admin">
+        <asp:Panel ID="pnlAdmin" runat="server" Visible="true" CssClass="pnl-admin pull-right">
             <div class="btn-group" role="group" aria-label="Control buttons">
-                <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add"
-                    ResourceKey="lnkAdd" data-toggle="tooltip" ToolTip="Add New Image" />
-                <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary link-edit-square"
-                    ResourceKey="lnkEdit" data-toggle="tooltip" ToolTip="Edit Image Lists" />
-                <asp:LinkButton ID="lnkView" runat="server" CssClass="btn btn-primary link-list"
-                    ResourceKey="lnkView" data-toggle="tooltip" ToolTip="View Image Lists" />
+                <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add no-txt"
+                    ResourceKey="lnkAdd" ToolTip="Add New Image" />
+                <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary link-edit-square no-txt"
+                    ResourceKey="lnkEdit" ToolTip="Edit Image Lists" />
+                <asp:LinkButton ID="lnkView" runat="server" CssClass="btn btn-primary link-list no-txt"
+                    ResourceKey="lnkView" ToolTip="Select Image Lists" />
             </div>
         </asp:Panel>
-
     </div>
 </div>
 
@@ -57,34 +56,6 @@
 
         $settings = {};
     
-
-    //$('#<= btnSlideInfo.ClientID %>')
-    //    .html('<i class="fa ' + $lnkInfo + ' fa-2x"></i>')
-    //    .addClass('active')
-    //    .each(function () {
-    //        $(this)
-    //            .attr('data-original-title', function(index, title){
-    //                return title === 'Close' ? 'Info' : 'Close';
-    //            })
-    //            .find('i').toggleClass($lnkInfo + ' ' + $lnkClose);
-    //
-    //        if($(this).is('.active')) $('#<= pnlSlideInfo.ClientID %>').show();
-    //        else $('#<= pnlSlideInfo.ClientID %>').hide();
-    //    })
-    //    .bind('click', function () {
-    //        $(this)
-    //            .toggleClass('active')
-    //            .attr('data-original-title', function(index, title){
-    //                return title === 'Info' ? 'Close' : 'Info';
-    //            })                
-    //            .find('i').toggleClass($lnkInfo + ' ' + $lnkClose);
-    //
-    //        if($(this).is('.active')) $('#<= pnlSlideInfo.ClientID %>').fadeIn();
-    //        else $('#<= pnlSlideInfo.ClientID %>').fadeOut();          
-    //    });
-    //
-
-
     //PREDEFINED AJAX REQUEST
     function jqXHR(url, beforeLoad, cache) {
         return $.ajax({
@@ -117,7 +88,7 @@
 
     $(window).load(function () {
 
-        $('#<%= btnPlayPause.ClientID %>')//
+        $('.JSRotator #<%= btnPlayPause.ClientID %>')
             .html('<i class="fa ' + (($settings.autoplay === true) ? $lnkPause : $lnkPlay) + '"></i>')
             .each(function () {
                 $(this)
@@ -146,11 +117,11 @@
                 .done(function (data) {
                     var $slides = data.slides;
 
-                    $('#<%= pnlControlHolder.ClientID %>')
+                    $($moduleId).css('min-height', (($settings.rotatorType !== 'body') ? '350px' : 'auto'));
+                    //$($moduleId).css('min-height', (($settings.rotatorType !== 'body') ? $settings.minHeight : 'auto'));
+                    
+                    $('.JSRotator #<%= pnlControlHolder.ClientID %>')
                         .addClass(($settings.rotatorType !== 'body') ? $settings.rotatorType : 'body');
-
-                    $($moduleId).css('min-height', '150px');
-
 
                     $(($settings.rotatorType !== 'body') ? $moduleId : 'body')
                         .vegas({
@@ -168,7 +139,7 @@
                             cover: $settings.cover,
                             color: $settings.backgroundColor,
                             align: $settings.align,
-                            valign: $settings.vAlign,
+                            valign: $settings.valign,
 
                             transition: $settings.transition,
                             transitionDuration: $settings.transitionDuration,
@@ -190,7 +161,7 @@
                                 console.log("Pause");
                             },
                             walk: function (index, slideSettings) {
-                                $('#<%= pnlSlideInfo.ClientID %>')
+                                $('.JSRotator #<%= pnlSlideInfo.ClientID %>')
     		                    .html('<h3>' + slideSettings.title + '</h3>'
                                         //+ '<span>' + $image + ' ' + slideSettings.description + '</span>'
                                         + '<span>' + $lnkCamera + ' ' + slideSettings.photographer + '</span>'
@@ -201,7 +172,7 @@
                     });
     		})
     		.fail(function (jqXHR, textStatus) {
-    		    console.log('Error func');
+    		    console.log('Error Loading JSON');
     		});
 
 

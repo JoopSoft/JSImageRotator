@@ -91,7 +91,7 @@ INSERT INTO {databaseOwner}[{objectQualifier}JSImageRotator_Settings]
 ([SettingsId], [RotatorType], [PlayPauseControl], [SlideInfo], [Preload], [PreloadImage], [PreloadVideo], [Timer], [Overlay], [OverlayType], [Autoplay], [Shuffle], [Delay], [Cover], [BackgroundColor],
  [Align], [VerticalAlign], [Transition], [AutoTransitionDuration], [TransitionDuration], [TransitionRegister], [Animation], [AutoAnimationDuration], [AnimationDuration], [AnimationRegister])
 VALUES
-(0, 'Body', 0, 0, 0, 0, 0, 1, 0, '01.png', 1, 0, 5000, 1, null, 'Center', 'Center', 'Random', 'Auto', 1000, null, 'Select', 'Auto', 5000, null)
+(0, 'body', 0, 0, 0, 0, 0, 1, 0, '01.png', 1, 0, 5000, 1, null, 'center', 'center', 'random', 'auto', 1000, null, 'Select', 'auto', 5000, null)
 GO
 
 

@@ -22,32 +22,20 @@
                 <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add no-txt"
                     data-toggle="tooltip" ToolTip="Add New Image" />
                 <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary link-edit-square no-txt"
-                    data-toggle="tooltip" ToolTip="Edit Lists" />                
-                <asp:LinkButton ID="btnDeleteList" runat="server" CssClass="btn btn-danger link-delete no-txt" OnClick="btnDeleteList_Click" 
+                    data-toggle="tooltip" ToolTip="Edit Lists" />
+                <asp:LinkButton ID="btnDeleteList" runat="server" CssClass="btn btn-danger link-delete no-txt" OnClick="btnDeleteList_Click"
                     data-toggle="tooltip" ToolTip="Delete Selected List" />
             </div>
         </div>
 
         <fieldset>
-            <div class="dnnFormItem group">
-                <dnn:label ID="lblImageLists" runat="server" />
-                <asp:DropDownList ID="lstImageLists" runat="server" CssClass="selectpicker show-tick single-select" AutoPostBack="true" 
-                    OnSelectedIndexChanged="lstImageLists_SelectedIndexChanged" />
-            </div>
-
-            <asp:Panel ID="pnlConfirmDelete" runat="server" CssClass="dnnFormItem" Visible="false">
-                <div class="popup-wrapper">
-                    <h3>
-                        <asp:Label ID="lblConfirmDelete" runat="server" CssClass="popup-msg" ResourceKey="lblConfirmDelete" Visible="false" />
-                    </h3>
-                    <asp:LinkButton ID="btnYes" runat="server" CssClass="btn btn-danger link-delete" 
-                        OnClick="btnYes_Click" resourcekey="btnYes"></asp:LinkButton>
-
-                    <asp:LinkButton ID="btnNo" runat="server" CssClass="btn btn-default link-cancel"
-                        OnClick="btnNo_Click" resourcekey="btnNo" />
+            <div class="fieldset">
+                <div class="dnnFormItem group">
+                    <dnn:label ID="lblImageLists" runat="server" />
+                    <asp:DropDownList ID="lstImageLists" runat="server" CssClass="selectpicker show-tick single-select" AutoPostBack="true"
+                        OnSelectedIndexChanged="lstImageLists_SelectedIndexChanged" />
                 </div>
-            </asp:Panel>
-
+            </div>
             <div class="dnnFormItem">
                 <table id="table-list" class="table table-striped table-hover">
                     <thead>
@@ -82,11 +70,11 @@
                             <ItemTemplate>
                                 <tr>
                                     <td>
-                                        <asp:Image runat="server" CssClass="row-img" 
+                                        <asp:Image runat="server" CssClass="row-img"
                                             ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' />
                                     </td>
                                     <td>
-                                        <asp:Label runat="server" CssClass="ellipsis" 
+                                        <asp:Label runat="server" CssClass="ellipsis"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageTitle").ToString() %>' />
                                     </td>
                                     <td>
@@ -94,19 +82,19 @@
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageDescription").ToString() %>' />
                                     </td>
                                     <td>
-                                        <asp:Label runat="server" CssClass="ellipsis" 
+                                        <asp:Label runat="server" CssClass="ellipsis"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImagePhotographer").ToString() %>' />
                                     </td>
                                     <td>
-                                        <asp:Label runat="server" CssClass="ellipsis" 
+                                        <asp:Label runat="server" CssClass="ellipsis"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageContact").ToString() %>' />
                                     </td>
                                     <td>
-                                        <asp:Label runat="server" CssClass="ellipsis" 
+                                        <asp:Label runat="server" CssClass="ellipsis"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"Transition").ToString() %>' />
                                     </td>
                                     <td>
-                                        <asp:Label runat="server" CssClass="ellipsis" 
+                                        <asp:Label runat="server" CssClass="ellipsis"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"Animation").ToString() %>' />
                                     </td>
                                 </tr>
@@ -140,6 +128,23 @@
                 </tfoot>--%>
                 </table>
             </div>
+
+            <asp:Panel ID="pnlConfirmDelete" runat="server" Visible="false">
+                <div class="popup-wrapper">
+                    <asp:Label ID="lblConfirmIcon" runat="server" />
+                    <h3>
+                        <asp:Label ID="lblConfirmDelete" runat="server" CssClass="popup-msg" 
+                            ResourceKey="lblConfirmDelete" />
+                    </h3>
+                    <asp:LinkButton ID="btnYes" runat="server" CssClass="primary-action btn btn-danger link-delete"
+                        OnClick="btnYes_Click" resourcekey="btnYes"
+                        data-toggle="tooltip" ToolTip="Delete Image" />
+                    <asp:LinkButton ID="btnNo" runat="server" CssClass="close-action btn btn-default link-close no-txt"
+                        OnClick="btnNo_Click" data-toggle="tooltip" ToolTip="Close" />
+                </div>
+            </asp:Panel>
+            <asp:LinkButton ID="btnScrollTop" runat="server" CssClass="scroll-action btn btn-primary link-up no-txt"
+                ToolTip="Top" />
         </fieldset>
     </div>
     <div class="dnnForm controls">

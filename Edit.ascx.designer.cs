@@ -139,6 +139,33 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.LinkButton btnAddUpdateList;
         
         /// <summary>
+        /// lblTableTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTableTitle;
+        
+        /// <summary>
+        /// cbSelectAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbSelectAll;
+        
+        /// <summary>
+        /// rptImageList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptImageList;
+        
+        /// <summary>
         /// pnlPopUp control.
         /// </summary>
         /// <remarks>
@@ -265,31 +292,13 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.Label lblOverlayMsg;
         
         /// <summary>
-        /// lblTableTitle control.
+        /// btnScrollTop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTableTitle;
-        
-        /// <summary>
-        /// cbSelectAll control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbSelectAll;
-        
-        /// <summary>
-        /// rptImageList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rptImageList;
+        protected global::System.Web.UI.WebControls.LinkButton btnScrollTop;
         
         /// <summary>
         /// btnSubmit control.
