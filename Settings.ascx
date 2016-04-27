@@ -338,43 +338,55 @@
 
     $('.JSRotator #<%= lbAnimation.ClientID %>')
     .each(function () {
-        var multipleValues = $('.JSRotator #<%= lbAnimation.ClientID %>').val() || [];
+        //var multipleValues = $('.JSRotator #<%= lbAnimation.ClientID %>').val() || [];
 
-        var $value = $(this).val(),
+        var $value = new String($(this).val()),
 
-            randEl = $(this).find('option[value=random]'),
+
+            randEl = $(this).filter('[value=random]'),
             allEl = $(this).children(),
 
             $length = $(this).find(':selected').length;
 
 
-            $(this).find(':selected').addClass($value);
+            randEl.addClass(eval($value));
 
 
 
-          console.log("Multiple selection: " + multipleValues.join(", ") + ', Value: ' + $value + 'Length: ' + $length);
+          //console.log("Multiple selection: " + multipleValues.join(", ") + ', Value: ' + $value + 'Length: ' + $length);
     
-        if (eval($value) == 'random') {
-            console.log('Only Random: ' + $value);
+            if (eval($value) == 'random') {
+                console.log('Only Random: ' + eval($value));
 
-            //$('.JSRandom')
-            //    .addClass('random')
-            //    .parent()
-            //        .addClass('selected disabled');
-    
-    
-        } else {
-            console.log("The rest of items: " + $value);
-            //$('.JSRandom')
-            //    .removeClass('random')
-            //    .parent()
-            //        .removeClass('selected disabled');   
-    
-        }
+                //$('.JSRotator .JSRandom')
+                //    .addClass('random')
+                ////    .parent()
+                ////        .addClass('selected disabled')
+                //;
+            }
+            else if (eval($value) == null) {
+                console.log("Nothing selected: " + eval($value));
+
+                //$('.JSRotator .JSRandom')
+                //    .removeClass('random')
+                ////    .parent()
+                ////        .removeClass('selected disabled')
+                //;
+
+            } else {
+                console.log("The rest of items: " + eval($value));
+
+                //$('.JSRotator .JSRandom')
+                //    .removeClass('random')
+                ////    .parent()
+                ////        .removeClass('selected disabled')
+                //;
+
+            }
     
     })
     .change(function () {
-        var multipleValues = $('.JSRotator #<%= lbAnimation.ClientID %>').val() || [];
+        //var multipleValues = $('.JSRotator #<%= lbAnimation.ClientID %>').val() || [];
 
         var $value = new String($(this).val()),
 
@@ -385,10 +397,10 @@
 
         $(this).find(':selected').toggleClass($value);
 
-          console.log("Multiple selection: " + multipleValues.join(", ") + ', Value: ' + $value + 'Length: ' + $length);
+          //console.log("Multiple selection: " + multipleValues.join(", ") + ', Value: ' + $value + 'Length: ' + $length);
     
         if (eval($value) == 'random') {
-            console.log('Only Random: ' + $value);
+            console.log('Only Random: ' + eval($value) + 'All Elements: ' + allEl);
 
             //$('.JSRandom')
             //    .addClass('random')
@@ -396,8 +408,13 @@
             //        .addClass('selected disabled');
     
     
-        } else {
-            console.log("The rest of items: " + $value);
+        }
+        else if (eval($value) == 'null') {
+            console.log("Nothing selected: " + eval($value) + 'All Elements: ' + allEl);
+
+        }
+        else {
+            console.log("The rest of items: " + eval($value) + 'All Elements: ' + allEl);
             //$('.JSRandom')
             //    .removeClass('random')
             //    .parent()
