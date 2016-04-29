@@ -1032,11 +1032,9 @@
       outline: none; }
       .JSRotator .dropdown-menu > li > a:hover {
         color: #3b1e77; }
-  .JSRotator .bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a {
-    background: transparent; }
-    .JSRotator .bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark {
-      margin-top: 10px;
-      color: rgba(59, 30, 119, 0.7); }
+  .JSRotator .bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark {
+    margin-top: 10px;
+    color: rgba(59, 30, 119, 0.7); }
   .JSRotator .bootstrap-select.btn-group.show-tick .dropdown-menu li.disabled a {
     color: #ccc;
     background: rgba(59, 30, 119, 0.05); }

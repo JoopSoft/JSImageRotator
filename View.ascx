@@ -132,7 +132,7 @@
                             preloadImage: $settings.preloadImage,
                             preloadVideo: $settings.preloadVideo,
                             timer: $settings.timer,
-                            overlay: (($settings.overlay === true) ? '<%= ModulePath %>Vegas/overlays/' + $settings.overlayType : false),
+                            overlay: (($settings.overlay === 'path') ? '<%= ModulePath %>Vegas/overlays/' + $settings.overlayType : $settings.overlay),
                             autoplay: $settings.autoplay,
                             shuffle: $settings.shuffle,
                             delay: $settings.delay,

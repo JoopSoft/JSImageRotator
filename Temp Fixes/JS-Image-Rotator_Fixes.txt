@@ -1,28 +1,5 @@
-﻿[Done] EDIT: Remove autopostback method from C# for all check box in table
-
-[Done] EDIT: Duplicate popup in update mode
-
-[Done] ADDIMAGE: pnlImgSelected, pnlAddToList - hidden(Before uploaded)
-
-[Done] ADD IMAGE: Delete popup after closing don't hide grouped image, delete and image name text..(After uploaded)
-
-[Done] ADD, EDIT, SELECT: Hide dnnFormMessage control buttons when is not needed.. 
-	add custom classes: reps.: 
-	- no-controls - no buttons
-	- one-controls - 1 button
-	- two-controls - 2 buttons
-	- three-controls - 3 buttons
-	- four-controls - 4 buttons (max number of buttons)
-
-	*Optional: Settings link button from these popups..
-
-[Done] VIEW: First add image button on view when we've no record yet..
-
-SETTINGS: Animation and Transition should be with example box (How it looks like each effects) 
-
-SETTINGS: 
-	- Allign & Valign options - Enable/Disable
-	- Transition & Animation options - Enable/Disable
+﻿SECOND VERSE OF MODULE
+---------------------------------------------------------------
 
 * All Text field must be validated by RequiredFieldValidator control:
 	Ex.: <asp:requiredfieldvalidator id="valPassword" runat="server" cssclass="NormalRed" display="Dynamic" errormessage="<br>Password Is Required."
@@ -32,8 +9,109 @@ SETTINGS:
 		 <asp:regularexpressionvalidator id="valEmail2" runat="server" cssclass="NormalRed" display="Dynamic" errormessage="<br>Email Must be Valid."
 		 	controltovalidate="txtEmail" resourcekey="valEmail2" validationexpression="[\w\.-]+(\+[\w-]*)?@([\w-]+\.)+[\w-]+"></asp:regularexpressionvalidator></td>
 
+[ADD IMAGE]: > 2ND VERSE
+		Add dropdown to select "slideType": "Image", "Video" (Default value : Image) before Image upload group.
+		If video selected adding two new checkboxes:
+			- loop: true/false {Default: false}
+			- mute: true/false {Default: true}
+	
+SETTINGS: > 2ND VERSE
+	Animation and Transition should be with example box (How it looks like each effects) 
+
+*Slide settings: > 2ND VERSE 
+	са доста повече от 'animation' and 'transition'
+------------------------------------------------------------------------
 
 
+!!! Да се помисли в EDIT: UPDATE LIST > SELECT LIST from available > checkbox dont work..
+
+
+ADD-NEW: Add to available list remove postback.. Hide parent panel..
+Push available list to dropdown.. 
+	(Current method: Should be outside of the checkbox change method..)
+
+VIEW: btnPlayPause or pnlSlideInfo - трябва да скриват pnlControlHolder при неактивен EDIT mode..
+
+NEW SHORCUTS >
+VIEW: DONE	- Display/Hide pnlAdmin on edit mode 
+			- Three buttons for Add, Edit and Select links must be linked.. 
+			- ДА се попказва когато:
+				- Add image > first button "Add Image" не е видим.
+				- View Image List > first button "Create Image List" не е видим
+				- Edit Image List > Когато имаме ъплоаднат слайд
+
+
+"COVER" setting didn't save the "Repeat" value on DB.. Must be lowercase in JSON..
+
+"OVERLAY PATH" didn't save on DB.. Има ли логика да бъде..
+
+"SLIDE" Initial number must be saved to DB, also save to JSON dynamically..
+	Set default value 0 to settings textbox. Remove text property from Designer..
+
+!SETTINGS: Specific slide settings > default values: animataion: null, transition:'fade'
+
+!SETTINGS: txtMinHeight - нов запис DB за мин. височина на container.. Да се генерира в
+JSON структурата само когато е избран {Rotator Type:Container} като: "minHeight" : value, 
+Set this value via Main.js..
+
+!SETTINGS: Align and Valign settings should be saved to DB..
+
+!SETTINGS: 'cbOverlay' replaced with 'ddOverlay' with options:
+	ddOverlay - трябва да има възможност да записва/генерира JSON в {Bool:true/false и String:path}.
+	path - ще се показва нов дропдаун с типовете от overlay folder.
+	true - си сетва по подразбиране негов заложен в кода на плъгина.
+	false - не показва overlay.
+
+	Да се изтрие всичко за 'cbOverlay' от кода и дизайнера..
+
+*След изтриване на листовете да се нулира/изтрива и JSON файла..
+
+
+SETTINGS : 
+	- When save Animation fx > 'Select' > save 'null' in JSON..
+	- Transition fx > always have 'fade' settings by default..
+
+
+!Add: Ако се използват global fx да не се генерира JSON in slides с тези нови сетинги.. 
+	Ако не може да се остави 'random' value, понеже се чупи плъгина..
+
+
+
+
+*Notes: All props in JSON structure should be starting with lowercase letter in json structure..
+
+*Checking for default values (Should be equal to SQL Request/Install module):
+        slide:              0,
+        delay:              5000,
+        preload:            false,
+        preloadImage:       false,
+        preloadVideo:       false,
+        timer:              true,
+        overlay:            false,
+        autoplay:           true,
+        shuffle:            false,
+        cover:              true,
+        color:              null,
+        align:              'center',
+        valign:             'center',
+        transition:         'fade',
+        transitionDuration: 1000,
+        transitionRegister: [],
+        animation:          null,
+        animationDuration:  'auto',
+        animationRegister:  [],
+        //init:  function () {},
+        //play:  function () {},
+        //pause: function () {},
+        //walk:  function () {},
+
+
+MAIN.JS: OPTIMIZING CODE..
+ALL JS script code also..
+
+-----------------------------------------------------------------
+JSON Structure:
+-----------------------------------------------------------------
 {
 "slides": [
   {
@@ -75,8 +153,11 @@ SETTINGS:
     "Description": "image desc",
     "Photographer": "Mihail Hubchev",
     "Contact": "m.hubchev@abv.bg"
-],
-
+]
+}
+---------------------------------------------------------------
+VEGAS settings structure
+---------------------------------------------------------------
 "settings": [
     "rotatorType": "body",          // {string:body/container}
     "ppControl": true,              // {true/false}
@@ -105,92 +186,3 @@ SETTINGS:
     "animationRegister": null       // {string/array}
     ]
 }
-
-------------------------------------------------------------------------
-[ADD IMAGE]: MOVED TO 2ND VERSE
-		Add dropdown to select "slideType": "Image", "Video" (Default value : Image) before Image upload group.
-		If video selected adding two new checkboxes:
-			- loop: true/false {Default: false}
-			- mute: true/false {Default: true}
-	
-
-Multiselect boxes: lbAnimation, lbTransition:
-
-		- If Random is checked > deselect the rest of items
-		- All items couldn't be checked
-		- If All items without Random is checked > Random must be checked and the rest items not..
-
-
-!!!edit: Update list > Select list from available > checkbox dont work..
-
-
-ADD-NEW: Add to available list remove postback.. Hide parent panel..
-Push available list to dropdown.. 
-	(Current method: Should be outside of the checkbox change method..)
-
-VIEW: btnPlayPause or pnlSlideInfo - трябва да скриват pnlControlHolder при неактивен EDIT mode..
-
-
-NEW SHORCUTS >
-VIEW: DONE	- Display/Hide pnlAdmin on edit mode 
-			- Three buttons for Add, Edit and Select links must be linked.. 
-			- ДА се попказва когато:
-				- Add image > first button "Add Image" не е видим.
-				- View Image List > first button "Create Image List" не е видим
-				- Edit Image List > Когато имаме ъплоаднат слайд
-
-"Cover" setting didn't save the "Repeat" value on DB.. Must be lowercase in JSON..
-
-"Overlay path" didn't save on DB..
-
-"Slide" Initial number must be saved to DB, also save to JSON dynamically..
-	Set default value 0 to settings textbox. Remove text property from Designer..
-
-!SETTINGS: Specific slide settings > default values: animataion: null, transition:'fade'
-
-!SETTINGS: txtMinHeight - нов запис DB за мин. височина на container.. Да се генерира в
-JSON структурата само когато е избран {Rotator Type:Container} като: "minHeight" : value, 
-Set this value via Main.js..
-
-*След изтриване на листовете да се нулира/изтрива и JSON файла..
-
-
-
-*Transition and Animation new settings.
-
-!Add: Ако се използват global fx да не се генерира JSON in slides с тези нови сетинги.. 
-	Ако не може да се отави 'random' value, понеже се чупи плъгина..
-
-
-*Slide settings са доста повече от 'animation' and 'transition' - останалите добавяме във 2ра вер.
-
-
-*JSON - All props should be starting with lowercase letter in json structure..
-
-Check for default values (Should be equal to SQL Request/Install module):
-        slide:              0,
-        delay:              5000,
-        preload:            false,
-        preloadImage:       false,
-        preloadVideo:       false,
-        timer:              true,
-        overlay:            false,
-        autoplay:           true,
-        shuffle:            false,
-        cover:              true,
-        color:              null,
-        align:              'center',
-        valign:             'center',
-        transition:         'fade',
-        transitionDuration: 1000,
-        transitionRegister: [],
-        animation:          null,
-        animationDuration:  'auto',
-        animationRegister:  [],
-        //init:  function () {},
-        //play:  function () {},
-        //pause: function () {},
-        //walk:  function () {},
-
-
-main.js: optimize code

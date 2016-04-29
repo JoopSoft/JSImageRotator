@@ -288,4 +288,16 @@
   <data name="lblMinHeight.Text" xml:space="preserve">
     <value>Container Height</value>
   </data>
+  <data name="lblAlignPercentage.Help" xml:space="preserve">
+    <value>Set the align percentage.</value>
+  </data>
+  <data name="lblAlignPercentage.Text" xml:space="preserve">
+    <value>Align Percentage</value>
+  </data>
+  <data name="lblVAlignPercentage.Help" xml:space="preserve">
+    <value>Set the vertical align percentage.</value>
+  </data>
+  <data name="lblVAlignPercentage.Text" xml:space="preserve">
+    <value>Vertical Align Percentage</value>
+  </data>
 </root>
