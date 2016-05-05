@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Web.Script.Serialization;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 namespace JS.Modules.JSImageRotator
 {
@@ -142,7 +143,6 @@ namespace JS.Modules.JSImageRotator
                     dbi.Add(img);
                 }
             }
-            //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
             pnlConfirmDelete.Visible = false;
             rptImageList.DataSource = dbi;
             rptImageList.DataBind();
@@ -154,13 +154,16 @@ namespace JS.Modules.JSImageRotator
             }
             if (!listPresent)
             {
+                if (File.Exists(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Slides.json")))
+                {
+                    File.Delete(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Slides.json"));
+                }
                 Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
             }
         }
 
         protected void btnNo_Click(object sender, EventArgs e)
         {
-            //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
             pnlConfirmDelete.Visible = false;
         }
 
@@ -214,19 +217,21 @@ namespace JS.Modules.JSImageRotator
                 serializer.Serialize(jw, Slides, typeof(ImageJ));
             }
             string path = Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Slides.json");
-            string str;
+            string tempString, resultString;
             using (StreamReader sreader = new StreamReader(path))
             {
-                str = sreader.ReadToEnd();
+                tempString = sreader.ReadToEnd();
             }
-
+            resultString = tempString.Replace("\"transition\": \"Default\",", String.Empty);
+            tempString = resultString.Replace("\"animation\": \"Default\",", String.Empty);
+            resultString = Regex.Replace(tempString, @"^\s+$[\r\n]*", "", RegexOptions.Multiline);
             File.Delete(path);
 
             using (StreamWriter swriter = new StreamWriter(path, false))
             {
-                str = "\"slides\":" + Environment.NewLine + str;
-                str = "{" + Environment.NewLine + str;
-                swriter.Write(str);
+                resultString = "\"slides\":" + Environment.NewLine + resultString;
+                resultString = "{" + Environment.NewLine + resultString;
+                swriter.Write(resultString);
             }
             string appendText = Environment.NewLine + "}";
             File.AppendAllText(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Slides.json"), appendText);

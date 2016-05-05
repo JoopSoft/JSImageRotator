@@ -21,21 +21,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Web.Script.Serialization;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 namespace JS.Modules.JSImageRotator
 {
-    /// -----------------------------------------------------------------------------
-    /// <summary>   
-    /// The Edit class is used to manage content
-    /// 
-    /// Typically your edit control would be used to create new content, or edit existing content within your module.
-    /// The ControlKey for this control is "Edit", and is defined in the manifest (.dnn) file.
-    /// 
-    /// Because the control inherits from JSImageRotatorModuleBase you have access to any custom properties
-    /// defined there, as well as properties from DNN such as PortalId, ModuleId, TabId, UserId and many more.
-    /// 
-    /// </summary>
-    /// -----------------------------------------------------------------------------
     public partial class Edit : JSImageRotatorModuleBase
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -63,28 +52,28 @@ namespace JS.Modules.JSImageRotator
                         btnShowAddNewList.Enabled = lnkLists.Enabled = false;
                     }
                     var i = ic.GetImages(ModuleId);
-                    bool allSelected = true;
-                    foreach (var img in i)
-                    {
-                        if (lstSelectList.SelectedItem != null)
-                        {
-                            if (img.ListsIn.Contains(lstSelectList.SelectedValue + ".json, "))
-                            {
-                                img.IsSelected = true;
-                            }
-                            else
-                            {
-                                img.IsSelected = false;
-                            }
-                        }
+                    //bool allSelected = true;
+                    //foreach (var img in i)
+                    //{
+                    //    if (lstSelectList.SelectedItem != null)
+                    //    {
+                    //        if (img.ListsIn.Contains(lstSelectList.SelectedValue + ".json, "))
+                    //        {
+                    //            img.IsSelected = true;
+                    //        }
+                    //        else
+                    //        {
+                    //            img.IsSelected = false;
+                    //        }
+                    //    }
 
-                        ic.UpdateImage(img);
-                        if (!img.IsSelected)
-                        {
-                            allSelected = false;
-                        }
-                        cbSelectAll.Checked = allSelected;
-                    }
+                    //    ic.UpdateImage(img);
+                    //    if (!img.IsSelected)
+                    //    {
+                    //        allSelected = false;
+                    //    }
+                    //    cbSelectAll.Checked = allSelected;
+                    //}
                     rptImageList.DataSource = ic.GetImages(ModuleId);
                     rptImageList.DataBind();
                     ShowHideMenuControls();
@@ -106,45 +95,6 @@ namespace JS.Modules.JSImageRotator
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
-        }
-
-        protected void cbSelect_CheckedChanged(object sender, EventArgs e)
-        {
-            pnlPopUp.Visible = false;
-            var ic = new ImageController();
-            bool allChecked = true;
-            foreach (RepeaterItem ri in rptImageList.Items)
-            {
-                var imgId = ri.FindControl("ImgId") as Label;
-                var i = ic.GetImage(Convert.ToInt32(imgId.Text), ModuleId);
-                var cbSelect = ri.FindControl("cbSelect") as CheckBox;
-                i.IsSelected = cbSelect.Checked;
-                ic.UpdateImage(i);
-                var ai = ic.GetImages(ModuleId);
-                foreach (var ci in ai)
-                {
-                    if (!cbSelect.Checked)
-                    {
-                        allChecked = false;
-                        break;
-                    }
-                }
-            }
-            cbSelectAll.Checked = allChecked;
-        }
-
-        protected void cbSelectAll_CheckedChanged(object sender, EventArgs e)
-        {
-            pnlPopUp.Visible = false;
-            var ic = new ImageController();
-            var i = ic.GetImages(ModuleId);
-            foreach (var img in i)
-            {
-                img.IsSelected = cbSelectAll.Checked;
-                ic.UpdateImage(img);
-            }
-            rptImageList.DataSource = ic.GetImages(ModuleId);
-            rptImageList.DataBind();
         }
 
         protected void btnAddUpdateList_Click(object sender, EventArgs e)
@@ -346,10 +296,8 @@ namespace JS.Modules.JSImageRotator
                         lnkDelete.ToolTip = "Cancel";
                         btnEdit.ToolTip = "Save";
                         btnEdit.CssClass = "btn btn-primary link-save no-txt";
-
                         pnlOverlay.Visible = true;
                         pnlOverlay.CssClass = "dnnFormItem popup overlay";
-
                         lblOverlayIcon.CssClass = "popup-icon link-edit-square no-txt";
                         lblOverlayMsg.Text = "Edit selected slide";
                     }
@@ -360,6 +308,8 @@ namespace JS.Modules.JSImageRotator
                         i.ImageDescription = imgDescription.Text.Trim();
                         i.ImagePhotographer = imgPhotographer.Text.Trim();
                         i.ImageContact = imgContact.Text.Trim();
+                        i.Animation = ddAnimation.SelectedValue;
+                        i.Transition = ddTransition.SelectedValue;
                         ic.UpdateImage(i);
                         imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = ddAnimation.Enabled = ddTransition.Enabled = false;
                         tableRow.CssClass = "";
@@ -367,9 +317,7 @@ namespace JS.Modules.JSImageRotator
                         lnkDelete.ToolTip = "Delete";
                         btnEdit.ToolTip = "Edit";
                         btnEdit.CssClass = "btn btn-primary link-edit no-txt";
-
                         pnlOverlay.Visible = false;
-
                     }
                 }
             }
@@ -395,6 +343,8 @@ namespace JS.Modules.JSImageRotator
                 var btnEdit = ri.FindControl("btnEdit") as LinkButton;
                 var tableRow = ri.FindControl("tableRow") as TableRow;
                 var lnkDelete = ri.FindControl("lnkDelete") as LinkButton;
+                var ddAnimation = ri.FindControl("ddAnimation") as DropDownList;
+                var ddTransition = ri.FindControl("ddTransition") as DropDownList;
                 if (sender.Equals(lnkDelete))
                 {
                     if (!imgTitle.Enabled)
@@ -408,7 +358,7 @@ namespace JS.Modules.JSImageRotator
                     }
                     else
                     {
-                        imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = false;
+                        imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = ddAnimation.Enabled = ddTransition.Enabled = false;
                         tableRow.CssClass = "";
                         lnkDelete.CssClass = "btn btn-danger link-delete";
                         lnkDelete.ToolTip = "Delete";
@@ -464,19 +414,21 @@ namespace JS.Modules.JSImageRotator
                 serializer.Serialize(jw, Slides, typeof(ImageJ));
             }
             string path = Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Slides.json");
-            string str;
+            string tempString, resultString;
             using (StreamReader sreader = new StreamReader(path))
             {
-                str = sreader.ReadToEnd();
+                tempString = sreader.ReadToEnd();
             }
-
+            resultString = tempString.Replace("\"transition\": \"Default\",", String.Empty);
+            tempString = resultString.Replace("\"animation\": \"Default\",", String.Empty);
+            resultString = Regex.Replace(tempString, @"^\s+$[\r\n]*", "", RegexOptions.Multiline);
             File.Delete(path);
 
             using (StreamWriter swriter = new StreamWriter(path, false))
             {
-                str = "\"slides\":" + Environment.NewLine + str;
-                str = "{" + Environment.NewLine + str;
-                swriter.Write(str);
+                resultString = "\"slides\":" + Environment.NewLine + resultString;
+                resultString = "{" + Environment.NewLine + resultString;
+                swriter.Write(resultString);
             }
             string appendText = Environment.NewLine + "}";
             File.AppendAllText(Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Slides.json"), appendText);
@@ -613,42 +565,5 @@ namespace JS.Modules.JSImageRotator
                 headerMenu.CssClass = "dnnFormMessage one-control dnnFormTitle no-spacing";
             }
         }
-
-
-        #region Unused Methods
-        //protected void btnShowSelectList_Click(object sender, EventArgs e)
-        //{
-        //    lblFileName.Visible = btnShowSelectList.Visible = txtFileName.Visible = false;
-        //    lblSelectList.Visible = btnShowAddNewList.Visible = lstSelectList.Visible = btnDeleteList.Visible = true;
-        //    btnAddUpdateList.Text = "Update";
-        //    lblListAdded.Text = "";
-        //    lblPopUpIcon.CssClass = "";
-        //    pnlPopUp.Visible = false;
-
-        //}
-
-        //public void rptImages_ItemCommand(object source, RepeaterCommandEventArgs e)
-        //{
-        //    if (e.CommandName == "Delete")
-        //    {
-        //            var ic = new ImageController();
-        //            ic.DeleteImage(Convert.ToInt32(e.CommandArgument), ModuleId);
-        //            rptImageList.DataSource = ic.GetImages(ModuleId);
-        //            rptImageList.DataBind();
-        //    }
-        //}
-
-        //protected void rptImages_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        //{
-        //    if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
-        //    {
-        //        var i = (Images)e.Item.DataItem;
-        //        var lnkDelete = e.Item.FindControl("lnkDelete") as LinkButton;
-        //        lnkDelete.CommandArgument = i.ImageId.ToString();
-        //        ClientAPI.AddButtonConfirm(lnkDelete, Localization.GetString("ConfirmDelete", LocalResourceFile));
-        //    }
-        //}
-
-        #endregion
     }
 }

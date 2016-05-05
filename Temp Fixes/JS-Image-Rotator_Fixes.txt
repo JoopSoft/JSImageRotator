@@ -25,58 +25,19 @@ SETTINGS: > 2ND VERSE
 
 !!! Да се помисли в EDIT: UPDATE LIST > SELECT LIST from available > checkbox dont work..
 
+DONE: !SETTINGS: txtMinHeight - нов запис DB за мин. височина на container.. Да се генерира в
+	  JSON структурата само когато е избран {Rotator Type:Container} като: "minHeight" : value, 
+      Set this value via Main.js..
 
-ADD-NEW: Add to available list remove postback.. Hide parent panel..
-Push available list to dropdown.. 
-	(Current method: Should be outside of the checkbox change method..)
+Partialy DONE: Limiting to 100 and JSON fill Left: !SETTINGS: Align and Valign settings should be saved to DB..
 
-VIEW: btnPlayPause or pnlSlideInfo - трябва да скриват pnlControlHolder при неактивен EDIT mode..
-
-NEW SHORCUTS >
-VIEW: DONE	- Display/Hide pnlAdmin on edit mode 
-			- Three buttons for Add, Edit and Select links must be linked.. 
-			- ДА се попказва когато:
-				- Add image > first button "Add Image" не е видим.
-				- View Image List > first button "Create Image List" не е видим
-				- Edit Image List > Когато имаме ъплоаднат слайд
-
-
-"COVER" setting didn't save the "Repeat" value on DB.. Must be lowercase in JSON..
-
+Partialy DONE: Needs Consulting about JSON
 "OVERLAY PATH" didn't save on DB.. Има ли логика да бъде..
-
-"SLIDE" Initial number must be saved to DB, also save to JSON dynamically..
-	Set default value 0 to settings textbox. Remove text property from Designer..
-
-!SETTINGS: Specific slide settings > default values: animataion: null, transition:'fade'
-
-!SETTINGS: txtMinHeight - нов запис DB за мин. височина на container.. Да се генерира в
-JSON структурата само когато е избран {Rotator Type:Container} като: "minHeight" : value, 
-Set this value via Main.js..
-
-!SETTINGS: Align and Valign settings should be saved to DB..
-
 !SETTINGS: 'cbOverlay' replaced with 'ddOverlay' with options:
 	ddOverlay - трябва да има възможност да записва/генерира JSON в {Bool:true/false и String:path}.
 	path - ще се показва нов дропдаун с типовете от overlay folder.
 	true - си сетва по подразбиране негов заложен в кода на плъгина.
 	false - не показва overlay.
-
-	Да се изтрие всичко за 'cbOverlay' от кода и дизайнера..
-
-*След изтриване на листовете да се нулира/изтрива и JSON файла..
-
-
-SETTINGS : 
-	- When save Animation fx > 'Select' > save 'null' in JSON..
-	- Transition fx > always have 'fade' settings by default..
-
-
-!Add: Ако се използват global fx да не се генерира JSON in slides с тези нови сетинги.. 
-	Ако не може да се остави 'random' value, понеже се чупи плъгина..
-
-
-
 
 *Notes: All props in JSON structure should be starting with lowercase letter in json structure..
 
@@ -100,10 +61,7 @@ SETTINGS :
         animation:          null,
         animationDuration:  'auto',
         animationRegister:  [],
-        //init:  function () {},
-        //play:  function () {},
-        //pause: function () {},
-        //walk:  function () {},
+
 
 
 MAIN.JS: OPTIMIZING CODE..

@@ -36,11 +36,11 @@ namespace JS.Modules.JSImageRotator
         {
             try
             {
-                //Implement your edit logic for your module
                 if (!Page.IsPostBack)
                 {
                     btnEdit.NavigateUrl = EditUrl();
                     btnLists.NavigateUrl = EditUrl("Select");
+                    FillImageLists();
                     ShowHideMenuControls();
                 }
             }
@@ -83,12 +83,10 @@ namespace JS.Modules.JSImageRotator
                         cbAddToList.Checked = true;
                     }
                 }
-                //pnlMsgBox.Visible = true;
                 lblAddedImage.Text = "<i class='fa fa-check'></i> Image Uploaded";
             }
             else
             {
-                //pnlMsgBox.Visible = true;
                 lblAddedImage.Text = "<i class='fa fa-check'></i> Please Select an Image to Upload";
             }
         }
@@ -132,18 +130,6 @@ namespace JS.Modules.JSImageRotator
                     {
                         listToAdd = ddAvailableLists.SelectedValue;
                     }
-                    //if (ImageId > 0)
-                    //{
-                    //    i = ic.GetImage(ImageId, ModuleId);
-                    //    i.ImageUrl = imgPreview.ImageUrl;
-                    //    i.ImageTitle = txtTitle.Text.Trim();
-                    //    i.ImageDescription = txtDescription.Text.Trim();
-                    //    i.ImagePhotographer = txtPhotographer.Text.Trim();
-                    //    i.ImageContact = txtContact.Text.Trim();
-                    //    i.ListsIn = listToAdd + ".json, ";
-                    //}
-                    //else
-                    //{
                     i = new Images()
                     {
                         ImageUrl = imgPreview.ImageUrl,
@@ -157,7 +143,6 @@ namespace JS.Modules.JSImageRotator
                         Transition = transition,
                         ListsIn = listToAdd + ".json, "
                     };
-                    //}
                     i.ModuleId = ModuleId;
                     if (i.ImageId > 0)
                     {
@@ -167,7 +152,6 @@ namespace JS.Modules.JSImageRotator
                     {
                         ic.AddImage(i);
                     }
-                    //pnlMsgBox.Visible = true;
 
                     lblAddedImage.Text = "<i class='fa fa-check'></i> Image Added";
                     txtImageUrl.Text = txtTitle.Text = txtDescription.Text = txtPhotographer.Text = txtContact.Text = "";
@@ -177,37 +161,31 @@ namespace JS.Modules.JSImageRotator
                 }
                 else
                 {
-                    //pnlMsgBox.Visible = true;
                     lblAddedImage.Text = "<i class='fa fa-warning'></i> Please Fill All Fields";
                 }
             }
             else
             {
-                //pnlMsgBox.Visible = true;
                 lblAddedImage.Text = "<i class='fa fa-warning'></i> Please Upload Image First";
             }
         }
 
         protected void btnDeleteImg_Click(object sender, EventArgs e)
         {
-            //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = true;
             pnlConfirmDelete.Visible = true;
             pnlConfirmDelete.CssClass = "dnnFormItem popup confirm-box warning";
             lblConfirmIcon.CssClass = "popup-icon link-delete";
-            //pnlMsgBox.Visible = false;
         }
 
         protected void btnYes_Click(object sender, EventArgs e)
         {
             File.Delete(Server.MapPath("~/DesktopModules/JSImageRotator/Images/" + txtImageUrl.Text));
-            //lblConfirmDelete.Visible = btnYes.Visible = btnNo.Visible = false;
             pnlConfirmDelete.Visible = false;
             pnlConfirmDelete.CssClass = "";
             lblConfirmIcon.CssClass = "";
             pnlImgSelected.Visible = pnlAddToList.Visible = false;
             cbAddToList.Checked = false;
             txtImageUrl.Text = "";
-            //pnlMsgBox.Visible = true;
             lblAddedImage.Text = "<i class='fa fa-check'></i> Image Deleted";
         }
 
@@ -218,11 +196,8 @@ namespace JS.Modules.JSImageRotator
             lblConfirmIcon.CssClass = "";
         }
 
-        protected void cbAddToList_CheckedChanged(object sender, EventArgs e)
+        protected void FillImageLists()
         {
-            //pnlAddToList.Visible = cbAddToList.Checked;
-            //ddAvailableLists.Visible = cbAddToList.Checked;
-
             var ic = new ImageController();
             var al = ic.GetLists(ModuleId);
             ddAvailableLists.Items.Clear();
@@ -233,7 +208,6 @@ namespace JS.Modules.JSImageRotator
                     ddAvailableLists.Items.Add(l.ListName);
                 }
             }
-            //pnlMsgBox.Visible = false;
         }
 
         protected void ShowHideMenuControls()

@@ -57,21 +57,25 @@ CREATE TABLE {databaseOwner}{objectQualifier}JSImageRotator_Settings
 (
 	[SettingsId] INT NOT NULL,
 	[RotatorType] NVARCHAR(MAX) NOT NULL,
+	[MinHeight] INT NULL,
 	[PlayPauseControl] BIT NOT NULL,
 	[SlideInfo] BIT NOT NULL,
+	[Slide] INT NOT NULL,
 	[Preload] BIT NOT NULL,
 	[PreloadImage] BIT NOT NULL,
 	[PreloadVideo] BIT NOT NULL,
 	[Timer] BIT NOT NULL,
-	[Overlay] BIT NOT NULL,
+	[Overlay] NVARCHAR(50) NOT NULL,
 	[OverlayType] NVARCHAR(50) NOT NULL,
 	[Autoplay] BIT NOT NULL,
 	[Shuffle] BIT NOT NULL,
 	[Delay] INT NOT NULL,
-	[Cover] BIT NOT NULL,
+	[Cover] NVARCHAR(50) NOT NULL,
 	[BackgroundColor] NVARCHAR(MAX) NULL,
 	[Align] NVARCHAR(MAX) NOT NULL,
+	[AlignPercent] INT NOT NULL,
 	[VerticalAlign] NVARCHAR(MAX) NOT NULL,
+	[VerticalAlignPercent] INT NOT NUL,
 	[Transition] NVARCHAR(MAX) NOT NULL,
 	[AutoTransitionDuration] NVARCHAR(50) NOT NULL,
 	[TransitionDuration] INT NOT NULL,
@@ -88,10 +92,10 @@ ALTER TABLE {databaseOwner}[{objectQualifier}JSImageRotator_Settings] ADD CONSTR
 GO
 
 INSERT INTO {databaseOwner}[{objectQualifier}JSImageRotator_Settings]
-([SettingsId], [RotatorType], [PlayPauseControl], [SlideInfo], [Preload], [PreloadImage], [PreloadVideo], [Timer], [Overlay], [OverlayType], [Autoplay], [Shuffle], [Delay], [Cover], [BackgroundColor],
- [Align], [VerticalAlign], [Transition], [AutoTransitionDuration], [TransitionDuration], [TransitionRegister], [Animation], [AutoAnimationDuration], [AnimationDuration], [AnimationRegister])
+([SettingsId], [RotatorType], [MinHeight], [PlayPauseControl], [SlideInfo], [Slide], [Preload], [PreloadImage], [PreloadVideo], [Timer], [Overlay], [OverlayType], [Autoplay], [Shuffle], [Delay], [Cover], [BackgroundColor],
+ [Align], [AlignPercent], [VerticalAlign], [VerticalAlignPercent], [Transition], [AutoTransitionDuration], [TransitionDuration], [TransitionRegister], [Animation], [AutoAnimationDuration], [AnimationDuration], [AnimationRegister])
 VALUES
-(0, 'body', 0, 0, 0, 0, 0, 1, 0, '01.png', 1, 0, 5000, 1, null, 'center', 'center', 'random', 'auto', 1000, null, 'Select', 'auto', 5000, null)
+(0, 'body', null, 0, 0, 0, 0, 0, 0, 1, 0, '01.png', 1, 0, 5000, 1, null, 'center', 0, 'center', 0, 'fade', 'auto', 1000, null, select, 'auto', 5000, null)
 GO
 
 

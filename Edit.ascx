@@ -58,8 +58,7 @@
                     <thead>
                         <tr>
                             <th>
-                                <asp:CheckBox ID="cbSelectAll" runat="server" CssClass="cbSelectAll"
-                                    AutoPostBack="false" OnCheckedChanged="cbSelectAll_CheckedChanged" />
+                                <asp:CheckBox ID="cbSelectAll" runat="server" CssClass="cbSelectAll" />
                             </th>
                             <th>
                                 <asp:Label runat="server" ResourceKey="thImage" />
@@ -96,7 +95,6 @@
                                     <asp:TableCell>
                                         <asp:Label ID="imgId" runat="server" Visible="false" Text='<%#DataBinder.Eval(Container.DataItem, "ImageId").ToString() %>' />
                                         <asp:CheckBox ID="cbSelect" runat="server" CssClass="cbSelect" 
-                                            AutoPostBack="false" OnCheckedChanged="cbSelect_CheckedChanged"
                                             Checked='<%#((DataBinder.Eval(Container.DataItem,"IsSelected")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"IsSelected")==true)) %>' />
                                     </asp:TableCell>
                                     <asp:TableCell>
@@ -125,7 +123,8 @@
                                     </asp:TableCell>
                                     <asp:TableCell CssClass="custom-fx">
                                         <asp:DropDownList ID="ddTransition" runat="server" CssClass="selectpicker show-tick table-select" 
-                                            Enabled="false" >
+                                            Enabled="false" SelectedValue='<%#DataBinder.Eval(Container.DataItem, "Transition").ToString() %>'>
+                                            <asp:ListItem Value="default" Text="Default" />
                                             <asp:ListItem Value="random" Text="Random" />
                                             <asp:ListItem Value="fade" Text="Fade" />
                                             <asp:ListItem Value="fade2" Text="Fade 2" />
@@ -157,9 +156,10 @@
                                     </asp:TableCell>                                    
                                     <asp:TableCell CssClass="custom-fx">
                                         <asp:DropDownList ID="ddAnimation" runat="server" CssClass="selectpicker show-tick table-select" 
-                                            Enabled="false" >
-                                            <asp:ListItem>Random</asp:ListItem>
-                                            <asp:ListItem>Kenburns</asp:ListItem>
+                                            Enabled="false" SelectedValue='<%#DataBinder.Eval(Container.DataItem, "Animation").ToString() %>'>
+                                            <asp:ListItem Value="default" Text="Default" />
+                                            <asp:ListItem Value="random" Text="Random" />
+                                            <asp:ListItem Value="kenburns" Text="Kenburns" />
                                             <asp:ListItem class="link-select-up"                      Value="kenburnsUp"          Text="Kenburns" />
                                             <asp:ListItem class="link-select-down"                    Value="kenburnsDown"        Text="Kenburns" />
                                             <asp:ListItem class="link-select-right"                   Value="kenburnsRight"       Text="Kenburns" />

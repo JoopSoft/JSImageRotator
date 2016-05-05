@@ -211,15 +211,6 @@ namespace JS.Modules.JSImageRotator {
         protected global::DotNetNuke.UI.UserControls.LabelControl lblOverlay;
         
         /// <summary>
-        /// cbOverlay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbOverlay;
-        
-        /// <summary>
         /// ddOverlay control.
         /// </summary>
         /// <remarks>

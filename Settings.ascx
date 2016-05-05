@@ -25,8 +25,7 @@
                     </asp:DropDownList>
                     <div class="containerHeight dnnFormItem">
                         <dnn:Label ID="lblMinHeight" runat="server" />
-                        <asp:TextBox ID="txtMinHeight" runat="server" CssClass="form-control"
-                            Text="350" />
+                        <asp:TextBox ID="txtMinHeight" runat="server" CssClass="form-control" TextMode="Number" />
                     </div>
                 </div>
             </div>
@@ -45,8 +44,7 @@
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblSlide" runat="server" />
-                    <asp:TextBox ID="txtSlide" runat="server" CssClass="form-control"
-                        Text="0" />
+                    <asp:TextBox ID="txtSlide" runat="server" CssClass="form-control" TextMode="Number"/>
                 </div>
             </div>
             <div class="fieldset">
@@ -75,10 +73,7 @@
             </div>
             <div class="fieldset">
                 <div class="dnnFormItem">
-                    <dnn:Label ID="lblOverlay" runat="server" />
-
-                    <asp:CheckBox ID="cbOverlay" runat="server" />
-                    
+                    <dnn:Label ID="lblOverlay" runat="server" />                    
                     <asp:DropDownList ID="ddOverlay" runat="server" CssClass="selectpicker show-tick single-select"
                         data-target=".overlayType">
                         <asp:ListItem Value="true" Text="True"></asp:ListItem>
@@ -151,7 +146,7 @@
                 </div>
                 <div class="alignPercTextBox dnnFormItem">
                     <dnn:Label ID="lblAlignPercentage" runat="server" />
-                    <asp:TextBox ID="txtAlignPercentage" runat="server" CssClass="form-control" />
+                    <asp:TextBox ID="txtAlignPercentage" runat="server" CssClass="form-control" TextMode="Number" />
                 </div>
             </div>
             <div class="fieldset">
@@ -169,7 +164,7 @@
                 </div>
                 <div class="valignPercTextBox dnnFormItem">
                     <dnn:Label ID="lblVAlignPercentage" runat="server" />
-                    <asp:TextBox ID="txtVAlignPercentage" runat="server" CssClass="form-control" />
+                    <asp:TextBox ID="txtVAlignPercentage" runat="server" CssClass="form-control" TextMode="Number" />
                 </div>
             </div>
             <div class="fieldset">

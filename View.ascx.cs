@@ -41,30 +41,32 @@ namespace JS.Modules.JSImageRotator
         {
             try
             {
+                var ic = new ImageController();
+                var ai = ic.GetImages(ModuleId);
+                var al = ic.GetLists(ModuleId);
+                var sc = new SettingsController();
+                var als = sc.LoadSettings();
+                var s = new CustomSettings();
+                foreach (var stng in als)
+                {
+                    if (stng.SettingsId == ModuleId)
+                    {
+                        s = sc.LoadSingleSettings(ModuleId);
+                        break;
+                    }
+                    else
+                    {
+                        s = sc.LoadSingleSettings(0);
+                    }
+                }
+                lnkAdd.NavigateUrl = EditUrl("AddImage");
+                lnkEdit.NavigateUrl = EditUrl();
+                lnkView.NavigateUrl = EditUrl("Select");
+                btnPlayPause.Visible = s.PlayPauseControl;
+                pnlSlideInfo.Visible = s.SlideInfo;
+                pnlControlHolder.Visible = btnPlayPause.Visible || pnlSlideInfo.Visible;
                 if (IsEditable)
                 {
-                    var ic = new ImageController();
-                    var ai = ic.GetImages(ModuleId);
-                    var al = ic.GetLists(ModuleId);
-                    var sc = new SettingsController();
-                    var als = sc.LoadSettings();
-                    var s = new CustomSettings();
-                    foreach (var stng in als)
-                    {
-                        if (stng.SettingsId == ModuleId)
-                        {
-                            s = sc.LoadSingleSettings(ModuleId);
-                            break;
-                        }
-                        else
-                        {
-                            s = sc.LoadSingleSettings(0);
-                        }
-                    }
-                    btnPlayPause.Visible = s.PlayPauseControl;
-                    pnlSlideInfo.Visible = s.SlideInfo;
-                    //btnSlideInfo.Visible = pnlSlideInfo.Visible = s.SlideInfo;
-                    pnlControlHolder.Visible = btnPlayPause.Visible || pnlSlideInfo.Visible;
                     pnlAdmin.Visible = true;
                     bool imagePresent = false;
                     bool listPresent = false;
@@ -80,10 +82,13 @@ namespace JS.Modules.JSImageRotator
                     {
                         if (listPresent)
                         {
+                            lnkAdd.Visible = lnkEdit.Visible = lnkView.Visible = true;
                             pnlFirstButton.Visible = false;
                         }
                         else
                         {
+                            lnkAdd.Visible = true;
+                            lnkEdit.Visible = lnkView.Visible = false;
                             pnlFirstButton.Visible = true;
                             lnkFirstButton.Text = "Create Image List";
                             lnkFirstButton.ToolTip = "Create Image List";
@@ -92,6 +97,7 @@ namespace JS.Modules.JSImageRotator
                     }
                     else
                     {
+                        lnkAdd.Visible = lnkEdit.Visible = lnkView.Visible = false;
                         pnlFirstButton.Visible = true;
                         lnkFirstButton.Text = "Add Image";
                         lnkFirstButton.ToolTip = "Add Image";
@@ -100,6 +106,7 @@ namespace JS.Modules.JSImageRotator
                 }
                 else
                 {
+                    lnkAdd.Visible = lnkEdit.Visible = lnkView.Visible = false;
                     pnlFirstButton.Visible = false;
                     pnlAdmin.Visible = false;
                 }

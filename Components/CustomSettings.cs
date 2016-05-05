@@ -18,13 +18,15 @@ namespace JS.Modules.JSImageRotator.Components
     {
         public int SettingsId { get; set; }
         public string RotatorType { get; set; }
+        public int MinHeight { get; set; }
         public bool PlayPauseControl { get; set; }
         public bool SlideInfo { get; set; }
+        public int Slide { get; set; }
         public bool Preload { get; set; }
         public bool PreloadImage { get; set; }
         public bool PreloadVideo { get; set; }
         public bool Timer { get; set; }
-        public bool Overlay { get; set; }
+        public string Overlay { get; set; }
         public string OverlayType { get; set; }
         public bool Autoplay { get; set; }
         public bool Shuffle { get; set; }
@@ -32,7 +34,9 @@ namespace JS.Modules.JSImageRotator.Components
         public string Cover { get; set; }
         public string BackgroundColor { get; set; }
         public string Align { get; set; }
+        public int AlignPercent { get; set; }
         public string VerticalAlign { get; set; }
+        public int VerticalAlignPercent { get; set; }
         public string Transition { get; set; }
         public string AutoTransitionDuration { get; set; }
         public int TransitionDuration  { get; set; }

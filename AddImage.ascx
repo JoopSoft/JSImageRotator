@@ -52,7 +52,6 @@
                     <dnn:label ID="lblAvailableLists" runat="server" />
                     <asp:CheckBox ID="cbAddToList" runat="server" CssClass="hidder" 
                         data-target=".availableLists" />
-                        <%--OnCheckedChanged="cbAddToList_CheckedChanged" AutoPostBack="true" />--%>
                     <asp:DropDownList ID="ddAvailableLists" runat="server" CssClass="availableLists selectpicker show-tick single-select cb-group" 
                           />
                     <%--Visible="false" />--%>

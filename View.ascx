@@ -33,7 +33,7 @@
                     ResourceKey="lnkAdd" ToolTip="Add New Image" />
                 <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary link-edit-square no-txt"
                     ResourceKey="lnkEdit" ToolTip="Edit Image Lists" />
-                <asp:LinkButton ID="lnkView" runat="server" CssClass="btn btn-primary link-list no-txt"
+                <asp:HyperLink ID="lnkView" runat="server" CssClass="btn btn-primary link-list no-txt"
                     ResourceKey="lnkView" ToolTip="Select Image Lists" />
             </div>
         </asp:Panel>
