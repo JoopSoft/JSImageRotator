@@ -53,9 +53,12 @@
 
         $slidesData = '<%= ModulePath %>Json/<%= ModuleId %>_Slides.json',
         $settingsData = '<%= ModulePath %>Json/<%= ModuleId %>_Settings.json',
+        $defaultSettingsData = '<%= ModulePath %>Json/Default_Settings.json',
+
+        //$isFileExist = true,
 
         $settings = {};
-    
+
     //PREDEFINED AJAX REQUEST
     function jqXHR(url, beforeLoad, cache) {
         return $.ajax({
@@ -71,15 +74,40 @@
 		});
     };
 
+    $(window).load(function () {
+        var $isFileExist = true;
+
+    jqXHR($settingsData,
+            function () {
+                //console.log('Before load JSON');
+            }, true)
+    		.done(function (data) {
+    		    $isFileExist = $isFileExist;
+                console.log("exists code: " + $isFileExist);
+                //return true;
+    		})
+    		.fail(function (jqXHR, textStatus) {
+    		    $isFileExist = !$isFileExist;
+                console.log("not exists: " + $isFileExist);
+                //return false;    		    
+    		});
+
+        console.log('Boolean: ' + $isFileExist);
+    });
+
+
 
     //GET JSON SETTINGS CONTENT
     jqXHR($settingsData,
+    //jqXHR((($settingsData.indexOf(<%= ModuleId %>) != -1) ? $settingsData : $defaultSettingsData),
             function () {
                 //console.log('Before load JSON');
             }, true)
     		.done(function (data) {
     		    //var $settings = data.settings;
     		    $settings = data.settings;
+
+    		    console.log($settings);
 
     		})
     		.fail(function (jqXHR, textStatus) {
@@ -117,8 +145,8 @@
                 .done(function (data) {
                     var $slides = data.slides;
 
-                    $($moduleId).css('min-height', (($settings.rotatorType !== 'body') ? '350px' : 'auto'));
-                    //$($moduleId).css('min-height', (($settings.rotatorType !== 'body') ? $settings.minHeight : 'auto'));
+                    //$($moduleId).css('min-height', (($settings.rotatorType !== 'body') ? '350px' : 'auto'));
+                    $($moduleId).css('min-height', (($settings.rotatorType === 'container') ? $settings.minHeight : 'auto'));
                     
                     $('.JSRotator #<%= pnlControlHolder.ClientID %>')
                         .addClass(($settings.rotatorType !== 'body') ? $settings.rotatorType : 'body');

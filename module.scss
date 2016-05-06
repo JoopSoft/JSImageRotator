@@ -503,6 +503,7 @@
                 textarea,
                 input[type="email"],
                 input[type="search"],
+                input[type="number"],
                 input[type="date"] {
                     float: left;
                     height: 35px;
@@ -608,6 +609,7 @@
             textarea,
             input[type="email"],
             input[type="search"],
+            input[type="number"],
             input[type="date"] {
                 margin: 0;
                 border: 1px solid $dark-alpha;
@@ -691,6 +693,7 @@
                             textarea,
                             input[type="email"],
                             input[type="search"],
+                            input[type="number"],
                             input[type="date"] {
                                 width: 100%;
 
@@ -741,6 +744,7 @@
                                 textarea,
                                 input[type="email"],
                                 input[type="search"],
+                                input[type="number"],
                                 input[type="date"] {
                                     border: $none;
                                     background: $none;
@@ -772,6 +776,7 @@
                                     textarea,
                                     input[type="email"],
                                     input[type="search"],
+                                    input[type="number"],
                                     input[type="date"] {
                                         max-width: calc(100% - 50px);
                                         line-height: 50px;
@@ -886,6 +891,7 @@
                     textarea,
                     input[type="email"],
                     input[type="search"],
+                    input[type="number"],
                     input[type="date"] {
                         width: 100%;
                     }
@@ -1191,7 +1197,6 @@
         li {
             &.selected a {
                 //background: transparent;
-
                 span {
                     &.text {
                     }
@@ -1338,7 +1343,7 @@
 
     .dnnForm .dnnFormItem select {
         option[disabled="disabled"],
-        option[disabled]{
+        option[disabled] {
             color: $grey;
         }
     }

@@ -132,8 +132,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="checkbox.png" />
-    <Content Include="Ellipsis\jquery.ellipsis.js" />
-    <Content Include="Ellipsis\jquery.ellipsis.min.js" />
+    <Content Include="Js\jquery.ellipsis.js" />
+    <Content Include="Js\jquery.ellipsis.min.js" />
     <Content Include="icon.png" />
     <Content Include="AddImage.ascx" />
     <Content Include="h-icon.png" />
@@ -222,6 +222,8 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Vegas\vegas.min.js.map" />
+    <Content Include="Json\428_Settings.json" />
+    <Content Include="Json\Default_Settings.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
