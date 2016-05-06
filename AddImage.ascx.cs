@@ -112,7 +112,7 @@ namespace JS.Modules.JSImageRotator
             }
             if (cbGlobalFx.Checked)
             {
-                transition = animation = "Default";
+                transition = animation = "default";
             }
             else
             {
