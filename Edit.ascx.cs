@@ -119,8 +119,8 @@ namespace JS.Modules.JSImageRotator
                 pnlPopUp.Visible = false;
                 btnShowAddNewList.ToolTip = "Create New List";
                 lblJsonTitle.Text = "Update Image Lists";
-                btnSubmit.Text = "Update And Save";
-                btnSubmit.ToolTip = "Update And Save";
+                btnSubmit.Text = "Update And Apply";
+                btnSubmit.ToolTip = "Update And Apply";
             }
             else
             {
@@ -135,8 +135,8 @@ namespace JS.Modules.JSImageRotator
                 pnlPopUp.CssClass = "";
                 btnShowAddNewList.ToolTip = "Edit Available Lists";
                 lblJsonTitle.Text = "Create Image Lists";
-                btnSubmit.Text = "Create And Save";
-                btnSubmit.ToolTip = "Create And Save";
+                btnSubmit.Text = "Create And Apply";
+                btnSubmit.ToolTip = "Create And Apply";
             }
         }
 
@@ -282,7 +282,7 @@ namespace JS.Modules.JSImageRotator
                 var imgPhotographer = ri.FindControl("txtPhotographer") as TextBox;
                 var imgContact = ri.FindControl("txtContact") as TextBox;
                 var btnEdit = ri.FindControl("btnEdit") as LinkButton;
-                var tableRow = ri.FindControl("tableRow") as TableRow;
+                var tableRow = ri.FindControl("tableRow") as Panel;
                 var lnkDelete = ri.FindControl("lnkDelete") as LinkButton;
                 var ddAnimation = ri.FindControl("ddAnimation") as DropDownList;
                 var ddTransition = ri.FindControl("ddTransition") as DropDownList;

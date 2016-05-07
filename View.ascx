@@ -55,8 +55,6 @@
         $settingsData = '<%= ModulePath %>Json/<%= ModuleId %>_Settings.json',
         $defaultSettingsData = '<%= ModulePath %>Json/Default_Settings.json',
 
-        //$isFileExist = true,
-
         $settings = {};
 
     //PREDEFINED AJAX REQUEST
@@ -74,44 +72,17 @@
 		});
     };
 
-    $(window).load(function () {
-        var $isFileExist = true;
-
-    jqXHR($settingsData,
-            function () {
-                //console.log('Before load JSON');
-            }, true)
-    		.done(function (data) {
-    		    $isFileExist = $isFileExist;
-                console.log("exists code: " + $isFileExist);
-                //return true;
-    		})
-    		.fail(function (jqXHR, textStatus) {
-    		    $isFileExist = !$isFileExist;
-                console.log("not exists: " + $isFileExist);
-                //return false;    		    
-    		});
-
-        console.log('Boolean: ' + $isFileExist);
-    });
-
-
-
     //GET JSON SETTINGS CONTENT
     jqXHR($settingsData,
-    //jqXHR((($settingsData.indexOf(<%= ModuleId %>) != -1) ? $settingsData : $defaultSettingsData),
             function () {
-                //console.log('Before load JSON');
+                //console.log('Before load Settings JSON');
             }, true)
     		.done(function (data) {
     		    //var $settings = data.settings;
     		    $settings = data.settings;
-
-    		    console.log($settings);
-
     		})
     		.fail(function (jqXHR, textStatus) {
-    		    console.log('Error loading JSON');
+    		    console.log('Error loading Settings JSON');
     		});
 
     $(window).load(function () {
@@ -145,7 +116,6 @@
                 .done(function (data) {
                     var $slides = data.slides;
 
-                    //$($moduleId).css('min-height', (($settings.rotatorType !== 'body') ? '350px' : 'auto'));
                     $($moduleId).css('min-height', (($settings.rotatorType === 'container') ? $settings.minHeight : 'auto'));
                     
                     $('.JSRotator #<%= pnlControlHolder.ClientID %>')
@@ -180,13 +150,13 @@
                             slides: $slides,
 
                             init: function (globalSettings) {
-                                console.log("Init");
+                                //console.log("Init");
                             },
                             play: function (index, slideSettings) {
-                                console.log("Play");
+                                //console.log("Play");
                             },
                             pause: function (index, slideSettings) {
-                                console.log("Pause");
+                                //console.log("Pause");
                             },
                             walk: function (index, slideSettings) {
                                 $('.JSRotator #<%= pnlSlideInfo.ClientID %>')

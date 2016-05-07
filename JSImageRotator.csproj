@@ -137,6 +137,11 @@
     <Content Include="icon.png" />
     <Content Include="AddImage.ascx" />
     <Content Include="h-icon.png" />
+    <Content Include="Js\jquery.paging.js" />
+    <Content Include="Js\jquery.paging.min.js">
+      <DependentUpon>jquery.paging.js</DependentUpon>
+    </Content>
+    <Content Include="Js\jquery.pagingScript.js" />
     <Content Include="Js\JSScript.js" />
     <Content Include="Js\main.js" />
     <Content Include="Js\main.min.js">

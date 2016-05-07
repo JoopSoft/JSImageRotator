@@ -63,9 +63,35 @@ Partialy DONE: Needs Consulting about JSON
         animationRegister:  [],
 
 
+ADD NEW IMAGE: Add to list checkbox should be on left side..
 
 MAIN.JS: OPTIMIZING CODE..
 ALL JS script code also..
+
+EDIT: Имаме ли създаден лист вече, да бъде активен UPDATE LIST вместо CREATE NEW LIST..
+
+VIEW: Да проверяваме дали имаме генериран {moduleId}_settings.json && {moduleId}_slides.json (empty) -ако нямаме да се ползва Default_Settings.json
+	(JavaScript не може да се ползва за достъп до файловата система поради секюрити причини)
+
+	DEFAULT SLIDES JSON:
+	{
+	"slides":
+	[
+	  {
+	    "src": "",
+	    "transition": "",
+	    "animation": "",
+	    "title": "",
+	    "description": "",
+	    "photographer": "",
+	    "contact": ""
+	  }
+	]
+	}
+
+SELECT, EDIT, ADDIMAGE, SETTINGS: JoopSOFT.com link
+
+add install icons to .rar
 
 -----------------------------------------------------------------
 JSON Structure:

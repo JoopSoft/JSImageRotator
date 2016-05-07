@@ -235,6 +235,12 @@
                 float: left;
             }
 
+            .page_navigation {
+                .btn {
+                    padding: 7px 12px;
+                }
+            }
+
             .btn {
                 line-height: normal;
                 border: $none;
@@ -271,6 +277,10 @@
                     border: $none;
                     outline: $none;
                     @include box-shadow($none);
+                }
+
+                &.active_page {
+                    background-color: $dark-alpha-xlg;
                 }
 
                 &[disabled=disabled],
@@ -1130,6 +1140,7 @@
 
         &.btn-primary {
             background-color: $dark-alpha-lg;
+            color: $white;
 
             &:hover,
             &:focus,
@@ -1347,11 +1358,164 @@
             color: $grey;
         }
     }
+
+    #tableList {
+        float: left;
+        margin: 0;
+
+        .thead {
+            float: left;
+            width: 100%;
+            line-height: 40px;
+            background: $dark-alpha-xlg;
+            color: $white;
+            font-weight: bold;
+
+            .dnnCheckbox img {
+                background-position: -100px 0px;
+            }
+
+            .dnnCheckbox-checked img {
+                background-position: -150px 0px;
+            }
+
+            > div, li {
+                float: left;
+                width: 100%;
+
+                > div {
+                    float: left;
+                }
+            }
+
+            .table-row {
+            }
+
+            .table-cell {
+                width: calc((100% - 447px)/4);
+                /*text-align: center;*/
+                padding-left: 6px;
+
+
+                input[type="checkbox"] + span,
+                input[type="radio"] + span {
+                    margin: 0 5px;
+                }
+
+                input {
+                    width: 100%;
+                    line-height: 30px;
+                }
+
+                &:first-child {
+                    width: 27px;
+                }
+
+                &:nth-child(2) {
+                    width: 50px;
+                    text-align: center;
+                }
+
+                &:last-child {
+                    width: 70px;
+                }
+
+                &.custom-fx {
+                    min-width: 150px;
+                }
+            }
+        }
+
+        .tbody {
+            float: left;
+            width: 100%;
+            margin-bottom: 10px;
+
+            > div, li {
+                float: left;
+                width: 100%;
+
+                > div {
+                    float: left;
+                }
+            }
+
+            .table-row {
+                &:nth-child(even) {
+                    background: $dark-alpha-hover;
+                    border-bottom: 1px solid $dark-alpha-xsm;
+                }
+
+                &:nth-child(odd) {
+                    border-bottom: 1px solid $dark-alpha-xsm;
+                }
+
+                &:hover {
+                    background: $dark-alpha-xsm;
+                }
+            }
+
+            .table-cell {
+                width: calc((100% - 447px)/4);
+                padding: 5px;
+                height: 40px;
+
+                input {
+                    width: 100%;
+                    line-height: 30px;
+                }
+
+                &:first-child {
+                    width: 27px;
+                }
+
+                &:nth-child(2) {
+                    width: 50px;
+                    text-align: center;
+                }
+
+                &:last-child {
+                    width: 70px;
+                }
+
+                a {
+                    float: left;
+                    width: 50%;
+                    min-width: 25px;
+                    height: 30px;
+                    line-height: 30px;
+                    margin: 0;
+                    padding: 0;
+                    text-align: center;
+                }
+
+                .btn {
+                    height: 30px;
+                }
+
+                &.custom-fx {
+                    min-width: 150px;
+                }
+            }
+        }
+    }
+
+    .page_navigation {
+        float: right;
+    }
+
+    .info_text {
+        float: right;
+        padding: 5px 10px;
+        background-color: $dark-alpha-lg;
+        color: $white;
+        border-color: transparent;
+    }
 }
 
 //VEGAS RE-STYLE
 .vegas-timer-progress {
-    background: $success;
+    background: $white;
     position: relative;
     z-index: 9999;
 }

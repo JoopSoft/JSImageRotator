@@ -138,7 +138,7 @@
         });
 
         //POPUP INPUT TEXTBOX - TABLE
-        $('.JSRotator .dnnFormItem table input[type=text]').focus(function () {
+        $('.JSRotator .dnnFormItem .table input[type=text]').focus(function () {
             var $this = $(this);
 
             $('.JSRotator .dnnFormItem table tr.active td').addClass('no-edit-cell');
@@ -160,7 +160,7 @@
             })).find('i').addClass('fa-2x');
         });
 
-        $('.JSRotator .dnnFormItem table tr.active td:last').find('i').addClass('fa-lg');
+        $('.JSRotator .dnnFormItem .table .active div:last').find('i').addClass('fa-lg');
 
         //REMOVING TOOLTIPS FROM ALL DISABLED ELEMENTS
         $('.JSRotator [disbled="disabled"], .JSRotator .aspNetDisabled, .JSRotator .dnnDisabled').tooltip('destroy');
@@ -196,24 +196,60 @@
         });
 
         //CHECKBOX DEFINITION: SELECT/DESELECT ALL CHECKBOXES
-        $('.JSRotator table tbody .cbSelect input:checkbox').each(function () {
-            var $n = $('.JSRotator table tbody .cbSelect input:checked').length,
-                $t = $('.JSRotator table tbody .cbSelect input:checkbox').length;
+        $('.JSRotator .table .tbody .cbSelect input:checkbox').each(function () {
+            var $n = parseInt($('.JSRotator .table .tbody .cbSelect input:checked').length),
+                $t = parseInt($('.JSRotator .table .tbody .cbSelect input:checkbox').length);
 
-            if ($n === $t) $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', true);else $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', false);
+            if ($n === $t) $('.JSRotator .table .thead .cbSelectAll input:checkbox').prop('checked', true);else $('.JSRotator .table .thead .cbSelectAll input:checkbox').prop('checked', false);
+
+            if ($('.JSRotator .edit .txtFileName').val() === '') {
+                $('.JSRotator .edit .btnSubmit').addClass('disabled');
+                $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+            } else {
+                $('.JSRotator .edit btnSubmit').removeClass('disabled');
+                $('.JSRotator .edit btnAddUpdateList').removeClass('disabled');
+            }
         }).bind('change', function () {
-            var $n = $('.JSRotator table tbody .cbSelect input:checked').length,
-                $t = $('.JSRotator table tbody .cbSelect input:checkbox').length;
+            var $n = parseInt($('.JSRotator .table .tbody .cbSelect input:checked').length),
+                $t = parseInt($('.JSRotator .table .tbody .cbSelect input:checkbox').length);
 
-            if ($n === $t) $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', true);else $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', false);
+            if ($n === $t) $('.JSRotator .table .thead .cbSelectAll input:checkbox').prop('checked', true);else $('.JSRotator .table .thead .cbSelectAll input:checkbox').prop('checked', false);
+
+            if ($n != 0) {
+                if ($('.JSRotator .edit .txtFileName').val() === '') {
+                    $('.JSRotator .controls .btnSubmit').addClass('disabled');
+                    $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+                } else {
+                    $('.JSRotator .controls .btnSubmit').removeClass('disabled');
+                    $('.JSRotator .edit .btnAddUpdateList').removeClass('disabled');
+                }
+            } else {
+                $('.JSRotator .controls .btnSubmit').addClass('disabled');
+                $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+            }
         });
 
-        $('.JSRotator table thead .cbSelectAll input:checkbox')
+        $('.JSRotator .table .thead .cbSelectAll input:checkbox')
         //.each(function () {
-        //    $('.JSRotator table tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
+        //    $('.JSRotator .table .tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
         //})
         .bind('change', function () {
-            $('.JSRotator table tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
+            var $n = parseInt($('.JSRotator .table .tbody .cbSelect input:checked').length);
+
+            $('.JSRotator .table .tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
+
+            if ($n != 0) {
+                if ($('.JSRotator .edit .txtFileName').val() === '') {
+                    $('.JSRotator .controls .btnSubmit').addClass('disabled');
+                    $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+                } else {
+                    $('.JSRotator .controls .btnSubmit').removeClass('disabled');
+                    $('.JSRotator .edit .btnAddUpdateList').removeClass('disabled');
+                }
+            } else {
+                $('.JSRotator .controls .btnSubmit').addClass('disabled');
+                $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+            }
         });
 
         //DISPALY/HIDE PANEL DEFINITION
@@ -489,26 +525,62 @@
 
             //$('.JSRotator table tbody .cbSelect input:checkbox')
             //    .each(function () {
-            //        var $n = $('.JSRotator table tbody .cbSelect input:checked').length,
-            //            $t = $('.JSRotator table tbody .cbSelect input:checkbox').length;
+            //        var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length),
+            //            $t = parseInt($('.JSRotator table tbody .cbSelect input:checkbox').length);
             //
             //        if ($n === $t) $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', true);
             //        else $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', false);
+            //
+            //        if ($('.JSRotator .edit .txtFileName').val() === '') {
+            //            $('.JSRotator .edit .btnSubmit').addClass('disabled');
+            //            $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+            //        } else {
+            //            $('.JSRotator .edit btnSubmit').removeClass('disabled');
+            //            $('.JSRotator .edit btnAddUpdateList').removeClass('disabled');
+            //        }
             //    })
             //    .bind('change', function () {
-            //        var $n = $('.JSRotator table tbody .cbSelect input:checked').length,
-            //            $t = $('.JSRotator table tbody .cbSelect input:checkbox').length;
+            //        var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length),
+            //            $t = parseInt($('.JSRotator table tbody .cbSelect input:checkbox').length);
             //
             //        if ($n === $t) $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', true);
             //        else $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', false);
+            //
+            //        if ($n != 0) {
+            //            if ($('.JSRotator .edit .txtFileName').val() === '') {
+            //                $('.JSRotator .controls .btnSubmit').addClass('disabled');
+            //                $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+            //            } else {
+            //                $('.JSRotator .controls .btnSubmit').removeClass('disabled');
+            //                $('.JSRotator .edit .btnAddUpdateList').removeClass('disabled');
+            //            }
+            //        } else {
+            //            $('.JSRotator .controls .btnSubmit').addClass('disabled');
+            //            $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+            //        }
             //    });
-
+            //
             //$('.JSRotator table thead .cbSelectAll input:checkbox')
             //    //.each(function () {
             //    //    $('.JSRotator table tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
             //    //})
             //    .bind('change', function () {
+            //        var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length);
+            //
             //        $('.JSRotator table tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
+            //
+            //        if ($n != 0) {
+            //            if ($('.JSRotator .edit .txtFileName').val() === '') {
+            //                $('.JSRotator .controls .btnSubmit').addClass('disabled');
+            //                $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+            //            } else {
+            //                $('.JSRotator .controls .btnSubmit').removeClass('disabled');
+            //                $('.JSRotator .edit .btnAddUpdateList').removeClass('disabled');
+            //            }
+            //        } else {
+            //            $('.JSRotator .controls .btnSubmit').addClass('disabled');
+            //            $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+            //        }
             //    });
         };
 

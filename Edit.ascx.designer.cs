@@ -121,15 +121,6 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.DropDownList lstSelectList;
         
         /// <summary>
-        /// btnDeleteList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnDeleteList;
-        
-        /// <summary>
         /// btnAddUpdateList control.
         /// </summary>
         /// <remarks>
@@ -137,6 +128,15 @@ namespace JS.Modules.JSImageRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnAddUpdateList;
+        
+        /// <summary>
+        /// btnDeleteList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnDeleteList;
         
         /// <summary>
         /// lblTableTitle control.
@@ -344,6 +344,15 @@ namespace JS.Modules.JSImageRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnJsInclude ellipsisJs;
+        
+        /// <summary>
+        /// pagingJs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnJsInclude pagingJs;
         
         /// <summary>
         /// mainJs control.

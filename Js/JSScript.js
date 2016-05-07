@@ -11,7 +11,7 @@
         //Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function () {
         //    dnnEditBasicSettings();
         //});
-                
+
         //CUSTOM MODULE FOR CHECKING EXISTING AN ELEMENS
         $.fn.exists = function () { return this.length > 0; }
 
@@ -35,7 +35,7 @@
                 })
             })
         }
-        
+
         var $lnkAdd = '<i class="fa fa-plus-circle"></i>',
             $lnkEdit = '<i class="fa fa-pencil"></i>',
             $lnkEditSquare = '<i class="fa fa-pencil-square-o"></i>',
@@ -135,9 +135,9 @@
             row: 1,
             onlyFullWords: false
         });
-        
+
         //POPUP INPUT TEXTBOX - TABLE 
-        $('.JSRotator .dnnFormItem table input[type=text]')
+        $('.JSRotator .dnnFormItem .table input[type=text]')
             .focus(function () {
                 var $this = $(this);
 
@@ -168,7 +168,7 @@
                         .find('i').addClass('fa-2x');
             });
 
-        $('.JSRotator .dnnFormItem table tr.active td:last').find('i').addClass('fa-lg');
+        $('.JSRotator .dnnFormItem .table .active div:last').find('i').addClass('fa-lg');
 
 
         //REMOVING TOOLTIPS FROM ALL DISABLED ELEMENTS
@@ -207,30 +207,69 @@
 
         });
 
+
+
         //CHECKBOX DEFINITION: SELECT/DESELECT ALL CHECKBOXES
-        $('.JSRotator table tbody .cbSelect input:checkbox')
+        $('.JSRotator .table .tbody .cbSelect input:checkbox')
             .each(function () {
-                var $n = $('.JSRotator table tbody .cbSelect input:checked').length,
-                    $t = $('.JSRotator table tbody .cbSelect input:checkbox').length;
-                
-                if ($n === $t) $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', true);
-                else $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', false);
+                var $n = parseInt($('.JSRotator .table .tbody .cbSelect input:checked').length),
+                    $t = parseInt($('.JSRotator .table .tbody .cbSelect input:checkbox').length);
+
+                if ($n === $t) $('.JSRotator .table .thead .cbSelectAll input:checkbox').prop('checked', true);
+                else $('.JSRotator .table .thead .cbSelectAll input:checkbox').prop('checked', false);
+
+                if ($('.JSRotator .edit .txtFileName').val() === '') {
+                    $('.JSRotator .edit .btnSubmit').addClass('disabled');
+                    $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+                } else {
+                    $('.JSRotator .edit btnSubmit').removeClass('disabled');
+                    $('.JSRotator .edit btnAddUpdateList').removeClass('disabled');
+                }
             })
             .bind('change', function () {
-                var $n = $('.JSRotator table tbody .cbSelect input:checked').length,
-                    $t = $('.JSRotator table tbody .cbSelect input:checkbox').length;
-                
-                if ($n === $t) $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', true);
-                else $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', false);
+                var $n = parseInt($('.JSRotator .table .tbody .cbSelect input:checked').length),
+                    $t = parseInt($('.JSRotator .table .tbody .cbSelect input:checkbox').length);
+
+                if ($n === $t) $('.JSRotator .table .thead .cbSelectAll input:checkbox').prop('checked', true);
+                else $('.JSRotator .table .thead .cbSelectAll input:checkbox').prop('checked', false);
+
+                if ($n != 0) {
+                    if ($('.JSRotator .edit .txtFileName').val() === '') {
+                        $('.JSRotator .controls .btnSubmit').addClass('disabled');
+                        $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+                    } else {
+                        $('.JSRotator .controls .btnSubmit').removeClass('disabled');
+                        $('.JSRotator .edit .btnAddUpdateList').removeClass('disabled');
+                    }
+                } else {
+                    $('.JSRotator .controls .btnSubmit').addClass('disabled');
+                    $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+                }
             });
 
-        $('.JSRotator table thead .cbSelectAll input:checkbox')
+        $('.JSRotator .table .thead .cbSelectAll input:checkbox')
             //.each(function () {
-            //    $('.JSRotator table tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
+            //    $('.JSRotator .table .tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
             //})
             .bind('change', function () {
-                $('.JSRotator table tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
+                var $n = parseInt($('.JSRotator .table .tbody .cbSelect input:checked').length);
+
+                $('.JSRotator .table .tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
+
+                if ($n != 0) {
+                    if ($('.JSRotator .edit .txtFileName').val() === '') {
+                        $('.JSRotator .controls .btnSubmit').addClass('disabled');
+                        $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+                    } else {
+                        $('.JSRotator .controls .btnSubmit').removeClass('disabled');
+                        $('.JSRotator .edit .btnAddUpdateList').removeClass('disabled');
+                    }
+                } else {
+                    $('.JSRotator .controls .btnSubmit').addClass('disabled');
+                    $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+                }
             });
+
 
         //DISPALY/HIDE PANEL DEFINITION
         $('.JSRotator .hidder input:checkbox')
@@ -256,7 +295,7 @@
 
                 if ($(this).is(':checked')) $($target).hide(); else $($target).show();
             });
-        
+
         $('.JSRotator input:file')
             .each(function () {
                 var $this = $(this),
@@ -337,7 +376,7 @@
             style: 'btn-primary',
             tickIcon: 'glyphicon-ok',
             title: null,
-            width: '50%' 
+            width: '50%'
         });
 
         //SINGLE SELECT ON TABLE
@@ -463,7 +502,7 @@
             });
 
             $('.JSRotator .selectpicker').selectpicker('render');
-            
+
             $('.JSRotator a.dnnFormHelp').html($lnkInfo);
 
 
@@ -519,26 +558,62 @@
 
             //$('.JSRotator table tbody .cbSelect input:checkbox')
             //    .each(function () {
-            //        var $n = $('.JSRotator table tbody .cbSelect input:checked').length,
-            //            $t = $('.JSRotator table tbody .cbSelect input:checkbox').length;
+            //        var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length),
+            //            $t = parseInt($('.JSRotator table tbody .cbSelect input:checkbox').length);
             //
             //        if ($n === $t) $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', true);
             //        else $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', false);
+            //
+            //        if ($('.JSRotator .edit .txtFileName').val() === '') {
+            //            $('.JSRotator .edit .btnSubmit').addClass('disabled');
+            //            $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+            //        } else {
+            //            $('.JSRotator .edit btnSubmit').removeClass('disabled');
+            //            $('.JSRotator .edit btnAddUpdateList').removeClass('disabled');
+            //        }
             //    })
             //    .bind('change', function () {
-            //        var $n = $('.JSRotator table tbody .cbSelect input:checked').length,
-            //            $t = $('.JSRotator table tbody .cbSelect input:checkbox').length;
+            //        var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length),
+            //            $t = parseInt($('.JSRotator table tbody .cbSelect input:checkbox').length);
             //
             //        if ($n === $t) $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', true);
             //        else $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', false);
+            //
+            //        if ($n != 0) {
+            //            if ($('.JSRotator .edit .txtFileName').val() === '') {
+            //                $('.JSRotator .controls .btnSubmit').addClass('disabled');
+            //                $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+            //            } else {
+            //                $('.JSRotator .controls .btnSubmit').removeClass('disabled');
+            //                $('.JSRotator .edit .btnAddUpdateList').removeClass('disabled');
+            //            }
+            //        } else {
+            //            $('.JSRotator .controls .btnSubmit').addClass('disabled');
+            //            $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+            //        }
             //    });
-            
+            //
             //$('.JSRotator table thead .cbSelectAll input:checkbox')
             //    //.each(function () {
             //    //    $('.JSRotator table tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
             //    //})
             //    .bind('change', function () {
+            //        var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length);
+            //
             //        $('.JSRotator table tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
+            //
+            //        if ($n != 0) {
+            //            if ($('.JSRotator .edit .txtFileName').val() === '') {
+            //                $('.JSRotator .controls .btnSubmit').addClass('disabled');
+            //                $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+            //            } else {
+            //                $('.JSRotator .controls .btnSubmit').removeClass('disabled');
+            //                $('.JSRotator .edit .btnAddUpdateList').removeClass('disabled');
+            //            }
+            //        } else {
+            //            $('.JSRotator .controls .btnSubmit').addClass('disabled');
+            //            $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
+            //        }
             //    });
         };
 
@@ -548,11 +623,9 @@
                 $('.JSRotator .scroll-action').fadeIn();
                 //$('.JSRotator .dnnFormSectionHead').animate({ 'top': $('.JSRotator .dnnFormSectionHead').height() + 'px' }, 300).addClass('fixed');
 
-
             } else {
                 $('.JSRotator .scroll-action').fadeOut();
                 //$('.JSRotator .dnnFormSectionHead').animate({ 'top': '-=76' }, 300).removeClass('fixed');
-
             }
         });
 

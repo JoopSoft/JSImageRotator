@@ -10,5 +10,9 @@
   {
     "outputFile": "Js/main.js",
     "inputFile": "Js/JSScript.js"
+  },
+  {
+    "outputFile": "Js/jquery.paging.js",
+    "inputFile": "Js/jquery.pagingScript.js"
   }
 ]
