@@ -46,6 +46,11 @@ namespace JS.Modules.JSImageRotator
                 //Implement your edit logic for your module
                 if (!Page.IsPostBack)
                 {
+                    joopSoft.NavigateUrl = "http://www.joopsoft.com/";
+                    joopSoft.Text = "JoopSOFT.com";
+                    joopSoft.ToolTip = "JoopSOFT.com";
+                    joopSoft.CssClass = "link-dev";
+                    joopSoft.Target = "_blank";
                     var ic = new ImageController();
                     var i = ic.GetImages(ModuleId);
                     var il = ic.GetLists(ModuleId);
@@ -222,8 +227,8 @@ namespace JS.Modules.JSImageRotator
             {
                 tempString = sreader.ReadToEnd();
             }
-            resultString = tempString.Replace("\"transition\": \"Default\",", String.Empty);
-            tempString = resultString.Replace("\"animation\": \"Default\",", String.Empty);
+            resultString = tempString.Replace("\"transition\": \"default\",", String.Empty);
+            tempString = resultString.Replace("\"animation\": \"default\",", String.Empty);
             resultString = Regex.Replace(tempString, @"^\s+$[\r\n]*", "", RegexOptions.Multiline);
             File.Delete(path);
 

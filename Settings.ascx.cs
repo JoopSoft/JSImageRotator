@@ -48,6 +48,11 @@ namespace JS.Modules.JSImageRotator
             {
                 if (Page.IsPostBack == false)
                 {
+                    joopSoft.NavigateUrl = "http://www.joopsoft.com/";
+                    joopSoft.Text = "JoopSOFT.com";
+                    joopSoft.ToolTip = "JoopSOFT.com";
+                    joopSoft.CssClass = "link-dev";
+                    joopSoft.Target = "_blank";
                     var sc = new SettingsController();
                     var cs = sc.LoadSettings();
                     foreach (CustomSettings s in cs)

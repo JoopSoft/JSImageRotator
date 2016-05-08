@@ -34,6 +34,11 @@ namespace JS.Modules.JSImageRotator
                 //Implement your edit logic for your module
                 if (!Page.IsPostBack)
                 {
+                    joopSoft.NavigateUrl = "http://www.joopsoft.com/";
+                    joopSoft.Text = "JoopSOFT.com";
+                    joopSoft.ToolTip = "JoopSOFT.com";
+                    joopSoft.CssClass = "link-dev";
+                    joopSoft.Target = "_blank";
                     lnkAdd.NavigateUrl = EditUrl("AddImage");
                     lnkLists.NavigateUrl = EditUrl("Select");
                     bool listPresent = false;
@@ -47,33 +52,16 @@ namespace JS.Modules.JSImageRotator
                             listPresent = true;
                         }
                     }
-                    if (!listPresent)
+                    if (listPresent)
+                    {
+                        SwitchToUpdate();
+                    }
+                    else
                     {
                         btnShowAddNewList.Enabled = lnkLists.Enabled = false;
                     }
-                    var i = ic.GetImages(ModuleId);
-                    //bool allSelected = true;
-                    //foreach (var img in i)
-                    //{
-                    //    if (lstSelectList.SelectedItem != null)
-                    //    {
-                    //        if (img.ListsIn.Contains(lstSelectList.SelectedValue + ".json, "))
-                    //        {
-                    //            img.IsSelected = true;
-                    //        }
-                    //        else
-                    //        {
-                    //            img.IsSelected = false;
-                    //        }
-                    //    }
 
-                    //    ic.UpdateImage(img);
-                    //    if (!img.IsSelected)
-                    //    {
-                    //        allSelected = false;
-                    //    }
-                    //    cbSelectAll.Checked = allSelected;
-                    //}
+                    var i = ic.GetImages(ModuleId);
                     rptImageList.DataSource = ic.GetImages(ModuleId);
                     rptImageList.DataBind();
                     ShowHideMenuControls();
@@ -109,34 +97,11 @@ namespace JS.Modules.JSImageRotator
             pnlPopUp.Visible = false;
             if (btnAddUpdateList.Text == "Create")
             {
-                lblFileName.Visible = txtFileName.Visible = false;
-                lblSelectList.Visible = lstSelectList.Visible = btnDeleteList.Visible = true;
-                btnAddUpdateList.Text = "Update";
-                btnAddUpdateList.CssClass = "btn btn-primary link-save";
-                btnAddUpdateList.ToolTip = "Update List";
-                lblListAdded.Text = "";
-                lblPopUpIcon.CssClass = "";
-                pnlPopUp.Visible = false;
-                btnShowAddNewList.ToolTip = "Create New List";
-                lblJsonTitle.Text = "Update Image Lists";
-                btnSubmit.Text = "Update And Apply";
-                btnSubmit.ToolTip = "Update And Apply";
+                SwitchToUpdate();
             }
             else
             {
-                lblFileName.Visible = txtFileName.Visible = true;
-                lblSelectList.Visible = lstSelectList.Visible = btnDeleteList.Visible = false;
-                btnAddUpdateList.Text = "Create";
-                btnAddUpdateList.CssClass = "btn btn-primary link-add";
-                btnAddUpdateList.ToolTip = "Create New List";
-                lblListAdded.Text = "";
-                lblPopUpIcon.CssClass = "";
-                pnlPopUp.Visible = false;
-                pnlPopUp.CssClass = "";
-                btnShowAddNewList.ToolTip = "Edit Available Lists";
-                lblJsonTitle.Text = "Create Image Lists";
-                btnSubmit.Text = "Create And Apply";
-                btnSubmit.ToolTip = "Create And Apply";
+                SwitchToCreate();
             }
         }
 
@@ -419,8 +384,8 @@ namespace JS.Modules.JSImageRotator
             {
                 tempString = sreader.ReadToEnd();
             }
-            resultString = tempString.Replace("\"transition\": \"Default\",", String.Empty);
-            tempString = resultString.Replace("\"animation\": \"Default\",", String.Empty);
+            resultString = tempString.Replace("\"transition\": \"default\",", String.Empty);
+            tempString = resultString.Replace("\"animation\": \"default\",", String.Empty);
             resultString = Regex.Replace(tempString, @"^\s+$[\r\n]*", "", RegexOptions.Multiline);
             File.Delete(path);
 
@@ -529,6 +494,7 @@ namespace JS.Modules.JSImageRotator
                 txtFileName.Text = "";
                 lstSelectList.Items.Add(listName);
                 btnShowAddNewList.Enabled = lnkLists.Enabled = true;
+                SwitchToUpdate();
             }
             else
             {
@@ -564,6 +530,39 @@ namespace JS.Modules.JSImageRotator
                 btnShowAddNewList.Visible = lnkLists.Visible = false;
                 headerMenu.CssClass = "dnnFormMessage one-control dnnFormTitle no-spacing";
             }
+        }
+
+        protected void SwitchToUpdate()
+        {
+            lblFileName.Visible = txtFileName.Visible = false;
+            lblSelectList.Visible = lstSelectList.Visible = btnDeleteList.Visible = true;
+            btnAddUpdateList.Text = "Update";
+            btnAddUpdateList.CssClass = "btn btn-primary link-save";
+            btnAddUpdateList.ToolTip = "Update List";
+            lblListAdded.Text = "";
+            lblPopUpIcon.CssClass = "";
+            pnlPopUp.Visible = false;
+            btnShowAddNewList.ToolTip = "Create New List";
+            lblJsonTitle.Text = "Update Image Lists";
+            btnSubmit.Text = "Update And Apply";
+            btnSubmit.ToolTip = "Update And Apply";
+        }
+
+        protected void SwitchToCreate()
+        {
+            lblFileName.Visible = txtFileName.Visible = true;
+            lblSelectList.Visible = lstSelectList.Visible = btnDeleteList.Visible = false;
+            btnAddUpdateList.Text = "Create";
+            btnAddUpdateList.CssClass = "btn btn-primary link-add";
+            btnAddUpdateList.ToolTip = "Create New List";
+            lblListAdded.Text = "";
+            lblPopUpIcon.CssClass = "";
+            pnlPopUp.Visible = false;
+            pnlPopUp.CssClass = "";
+            btnShowAddNewList.ToolTip = "Edit Available Lists";
+            lblJsonTitle.Text = "Create Image Lists";
+            btnSubmit.Text = "Create And Apply";
+            btnSubmit.ToolTip = "Create And Apply";
         }
     }
 }

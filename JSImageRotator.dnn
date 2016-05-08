@@ -3,7 +3,7 @@
     <package name="JSImageRotator" type="Module" version="00.00.01">
       <friendlyName>JSImageRotator</friendlyName>
       <description>JSImageRotator allows you to create image slides with some describe attributes, modify slides, delete slides, change the slide order and etc. We used Vegas plugin with MIT license.</description>
-      <iconFile>icon.png</iconFile>
+      <iconFile>Images\Icons\icon.png</iconFile>
       <owner>
         <name>JoopSOFT Ltd.</name>
         <organization>JoopSOFT Ltd.</organization>

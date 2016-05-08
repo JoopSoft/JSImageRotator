@@ -68,12 +68,12 @@ ADD NEW IMAGE: Add to list checkbox should be on left side..
 MAIN.JS: OPTIMIZING CODE..
 ALL JS script code also..
 
-EDIT: Имаме ли създаден лист вече, да бъде активен UPDATE LIST вместо CREATE NEW LIST..
+DONE: EDIT: Имаме ли създаден лист вече, да бъде активен UPDATE LIST вместо CREATE NEW LIST..
 
 VIEW: Да проверяваме дали имаме генериран {moduleId}_settings.json && {moduleId}_slides.json (empty) -ако нямаме да се ползва Default_Settings.json
 	(JavaScript не може да се ползва за достъп до файловата система поради секюрити причини)
 
-	DEFAULT SLIDES JSON:
+DONE:	DEFAULT SLIDES JSON:
 	{
 	"slides":
 	[
@@ -89,9 +89,9 @@ VIEW: Да проверяваме дали имаме генериран {module
 	]
 	}
 
-SELECT, EDIT, ADDIMAGE, SETTINGS: JoopSOFT.com link
+DONE: SELECT, EDIT, ADDIMAGE, SETTINGS: JoopSOFT.com link
 
-add install icons to .rar
+DONE: add install icons to .rar
 
 -----------------------------------------------------------------
 JSON Structure:

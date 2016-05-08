@@ -11,7 +11,7 @@
         <div class="dnnFormSectionHead">
             <h3 class="dnnFormMessage dnnFormTitle dnnFormIcon">
                 <%=LocalizeString("Title")%>
-                <a href="http://www.joopsoft.com/" title="JoopSOFT.com" class="link-dev">JoopSOFT.com</a>
+                <asp:HyperLink ID="joopSoft" runat="server" />
             </h3>
         </div>
         <fieldset>

@@ -132,6 +132,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="checkbox.png" />
+    <Content Include="Images\Icons\checkbox.png" />
+    <Content Include="Images\Icons\h-icon.png" />
+    <Content Include="Images\Icons\icon.png" />
+    <Content Include="Images\Icons\radiobutton.png" />
     <Content Include="Js\jquery.ellipsis.js" />
     <Content Include="Js\jquery.ellipsis.min.js" />
     <Content Include="icon.png" />
@@ -230,9 +234,7 @@
     <Content Include="Json\428_Settings.json" />
     <Content Include="Json\Default_Settings.json" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

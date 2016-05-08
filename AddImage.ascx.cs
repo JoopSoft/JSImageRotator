@@ -38,6 +38,11 @@ namespace JS.Modules.JSImageRotator
             {
                 if (!Page.IsPostBack)
                 {
+                    joopSoft.NavigateUrl = "http://www.joopsoft.com/";
+                    joopSoft.Text = "JoopSOFT.com";
+                    joopSoft.ToolTip = "JoopSOFT.com";
+                    joopSoft.CssClass = "link-dev";
+                    joopSoft.Target = "_blank";
                     btnEdit.NavigateUrl = EditUrl();
                     btnLists.NavigateUrl = EditUrl("Select");
                     FillImageLists();

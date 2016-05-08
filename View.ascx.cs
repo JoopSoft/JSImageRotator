@@ -19,6 +19,7 @@ using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.Utilities;
+using System.IO;
 
 namespace JS.Modules.JSImageRotator
 {
@@ -41,6 +42,8 @@ namespace JS.Modules.JSImageRotator
         {
             try
             {
+                DefaultSettings();
+                DefaultSlides();
                 var ic = new ImageController();
                 var ai = ic.GetImages(ModuleId);
                 var al = ic.GetLists(ModuleId);
@@ -114,6 +117,77 @@ namespace JS.Modules.JSImageRotator
             catch (Exception exc) //Module failed to load
             {
                 Exceptions.ProcessModuleLoadException(this, exc);
+            }
+        }
+
+        void AddLine(string appendText, string fileName)
+        {
+            File.AppendAllText(fileName, appendText + Environment.NewLine);
+        }
+
+        protected void DefaultSettings()
+        {
+            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
+            string fileName = Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Settings.json");
+            if (File.Exists(fileName))
+            {
+            }
+            else
+            {
+                using (FileStream fs = File.Open(fileName, FileMode.CreateNew)) { }
+                AddLine("{", fileName);
+                AddLine("\t\"settings\": {", fileName);
+                AddLine("\t\t\"rotatorType\": \"body\",", fileName);
+                AddLine("\t\t\"minHeight\": 250,", fileName);
+                AddLine("\t\t\"ppControl\": false,", fileName);
+                AddLine("\t\t\"slideInfo\": false,", fileName);
+                AddLine("\t\t\"slide\": 0,", fileName);
+                AddLine("\t\t\"preload\": false,", fileName);
+                AddLine("\t\t\"preloadImage\": false,", fileName);
+                AddLine("\t\t\"preloadVideo\": false,", fileName);
+                AddLine("\t\t\"timer\": true,", fileName);
+                AddLine("\t\t\"overlay\": false,", fileName);
+                AddLine("\t\t\"autoplay\": true", fileName);
+                AddLine("\t\t\"shuffle\": false", fileName);
+                AddLine("\t\t\"delay\": 5000", fileName);
+                AddLine("\t\t\"cover\": true", fileName);
+                AddLine("\t\t\"backgroundColor\": null", fileName);
+                AddLine("\t\t\"align\": \"center\"", fileName);
+                AddLine("\t\t\"valign\": \"center\"", fileName);
+                AddLine("\t\t\"transition\": \"fade\"", fileName);
+                AddLine("\t\t\"transitionDuration\": 1000", fileName);
+                AddLine("\t\t\"transitionRegister\": \"[ ]\"", fileName);
+                AddLine("\t\t\"animation\": null,", fileName);
+                AddLine("\t\t\"animationDuration\": \"auto\",", fileName);
+                AddLine("\t\t\"animationRegister\": \"[ ]\"", fileName);
+                AddLine("\t}", fileName);
+                AddLine("}", fileName);
+            }
+        }
+
+        protected void DefaultSlides()
+        {
+            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
+            string fileName = Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Slides.json");
+            if (File.Exists(fileName))
+            {
+            }
+            else
+            {
+                using (FileStream fs = File.Open(fileName, FileMode.CreateNew)) { }
+                AddLine("{", fileName);
+                AddLine("\t\"slides\": ", fileName);
+                AddLine("\t[", fileName);
+                AddLine("\t{", fileName);
+                AddLine("\t\t\"src\": \"\",", fileName);
+                AddLine("\t\t\"transition\": \"\",", fileName);
+                AddLine("\t\t\"animation\": \"\",", fileName);
+                AddLine("\t\t\"title\": \"\",", fileName);
+                AddLine("\t\t\"photographer\": \"\",", fileName);
+                AddLine("\t\t\"contact\": \"\",", fileName);
+                AddLine("\t}", fileName);
+                AddLine("\t]", fileName);
+                AddLine("}", fileName);
             }
         }
 
