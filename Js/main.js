@@ -295,6 +295,16 @@
             if ($(this).val() === $(this).data('equal')) $($(this).data('target')).show();else $($(this).data('target')).hide();
         });
 
+        $('.JSRotator .hidder-radio input:radio').each(function () {
+            if ($(this).is(':checked')) {
+                if ($(this).val() !== 'auto') $($(this).closest('.hidder-radio').data('target')).show();else $($(this).closest('.hidder-radio').data('target')).hide();
+            }
+        }).bind('change', function () {
+            if ($(this).is(':checked')) {
+                if ($(this).val() !== 'auto') $($(this).closest('.hidder-radio').data('target')).show();else $($(this).closest('.hidder-radio').data('target')).hide();
+            }
+        });
+
         //SELECT PICKER CUSTOM PLUGIN DEFINITION
         //SINGLE SELECT OPTIONS
         if ($('.JSRotator .selectpicker.single-select').exists()) $('.JSRotator .selectpicker.single-select').selectpicker({
@@ -380,50 +390,6 @@
             width: '150px'
         });
 
-        //CUSTOM ANIMATION & TRANSITION SELECT DEFINITION
-        $('.JSRotator .lbAnimation, .JSRotator .lbTransition').each(function () {
-            var $value = new String($(this).val()),
-                $length = $(this).find(':selected').length;
-
-            if (eval($value) == 'random') {
-                //console.log('ONLY RANDOM');
-                $(this).find('[class=JSRandom]').prop('disabled', false);
-                $(this).find('[class=JSAnimType]').prop('disabled', true);
-                $(this).selectpicker('refresh');
-            } else if (eval($value) == 'null') {
-                //console.log("NOTHING SELECTED");
-                $(this).find('[class=JSRandom]').prop('disabled', false);
-                $(this).find('[class=JSAnimType]').prop('disabled', false);
-                $(this).find('[class=JSDefault]').prop('selected', true);
-                $(this).selectpicker('refresh');
-            } else {
-                //console.log("REST OF ITEMS");
-                $(this).find('[class=JSRandom]').prop('disabled', true);
-                $(this).find('[class=JSAnimType]').prop('disabled', false);
-                $(this).selectpicker('refresh');
-            }
-        }).change(function () {
-            var $value = new String($(this).val()),
-                $length = $(this).find(':selected').length;
-
-            if (eval($value) == 'random') {
-                //console.log('ONLY RANDOM');               
-                $(this).find('[class=JSRandom]').prop('disabled', false);
-                $(this).find('[class=JSAnimType]').prop('disabled', true);
-                $(this).selectpicker('refresh');
-            } else if (eval($value) == 'null') {
-                //console.log("NOTHING SELECTED");
-                $(this).find('[class=JSRandom]').prop('disabled', false);
-                $(this).find('[class=JSAnimType]').prop('disabled', false);
-                $(this).selectpicker('refresh');
-            } else {
-                //console.log("REST OF ITEMS");
-                $(this).find('[class=JSRandom]').prop('disabled', true);
-                $(this).find('[class=JSAnimType]').prop('disabled', false);
-                $(this).selectpicker('refresh');
-            }
-        });
-
         //GET PARTIAL POSTBACK ON UPDATEPANEL REFRESH
         var prm = Sys.WebForms.PageRequestManager.getInstance();
 
@@ -438,6 +404,57 @@
         function RefreshPostBack() {
 
             loadIcons();
+
+            //CUSTOM ANIMATION & TRANSITION SELECT DEFINITION
+            $('.JSRotator .lbAnimation, .JSRotator .lbTransition').each(function () {
+                var $value = $(this).val(),
+
+                //$length = $(this).find(':selected').length,
+                $equal = $(this).data('equal');
+
+                if ($value !== null) {
+                    if ($value.toString() === $equal) {
+                        //console.log('ONLY RANDOM');
+                        $(this).find('[class=JSRandom]').prop('disabled', false);
+                        $(this).find('[class=JSAnimType]').prop('disabled', true);
+                        //$(this).selectpicker('refresh');
+                    } else {
+                            //console.log("REST OF ITEMS");
+                            $(this).find('[class=JSRandom]').prop('disabled', true);
+                            $(this).find('[class=JSAnimType]').prop('disabled', false);
+                            //$(this).selectpicker('refresh');
+                        }
+                } else {
+                        //console.log("NULL ITEMS");
+                        $(this).find('[class=JSRandom]').prop('disabled', false);
+                        $(this).find('[class=JSAnimType]').prop('disabled', false);
+                        //$(this).selectpicker('refresh');
+                    }
+            }).bind('change', function () {
+                var $value = $(this).val(),
+
+                //$length = $(this).find(':selected').length,
+                $equal = $(this).data('equal');
+
+                if ($value !== null) {
+                    if ($value.toString() === $equal) {
+                        //console.log('ONLY RANDOM');
+                        $(this).find('[class=JSRandom]').prop('disabled', false);
+                        $(this).find('[class=JSAnimType]').prop('disabled', true);
+                        $(this).selectpicker('refresh');
+                    } else {
+                        //console.log("REST OF ITEMS");
+                        $(this).find('[class=JSRandom]').prop('disabled', true);
+                        $(this).find('[class=JSAnimType]').prop('disabled', false);
+                        $(this).selectpicker('refresh');
+                    }
+                } else {
+                    //console.log("NULL ITEMS");
+                    $(this).find('[class=JSRandom]').prop('disabled', false);
+                    $(this).find('[class=JSAnimType]').prop('disabled', false);
+                    $(this).selectpicker('refresh');
+                }
+            });
 
             //SELECT PICKER CUSTOM PLUGIN DEFINITION
             if ($('.JSRotator .selectpicker.single-select').exists()) $('.JSRotator .selectpicker.single-select').selectpicker({
@@ -519,50 +536,6 @@
                 width: '150px'
             });
 
-            //CUSTOM ANIMATION & TRANSITION SELECT DEFINITION
-            $('.JSRotator .lbAnimation, .JSRotator .lbTransition').each(function () {
-                var $value = new String($(this).val()),
-                    $length = $(this).find(':selected').length;
-
-                if (eval($value) == 'random') {
-                    //console.log('ONLY RANDOM');
-                    $(this).find('[class=JSRandom]').prop('disabled', false);
-                    $(this).find('[class=JSAnimType]').prop('disabled', true);
-                    $(this).selectpicker('refresh');
-                } else if (eval($value) == 'null') {
-                    //console.log("NOTHING SELECTED");
-                    $(this).find('[class=JSRandom]').prop('disabled', false);
-                    $(this).find('[class=JSAnimType]').prop('disabled', false);
-                    $(this).find('[class=JSDefault]').prop('selected', true);
-                    $(this).selectpicker('refresh');
-                } else {
-                    //console.log("REST OF ITEMS");
-                    $(this).find('[class=JSRandom]').prop('disabled', true);
-                    $(this).find('[class=JSAnimType]').prop('disabled', false);
-                    $(this).selectpicker('refresh');
-                }
-            }).change(function () {
-                var $value = new String($(this).val()),
-                    $length = $(this).find(':selected').length;
-
-                if (eval($value) == 'random') {
-                    //console.log('ONLY RANDOM');               
-                    $(this).find('[class=JSRandom]').prop('disabled', false);
-                    $(this).find('[class=JSAnimType]').prop('disabled', true);
-                    $(this).selectpicker('refresh');
-                } else if (eval($value) == 'null') {
-                    //console.log("NOTHING SELECTED");
-                    $(this).find('[class=JSRandom]').prop('disabled', false);
-                    $(this).find('[class=JSAnimType]').prop('disabled', false);
-                    $(this).selectpicker('refresh');
-                } else {
-                    //console.log("REST OF ITEMS");
-                    $(this).find('[class=JSRandom]').prop('disabled', true);
-                    $(this).find('[class=JSAnimType]').prop('disabled', false);
-                    $(this).selectpicker('refresh');
-                }
-            });
-
             //DISPALY/HIDE PANEL DEFINITION
             $('.JSRotator .hidder input:checkbox').each(function () {
                 var $target = $(this).parent().data('target');
@@ -612,6 +585,16 @@
                 if ($(this).val() === $(this).data('equal')) $($(this).data('target')).show();else $($(this).data('target')).hide();
             }).bind('change', function () {
                 if ($(this).val() === $(this).data('equal')) $($(this).data('target')).show();else $($(this).data('target')).hide();
+            });
+
+            $('.JSRotator .hidder-radio input:radio').each(function () {
+                if ($(this).is(':checked')) {
+                    if ($(this).val() !== 'auto') $($(this).closest('.hidder-radio').data('target')).show();else $($(this).closest('.hidder-radio').data('target')).hide();
+                }
+            }).bind('change', function () {
+                if ($(this).is(':checked')) {
+                    if ($(this).val() !== 'auto') $($(this).closest('.hidder-radio').data('target')).show();else $($(this).closest('.hidder-radio').data('target')).hide();
+                }
             });
         }
 

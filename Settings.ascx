@@ -171,9 +171,10 @@
             <div class="fieldset">
                 <div class="dnnFormItem group">
                     <dnn:Label ID="lblTransition" runat="server" />
-                    <asp:ListBox ID="lbTransition" runat="server" SelectionMode="Multiple" CssClass="lbTransition selectpicker form-control multi-select">
+                    <asp:ListBox ID="lbTransition" runat="server" CssClass="lbTransition selectpicker form-control multi-select"
+                        data-equal="random" SelectionMode="Multiple" >
                         <asp:ListItem class="JSRandom" Value="random" Text="Random" />
-                        <asp:ListItem class="JSAnimType JSDefault" Value="fade" Text="Fade" />
+                        <asp:ListItem class="JSAnimType" Value="fade" Text="Fade" />
                         <asp:ListItem class="JSAnimType" Value="fade2" Text="Fade II" />
                         <asp:ListItem class="JSAnimType" Value="slideLeft" Text="Slide Left" />
                         <asp:ListItem class="JSAnimType" Value="slideLeft2" Text="Slide Left II" />
@@ -203,8 +204,8 @@
                 </div>
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblTransDurationType" runat="server" />
-                    <asp:RadioButtonList ID="rblTransDurationType" runat="server" CssClass="hidder" data-target=".transDur"
-                        RepeatDirection="Horizontal">
+                    <asp:RadioButtonList ID="rblTransDurationType" runat="server" CssClass="hidder-radio" 
+                        data-target=".transDur" RepeatDirection="Horizontal">
                         <asp:ListItem Value="auto" Text="Auto" />
                         <asp:ListItem Value="manual" Text="Manual" />
                     </asp:RadioButtonList>
@@ -224,7 +225,8 @@
             <div class="fieldset">
                 <div class="dnnFormItem group">
                     <dnn:Label ID="lblAnimation" runat="server" />
-                    <asp:ListBox ID="lbAnimation" runat="server" SelectionMode="Multiple" CssClass="lbAnimation selectpicker form-control multi-select">
+                    <asp:ListBox ID="lbAnimation" runat="server" CssClass="lbAnimation selectpicker form-control multi-select"
+                         data-equal="random" SelectionMode="Multiple">
                         <asp:ListItem class="JSRandom" Value="random" Text="Random" />
                         <asp:ListItem class="JSAnimType" Value="kenburns" Text="Kenburns" />
                         <asp:ListItem class="JSAnimType" Value="kenburnsUp" Text="Kenburns Up" />
@@ -239,8 +241,8 @@
                 </div>
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblAnimDurationType" runat="server" />
-                    <asp:RadioButtonList ID="rblAnimDurationType" runat="server" CssClass="hidder" data-target=".animDur"
-                        RepeatDirection="Horizontal">
+                    <asp:RadioButtonList ID="rblAnimDurationType" runat="server" CssClass="hidder-radio" 
+                        data-target=".animDur" RepeatDirection="Horizontal">
                         <asp:ListItem Value="auto" Text="Auto" />
                         <asp:ListItem Value="manual" Text="Manual" />
                     </asp:RadioButtonList>
@@ -275,21 +277,59 @@
     $('.JSRotator #<%= txtSlides.ClientID %>')
         .val('<%= ModulePath %>Json/' + <%= ModuleId %> + '_Slides.json');
 
-    //NEW TEXT BOX AFTER CUSTOM SELECTION
-    $('.JSRotator #<%= rblTransDurationType.ClientID %> input:radio, .JSRotator #<%= rblAnimDurationType.ClientID %> input:radio')
+
+    //CUSTOM ANIMATION & TRANSITION SELECT DEFINITION
+    $('.JSRotator .lbAnimation, .JSRotator .lbTransition')
         .each(function () {
-            if ($(this).is(':checked')) {
-                if ($(this).val() !== 'auto') $($(this).closest('.hidder').data('target')).show();
-                else $($(this).closest('.hidder').data('target')).hide();
+            var $value = $(this).val(),
+                //$length = $(this).find(':selected').length,
+                $equal = $(this).data('equal');
+
+            if ($value !== null) {
+                if ($value.toString() === $equal) {
+                    //console.log('ONLY RANDOM');
+                    $(this).find('[class=JSRandom]').prop('disabled', false);
+                    $(this).find('[class=JSAnimType]').prop('disabled', true);
+                } else {
+                    //console.log("REST OF ITEMS");
+                    $(this).find('[class=JSRandom]').prop('disabled', true);
+                    $(this).find('[class=JSAnimType]').prop('disabled', false);
+                }
+            }
+            else {
+                //console.log("NULL ITEMS");
+                $(this).find('[class=JSRandom]').prop('disabled', false);
+                $(this).find('[class=JSAnimType]').prop('disabled', false);
             }
         })
         .bind('change', function () {
-            if ($(this).is(':checked')) {
-                if ($(this).val() !== 'auto') $($(this).closest('.hidder').data('target')).show();
-                else $($(this).closest('.hidder').data('target')).hide();
+            var $value = $(this).val(),
+                //$length = $(this).find(':selected').length,
+                $equal = $(this).data('equal');
+
+            if ($value !== null) {
+                if ($value.toString() === $equal) {
+                    //console.log('ONLY RANDOM');
+                    $(this).find('[class=JSRandom]').prop('disabled', false);
+                    $(this).find('[class=JSAnimType]').prop('disabled', true);
+                    $(this).selectpicker('refresh');
+                } else {
+                    //console.log("REST OF ITEMS");
+                    $(this).find('[class=JSRandom]').prop('disabled', true);
+                    $(this).find('[class=JSAnimType]').prop('disabled', false);
+                    $(this).selectpicker('refresh');
+                }
+            }
+            else {
+                //console.log("NULL ITEMS");
+                $(this).find('[class=JSRandom]').prop('disabled', false);
+                $(this).find('[class=JSAnimType]').prop('disabled', false);
+                $(this).selectpicker('refresh');
             }
         });
-    
+
+
+
 </script>
 
 <dnn:DnnJsInclude ID="bootstrapJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" Priority="19" />
