@@ -81,6 +81,7 @@
                 font-weight: normal;
                 line-height: normal;
                 border: $none;
+                max-width: 100%;
 
                 @include border-radius(0);
 
@@ -118,6 +119,14 @@
                 .dnnFormTitle {
                     float: left;
                     background-color: $dark-alpha-lg;
+
+                    &.error {
+                        background-color: $warning;
+                    }
+
+                    &.success {
+                        background-color: $success;
+                    }
                 }
 
                 .dnnFormMessage {
@@ -158,6 +167,22 @@
                     line-height: 45px;
                     font-size: 1.286em;
                     text-align: center;
+
+                    &.error {
+                        background-color: $warning;
+
+                        &:hover {
+                            background-color: $warning-xlg;
+                        }
+                    }
+
+                    &.success {
+                        background-color: $success;
+
+                        &:hover {
+                            background-color: $success-xlg;
+                        }
+                    }
                 }
             }
 
@@ -235,12 +260,6 @@
                 float: left;
             }
 
-            .page_navigation {
-                .btn {
-                    padding: 7px 12px;
-                }
-            }
-
             .btn {
                 line-height: normal;
                 border: $none;
@@ -256,6 +275,17 @@
                     &:focus,
                     &:active {
                         background-color: $dark-alpha-xlg;
+                    }
+
+                    &.disabled {
+                        background-color: $dark-alpha-lg;
+                        color: $light-alpha-lg;
+                        opacity: 0.5;
+                        cursor: default;
+
+                        &:hover {
+                            background-color: $dark-alpha-lg;
+                        }
                     }
                 }
 
@@ -277,6 +307,17 @@
                     border: $none;
                     outline: $none;
                     @include box-shadow($none);
+                }
+
+                &.no_more {
+                    color: $light-alpha !important;
+                    background: $dark-alpha-lg;
+                    cursor: not-allowed;
+
+                    &:hover,
+                    &:focus {
+                        background: $dark-alpha-lg;
+                    }
                 }
 
                 &.active_page {
@@ -339,7 +380,8 @@
 
                 &.overlay {
                     .popup-wrapper {
-                        top: 10px;
+                        /*top: 10px;*/
+                        top: calc((100% - 520px)/2);
                         position: relative;
 
                         .popup-icon {
@@ -535,6 +577,7 @@
 
                     &.cb-group {
                         width: calc(50% - 30px);
+                        max-width: 420px;
                     }
 
                     &.txt-img-url {
@@ -556,6 +599,7 @@
 
                     &.cb-group {
                         width: calc(50% - 30px) !important;
+                        max-width: 420px;
                     }
                 }
             }
@@ -583,7 +627,11 @@
             ul.dnnAdminTabNav li a,
             .dnnLogin .LoginTabGroup span {
                 margin: 0;
-                padding: 8px 12px;
+                /*padding: 8px 12px;*/
+                padding: 0 10px;
+                height: 35px;
+                line-height: 35px;
+                min-width: 35px;
                 color: $white;
                 background: $dark-alpha-lg;
                 font-family: inherit;
@@ -625,9 +673,11 @@
                 border: 1px solid $dark-alpha;
                 color: $dark-alpha-md;
                 width: 50%;
+                height: 35px;
+                line-height: 35px;
                 max-width: 450px;
                 font-size: 1em;
-                padding: 5px 8px;
+                padding: 0 8px;
 
                 @include border-radius(0);
                 @include box-shadow($none);
@@ -657,18 +707,106 @@
 
             select {
                 padding: 0 5px;
-                //width: auto;
                 width: 100px;
             }
 
             .dnnFormItem {
+
+                .bs-searchbox {
+                    input[type="text"],
+                    select,
+                    textarea,
+                    input[type="email"],
+                    input[type="search"],
+                    input[type="number"],
+                    input[type="date"] {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        &.edit {
+            .dnnFormItem {
                 table {
                     border: $none;
                     width: 100%;
+                    margin: 0;
+
+                    &.scroll {
+
+                        th {
+                            float: left;
+                            width: calc((100% - 492px)/4);
+                        }
+
+                        th.add-custom {
+                            width: 16px;
+                            height: 50px;
+                        }
+                    }
+
+                    thead, tbody {
+                        clear: both;
+                        display: block;
+                    }
 
                     thead {
                         tr {
+                            display: block;
+
+                            > th {
+                                padding-top: 15px;
+                                padding-bottom: 15px;
+
+                                input[type="checkbox"] + span,
+                                input[type="radio"] + span {
+                                    margin: 0 5px;
+                                }
+                            }
                         }
+                    }
+
+                    tbody {
+                        max-height: 185px;
+                        overflow-y: auto;
+                        overflow-x: hidden;
+
+                        input[type="checkbox"] + span,
+                        input[type="radio"] + span {
+                            margin: 7.5px 5px;
+                        }
+
+                        tr {
+                            width: 100%;
+                            float: left;
+                        }
+                    }
+
+                    th, td {
+                        display: block;
+                        float: left;
+                        width: calc((100% - 475px)/4);
+                    }
+
+                    th:nth-child(1),
+                    td:nth-child(1) {
+                        width: 45px;
+                    }
+
+                    th:nth-child(2),
+                    td:nth-child(2) {
+                        width: 60px;
+                    }
+
+                    th:nth-child(9),
+                    td:nth-child(9) {
+                        width: 70px;
+                    }
+
+                    th.custom-fx,
+                    td.custom-fx {
+                        width: 150px;
                     }
 
                     tr {
@@ -685,15 +823,10 @@
                             .dnnCheckbox-checked img {
                                 background-position: -150px 0px;
                             }
-
-                            &.custom-fx {
-                                min-width: 130px;
-                            }
                         }
 
                         > td {
                             vertical-align: middle;
-                            border-bottom: 1px solid #ddd;
                             word-break: break-all;
                             word-wrap: break-word;
                             word-spacing: normal;
@@ -708,45 +841,36 @@
                                 width: 100%;
 
                                 &[disabled="disabled"] {
-                                    padding: 5px 8px 5px 0;
+                                    padding: 0;
+                                    height: 35px;
+                                    line-height: 35px;
                                 }
                             }
 
                             a {
                                 width: 50%;
                                 min-width: 25px;
-                                height: 30px;
-                                line-height: 30px;
+                                height: 35px;
+                                line-height: 35px;
                                 margin: 0;
                                 padding: 0;
                                 text-align: center;
-                            }
-
-                            .btn {
-                                height: 30px;
-                            }
-
-
-                            &.custom-fx {
-                                min-width: 130px;
                             }
                         }
 
                         &.active {
                             position: fixed;
                             z-index: 9999;
-                            background: $none;
                             width: 95%;
                             left: 2.5%;
-                            //top: calc((100% - 50px)/2);
                             top: calc((100% + 30px)/2);
+                            background-color: $dark-alpha-lg;
+                            color: $white;
 
                             @include box-shadow(0 8px 30px -6px $black);
 
                             > td {
-                                background-color: $dark-alpha-lg;
-                                color: $white;
-                                position: relative;
+                                background: $none;
                                 border: $none;
 
                                 input[type="text"],
@@ -790,6 +914,7 @@
                                     input[type="date"] {
                                         max-width: calc(100% - 50px);
                                         line-height: 50px;
+                                        height: 50px;
                                         padding: 0 15px;
                                         float: left;
                                         background-color: $white;
@@ -810,6 +935,7 @@
                                         color: $dark-alpha-lg;
                                         background: $white;
                                         float: left;
+                                        line-height: normal;
 
                                         &:hover {
                                             background: $white;
@@ -893,44 +1019,124 @@
                             }
                         }
                     }
-                }
 
-                .bs-searchbox {
-                    input[type="text"],
-                    select,
-                    textarea,
-                    input[type="email"],
-                    input[type="search"],
-                    input[type="number"],
-                    input[type="date"] {
-                        width: 100%;
-                    }
-                }
-            }
-        }
+                    .btn {
+                        &.disabled {
+                            background-color: transparent;
+                            color: $dark;
+                            opacity: 0.5;
+                            cursor: default;
+                            padding: 0;
 
-        &.edit {
-            .dnnFormItem {
-                table {
-                    tr {
-                        > th {
-                            &:last-child {
-                                min-width: 70px;
-                            }
-                        }
-
-                        > td {
-                            &:last-child {
-                                min-width: 70px;
+                            &:hover {
+                                background-color: transparent;
                             }
                         }
                     }
                 }
 
                 img.row-img {
-                    height: 30px;
+                    height: 35px;
                     width: auto;
+                    max-width: 100%;
                 }
+            }
+        }
+
+        &.select {
+            .dnnFormItem {
+                table {
+                    border: $none;
+                    width: 100%;
+                    margin: 0;
+
+                    &.scroll {
+
+                        th {
+                            float: left;
+                            width: calc((100% - 81px)/6);
+                        }
+
+                        th.add-custom {
+                            width: 16px;
+                            height: 50px;
+                        }
+                    }
+
+                    thead, tbody {
+                        clear: both;
+                        display: block;
+                    }
+
+                    thead {
+                        tr {
+                            display: block;
+
+                            > th {
+                                padding-top: 15px;
+                                padding-bottom: 15px;
+                            }
+                        }
+                    }
+
+                    tbody {
+                        max-height: 245px;
+                        overflow-y: auto;
+                        overflow-x: hidden;
+
+                        tr {
+                            width: 100%;
+                            float: left;
+
+                            td {
+                                span {
+                                    width: 100%;
+                                    min-height: 40px;
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+
+                    th, td {
+                        display: block;
+                        float: left;
+                        width: calc((100% - 65px)/6);
+                    }
+
+                    th:nth-child(1),
+                    td:nth-child(1) {
+                        width: 65px;
+                    }
+
+                    tr {
+                        > th {
+                            color: $light-alpha-xlg;
+                            background-color: $dark-alpha-xlg;
+                            border: $none;
+                            vertical-align: middle;
+                        }
+
+                        > td {
+                            word-break: break-all;
+                            word-wrap: break-word;
+                            word-spacing: normal;
+                            vertical-align: middle;
+                            line-height: 40px;
+                        }
+                    }
+                }
+
+                img.row-img {
+                    height: 40px;
+                    width: auto;
+                    max-width: 100%;
+                }
+            }
+
+            .link-delete {
+                margin-right: 10px;
+                float: right;
             }
         }
 
@@ -939,6 +1145,10 @@
                 table {
                     width: auto;
 
+                    tbody {
+                        height: auto;
+                    }
+
                     tr {
                         > th {
                             border: $none;
@@ -956,25 +1166,6 @@
                             }
                         }
                     }
-                }
-            }
-        }
-
-        &.select {
-
-            .link-delete {
-                margin-right: 10px;
-                float: right;
-            }
-
-            .dnnFormItem {
-                h3 {
-                    /*border-bottom: 1px solid $dark-alpha;*/
-                }
-
-                img.row-img {
-                    height: 40px;
-                    width: auto;
                 }
             }
         }
@@ -1089,11 +1280,26 @@
     }
     /*BOOTSTRAP RE-STYLING */
     .btn-group {
+        &.form-control {
+            width: 50%;
+            max-width: 450px;
+        }
+
+        &:focus {
+            outline: $none;
+            border: $none;
+        }
+
         .btn + .btn,
         .btn + .btn-group,
         .btn-group + .btn,
         .btn-group + .btn-group {
             margin-left: 0;
+
+            &:focus {
+                outline: $none;
+                border: $none;
+            }
         }
     }
 
@@ -1351,165 +1557,11 @@
         }
     }
 
-
     .dnnForm .dnnFormItem select {
         option[disabled="disabled"],
         option[disabled] {
             color: $grey;
         }
-    }
-
-    #tableList {
-        float: left;
-        margin: 0;
-
-        .thead {
-            float: left;
-            width: 100%;
-            line-height: 40px;
-            background: $dark-alpha-xlg;
-            color: $white;
-            font-weight: bold;
-
-            .dnnCheckbox img {
-                background-position: -100px 0px;
-            }
-
-            .dnnCheckbox-checked img {
-                background-position: -150px 0px;
-            }
-
-            > div, li {
-                float: left;
-                width: 100%;
-
-                > div {
-                    float: left;
-                }
-            }
-
-            .table-row {
-            }
-
-            .table-cell {
-                width: calc((100% - 447px)/4);
-                /*text-align: center;*/
-                padding-left: 6px;
-
-
-                input[type="checkbox"] + span,
-                input[type="radio"] + span {
-                    margin: 0 5px;
-                }
-
-                input {
-                    width: 100%;
-                    line-height: 30px;
-                }
-
-                &:first-child {
-                    width: 27px;
-                }
-
-                &:nth-child(2) {
-                    width: 50px;
-                    text-align: center;
-                }
-
-                &:last-child {
-                    width: 70px;
-                }
-
-                &.custom-fx {
-                    min-width: 150px;
-                }
-            }
-        }
-
-        .tbody {
-            float: left;
-            width: 100%;
-            margin-bottom: 10px;
-
-            > div, li {
-                float: left;
-                width: 100%;
-
-                > div {
-                    float: left;
-                }
-            }
-
-            .table-row {
-                &:nth-child(even) {
-                    background: $dark-alpha-hover;
-                    border-bottom: 1px solid $dark-alpha-xsm;
-                }
-
-                &:nth-child(odd) {
-                    border-bottom: 1px solid $dark-alpha-xsm;
-                }
-
-                &:hover {
-                    background: $dark-alpha-xsm;
-                }
-            }
-
-            .table-cell {
-                width: calc((100% - 447px)/4);
-                padding: 5px;
-                height: 40px;
-
-                input {
-                    width: 100%;
-                    line-height: 30px;
-                }
-
-                &:first-child {
-                    width: 27px;
-                }
-
-                &:nth-child(2) {
-                    width: 50px;
-                    text-align: center;
-                }
-
-                &:last-child {
-                    width: 70px;
-                }
-
-                a {
-                    float: left;
-                    width: 50%;
-                    min-width: 25px;
-                    height: 30px;
-                    line-height: 30px;
-                    margin: 0;
-                    padding: 0;
-                    text-align: center;
-                }
-
-                .btn {
-                    height: 30px;
-                }
-
-                &.custom-fx {
-                    min-width: 150px;
-                }
-            }
-        }
-    }
-
-    .page_navigation {
-        float: right;
-    }
-
-    .info_text {
-        float: right;
-        padding: 5px 10px;
-        background-color: $dark-alpha-lg;
-        color: $white;
-        border-color: transparent;
     }
 }
 

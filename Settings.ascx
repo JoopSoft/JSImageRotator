@@ -18,8 +18,8 @@
             <div class="fieldset">
                 <div class="dnnFormItem group">
                     <dnn:Label ID="lblRotatorType" runat="server" />
-                    <asp:DropDownList ID="ddRotatorType" runat="server" CssClass="selectpicker show-tick single-select"
-                        data-target=".containerHeight">
+                    <asp:DropDownList ID="ddRotatorType" runat="server" CssClass="selectpicker form-control single-select check-equal"
+                        data-target=".containerHeight" data-equal="container">
                         <asp:ListItem Value="body" Text="Body" />
                         <asp:ListItem Value="container" Text="Container" />
                     </asp:DropDownList>
@@ -74,8 +74,8 @@
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblOverlay" runat="server" />                    
-                    <asp:DropDownList ID="ddOverlay" runat="server" CssClass="selectpicker show-tick single-select"
-                        data-target=".overlayType">
+                    <asp:DropDownList ID="ddOverlay" runat="server" CssClass="selectpicker form-control single-select check-equal"
+                        data-target=".overlayType" data-equal="path">
                         <asp:ListItem Value="true" Text="True"></asp:ListItem>
                         <asp:ListItem Value="false" Text="False"></asp:ListItem>
                         <asp:ListItem Value="path" Text="Path"></asp:ListItem>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="overlayType dnnFormItem">
                     <dnn:Label ID="lblOverlayType" runat="server" />
-                    <asp:DropDownList ID="ddOverlayType" runat="server" CssClass="selectpicker show-tick single-select">
+                    <asp:DropDownList ID="ddOverlayType" runat="server" CssClass="selectpicker form-control single-select">
                         <asp:ListItem Value="01.png" Text="Overlay Type 01" />
                         <asp:ListItem Value="02.png" Text="Overlay Type 02" />
                         <asp:ListItem Value="03.png" Text="Overlay Type 03" />
@@ -118,7 +118,7 @@
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblCover" runat="server" />
-                    <asp:DropDownList ID="ddCover" runat="server" CssClass="selectpicker show-tick single-select">
+                    <asp:DropDownList ID="ddCover" runat="server" CssClass="selectpicker form-control single-select">
                         <asp:ListItem Value="true" Text="True" />
                         <asp:ListItem Value="false" Text="False" />
                         <asp:ListItem Value="repeat" Text="Repeat" />
@@ -134,44 +134,45 @@
             <div class="fieldset">
                 <div class="dnnFormItem group">
                     <dnn:Label ID="lblAlign" runat="server" />
-                    <asp:DropDownList ID="ddAlign" runat="server" CssClass="selectpicker show-tick single-select"
-                        data-target=".alignPercTextBox">
-                        <asp:ListItem Value="center" Text="Center" />
-                        <asp:ListItem Value="top" Text="Top" />
-                        <asp:ListItem Value="right" Text="Right" />
-                        <asp:ListItem Value="bottom" Text="Bottom" />
-                        <asp:ListItem Value="left" Text="Left" />
+                    <asp:DropDownList ID="ddAlign" runat="server" CssClass="selectpicker form-control single-select check-equal"
+                        data-target=".percTextBox" data-equal="percentage">
+                        <asp:ListItem Value="top-left" Text="Top Left" />
+                        <asp:ListItem Value="top-right" Text="Top Right" />
+                        <asp:ListItem Value="top-center" Text="Top Center" />
+                        <asp:ListItem Value="bottom-left" Text="Bottom Left" />
+                        <asp:ListItem Value="bottom-right" Text="Bottom Right" />
+                        <asp:ListItem Value="bottom-center" Text="Bottom Center" />
+                        <asp:ListItem Value="center-left" Text="Center Left" />
+                        <asp:ListItem Value="center-right" Text="Center Right" />
+                        <asp:ListItem Value="center-center" Text="Center Center" />
                         <asp:ListItem Value="percentage" Text="Percentage" />
                     </asp:DropDownList>
                 </div>
-                <div class="alignPercTextBox dnnFormItem">
+                <div class="percTextBox dnnFormItem">
                     <dnn:Label ID="lblAlignPercentage" runat="server" />
                     <asp:TextBox ID="txtAlignPercentage" runat="server" CssClass="form-control" TextMode="Number" />
                 </div>
-            </div>
-            <div class="fieldset">
-                <div class="dnnFormItem group">
-                    <dnn:Label ID="lblVAlign" runat="server" />
-                    <asp:DropDownList ID="ddVAlign" runat="server" CssClass="selectpicker show-tick single-select"
-                        data-target=".valignPercTextBox">
-                        <asp:ListItem Value="center" Text="Center" />
-                        <asp:ListItem Value="top" Text="Top" />
-                        <asp:ListItem Value="right" Text="Right" />
-                        <asp:ListItem Value="bottom" Text="Bottom" />
-                        <asp:ListItem Value="left" Text="Left" />
-                        <asp:ListItem Value="percentage" Text="Percentage" />
-                    </asp:DropDownList>
-                </div>
-                <div class="valignPercTextBox dnnFormItem">
+                <div class="percTextBox dnnFormItem">
                     <dnn:Label ID="lblVAlignPercentage" runat="server" />
                     <asp:TextBox ID="txtVAlignPercentage" runat="server" CssClass="form-control" TextMode="Number" />
                 </div>
+
+
+                <%--DELETE REGION--%>
+                    <asp:DropDownList ID="ddVAlign" runat="server"
+                        data-target=".percTextBox"
+                        Visible="false">
+                    </asp:DropDownList>
+                <%--END OF DELETE REGION--%>
+
+
+
             </div>
             <div class="fieldset">
                 <div class="dnnFormItem group">
                     <dnn:Label ID="lblTransition" runat="server" />
-                    <asp:ListBox ID="lbTransition" runat="server" SelectionMode="Multiple">
-                        <asp:ListItem class="JSRandom"   Value="random" Text="Random" />
+                    <asp:ListBox ID="lbTransition" runat="server" SelectionMode="Multiple" CssClass="lbTransition selectpicker form-control multi-select">
+                        <asp:ListItem class="JSRandom" Value="random" Text="Random" />
                         <asp:ListItem class="JSAnimType JSDefault" Value="fade" Text="Fade" />
                         <asp:ListItem class="JSAnimType" Value="fade2" Text="Fade II" />
                         <asp:ListItem class="JSAnimType" Value="slideLeft" Text="Slide Left" />
@@ -223,7 +224,7 @@
             <div class="fieldset">
                 <div class="dnnFormItem group">
                     <dnn:Label ID="lblAnimation" runat="server" />
-                    <asp:ListBox ID="lbAnimation" runat="server" SelectionMode="Multiple" >
+                    <asp:ListBox ID="lbAnimation" runat="server" SelectionMode="Multiple" CssClass="lbAnimation selectpicker form-control multi-select">
                         <asp:ListItem class="JSRandom" Value="random" Text="Random" />
                         <asp:ListItem class="JSAnimType" Value="kenburns" Text="Kenburns" />
                         <asp:ListItem class="JSAnimType" Value="kenburnsUp" Text="Kenburns Up" />
@@ -289,116 +290,6 @@
             }
         });
     
-    //NEW TEXT BOX AFTER CUSTOM SELECTION
-    $('.JSRotator #<%= ddRotatorType.ClientID %>')
-        .each(function () {
-            if ($(this).val() === 'container') $($(this).data('target')).show();
-            else $($(this).data('target')).hide();
-        })
-        .bind('change', function () {
-            if ($(this).val() === 'container') $($(this).data('target')).show();
-            else $($(this).data('target')).hide();
-        });
-
-    //NEW TEXT BOX AFTER CUSTOM SELECTION
-    $('.JSRotator #<%= ddAlign.ClientID %>, .JSRotator #<%= ddVAlign.ClientID %>')
-        .each(function () {
-            if ($(this).val() === 'percentage') $($(this).data('target')).show();
-            else $($(this).data('target')).hide();
-        })
-        .bind('change', function () {
-            if ($(this).val() === 'percentage') $($(this).data('target')).show();
-            else $($(this).data('target')).hide();
-        });
-
-    //NEW TEXT BOX AFTER CUSTOM SELECTION
-    $('.JSRotator #<%= ddOverlay.ClientID %>')
-        .each(function () {
-            if ($(this).val() === 'path') $($(this).data('target')).show();
-            else $($(this).data('target')).hide();
-        })
-        .bind('change', function () {
-            if ($(this).val() === 'path') $($(this).data('target')).show();
-            else $($(this).data('target')).hide();
-        });
-
-
-    //CUSTOM ANIMATION & TRANSITION SELECT DEFINITION
-    $('.JSRotator #<%= lbAnimation.ClientID %>, .JSRotator #<%= lbTransition.ClientID %>')
-        .selectpicker({
-            actionsBox: false,
-            //container: false,
-            //countSelectedText:'',
-            //dropupAuto: true,
-            //header: false,
-            //hideDisabled: false,
-            //iconBase: 'glyphicon',
-            liveSearch: false,
-            liveSearchPlaceholder: 'Search',
-            maxOptions: false,
-            mobile: false,
-            multipleSeparator: ' | ',
-            noneSelectedText: 'Select',
-            selectedTextFormat: 'count', //'values'
-            selectOnTab: false,
-            showContent: true,
-            showIcon: true,
-            showSubtext: false,
-            showTick: false,
-            size: 'auto',
-            style: 'btn-primary',
-            tickIcon: 'glyphicon-ok',
-            title: null,
-            width: '50%'
-        })
-        .each(function () {
-            var $value = new String($(this).val()),
-                $length = $(this).find(':selected').length;
-            
-            if (eval($value) == 'random') {
-                //console.log('ONLY RANDOM');
-                $(this).find('[class=JSRandom]').prop('disabled', false);
-                $(this).find('[class=JSAnimType]').prop('disabled', true);
-                $(this).selectpicker('refresh');                
-            }
-            else if (eval($value) == 'null') {
-                //console.log("NOTHING SELECTED");
-                $(this).find('[class=JSRandom]').prop('disabled', false);
-                $(this).find('[class=JSAnimType]').prop('disabled', false);
-                $(this).find('[class=JSDefault]').prop('selected', true);
-                $(this).selectpicker('refresh');
-            }
-            else {
-                //console.log("REST OF ITEMS");
-                $(this).find('[class=JSRandom]').prop('disabled', true);
-                $(this).find('[class=JSAnimType]').prop('disabled', false);
-                $(this).selectpicker('refresh');
-            }
-        })
-        .change(function () {
-            var $value = new String($(this).val()),
-                $length = $(this).find(':selected').length;
-                        
-            if (eval($value) == 'random') {
-                //console.log('ONLY RANDOM');                
-                $(this).find('[class=JSRandom]').prop('disabled', false);
-                $(this).find('[class=JSAnimType]').prop('disabled', true);                
-                $(this).selectpicker('refresh');
-            }
-            else if (eval($value) == 'null') {
-                //console.log("NOTHING SELECTED");
-                $(this).find('[class=JSRandom]').prop('disabled', false);
-                $(this).find('[class=JSAnimType]').prop('disabled', false);                
-                $(this).selectpicker('refresh');
-            }
-            else {
-                //console.log("REST OF ITEMS");
-                $(this).find('[class=JSRandom]').prop('disabled', true);
-                $(this).find('[class=JSAnimType]').prop('disabled', false);
-                $(this).selectpicker('refresh');
-            }
-        });
-
 </script>
 
 <dnn:DnnJsInclude ID="bootstrapJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" Priority="19" />

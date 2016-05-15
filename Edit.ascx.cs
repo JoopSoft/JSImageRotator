@@ -247,7 +247,7 @@ namespace JS.Modules.JSImageRotator
                 var imgPhotographer = ri.FindControl("txtPhotographer") as TextBox;
                 var imgContact = ri.FindControl("txtContact") as TextBox;
                 var btnEdit = ri.FindControl("btnEdit") as LinkButton;
-                var tableRow = ri.FindControl("tableRow") as Panel;
+                var tableRow = ri.FindControl("tableRow") as TableRow;
                 var lnkDelete = ri.FindControl("lnkDelete") as LinkButton;
                 var ddAnimation = ri.FindControl("ddAnimation") as DropDownList;
                 var ddTransition = ri.FindControl("ddTransition") as DropDownList;
@@ -256,7 +256,7 @@ namespace JS.Modules.JSImageRotator
                     if (!imgTitle.Enabled)
                     {
                         imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = ddAnimation.Enabled = ddTransition.Enabled = true;
-                        tableRow.CssClass = "active";
+                        tableRow.CssClass = "table-row active";
                         lnkDelete.CssClass = "btn btn-primary link-cancel no-txt";
                         lnkDelete.ToolTip = "Cancel";
                         btnEdit.ToolTip = "Save";
@@ -277,7 +277,7 @@ namespace JS.Modules.JSImageRotator
                         i.Transition = ddTransition.SelectedValue;
                         ic.UpdateImage(i);
                         imgTitle.Enabled = imgDescription.Enabled = imgPhotographer.Enabled = imgContact.Enabled = ddAnimation.Enabled = ddTransition.Enabled = false;
-                        tableRow.CssClass = "";
+                        tableRow.CssClass = "table-row";
                         lnkDelete.CssClass = "btn btn-danger link-delete no-txt";
                         lnkDelete.ToolTip = "Delete";
                         btnEdit.ToolTip = "Edit";
@@ -537,7 +537,7 @@ namespace JS.Modules.JSImageRotator
             lblFileName.Visible = txtFileName.Visible = false;
             lblSelectList.Visible = lstSelectList.Visible = btnDeleteList.Visible = true;
             btnAddUpdateList.Text = "Update";
-            btnAddUpdateList.CssClass = "btn btn-primary link-save";
+            btnAddUpdateList.CssClass = "btnAddUpdateList btn btn-primary link-save";
             btnAddUpdateList.ToolTip = "Update List";
             lblListAdded.Text = "";
             lblPopUpIcon.CssClass = "";
@@ -553,7 +553,7 @@ namespace JS.Modules.JSImageRotator
             lblFileName.Visible = txtFileName.Visible = true;
             lblSelectList.Visible = lstSelectList.Visible = btnDeleteList.Visible = false;
             btnAddUpdateList.Text = "Create";
-            btnAddUpdateList.CssClass = "btn btn-primary link-add";
+            btnAddUpdateList.CssClass = "btnAddUpdateList btn btn-primary link-add";
             btnAddUpdateList.ToolTip = "Create New List";
             lblListAdded.Text = "";
             lblPopUpIcon.CssClass = "";

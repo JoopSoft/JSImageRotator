@@ -32,12 +32,12 @@
             <div class="fieldset">
                 <div class="dnnFormItem group">
                     <dnn:label ID="lblImageLists" runat="server" />
-                    <asp:DropDownList ID="lstImageLists" runat="server" CssClass="selectpicker show-tick single-select" AutoPostBack="true"
+                    <asp:DropDownList ID="lstImageLists" runat="server" CssClass="selectpicker single-select" AutoPostBack="true"
                         OnSelectedIndexChanged="lstImageLists_SelectedIndexChanged" />
                 </div>
             </div>
             <div class="dnnFormItem">
-                <table id="table-list" class="table table-striped table-hover">
+                <table class="table table-striped table-hover">
                     <thead>
                         <tr>
                             <th>
@@ -103,29 +103,6 @@
                             </FooterTemplate>
                         </asp:Repeater>
                     </tbody>
-                    <%--<tfoot>
-                    <tr>
-                        <th></th>
-                        <th>
-                            <asp:Label runat="server" ResourceKey="thImage" />
-                        </th>
-                        <th>
-                            <asp:Label runat="server" ResourceKey="thTitle" />
-                        </th>
-                        <th>
-                            <asp:Label runat="server" ResourceKey="thDesc" />
-                        </th>
-                        <th>
-                            <asp:Label runat="server" ResourceKey="thPhotographer" />
-                        </th>
-                        <th>
-                            <asp:Label runat="server" ResourceKey="thContact" />
-                        </th>
-                        <th>
-                            <asp:Label runat="server" ResourceKey="thModify" />
-                        </th>
-                    </tr>   
-                </tfoot>--%>
                 </table>
             </div>
 

@@ -355,15 +355,6 @@ namespace JS.Modules.JSImageRotator {
         protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnJsInclude ellipsisJs;
         
         /// <summary>
-        /// pagingJs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnJsInclude pagingJs;
-        
-        /// <summary>
         /// mainJs control.
         /// </summary>
         /// <remarks>

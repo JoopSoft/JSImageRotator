@@ -12,7 +12,7 @@
     "inputFile": "Js/JSScript.js"
   },
   {
-    "outputFile": "Js/jquery.paging.js",
-    "inputFile": "Js/jquery.pagingScript.js"
+    "outputFile": "Vegas/vegas.js",
+    "inputFile": "Vegas/vegasScript.js"
   }
 ]

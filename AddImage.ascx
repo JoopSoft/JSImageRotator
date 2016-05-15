@@ -19,17 +19,11 @@
                 <asp:Panel ID="headerMenu" runat="server" CssClass="dnnFormMessage two-controls dnnFormTitle no-spacing">
                     <asp:Label ID="lblAddedImage" runat="server" Text="Adding New Image" />
                 </asp:Panel>
-                <%--<asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add no-txt"
-                    data-toggle="tooltip" ToolTip="Add New Image" />--%>
-
                 <asp:HyperLink ID="btnEdit" runat="server" CssClass="btn btn-primary link-edit-square no-txt"
                     data-toggle="tooltip" ToolTip="Edit Lists" Visible="true" />
 
                 <asp:HyperLink ID="btnLists" runat="server" CssClass="btn btn-primary link-list no-txt"
                     data-toggle="tooltip" ToolTip="Select Image Lists" Visible="true" />
-
-                <%--<asp:LinkButton ID="btnShowAddNewList" runat="server" CssClass="btn btn-primary link-exch no-txt" 
-                    data-toggle="tooltip" ToolTip="Create New List" />--%>
             </div>
         </div>
         <fieldset>
@@ -50,9 +44,9 @@
                 </asp:Panel>
                 <asp:Panel ID="pnlAddToList" runat="server" CssClass="dnnFormItem group" Visible="false">
                     <dnn:label ID="lblAvailableLists" runat="server" />
-                    <asp:CheckBox ID="cbAddToList" runat="server" CssClass="hidder" 
+                    <asp:CheckBox ID="cbAddToList" runat="server" CssClass="hidder pull-left" 
                         data-target=".availableLists" />
-                    <asp:DropDownList ID="ddAvailableLists" runat="server" CssClass="availableLists selectpicker show-tick single-select cb-group" 
+                    <asp:DropDownList ID="ddAvailableLists" runat="server" CssClass="availableLists selectpicker single-select cb-group" 
                           />
                     <%--Visible="false" />--%>
                 </asp:Panel>
@@ -89,49 +83,51 @@
                 </div>
                 <div class="globalFx dnnFormItem group">
                     <dnn:Label ID="lblTransition" runat="server" />
-                    <asp:DropDownList ID="ddTransition" runat="server" CssClass="selectpicker show-tick single-select">
-                        <asp:ListItem Value="random">Random</asp:ListItem>
-                        <asp:ListItem Value="fade">Fade</asp:ListItem>
-                        <asp:ListItem Value="fade2">Fade 2</asp:ListItem>
-                        <asp:ListItem Value="slideLeft">Slide Left</asp:ListItem>
-                        <asp:ListItem Value="slideLeft2">Slide Left 2</asp:ListItem>
-                        <asp:ListItem Value="slideRight">Slide Right</asp:ListItem>
-                        <asp:ListItem Value="slideRight2">Slide Right 2</asp:ListItem>
-                        <asp:ListItem Value="slideUp">Slide Up</asp:ListItem>
-                        <asp:ListItem Value="slideUp2">Slide Up 2</asp:ListItem>
-                        <asp:ListItem Value="slideDown">Slide Down</asp:ListItem>
-                        <asp:ListItem Value="slideDown2">Slide Down 2</asp:ListItem>
-                        <asp:ListItem Value="zoomIn">Zoom In</asp:ListItem>
-                        <asp:ListItem Value="zoomIn2">Zoom In 2</asp:ListItem>
-                        <asp:ListItem Value="zoomOut">Zoom Out</asp:ListItem>
-                        <asp:ListItem Value="zoomOut2">Zoom Out 2</asp:ListItem>
-                        <asp:ListItem Value="swirlLeft">Swirl Left</asp:ListItem>
-                        <asp:ListItem Value="swirlLeft2">Swirl Left 2</asp:ListItem>
-                        <asp:ListItem Value="swirlRight">Swirl Right</asp:ListItem>
-                        <asp:ListItem Value="swirlRight2">Swirl Right 2</asp:ListItem>
-                        <asp:ListItem Value="burn">Burn</asp:ListItem>
-                        <asp:ListItem Value="burn2">Burn 2</asp:ListItem>
-                        <asp:ListItem Value="blur">Blur</asp:ListItem>
-                        <asp:ListItem Value="blur2">Blur 2</asp:ListItem>
-                        <asp:ListItem Value="flash">Flash</asp:ListItem>
-                        <asp:ListItem Value="flash2">Flash 2</asp:ListItem>
-                        <asp:ListItem Value="negative">Negative</asp:ListItem>
-                        <asp:ListItem Value="negative2">Negative 2</asp:ListItem>
+                    <asp:DropDownList ID="ddTransition" runat="server" CssClass="form-control selectpicker single-select">
+                        <asp:ListItem Value="default" Text="Default" />
+                        <asp:ListItem Value="random" Text="Random" />
+                        <asp:ListItem Value="fade" Text="Fade" />
+                        <asp:ListItem Value="fade2" Text="Fade 2" />
+                        <asp:ListItem Value="slideLeft" Text="Slide Left" />
+                        <asp:ListItem Value="slideLeft2" Text="Slide Left II" />
+                        <asp:ListItem Value="slideRight" Text="Slide Right" />
+                        <asp:ListItem Value="slideRight2" Text="Slide Right II" />
+                        <asp:ListItem Value="slideUp" Text="Slide Up" />
+                        <asp:ListItem Value="slideUp2" Text="Slide Up II" />
+                        <asp:ListItem Value="slideDown" Text="Slide Down" />
+                        <asp:ListItem Value="slideDown2" Text="Slide Down II" />
+                        <asp:ListItem Value="zoomIn" Text="Zoom In" />
+                        <asp:ListItem Value="zoomIn2" Text="Zoom In II" />
+                        <asp:ListItem Value="zoomOut" Text="Zoom Out" />
+                        <asp:ListItem Value="zoomOut2" Text="Zoom Out II" />
+                        <asp:ListItem Value="swirlLeft" Text="Swirl Left" />
+                        <asp:ListItem Value="swirlLeft2" Text="Swirl Left II" />
+                        <asp:ListItem Value="swirlRight" Text="Swirl Right" />
+                        <asp:ListItem Value="swirlRight2" Text="Swirl Right II" />
+                        <asp:ListItem Value="burn" Text="Burn" />
+                        <asp:ListItem Value="burn2" Text="Burn II" />
+                        <asp:ListItem Value="blur" Text="Blur" />
+                        <asp:ListItem Value="blur2" Text="Blur II" />
+                        <asp:ListItem Value="flash" Text="Flash" />
+                        <asp:ListItem Value="flash2" Text="Flash II" />
+                        <asp:ListItem Value="negative" Text="Negative" />
+                        <asp:ListItem Value="negative2" Text="Negative II" />
                     </asp:DropDownList>
                 </div>
                 <div class="globalFx dnnFormItem group">
                     <dnn:Label ID="lblAnimation" runat="server" />
-                    <asp:DropDownList ID="ddAnimation" runat="server" CssClass="selectpicker show-tick single-select">
-                        <asp:ListItem Value="random">Random</asp:ListItem>
-                        <asp:ListItem Value="kenburns">Kenburns</asp:ListItem>
-                        <asp:ListItem Value="kenburnsUp">Kenburns Up</asp:ListItem>
-                        <asp:ListItem Value="kenburnsDown">Kenburns Down</asp:ListItem>
-                        <asp:ListItem Value="kenburnsRight">Kenburns Right</asp:ListItem>
-                        <asp:ListItem Value="kenburnsLeft">Kenburns Left</asp:ListItem>
-                        <asp:ListItem Value="kenburnsUpLeft">Kenburns Up Left</asp:ListItem>
-                        <asp:ListItem Value="kenburnsUpRight">Kenburns Up Right</asp:ListItem>
-                        <asp:ListItem Value="kenburnsDownLeft">Kenburns Down Left</asp:ListItem>
-                        <asp:ListItem Value="kenburnsDownRight">Kenburns Down Right</asp:ListItem>
+                    <asp:DropDownList ID="ddAnimation" runat="server" CssClass="form-control selectpicker single-select">
+                        <asp:ListItem Value="default" Text="Default" />
+                        <asp:ListItem Value="random" Text="Random" />
+                        <asp:ListItem Value="kenburns" Text="Kenburns" />
+                        <asp:ListItem class="link-select-up" Value="kenburnsUp" Text="Kenburns" />
+                        <asp:ListItem class="link-select-down" Value="kenburnsDown" Text="Kenburns" />
+                        <asp:ListItem class="link-select-right" Value="kenburnsRight" Text="Kenburns" />
+                        <asp:ListItem class="link-select-left" Value="kenburnsLeft" Text="Kenburns" />
+                        <asp:ListItem class="link-select-up link-select-left" Value="kenburnsUpLeft" Text="Kenburns" />
+                        <asp:ListItem class="link-select-up link-select-right" Value="kenburnsUpRight" Text="Kenburns" />
+                        <asp:ListItem class="link-select-down link-select-left" Value="kenburnsDownLeft" Text="Kenburns" />
+                        <asp:ListItem class="link-select-down link-select-right" Value="kenburnsDownRight" Text="Kenburns" />
                     </asp:DropDownList>
                 </div>
             </div>

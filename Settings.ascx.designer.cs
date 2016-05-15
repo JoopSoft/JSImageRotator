@@ -373,24 +373,6 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.TextBox txtAlignPercentage;
         
         /// <summary>
-        /// lblVAlign control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DotNetNuke.UI.UserControls.LabelControl lblVAlign;
-        
-        /// <summary>
-        /// ddVAlign control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddVAlign;
-        
-        /// <summary>
         /// lblVAlignPercentage control.
         /// </summary>
         /// <remarks>
@@ -407,6 +389,15 @@ namespace JS.Modules.JSImageRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtVAlignPercentage;
+        
+        /// <summary>
+        /// ddVAlign control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddVAlign;
         
         /// <summary>
         /// lblTransition control.

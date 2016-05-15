@@ -15,27 +15,6 @@
         //CUSTOM MODULE FOR CHECKING EXISTING AN ELEMENS
         $.fn.exists = function () { return this.length > 0; }
 
-        $.fn.JSKeyUp = function () {
-            return this.each(function () {
-                $(this).keyup(function (e) {
-                    var code = (e.keyCode ? e.keyCode : e.which);
-
-                    switch (code) {
-                        case 27:
-                            alert('ESC');
-                            break;
-                        case 13:
-                            alert('ENTER');
-                            break;
-                        case 32:
-                            alert('SPACE');
-                            break;
-                    }
-
-                })
-            })
-        }
-
         var $lnkAdd = '<i class="fa fa-plus-circle"></i>',
             $lnkEdit = '<i class="fa fa-pencil"></i>',
             $lnkEditSquare = '<i class="fa fa-pencil-square-o"></i>',
@@ -66,64 +45,70 @@
             $largeIcon = 'fa-lg';
 
         //PUSHED MIXED UP ICON AND TEXT IN TO THE ELEMENTS
-        $('.JSRotator .link-add').prepend($lnkAdd + ' ');
-        $('.JSRotator .link-edit').prepend($lnkEdit + ' ');
-        $('.JSRotator .link-edit-square').prepend($lnkEditSquare + ' ');
-        $('.JSRotator .link-delete').prepend($lnkDelete + ' ');
-        $('.JSRotator .link-back').prepend($lnkBack + ' ');
-        $('.JSRotator .link-up').prepend($lnkUp + ' ');
+        function loadIcons() {
 
-        $('.JSRotator .link-select-up').append(' ' + $lnkSelUp);
-        $('.JSRotator .link-select-down').append(' ' + $lnkSelDown);
-        $('.JSRotator .link-select-right').append(' ' + $lnkSelRight);
-        $('.JSRotator .link-select-left').append(' ' + $lnkSelLeft);
+            $('.JSRotator .link-add').prepend($lnkAdd + ' ');
+            $('.JSRotator .link-edit').prepend($lnkEdit + ' ');
+            $('.JSRotator .link-edit-square').prepend($lnkEditSquare + ' ');
+            $('.JSRotator .link-delete').prepend($lnkDelete + ' ');
+            $('.JSRotator .link-back').prepend($lnkBack + ' ');
+            $('.JSRotator .link-up').prepend($lnkUp + ' ');
 
-        $('.JSRotator .link-home').prepend($lnkHome + ' ');
-        $('.JSRotator .link-all').prepend($lnkAll + ' ');
-        $('.JSRotator .link-upload').prepend($lnkUpload + ' ');
-        $('.JSRotator .link-save').prepend($lnkSave + ' ');
-        $('.JSRotator .link-cancel').prepend($lnkCancel + ' ');
-        $('.JSRotator .link-info').prepend($lnkInfo + ' ');
-        $('.JSRotator .link-info2x').prepend($lnkInfo2x + ' ');
-        $('.JSRotator .link-prev').prepend($lnkPrev + ' ');
-        $('.JSRotator .link-close').prepend($lnkClose + ' ');
-        $('.JSRotator .link-warning').prepend($lnkWarning + ' ');
-        $('.JSRotator .link-success').prepend($lnkSuccess + ' ');
-        $('.JSRotator .link-list').prepend($lnkList + ' ');
-        $('.JSRotator .link-exch').prepend($lnkExch + ' ');
-        $('.JSRotator .link-image').prepend($lnkImage + ' ');
-        $('.JSRotator .link-next').append(' ' + $lnkNext);
+            $('.JSRotator .link-select-up').append(' ' + $lnkSelUp);
+            $('.JSRotator .link-select-down').append(' ' + $lnkSelDown);
+            $('.JSRotator .link-select-right').append(' ' + $lnkSelRight);
+            $('.JSRotator .link-select-left').append(' ' + $lnkSelLeft);
 
-        //PUSHED ONLY ICONS ON ELEMTNS
-        $('.JSRotator .link-add.no-txt').html($lnkAdd);
-        $('.JSRotator .link-edit.no-txt').html($lnkEdit);
-        $('.JSRotator .link-edit-square.no-txt').html($lnkEditSquare + ' ');
-        $('.JSRotator .link-delete.no-txt').html($lnkDelete);
-        $('.JSRotator .link-back.no-txt').html($lnkBack);
-        $('.JSRotator .link-up.no-txt').html($lnkUp);
+            $('.JSRotator .link-home').prepend($lnkHome + ' ');
+            $('.JSRotator .link-all').prepend($lnkAll + ' ');
+            $('.JSRotator .link-upload').prepend($lnkUpload + ' ');
+            $('.JSRotator .link-save').prepend($lnkSave + ' ');
+            $('.JSRotator .link-cancel').prepend($lnkCancel + ' ');
+            $('.JSRotator .link-info').prepend($lnkInfo + ' ');
+            $('.JSRotator .link-info2x').prepend($lnkInfo2x + ' ');
+            $('.JSRotator .link-prev').prepend($lnkPrev + ' ');
+            $('.JSRotator .link-close').prepend($lnkClose + ' ');
+            $('.JSRotator .link-warning').prepend($lnkWarning + ' ');
+            $('.JSRotator .link-success').prepend($lnkSuccess + ' ');
+            $('.JSRotator .link-list').prepend($lnkList + ' ');
+            $('.JSRotator .link-exch').prepend($lnkExch + ' ');
+            $('.JSRotator .link-image').prepend($lnkImage + ' ');
+            $('.JSRotator .link-next').append(' ' + $lnkNext);
 
-        $('.JSRotator .link-select-up.no-txt').html($lnkSelUp);
-        $('.JSRotator .link-select-down.no-txt').html($lnkSelDown);
-        $('.JSRotator .link-select-right.no-txt').html($lnkSelRight);
-        $('.JSRotator .link-select-left.no-txt').html($lnkSelLeft);
+            //PUSHED ONLY ICONS ON ELEMTNS
+            $('.JSRotator .link-add.no-txt').html($lnkAdd);
+            $('.JSRotator .link-edit.no-txt').html($lnkEdit);
+            $('.JSRotator .link-edit-square.no-txt').html($lnkEditSquare + ' ');
+            $('.JSRotator .link-delete.no-txt').html($lnkDelete);
+            $('.JSRotator .link-back.no-txt').html($lnkBack);
+            $('.JSRotator .link-up.no-txt').html($lnkUp);
 
-        $('.JSRotator .link-home.no-txt').html($lnkHome);
-        $('.JSRotator .link-all.no-txt').html($lnkAll);
-        $('.JSRotator .link-upload.no-txt').html($lnkUpload);
-        $('.JSRotator .link-save.no-txt').html($lnkSave);
-        $('.JSRotator .link-cancel.no-txt').html($lnkCancel);
-        $('.JSRotator .link-info.no-txt').html($lnkInfo);
-        $('.JSRotator .link-info2x.no-txt').html($lnkInfo2x);
-        $('.JSRotator .link-prev.no-txt').html($lnkPrev);
-        $('.JSRotator .link-next.no-txt').html($lnkNext);
-        $('.JSRotator .link-close.no-txt').html($lnkClose);
-        $('.JSRotator .link-warning.no-txt').html($lnkWarning);
-        $('.JSRotator .link-success.no-txt').html($lnkSuccess);
-        $('.JSRotator .link-list.no-txt').html($lnkList);
-        $('.JSRotator .link-exch.no-txt').html($lnkExch);
-        $('.JSRotator .link-image.no-txt').html($lnkImage);
+            $('.JSRotator .link-select-up.no-txt').html($lnkSelUp);
+            $('.JSRotator .link-select-down.no-txt').html($lnkSelDown);
+            $('.JSRotator .link-select-right.no-txt').html($lnkSelRight);
+            $('.JSRotator .link-select-left.no-txt').html($lnkSelLeft);
 
-        $('.JSRotator a.dnnFormHelp').prepend($lnkInfo);
+            $('.JSRotator .link-home.no-txt').html($lnkHome);
+            $('.JSRotator .link-all.no-txt').html($lnkAll);
+            $('.JSRotator .link-upload.no-txt').html($lnkUpload);
+            $('.JSRotator .link-save.no-txt').html($lnkSave);
+            $('.JSRotator .link-cancel.no-txt').html($lnkCancel);
+            $('.JSRotator .link-info.no-txt').html($lnkInfo);
+            $('.JSRotator .link-info2x.no-txt').html($lnkInfo2x);
+            $('.JSRotator .link-prev.no-txt').html($lnkPrev);
+            $('.JSRotator .link-next.no-txt').html($lnkNext);
+            $('.JSRotator .link-close.no-txt').html($lnkClose);
+            $('.JSRotator .link-warning.no-txt').html($lnkWarning);
+            $('.JSRotator .link-success.no-txt').html($lnkSuccess);
+            $('.JSRotator .link-list.no-txt').html($lnkList);
+            $('.JSRotator .link-exch.no-txt').html($lnkExch);
+            $('.JSRotator .link-image.no-txt').html($lnkImage);
+
+            $('.JSRotator a.dnnFormHelp').prepend($lnkInfo);
+
+        }
+
+        loadIcons();
 
         //CUTTING TEXT BY ELLIPSIS PLUGIN
         if ($('.JSRotator .edit .ellipsis').exists()) $('.JSRotator .edit .ellipsis').ellipsis({
@@ -137,7 +122,7 @@
         });
 
         //POPUP INPUT TEXTBOX - TABLE 
-        $('.JSRotator .dnnFormItem .table input[type=text]')
+        $('.JSRotator .dnnFormItem table input[type=text]')
             .focus(function () {
                 var $this = $(this);
 
@@ -168,12 +153,13 @@
                         .find('i').addClass('fa-2x');
             });
 
-        $('.JSRotator .dnnFormItem .table .active div:last').find('i').addClass('fa-lg');
-
+        //BIGGER CONTROL ICONS ON EDIT TABLE
+        $('.JSRotator .dnnFormItem table .active td:last').find('i').addClass('fa-lg');
 
         //REMOVING TOOLTIPS FROM ALL DISABLED ELEMENTS
         $('.JSRotator [disbled="disabled"], .JSRotator .aspNetDisabled, .JSRotator .dnnDisabled').tooltip('destroy');
 
+        //BIG CLOSE ICON
         $('.JSRotator .close-action .fa').addClass('fa-5x');
 
         //AUTO CLOSE POPUP PANEL
@@ -208,30 +194,29 @@
         });
 
 
-
         //CHECKBOX DEFINITION: SELECT/DESELECT ALL CHECKBOXES
-        $('.JSRotator .table .tbody .cbSelect input:checkbox')
+        $('.JSRotator table tbody .cbSelect input:checkbox')
             .each(function () {
-                var $n = parseInt($('.JSRotator .table .tbody .cbSelect input:checked').length),
-                    $t = parseInt($('.JSRotator .table .tbody .cbSelect input:checkbox').length);
+                var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length),
+                    $t = parseInt($('.JSRotator table tbody .cbSelect input:checkbox').length);
 
-                if ($n === $t) $('.JSRotator .table .thead .cbSelectAll input:checkbox').prop('checked', true);
-                else $('.JSRotator .table .thead .cbSelectAll input:checkbox').prop('checked', false);
+                if ($n === $t) $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', true);
+                else $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', false);
 
                 if ($('.JSRotator .edit .txtFileName').val() === '') {
-                    $('.JSRotator .edit .btnSubmit').addClass('disabled');
+                    $('.JSRotator .controls .btnSubmit').addClass('disabled');
                     $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
                 } else {
-                    $('.JSRotator .edit btnSubmit').removeClass('disabled');
+                    $('.JSRotator .controls btnSubmit').removeClass('disabled');
                     $('.JSRotator .edit btnAddUpdateList').removeClass('disabled');
                 }
             })
             .bind('change', function () {
-                var $n = parseInt($('.JSRotator .table .tbody .cbSelect input:checked').length),
-                    $t = parseInt($('.JSRotator .table .tbody .cbSelect input:checkbox').length);
+                var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length),
+                    $t = parseInt($('.JSRotator table tbody .cbSelect input:checkbox').length);
 
-                if ($n === $t) $('.JSRotator .table .thead .cbSelectAll input:checkbox').prop('checked', true);
-                else $('.JSRotator .table .thead .cbSelectAll input:checkbox').prop('checked', false);
+                if ($n === $t) $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', true);
+                else $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', false);
 
                 if ($n != 0) {
                     if ($('.JSRotator .edit .txtFileName').val() === '') {
@@ -247,14 +232,14 @@
                 }
             });
 
-        $('.JSRotator .table .thead .cbSelectAll input:checkbox')
+        $('.JSRotator table thead .cbSelectAll input:checkbox')
             //.each(function () {
-            //    $('.JSRotator .table .tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
+            //    $('.JSRotator table tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
             //})
             .bind('change', function () {
-                var $n = parseInt($('.JSRotator .table .tbody .cbSelect input:checked').length);
+                var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length);
 
-                $('.JSRotator .table .tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
+                $('.JSRotator table tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
 
                 if ($n != 0) {
                     if ($('.JSRotator .edit .txtFileName').val() === '') {
@@ -269,6 +254,14 @@
                     $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
                 }
             });
+
+
+        //SCROLL TABLES
+        if ($('.JSRotator .edit .table tbody').height() == 185) $('.JSRotator .edit .table').addClass('scroll').find('thead tr').append('<th class="add-custom"></th>');
+        else $('.JSRotator .edit .table').removeClass('scroll').find('thead tr .add-custom').remove();
+
+        if ($('.JSRotator .select .table tbody').height() == 245) $('.JSRotator .select .table').addClass('scroll').find('thead tr').append('<th class="add-custom"></th>');
+        else $('.JSRotator .select .table').removeClass('scroll').find('thead tr .add-custom').remove();
 
 
         //DISPALY/HIDE PANEL DEFINITION
@@ -322,6 +315,17 @@
                 }
             });
 
+        $('.JSRotator .check-equal')
+            .each(function () {
+                if ($(this).val() === $(this).data('equal')) $($(this).data('target')).show();
+                else $($(this).data('target')).hide();
+            })
+            .bind('change', function () {
+                if ($(this).val() === $(this).data('equal')) $($(this).data('target')).show();
+                else $($(this).data('target')).hide();
+            });
+
+
         //SELECT PICKER CUSTOM PLUGIN DEFINITION
         //SINGLE SELECT OPTIONS
         if ($('.JSRotator .selectpicker.single-select').exists()) $('.JSRotator .selectpicker.single-select').selectpicker({
@@ -343,7 +347,7 @@
             showContent: true,
             showIcon: true,
             showSubtext: false,
-            showTick: false,
+            showTick: true,
             size: 'auto',
             style: 'btn-primary',
             tickIcon: 'glyphicon-ok',
@@ -399,7 +403,7 @@
             showContent: true,
             showIcon: true,
             showSubtext: false,
-            showTick: false,
+            showTick: true,
             size: 'auto',
             style: 'btn-primary',
             tickIcon: 'glyphicon-ok',
@@ -407,7 +411,56 @@
             width: '150px'
         });
 
-        //$('.selectpicker').selectpicker('val', 'Mustard');
+
+        //CUSTOM ANIMATION & TRANSITION SELECT DEFINITION
+        $('.JSRotator .lbAnimation, .JSRotator .lbTransition')
+            .each(function () {
+                var $value = new String($(this).val()),
+                    $length = $(this).find(':selected').length;
+
+                if (eval($value) == 'random') {
+                    //console.log('ONLY RANDOM');
+                    $(this).find('[class=JSRandom]').prop('disabled', false);
+                    $(this).find('[class=JSAnimType]').prop('disabled', true);
+                    $(this).selectpicker('refresh');
+                }
+                else if (eval($value) == 'null') {
+                    //console.log("NOTHING SELECTED");
+                    $(this).find('[class=JSRandom]').prop('disabled', false);
+                    $(this).find('[class=JSAnimType]').prop('disabled', false);
+                    $(this).find('[class=JSDefault]').prop('selected', true);
+                    $(this).selectpicker('refresh');
+                }
+                else {
+                    //console.log("REST OF ITEMS");
+                    $(this).find('[class=JSRandom]').prop('disabled', true);
+                    $(this).find('[class=JSAnimType]').prop('disabled', false);
+                    $(this).selectpicker('refresh');
+                }
+            })
+            .change(function () {
+                var $value = new String($(this).val()),
+                    $length = $(this).find(':selected').length;
+
+                if (eval($value) == 'random') {
+                    //console.log('ONLY RANDOM');                
+                    $(this).find('[class=JSRandom]').prop('disabled', false);
+                    $(this).find('[class=JSAnimType]').prop('disabled', true);
+                    $(this).selectpicker('refresh');
+                }
+                else if (eval($value) == 'null') {
+                    //console.log("NOTHING SELECTED");
+                    $(this).find('[class=JSRandom]').prop('disabled', false);
+                    $(this).find('[class=JSAnimType]').prop('disabled', false);
+                    $(this).selectpicker('refresh');
+                }
+                else {
+                    //console.log("REST OF ITEMS");
+                    $(this).find('[class=JSRandom]').prop('disabled', true);
+                    $(this).find('[class=JSAnimType]').prop('disabled', false);
+                    $(this).selectpicker('refresh');
+                }
+            });
 
 
         //GET PARTIAL POSTBACK ON UPDATEPANEL REFRESH
@@ -422,6 +475,10 @@
         };
 
         function RefreshPostBack() {
+
+            loadIcons();
+
+            //SELECT PICKER CUSTOM PLUGIN DEFINITION
             if ($('.JSRotator .selectpicker.single-select').exists()) $('.JSRotator .selectpicker.single-select').selectpicker({
                 actionsBox: false,
                 //container: false,
@@ -441,7 +498,7 @@
                 showContent: true,
                 showIcon: true,
                 showSubtext: false,
-                showTick: false,
+                showTick: true,
                 size: 'auto',
                 style: 'btn-primary',
                 tickIcon: 'glyphicon-ok',
@@ -493,7 +550,7 @@
                 showContent: true,
                 showIcon: true,
                 showSubtext: false,
-                showTick: false,
+                showTick: true,
                 size: 'auto',
                 style: 'btn-primary',
                 tickIcon: 'glyphicon-ok',
@@ -501,11 +558,59 @@
                 width: '150px'
             });
 
-            $('.JSRotator .selectpicker').selectpicker('render');
 
-            $('.JSRotator a.dnnFormHelp').html($lnkInfo);
+            //CUSTOM ANIMATION & TRANSITION SELECT DEFINITION
+            $('.JSRotator .lbAnimation, .JSRotator .lbTransition')
+                .each(function () {
+                    var $value = new String($(this).val()),
+                        $length = $(this).find(':selected').length;
 
+                    if (eval($value) == 'random') {
+                        //console.log('ONLY RANDOM');
+                        $(this).find('[class=JSRandom]').prop('disabled', false);
+                        $(this).find('[class=JSAnimType]').prop('disabled', true);
+                        $(this).selectpicker('refresh');
+                    }
+                    else if (eval($value) == 'null') {
+                        //console.log("NOTHING SELECTED");
+                        $(this).find('[class=JSRandom]').prop('disabled', false);
+                        $(this).find('[class=JSAnimType]').prop('disabled', false);
+                        $(this).find('[class=JSDefault]').prop('selected', true);
+                        $(this).selectpicker('refresh');
+                    }
+                    else {
+                        //console.log("REST OF ITEMS");
+                        $(this).find('[class=JSRandom]').prop('disabled', true);
+                        $(this).find('[class=JSAnimType]').prop('disabled', false);
+                        $(this).selectpicker('refresh');
+                    }
+                })
+                .change(function () {
+                    var $value = new String($(this).val()),
+                        $length = $(this).find(':selected').length;
 
+                    if (eval($value) == 'random') {
+                        //console.log('ONLY RANDOM');                
+                        $(this).find('[class=JSRandom]').prop('disabled', false);
+                        $(this).find('[class=JSAnimType]').prop('disabled', true);
+                        $(this).selectpicker('refresh');
+                    }
+                    else if (eval($value) == 'null') {
+                        //console.log("NOTHING SELECTED");
+                        $(this).find('[class=JSRandom]').prop('disabled', false);
+                        $(this).find('[class=JSAnimType]').prop('disabled', false);
+                        $(this).selectpicker('refresh');
+                    }
+                    else {
+                        //console.log("REST OF ITEMS");
+                        $(this).find('[class=JSRandom]').prop('disabled', true);
+                        $(this).find('[class=JSAnimType]').prop('disabled', false);
+                        $(this).selectpicker('refresh');
+                    }
+                });
+
+            
+            //DISPALY/HIDE PANEL DEFINITION
             $('.JSRotator .hidder input:checkbox')
                 .each(function () {
                     var $target = $(this).parent().data('target');
@@ -556,77 +661,22 @@
                     }
                 });
 
-            //$('.JSRotator table tbody .cbSelect input:checkbox')
-            //    .each(function () {
-            //        var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length),
-            //            $t = parseInt($('.JSRotator table tbody .cbSelect input:checkbox').length);
-            //
-            //        if ($n === $t) $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', true);
-            //        else $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', false);
-            //
-            //        if ($('.JSRotator .edit .txtFileName').val() === '') {
-            //            $('.JSRotator .edit .btnSubmit').addClass('disabled');
-            //            $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
-            //        } else {
-            //            $('.JSRotator .edit btnSubmit').removeClass('disabled');
-            //            $('.JSRotator .edit btnAddUpdateList').removeClass('disabled');
-            //        }
-            //    })
-            //    .bind('change', function () {
-            //        var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length),
-            //            $t = parseInt($('.JSRotator table tbody .cbSelect input:checkbox').length);
-            //
-            //        if ($n === $t) $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', true);
-            //        else $('.JSRotator table thead .cbSelectAll input:checkbox').prop('checked', false);
-            //
-            //        if ($n != 0) {
-            //            if ($('.JSRotator .edit .txtFileName').val() === '') {
-            //                $('.JSRotator .controls .btnSubmit').addClass('disabled');
-            //                $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
-            //            } else {
-            //                $('.JSRotator .controls .btnSubmit').removeClass('disabled');
-            //                $('.JSRotator .edit .btnAddUpdateList').removeClass('disabled');
-            //            }
-            //        } else {
-            //            $('.JSRotator .controls .btnSubmit').addClass('disabled');
-            //            $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
-            //        }
-            //    });
-            //
-            //$('.JSRotator table thead .cbSelectAll input:checkbox')
-            //    //.each(function () {
-            //    //    $('.JSRotator table tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
-            //    //})
-            //    .bind('change', function () {
-            //        var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length);
-            //
-            //        $('.JSRotator table tbody .cbSelect input:checkbox').prop('checked', $(this).prop('checked'));
-            //
-            //        if ($n != 0) {
-            //            if ($('.JSRotator .edit .txtFileName').val() === '') {
-            //                $('.JSRotator .controls .btnSubmit').addClass('disabled');
-            //                $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
-            //            } else {
-            //                $('.JSRotator .controls .btnSubmit').removeClass('disabled');
-            //                $('.JSRotator .edit .btnAddUpdateList').removeClass('disabled');
-            //            }
-            //        } else {
-            //            $('.JSRotator .controls .btnSubmit').addClass('disabled');
-            //            $('.JSRotator .edit .btnAddUpdateList').addClass('disabled');
-            //        }
-            //    });
-        };
+            $('.JSRotator .check-equal')
+                .each(function () {
+                    if ($(this).val() === $(this).data('equal')) $($(this).data('target')).show();
+                    else $($(this).data('target')).hide();
+                })
+                .bind('change', function () {
+                    if ($(this).val() === $(this).data('equal')) $($(this).data('target')).show();
+                    else $($(this).data('target')).hide();
+                });
+
+        }
 
         //CHECK TO SEE IF THE WINDOW IS TOP IF NOT THEN DISPLAY BUTTON
         $(window).scroll(function () {
-            if ($(this).scrollTop() > 100) {
-                $('.JSRotator .scroll-action').fadeIn();
-                //$('.JSRotator .dnnFormSectionHead').animate({ 'top': $('.JSRotator .dnnFormSectionHead').height() + 'px' }, 300).addClass('fixed');
-
-            } else {
-                $('.JSRotator .scroll-action').fadeOut();
-                //$('.JSRotator .dnnFormSectionHead').animate({ 'top': '-=76' }, 300).removeClass('fixed');
-            }
+            if ($(this).scrollTop() > 100) $('.JSRotator .scroll-action').fadeIn();                
+            else $('.JSRotator .scroll-action').fadeOut();
         });
 
         //CLICK EVENT TO SCROLL TO TOP
@@ -637,7 +687,6 @@
 
         //FUNCTIONS BY BOOTSTRAP FRAMEWORK
         //$('.JSRotator [data-toggle="collapse"]').collapse();
-
         //$('.JSRotator [data-toggle="popover"]').popover();
 
         $('.JSRotator [data-toggle="tooltip"]')

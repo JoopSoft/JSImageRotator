@@ -36,7 +36,7 @@
                     <asp:TextBox ID="txtFileName" runat="server" CssClass="txtFileName form-control grouped" />
 
                     <dnn:label ID="lblSelectList" runat="server" Visible="false" />
-                    <asp:DropDownList ID="lstSelectList" runat="server" CssClass="selectpicker show-tick single-select" AutoPostBack="True"
+                    <asp:DropDownList ID="lstSelectList" runat="server" CssClass="selectpicker single-select" AutoPostBack="True"
                         OnSelectedIndexChanged="lstSelectList_SelectedIndexChanged" Visible="false" />
 
                     <asp:LinkButton ID="btnAddUpdateList" runat="server" CssClass="btnAddUpdateList btn btn-primary link-add"
@@ -53,73 +53,75 @@
                 <h3>
                     <asp:Label ID="lblTableTitle" runat="server" ResourceKey="lblTableTitle" />
                 </h3>
-                <div id="tableList" class="table">
-                    <div class="thead">
-                        <div class="table-cell">
-                            <asp:CheckBox ID="cbSelectAll" runat="server" CssClass="cbSelectAll" />
-                        </div>
-                        <div class="table-cell">
-                            <asp:Label runat="server" ResourceKey="thImage" />
-                        </div>
-                        <div class="table-cell">
-                            <asp:Label runat="server" ResourceKey="thTitle" />
-                        </div>
-                        <div class="table-cell">
-                            <asp:Label runat="server" ResourceKey="thDesc" />
-                        </div>
-                        <div class="table-cell">
-                            <asp:Label runat="server" ResourceKey="thPhotographer" />
-                        </div>
-                        <div class="table-cell">
-                            <asp:Label runat="server" ResourceKey="thContact" />
-                        </div>
-                        <div class="table-cell custom-fx">
-                            <asp:Label runat="server" ResourceKey="thTransition" />
-                        </div>
-                        <div class="table-cell custom-fx">
-                            <asp:Label runat="server" ResourceKey="thAnimation" />
-                        </div>
-                        <div class="table-cell">
-                            <asp:Label runat="server" ResourceKey="thModify" />
-                        </div>
-                    </div>
-                    <div class="tbody">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                <asp:CheckBox ID="cbSelectAll" runat="server" CssClass="cbSelectAll" />
+                            </th>
+                            <th>
+                                <asp:Label runat="server" ResourceKey="thImage" />
+                            </th>
+                            <th>
+                                <asp:Label runat="server" ResourceKey="thTitle" />
+                            </th>
+                            <th>
+                                <asp:Label runat="server" ResourceKey="thDesc" />
+                            </th>
+                            <th>
+                                <asp:Label runat="server" ResourceKey="thPhotographer" />
+                            </th>
+                            <th>
+                                <asp:Label runat="server" ResourceKey="thContact" />
+                            </th>
+                            <th class="custom-fx">
+                                <asp:Label runat="server" ResourceKey="thTransition" />
+                            </th>
+                            <th class="custom-fx">
+                                <asp:Label runat="server" ResourceKey="thAnimation" />
+                            </th>
+                            <th>
+                                <asp:Label runat="server" ResourceKey="thModify" />
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <asp:Repeater ID="rptImageList" runat="server">
                             <HeaderTemplate>
                             </HeaderTemplate>
                             <ItemTemplate>
-                                <asp:Panel ID="tableRow" runat="server" CssClass="table-row">
-                                    <div class="table-cell">
+                                <asp:TableRow ID="tableRow" runat="server">
+                                    <asp:TableCell>
                                         <asp:Label ID="imgId" runat="server" Visible="false" Text='<%#DataBinder.Eval(Container.DataItem, "ImageId").ToString() %>' />
                                         <asp:CheckBox ID="cbSelect" runat="server" CssClass="cbSelect"
                                             Checked='<%#((DataBinder.Eval(Container.DataItem,"IsSelected")!=null) && ((bool)DataBinder.Eval(Container.DataItem,"IsSelected")==true)) %>' />
-                                    </div>
-                                    <div class="table-cell">
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                         <asp:Image ID="imgPreview" runat="server" CssClass="row-img"
                                             ImageUrl='<%#DataBinder.Eval(Container.DataItem, "ImageUrl").ToString() %>' />
-                                    </div>
-                                    <div class="table-cell">
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                         <asp:TextBox ID="txtTitle" runat="server" CssClass="ellipsis"
                                             Enabled="false" data-toggle="tooltip" ToolTip="Edit Title"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageTitle").ToString() %>' />
-                                    </div>
-                                    <div class="table-cell">
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                         <asp:TextBox ID="txtDescription" runat="server" CssClass="ellipsis"
                                             Enabled="false" data-toggle="tooltip" ToolTip="Edit Description"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageDescription").ToString() %>' />
-                                    </div>
-                                    <div class="table-cell">
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                         <asp:TextBox ID="txtPhotographer" runat="server" CssClass="ellipsis"
                                             Enabled="false" data-toggle="tooltip" ToolTip="Edit Photographer"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImagePhotographer").ToString() %>' />
-                                    </div>
-                                    <div class="table-cell">
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                         <asp:TextBox ID="txtContact" runat="server" CssClass="ellipsis"
-                                            Enabled="false" data-toggle="tooltip" ToolTip="Edit Contact"
+                                            Enabled="false" data-toggle="tooltip" ToolTip="Edit E-mail"
                                             Text='<%#DataBinder.Eval(Container.DataItem,"ImageContact").ToString() %>' />
-                                    </div>
-                                    <div class="table-cell custom-fx">
-                                        <asp:DropDownList ID="ddTransition" runat="server" CssClass="selectpicker show-tick table-select"
+                                    </asp:TableCell>
+                                    <asp:TableCell CssClass="custom-fx">
+                                        <asp:DropDownList ID="ddTransition" runat="server" CssClass="selectpicker table-select"
                                             Enabled="false" SelectedValue='<%#DataBinder.Eval(Container.DataItem, "Transition").ToString() %>'>
                                             <asp:ListItem Value="default" Text="Default" />
                                             <asp:ListItem Value="random" Text="Random" />
@@ -150,9 +152,9 @@
                                             <asp:ListItem Value="negative" Text="Negative" />
                                             <asp:ListItem Value="negative2" Text="Negative II" />
                                         </asp:DropDownList>
-                                    </div>
-                                    <div class="table-cell custom-fx">
-                                        <asp:DropDownList ID="ddAnimation" runat="server" CssClass="selectpicker show-tick table-select"
+                                    </asp:TableCell>
+                                    <asp:TableCell CssClass="custom-fx">
+                                        <asp:DropDownList ID="ddAnimation" runat="server" CssClass="selectpicker table-select"
                                             Enabled="false" SelectedValue='<%#DataBinder.Eval(Container.DataItem, "Animation").ToString() %>'>
                                             <asp:ListItem Value="default" Text="Default" />
                                             <asp:ListItem Value="random" Text="Random" />
@@ -166,24 +168,21 @@
                                             <asp:ListItem class="link-select-down link-select-left" Value="kenburnsDownLeft" Text="Kenburns" />
                                             <asp:ListItem class="link-select-down link-select-right" Value="kenburnsDownRight" Text="Kenburns" />
                                         </asp:DropDownList>
-                                    </div>
-                                    <div class="table-cell">
+                                    </asp:TableCell>
+                                    <asp:TableCell>
                                         <asp:LinkButton ID="btnEdit" runat="server" CssClass="btn btn-primary link-edit no-txt"
                                             OnClick="btnEdit_Click" data-toggle="tooltip" ToolTip="Edit" />
                                         <asp:LinkButton ID="lnkDelete" runat="server" CssClass="btn btn-danger link-delete no-txt"
                                             OnClick="lnkDelete_Click" data-toggle="tooltip" ToolTip="Delete"
                                             CommandName="Delete" />
-                                    </div>
-                                </asp:Panel>
+                                    </asp:TableCell>
+                                </asp:TableRow>
                             </ItemTemplate>
                             <FooterTemplate>
                             </FooterTemplate>
                         </asp:Repeater>
-                    </div>
-                    <div class="page_navigation btn-group"></div>
-                    <div class="info_text"></div>
-                </div>
-
+                    </tbody>
+                </table>
             </div>
             <asp:Panel ID="pnlPopUp" runat="server" Visible="false">
                 <div class="popup-wrapper">
@@ -234,12 +233,12 @@
     </div>
 </div>
 
-
 <script type="text/javascript">
 
+    //ENABLE/DISABLE CREATE LIST BUTTONS
     $('.JSRotator #<%= txtFileName.ClientID %>')
         .each(function () {
-            var $n = parseInt($('.JSRotator .table .tbody .cbSelect input:checked').length);
+            var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length);
 
             if ($n != 0) {
                 if ($(this).val() === '') {
@@ -255,7 +254,7 @@
             }
         })
         .bind('keyup', function () {
-            var $n = parseInt($('.JSRotator .table .tbody .cbSelect input:checked').length);
+            var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length);
 
             if ($n != 0) {
                 if ($(this).val() === '') {
@@ -270,24 +269,10 @@
                 $('.JSRotator #<%= btnAddUpdateList.ClientID %>').addClass('disabled');
             }
         });
-
-
-        $('.JSRotator #tableList').paging({
-            item_container_id: '.tbody',
-            nav_label_info: 'Showing {0}-{1} of {2} results',
-            num_page_links_to_display: 3,
-            items_per_page: 4,
-            wrap_around: true,
-            show_first_last: false
-        });
-
-
-
-
+    
 </script>
 
 <dnn:DnnJsInclude ID="bootstrapJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" Priority="19" />
 <dnn:DnnJsInclude ID="bootstrapSelectJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js" Priority="20" />
 <dnn:DnnJsInclude ID="ellipsisJs" runat="server" FilePath="~/DesktopModules/JSImageRotator/Js/jquery.ellipsis.min.js" Priority="21" />
-<dnn:DnnJsInclude ID="pagingJs" runat="server" FilePath="~/DesktopModules/JSImageRotator/Js/jquery.paging.min.js" Priority="22" />
-<dnn:DnnJsInclude ID="mainJs" runat="server" FilePath="~/DesktopModules/JSImageRotator/Js/main.min.js" Priority="23" />
+<dnn:DnnJsInclude ID="mainJs" runat="server" FilePath="~/DesktopModules/JSImageRotator/Js/main.min.js" Priority="22" />

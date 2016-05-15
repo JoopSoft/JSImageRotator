@@ -317,7 +317,7 @@ namespace JS.Modules.JSImageRotator
             }
             else
             {
-                AddLine("\t\t\"overlayType\": " + "\"" + s.OverlayType.ToString().ToLower() + "\",");
+                AddLine("\t\t\"overlay\": " + "\"" + ControlPath + "Vegas/overlays/" + s.OverlayType.ToString().ToLower() + "\",");
             }
             AddLine("\t\t\"autoplay\": " + s.Autoplay.ToString().ToLower() + ",");
             AddLine("\t\t\"shuffle\": " + s.Shuffle.ToString().ToLower() + ",");
@@ -331,8 +331,22 @@ namespace JS.Modules.JSImageRotator
                 AddLine("\t\t\"cover\": " + s.Cover.ToLower() + ",");
             }
             AddLine("\t\t\"backgroundColor\": " + "\"" + s.BackgroundColor + "\",");
-            AddLine("\t\t\"align\": " + "\"" + s.Align.ToLower() + "\",");
-            AddLine("\t\t\"valign\": " + "\"" + s.VerticalAlign.ToLower() + "\",");
+            if(ddAlign.SelectedValue == "percentage")
+            {
+                AddLine("\t\t\"align\": " + s.AlignPercent + ",");
+            }
+            else
+            {
+                AddLine("\t\t\"align\": " + "\"" + s.Align.ToLower() + "\",");
+            }
+            if (ddVAlign.SelectedValue == "percentage")
+            {
+                AddLine("\t\t\"valign\": " + s.VerticalAlignPercent + ",");
+            }
+            else
+            {
+                AddLine("\t\t\"valign\": " + "\"" + s.VerticalAlign.ToLower() + "\",");
+            }
             if (s.Transition != "[ ]")
             {
                 AddLine("\t\t\"transition\": " + s.Transition + ",");

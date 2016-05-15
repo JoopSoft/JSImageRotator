@@ -141,11 +141,6 @@
     <Content Include="icon.png" />
     <Content Include="AddImage.ascx" />
     <Content Include="h-icon.png" />
-    <Content Include="Js\jquery.paging.js" />
-    <Content Include="Js\jquery.paging.min.js">
-      <DependentUpon>jquery.paging.js</DependentUpon>
-    </Content>
-    <Content Include="Js\jquery.pagingScript.js" />
     <Content Include="Js\JSScript.js" />
     <Content Include="Js\main.js" />
     <Content Include="Js\main.min.js">
@@ -182,10 +177,13 @@
     <Content Include="Vegas\overlays\08.png" />
     <Content Include="Vegas\overlays\09.png" />
     <Content Include="Vegas\overlays\10.png" />
-    <Content Include="Vegas\vegas.css" />
     <Content Include="Vegas\vegas.js" />
+    <Content Include="Vegas\vegas.min.js">
+      <DependentUpon>vegas.js</DependentUpon>
+    </Content>
+    <Content Include="Vegas\vegasScript.js" />
+    <Content Include="Vegas\vegas.css" />
     <Content Include="Vegas\vegas.min.css" />
-    <Content Include="Vegas\vegas.min.js" />
     <Content Include="View.ascx" />
   </ItemGroup>
   <ItemGroup>
@@ -231,8 +229,6 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Vegas\vegas.min.js.map" />
-    <Content Include="Json\428_Settings.json" />
-    <Content Include="Json\Default_Settings.json" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

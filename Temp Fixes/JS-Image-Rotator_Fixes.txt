@@ -23,25 +23,30 @@ SETTINGS: > 2ND VERSE
 ------------------------------------------------------------------------
 
 
-!!! Да се помисли в EDIT: UPDATE LIST > SELECT LIST from available > checkbox dont work..
+Partialy DONE: Limiting to 100 and JSON fill Left: 
 
-DONE: !SETTINGS: txtMinHeight - нов запис DB за мин. височина на container.. Да се генерира в
-	  JSON структурата само когато е избран {Rotator Type:Container} като: "minHeight" : value, 
-      Set this value via Main.js..
+!SETTINGS: Align and Valign coder logic:
 
-Partialy DONE: Limiting to 100 and JSON fill Left: !SETTINGS: Align and Valign settings should be saved to DB..
+ADD-IMAGE: 
+		"headerMenu":
+			- Success message > success class
+			- Error message > error class
+			- Neutral message > remove both
+		
+		"btnEdit", "btnLists":
+			- Buttons should change their class also by the same way:
 
-Partialy DONE: Needs Consulting about JSON
-"OVERLAY PATH" didn't save on DB.. Има ли логика да бъде..
-!SETTINGS: 'cbOverlay' replaced with 'ddOverlay' with options:
-	ddOverlay - трябва да има възможност да записва/генерира JSON в {Bool:true/false и String:path}.
-	path - ще се показва нов дропдаун с типовете от overlay folder.
-	true - си сетва по подразбиране негов заложен в кода на плъгина.
-	false - не показва overlay.
 
-*Notes: All props in JSON structure should be starting with lowercase letter in json structure..
+(if DONE ? Delete : Resolve)VIEW: Да проверяваме дали имаме генериран {moduleId}_settings.json && {moduleId}_slides.json (empty) -ако нямаме да се ползва Default_Settings.json
 
-*Checking for default values (Should be equal to SQL Request/Install module):
+
+MAIN.JS: OPTIMIZING CODE..
+ALL JS script code also..
+
+-----------------------------------------------------------------
+JSON Structure:
+-----------------------------------------------------------------
+DEFAULT VEGAS VALUES:
         slide:              0,
         delay:              5000,
         preload:            false,
@@ -63,18 +68,8 @@ Partialy DONE: Needs Consulting about JSON
         animationRegister:  [],
 
 
-ADD NEW IMAGE: Add to list checkbox should be on left side..
-
-MAIN.JS: OPTIMIZING CODE..
-ALL JS script code also..
-
-DONE: EDIT: Имаме ли създаден лист вече, да бъде активен UPDATE LIST вместо CREATE NEW LIST..
-
-VIEW: Да проверяваме дали имаме генериран {moduleId}_settings.json && {moduleId}_slides.json (empty) -ако нямаме да се ползва Default_Settings.json
-	(JavaScript не може да се ползва за достъп до файловата система поради секюрити причини)
-
-DONE:	DEFAULT SLIDES JSON:
-	{
+DEFAULT SLIDES JSON:
+{
 	"slides":
 	[
 	  {
@@ -88,15 +83,8 @@ DONE:	DEFAULT SLIDES JSON:
 	  }
 	]
 	}
-
-DONE: SELECT, EDIT, ADDIMAGE, SETTINGS: JoopSOFT.com link
-
-DONE: add install icons to .rar
-
------------------------------------------------------------------
-JSON Structure:
------------------------------------------------------------------
 {
+------------------------------------------------------------------
 "slides": [
   {
     "slideType": "image",
