@@ -1334,6 +1334,13 @@
                 }
             }
         }
+
+        .content-holder {
+            float:left;
+            color: $white;
+            background-color: $tooltip-md;
+            padding: 10px 15px;
+        }
     }
 
     .btn {

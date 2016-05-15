@@ -11,12 +11,12 @@
         <%--BG CONTROLS--%>
         <asp:Panel ID="pnlControlHolder" runat="server" CssClass="pnlControlHolder">
             <div class="btn-group">
+                <asp:HyperLink ID="btnPrev" runat="server" CssClass="btn btn-primary"
+                    ToolTip="Previous" />                
                 <asp:HyperLink ID="btnPlayPause" runat="server" CssClass="btn btn-primary"
-                    ToolTip="Pause" >
-                </asp:HyperLink>
-                <%--<asp:HyperLink ID="btnSlideInfo" runat="server" CssClass="btn btn-primary"
-                    data-toggle="tooltip" >
-                </asp:HyperLink>--%>
+                    ToolTip="Pause" />
+                <asp:HyperLink ID="btnNext" runat="server" CssClass="btn btn-primary"
+                    ToolTip="Next" />
             </div>
             <asp:Panel ID="pnlSlideInfo" runat="server" CssClass="pnl-info" ></asp:Panel>
         </asp:Panel>
@@ -29,6 +29,7 @@
         <%--EDIT MODE GROUP BUTTONS--%>
         <asp:Panel ID="pnlAdmin" runat="server" Visible="true" CssClass="pnl-admin pull-right">
             <div class="btn-group" role="group" aria-label="Control buttons">
+                <asp:Label ID="lblContentHolder" runat="server" CssClass="content-holder" />
                 <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add no-txt"
                     ResourceKey="lnkAdd" ToolTip="Add New Image" />
                 <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary link-edit-square no-txt"
@@ -50,6 +51,8 @@
         $lnkCamera = '<i class="fa fa-camera"></i>',
         $lnkImage = '<i class="fa fa-image"></i>',
         $lnkMail = '<i class="fa fa-envelope"></i>',
+        $lnkPrev = '<i class="fa fa-angle-left"></i>',
+        $lnkNext = '<i class="fa fa-angle-right"></i>',
 
         $slidesData = '<%= ModulePath %>Json/<%= ModuleId %>_Slides.json',
         $settingsData = '<%= ModulePath %>Json/<%= ModuleId %>_Settings.json',
@@ -87,6 +90,31 @@
 
     $(window).load(function () {
 
+        $('.JSRotator #<%= lblContentHolder.ClientID %>')
+            .html($settings.rotatorType);
+
+        $('.JSRotator #<%= btnNext.ClientID %>')
+            .html($lnkNext)
+            .each(function () {
+                $(this)
+                    .find('i').addClass(($settings.rotatorType !== 'body') ? '' : 'fa-2x');
+            })
+            .bind('click', function () {
+                $(($settings.rotatorType !== 'body') ? $moduleId : 'body')
+                    .vegas('next');
+            });
+
+        $('.JSRotator #<%= btnPrev.ClientID %>')
+            .html($lnkPrev)
+            .each(function () {
+                $(this)
+                    .find('i').addClass(($settings.rotatorType !== 'body') ? '' : 'fa-2x');
+            })
+            .bind('click', function () {
+                $(($settings.rotatorType !== 'body') ? $moduleId : 'body')
+                    .vegas('previous');
+            });
+
         $('.JSRotator #<%= btnPlayPause.ClientID %>')
             .html('<i class="fa ' + (($settings.autoplay === true) ? $lnkPause : $lnkPlay) + '"></i>')
             .each(function () {
@@ -94,7 +122,7 @@
                     .attr('title', function (index, title) {
                         return $settings.autoplay === true ? 'Pause' : 'Play';
                     })
-                .find('i').addClass(($settings.rotatorType !== 'body') ? '' : 'fa-2x');
+                    .find('i').addClass(($settings.rotatorType !== 'body') ? '' : 'fa-2x');
             })
             .bind('click', function () {
                 $(this)

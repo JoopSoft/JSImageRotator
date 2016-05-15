@@ -49,6 +49,15 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.Panel pnlControlHolder;
         
         /// <summary>
+        /// btnPrev control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink btnPrev;
+        
+        /// <summary>
         /// btnPlayPause control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace JS.Modules.JSImageRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink btnPlayPause;
+        
+        /// <summary>
+        /// btnNext control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink btnNext;
         
         /// <summary>
         /// pnlSlideInfo control.
@@ -92,6 +110,15 @@ namespace JS.Modules.JSImageRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlAdmin;
+        
+        /// <summary>
+        /// lblContentHolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContentHolder;
         
         /// <summary>
         /// lnkAdd control.

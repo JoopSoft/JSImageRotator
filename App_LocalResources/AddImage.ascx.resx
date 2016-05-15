@@ -133,10 +133,10 @@
     <value>Expand All</value>
   </data>
   <data name="lblContact.Help" xml:space="preserve">
-    <value>Contact Information.</value>
+    <value>E-mail address.</value>
   </data>
   <data name="lblContact.Text" xml:space="preserve">
-    <value>Contact</value>
+    <value>E-mail</value>
   </data>
   <data name="lblDescription.Help" xml:space="preserve">
     <value>Enter a Description for the Image.</value>

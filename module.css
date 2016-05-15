@@ -1104,6 +1104,11 @@
     .JSRotator .pnl-admin .btn.btn-primary:active,
     .JSRotator .pnl-admin .btn.btn-primary.active {
       background-color: rgba(0, 0, 0, 0.8); }
+  .JSRotator .pnl-admin .content-holder {
+    float: left;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 15px; }
   .JSRotator .btn {
     line-height: normal;
     border: none;
