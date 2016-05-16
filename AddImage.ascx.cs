@@ -262,8 +262,8 @@ namespace JS.Modules.JSImageRotator
                 btnEdit.Visible = btnLists.Visible = false;
                 headerMenu.CssClass = "dnnFormMessage no-controls dnnFormTitle no-spacing " + status;
             }
-            btnEdit.CssClass = "btn btn-primary link-edit-square no-txt" + status;
-            btnLists.CssClass = "btn btn-primary link-list no-txt" + status;
+            btnEdit.CssClass = "btn btn-primary link-edit-square no-txt " + status;
+            btnLists.CssClass = "btn btn-primary link-list no-txt " + status;
         }
     }
 }

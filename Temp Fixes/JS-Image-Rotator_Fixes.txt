@@ -23,18 +23,7 @@ SETTINGS: > 2ND VERSE
 ------------------------------------------------------------------------
 
 
-DONE: Partialy DONE: Limiting to 100 and JSON fill Left: 
-
-DONE: !SETTINGS: Align and Valign coder logic:
-
-DONE: ADD-IMAGE: 
-		"headerMenu":
-			- Success message > success class
-			- Error message > error class
-			- Neutral message > remove both
-		
-		"btnEdit", "btnLists":
-			- Buttons should change their class also by the same way:
+Settings: Ne se zapisvat soinostite v basata danni sled save.. JSON se generira normalno..
 
 
 MAIN.JS: OPTIMIZING CODE..
