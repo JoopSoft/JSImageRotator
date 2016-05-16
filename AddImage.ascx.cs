@@ -46,7 +46,7 @@ namespace JS.Modules.JSImageRotator
                     btnEdit.NavigateUrl = EditUrl();
                     btnLists.NavigateUrl = EditUrl("Select");
                     FillImageLists();
-                    ShowHideMenuControls();
+                    ShowHideMenuControls("");
                 }
             }
             catch (Exception exc) //Module failed to load
@@ -89,10 +89,12 @@ namespace JS.Modules.JSImageRotator
                     }
                 }
                 lblAddedImage.Text = "<i class='fa fa-check'></i> Image Uploaded";
+                ShowHideMenuControls("success");
             }
             else
             {
                 lblAddedImage.Text = "<i class='fa fa-check'></i> Please Select an Image to Upload";
+                ShowHideMenuControls("error");
             }
         }
 
@@ -162,16 +164,18 @@ namespace JS.Modules.JSImageRotator
                     txtImageUrl.Text = txtTitle.Text = txtDescription.Text = txtPhotographer.Text = txtContact.Text = "";
                     pnlImgSelected.Visible = pnlImgSelected.Visible = pnlAddToList.Visible = false;
                     cbAddToList.Checked = false;
-                    ShowHideMenuControls();
+                    ShowHideMenuControls("success");
                 }
                 else
                 {
                     lblAddedImage.Text = "<i class='fa fa-warning'></i> Please Fill All Fields";
+                    ShowHideMenuControls("error");
                 }
             }
             else
             {
                 lblAddedImage.Text = "<i class='fa fa-warning'></i> Please Upload Image First";
+                ShowHideMenuControls("error");
             }
         }
 
@@ -192,6 +196,7 @@ namespace JS.Modules.JSImageRotator
             cbAddToList.Checked = false;
             txtImageUrl.Text = "";
             lblAddedImage.Text = "<i class='fa fa-check'></i> Image Deleted";
+            ShowHideMenuControls("success");
         }
 
         protected void btnNo_Click(object sender, EventArgs e)
@@ -215,7 +220,7 @@ namespace JS.Modules.JSImageRotator
             }
         }
 
-        protected void ShowHideMenuControls()
+        protected void ShowHideMenuControls(string status)
         {
             bool listPresent = false;
             bool imagePresent = false;
@@ -243,20 +248,22 @@ namespace JS.Modules.JSImageRotator
                 if (listPresent)
                 {
                     btnEdit.Visible = btnLists.Visible = true;
-                    headerMenu.CssClass = "dnnFormMessage two-controls dnnFormTitle no-spacing";
+                    headerMenu.CssClass = "dnnFormMessage two-controls dnnFormTitle no-spacing " + status;
                 }
                 else
                 {
                     btnEdit.Visible = true;
                     btnLists.Visible = false;
-                    headerMenu.CssClass = "dnnFormMessage one-control dnnFormTitle no-spacing";
+                    headerMenu.CssClass = "dnnFormMessage one-control dnnFormTitle no-spacing " + status;
                 }
             }
             else
             {
                 btnEdit.Visible = btnLists.Visible = false;
-                headerMenu.CssClass = "dnnFormMessage no-controls dnnFormTitle no-spacing";
+                headerMenu.CssClass = "dnnFormMessage no-controls dnnFormTitle no-spacing " + status;
             }
+            btnEdit.CssClass = "btn btn-primary link-edit-square no-txt" + status;
+            btnLists.CssClass = "btn btn-primary link-list no-txt" + status;
         }
     }
 }

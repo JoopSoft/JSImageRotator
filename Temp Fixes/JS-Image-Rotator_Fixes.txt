@@ -23,11 +23,11 @@ SETTINGS: > 2ND VERSE
 ------------------------------------------------------------------------
 
 
-Partialy DONE: Limiting to 100 and JSON fill Left: 
+DONE: Partialy DONE: Limiting to 100 and JSON fill Left: 
 
-!SETTINGS: Align and Valign coder logic:
+DONE: !SETTINGS: Align and Valign coder logic:
 
-ADD-IMAGE: 
+DONE: ADD-IMAGE: 
 		"headerMenu":
 			- Success message > success class
 			- Error message > error class
@@ -35,9 +35,6 @@ ADD-IMAGE:
 		
 		"btnEdit", "btnLists":
 			- Buttons should change their class also by the same way:
-
-
-(if DONE ? Delete : Resolve)VIEW: Да проверяваме дали имаме генериран {moduleId}_settings.json && {moduleId}_slides.json (empty) -ако нямаме да се ползва Default_Settings.json
 
 
 MAIN.JS: OPTIMIZING CODE..

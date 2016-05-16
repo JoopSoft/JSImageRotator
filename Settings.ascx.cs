@@ -77,7 +77,6 @@ namespace JS.Modules.JSImageRotator
                             txtColor.Text = s.BackgroundColor;
                             ddAlign.SelectedValue = s.Align;
                             txtAlignPercentage.Text = s.AlignPercent.ToString();
-                            ddVAlign.SelectedValue = s.VerticalAlign;
                             txtVAlignPercentage.Text = s.VerticalAlignPercent.ToString();
                             foreach (ListItem li in lbTransition.Items)
                             {
@@ -120,7 +119,6 @@ namespace JS.Modules.JSImageRotator
                             ddCover.SelectedValue = ds.Cover;
                             txtColor.Text = ds.BackgroundColor;
                             txtAlignPercentage.Text = ds.AlignPercent.ToString();
-                            ddVAlign.SelectedValue = ds.VerticalAlign;
                             txtVAlignPercentage.Text = ds.VerticalAlignPercent.ToString();
                             foreach (ListItem li in lbTransition.Items)
                             {
@@ -167,8 +165,6 @@ namespace JS.Modules.JSImageRotator
                         break;
                     }
                 }
-                AnimationValues();
-                TransitionValues();
                 if (!isSettingsPresent)
                 {
                     var ns = new CustomSettings()
@@ -191,9 +187,8 @@ namespace JS.Modules.JSImageRotator
                         Cover = ddCover.SelectedValue,
                         BackgroundColor = txtColor.Text.Trim(),
                         Align = ddAlign.SelectedValue,
-                        AlignPercent = Convert.ToInt32(txtAlignPercentage.Text.Trim()),
-                        VerticalAlign = ddVAlign.SelectedValue,
-                        VerticalAlignPercent = Convert.ToInt32(txtVAlignPercentage.Text.Trim()),
+                        AlignPercent = AlignPercent(),
+                        VerticalAlignPercent = VAlignPercent(),
                         Transition = TransitionValues(),
                         AutoTransitionDuration = rblTransDurationType.SelectedValue,
                         TransitionDuration = Convert.ToInt32(txtTransDuration.Text.Trim()),
@@ -226,9 +221,8 @@ namespace JS.Modules.JSImageRotator
                     s.Cover = ddCover.SelectedValue;
                     s.BackgroundColor = txtColor.Text.Trim();
                     s.Align = ddAlign.SelectedValue;
-                    s.AlignPercent = Convert.ToInt32(txtAlignPercentage.Text.Trim());
-                    s.VerticalAlign = ddVAlign.SelectedValue;
-                    s.VerticalAlignPercent = Convert.ToInt32(txtVAlignPercentage.Text.Trim());
+                    s.AlignPercent = AlignPercent();
+                    s.VerticalAlignPercent = VAlignPercent();
                     s.Transition = TransitionValues();
                     s.AutoTransitionDuration = rblTransDurationType.SelectedValue;
                     s.TransitionDuration = Convert.ToInt32(txtTransDuration.Text.Trim());
@@ -288,6 +282,40 @@ namespace JS.Modules.JSImageRotator
             return animationValues;
         }
 
+        int AlignPercent()
+        {
+            int temp = Convert.ToInt32(txtAlignPercentage.Text);
+            if (temp < 0)
+            {
+                return 0;
+            }
+            else if (temp > 100)
+            {
+                return 100;
+            }
+            else
+            {
+                return temp;
+            }
+        }
+
+        int VAlignPercent()
+        {
+            int temp = Convert.ToInt32(txtVAlignPercentage.Text);
+            if (temp < 0)
+            {
+                return 0;
+            }
+            else if (temp > 100)
+            {
+                return 100;
+            }
+            else
+            {
+                return temp;
+            }
+        }
+
         void SettingsJson (CustomSettings s)
         {
             string fileName = (Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Settings.json"));
@@ -331,21 +359,50 @@ namespace JS.Modules.JSImageRotator
                 AddLine("\t\t\"cover\": " + s.Cover.ToLower() + ",");
             }
             AddLine("\t\t\"backgroundColor\": " + "\"" + s.BackgroundColor + "\",");
-            if(ddAlign.SelectedValue == "percentage")
+            switch (ddAlign.SelectedValue)
             {
-                AddLine("\t\t\"align\": " + s.AlignPercent + ",");
-            }
-            else
-            {
-                AddLine("\t\t\"align\": " + "\"" + s.Align.ToLower() + "\",");
-            }
-            if (ddVAlign.SelectedValue == "percentage")
-            {
-                AddLine("\t\t\"valign\": " + s.VerticalAlignPercent + ",");
-            }
-            else
-            {
-                AddLine("\t\t\"valign\": " + "\"" + s.VerticalAlign.ToLower() + "\",");
+                case "top-left":
+                    AddLine("\t\t\"align\": \"left\",");
+                    AddLine("\t\t\"valign\": \"top\",");
+                    break;
+                case "top-right":
+                    AddLine("\t\t\"align\": \"right\",");
+                    AddLine("\t\t\"valign\": \"top\",");
+                    break;
+                case "top-center":
+                    AddLine("\t\t\"align\": \"center\",");
+                    AddLine("\t\t\"valign\": \"top\",");
+                    break;
+                case "bottom-left":
+                    AddLine("\t\t\"align\": \"left\",");
+                    AddLine("\t\t\"valign\": \"bottom\",");
+                    break;
+                case "bottom-right":
+                    AddLine("\t\t\"align\": \"right\",");
+                    AddLine("\t\t\"valign\": \"bottom\",");
+                    break;
+                case "bottom-center":
+                    AddLine("\t\t\"align\": \"center\",");
+                    AddLine("\t\t\"valign\": \"bottom\",");
+                    break;
+                case "center-left":
+                    AddLine("\t\t\"align\": \"left\",");
+                    AddLine("\t\t\"valign\": \"center\",");
+                    break;
+                case "center-right":
+                    AddLine("\t\t\"align\": \"right\",");
+                    AddLine("\t\t\"valign\": \"center\",");
+                    break;
+                case "center-center":
+                    AddLine("\t\t\"align\": \"center\",");
+                    AddLine("\t\t\"valign\": \"center\",");
+                    break;
+                case "percentage":
+                    AddLine("\t\t\"align\": " + s.AlignPercent + ",");
+                    AddLine("\t\t\"valign\": " + s.VerticalAlignPercent + ",");
+                    break;
+                default:
+                    break;
             }
             if (s.Transition != "[ ]")
             {

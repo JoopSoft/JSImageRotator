@@ -391,15 +391,6 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.TextBox txtVAlignPercentage;
         
         /// <summary>
-        /// ddVAlign control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddVAlign;
-        
-        /// <summary>
         /// lblTransition control.
         /// </summary>
         /// <remarks>

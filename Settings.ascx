@@ -157,16 +157,6 @@
                     <asp:TextBox ID="txtVAlignPercentage" runat="server" CssClass="form-control" TextMode="Number" />
                 </div>
 
-
-                <%--DELETE REGION--%>
-                    <asp:DropDownList ID="ddVAlign" runat="server"
-                        data-target=".percTextBox"
-                        Visible="false">
-                    </asp:DropDownList>
-                <%--END OF DELETE REGION--%>
-
-
-
             </div>
             <div class="fieldset">
                 <div class="dnnFormItem group">
