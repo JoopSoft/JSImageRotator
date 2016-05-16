@@ -747,33 +747,32 @@
         .JSRotator .dnnForm.edit .dnnFormItem table tbody tr {
           width: 100%;
           float: left; }
-      .JSRotator .dnnForm.edit .dnnFormItem table th, .JSRotator .dnnForm.edit .dnnFormItem table td {
+      .JSRotator .dnnForm.edit .dnnFormItem table tr th, .JSRotator .dnnForm.edit .dnnFormItem table tr td {
         display: block;
         float: left;
-        width: calc((100% - 475px)/4); }
-      .JSRotator .dnnForm.edit .dnnFormItem table th:nth-child(1),
-      .JSRotator .dnnForm.edit .dnnFormItem table td:nth-child(1) {
+        width: calc((100% - 475px)/4);
+        vertical-align: middle; }
+      .JSRotator .dnnForm.edit .dnnFormItem table tr th:nth-child(1),
+      .JSRotator .dnnForm.edit .dnnFormItem table tr td:nth-child(1) {
         width: 45px; }
-      .JSRotator .dnnForm.edit .dnnFormItem table th:nth-child(2),
-      .JSRotator .dnnForm.edit .dnnFormItem table td:nth-child(2) {
+      .JSRotator .dnnForm.edit .dnnFormItem table tr th:nth-child(2),
+      .JSRotator .dnnForm.edit .dnnFormItem table tr td:nth-child(2) {
         width: 60px; }
-      .JSRotator .dnnForm.edit .dnnFormItem table th:nth-child(9),
-      .JSRotator .dnnForm.edit .dnnFormItem table td:nth-child(9) {
+      .JSRotator .dnnForm.edit .dnnFormItem table tr th:nth-child(9),
+      .JSRotator .dnnForm.edit .dnnFormItem table tr td:nth-child(9) {
         width: 70px; }
-      .JSRotator .dnnForm.edit .dnnFormItem table th.custom-fx,
-      .JSRotator .dnnForm.edit .dnnFormItem table td.custom-fx {
+      .JSRotator .dnnForm.edit .dnnFormItem table tr th.custom-fx,
+      .JSRotator .dnnForm.edit .dnnFormItem table tr td.custom-fx {
         width: 150px; }
       .JSRotator .dnnForm.edit .dnnFormItem table tr > th {
         color: rgba(255, 255, 255, 0.8);
         background-color: rgba(59, 30, 119, 0.8);
-        border: none;
-        vertical-align: middle; }
+        border: none; }
         .JSRotator .dnnForm.edit .dnnFormItem table tr > th .dnnCheckbox img {
           background-position: -100px 0px; }
         .JSRotator .dnnForm.edit .dnnFormItem table tr > th .dnnCheckbox-checked img {
           background-position: -150px 0px; }
       .JSRotator .dnnForm.edit .dnnFormItem table tr > td {
-        vertical-align: middle;
         word-break: break-all;
         word-wrap: break-word;
         word-spacing: normal; }
@@ -968,23 +967,22 @@
             width: 100%;
             min-height: 40px;
             display: block; }
-      .JSRotator .dnnForm.select .dnnFormItem table th, .JSRotator .dnnForm.select .dnnFormItem table td {
+      .JSRotator .dnnForm.select .dnnFormItem table tr th, .JSRotator .dnnForm.select .dnnFormItem table tr td {
         display: block;
         float: left;
-        width: calc((100% - 65px)/6); }
-      .JSRotator .dnnForm.select .dnnFormItem table th:nth-child(1),
-      .JSRotator .dnnForm.select .dnnFormItem table td:nth-child(1) {
+        width: calc((100% - 65px)/6);
+        vertical-align: middle; }
+      .JSRotator .dnnForm.select .dnnFormItem table tr th:nth-child(1),
+      .JSRotator .dnnForm.select .dnnFormItem table tr td:nth-child(1) {
         width: 65px; }
       .JSRotator .dnnForm.select .dnnFormItem table tr > th {
         color: rgba(255, 255, 255, 0.8);
         background-color: rgba(59, 30, 119, 0.8);
-        border: none;
-        vertical-align: middle; }
+        border: none; }
       .JSRotator .dnnForm.select .dnnFormItem table tr > td {
         word-break: break-all;
         word-wrap: break-word;
         word-spacing: normal;
-        vertical-align: middle;
         line-height: 40px; }
     .JSRotator .dnnForm.select .dnnFormItem img.row-img {
       height: 40px;

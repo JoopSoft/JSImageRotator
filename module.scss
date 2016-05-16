@@ -783,38 +783,39 @@
                         }
                     }
 
-                    th, td {
-                        display: block;
-                        float: left;
-                        width: calc((100% - 475px)/4);
-                    }
-
-                    th:nth-child(1),
-                    td:nth-child(1) {
-                        width: 45px;
-                    }
-
-                    th:nth-child(2),
-                    td:nth-child(2) {
-                        width: 60px;
-                    }
-
-                    th:nth-child(9),
-                    td:nth-child(9) {
-                        width: 70px;
-                    }
-
-                    th.custom-fx,
-                    td.custom-fx {
-                        width: 150px;
-                    }
-
                     tr {
+
+                        th, td {
+                            display: block;
+                            float: left;
+                            width: calc((100% - 475px)/4);
+                            vertical-align: middle;
+                        }
+
+                        th:nth-child(1),
+                        td:nth-child(1) {
+                            width: 45px;
+                        }
+
+                        th:nth-child(2),
+                        td:nth-child(2) {
+                            width: 60px;
+                        }
+
+                        th:nth-child(9),
+                        td:nth-child(9) {
+                            width: 70px;
+                        }
+
+                        th.custom-fx,
+                        td.custom-fx {
+                            width: 150px;
+                        }
+
                         > th {
                             color: $light-alpha-xlg;
                             background-color: $dark-alpha-xlg;
                             border: $none;
-                            vertical-align: middle;
 
                             .dnnCheckbox img {
                                 background-position: -100px 0px;
@@ -826,7 +827,6 @@
                         }
 
                         > td {
-                            vertical-align: middle;
                             word-break: break-all;
                             word-wrap: break-word;
                             word-spacing: normal;
@@ -1098,30 +1098,29 @@
                         }
                     }
 
-                    th, td {
-                        display: block;
-                        float: left;
-                        width: calc((100% - 65px)/6);
-                    }
-
-                    th:nth-child(1),
-                    td:nth-child(1) {
-                        width: 65px;
-                    }
-
                     tr {
+                        th, td {
+                            display: block;
+                            float: left;
+                            width: calc((100% - 65px)/6);
+                            vertical-align: middle;
+                        }
+
+                        th:nth-child(1),
+                        td:nth-child(1) {
+                            width: 65px;
+                        }
+
                         > th {
                             color: $light-alpha-xlg;
                             background-color: $dark-alpha-xlg;
                             border: $none;
-                            vertical-align: middle;
                         }
 
                         > td {
                             word-break: break-all;
                             word-wrap: break-word;
                             word-spacing: normal;
-                            vertical-align: middle;
                             line-height: 40px;
                         }
                     }
@@ -1336,7 +1335,7 @@
         }
 
         .content-holder {
-            float:left;
+            float: left;
             color: $white;
             background-color: $tooltip-md;
             padding: 10px 15px;

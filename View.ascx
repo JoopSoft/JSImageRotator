@@ -199,9 +199,7 @@
     		})
     		.fail(function (jqXHR, textStatus) {
     		    console.log('Error Loading JSON');
-    		});
-
-
+    		}); 
     });
 
 </script>
