@@ -35,7 +35,6 @@ namespace JS.Modules.JSImageRotator.Components
         public string BackgroundColor { get; set; }
         public string Align { get; set; }
         public int AlignPercent { get; set; }
-        public string VerticalAlign { get; set; }
         public int VerticalAlignPercent { get; set; }
         public string Transition { get; set; }
         public string AutoTransitionDuration { get; set; }
