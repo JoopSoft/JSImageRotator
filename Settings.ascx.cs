@@ -118,6 +118,7 @@ namespace JS.Modules.JSImageRotator
                             txtDelay.Text = ds.Delay.ToString();
                             ddCover.SelectedValue = ds.Cover;
                             txtColor.Text = ds.BackgroundColor;
+                            ddAlign.SelectedValue = ds.Align;
                             txtAlignPercentage.Text = ds.AlignPercent.ToString();
                             txtVAlignPercentage.Text = ds.VerticalAlignPercent.ToString();
                             foreach (ListItem li in lbTransition.Items)
