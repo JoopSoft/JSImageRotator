@@ -6,6 +6,11 @@
         @include box-size(border-box);
     }
 
+    [class*=RadAjaxPanel] *, 
+    [class*=Digital] * {
+        @include box-size(border-box);
+    }
+
     .link-dev {
         float: right;
         font-size: 12px;
@@ -1359,6 +1364,7 @@
             &:active,
             &.active {
                 background-color: $dark-alpha-xlg;
+                text-decoration: none;
             }
         }
 

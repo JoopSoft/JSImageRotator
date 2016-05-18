@@ -130,9 +130,6 @@ namespace JS.Modules.JSImageRotator
             DirectoryInfo di = Directory.CreateDirectory(Server.MapPath("~/DesktopModules/JSImageRotator/Json/"));
             string fileName = Server.MapPath("~/DesktopModules/JSImageRotator/Json/" + ModuleId + "_Settings.json");
             if (!File.Exists(fileName))
-            //{
-            //}
-            //else
             {
                 using (FileStream fs = File.Open(fileName, FileMode.CreateNew)) { }
                 AddLine("{", fileName);

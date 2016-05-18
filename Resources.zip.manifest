@@ -65,8 +65,20 @@
       <name>View.ascx.resx</name>
     </file>
     <file>
-      <path>Images/</path>
-      <name>me_ups.jpg</name>
+      <path>Images/Icons/</path>
+      <name>checkbox.png</name>
+    </file>
+    <file>
+      <path>Images/Icons/</path>
+      <name>h-icon.png</name>
+    </file>
+    <file>
+      <path>Images/Icons/</path>
+      <name>icon.png</name>
+    </file>
+    <file>
+      <path>Images/Icons/</path>
+      <name>radiobutton.png</name>
     </file>
     <file>
       <path>Js/</path>
@@ -115,6 +127,10 @@
     <file>
       <path>Vegas/</path>
       <name>vegas.min.js</name>
+    </file>
+    <file>
+      <path>Vegas/</path>
+      <name>vegasScript.js</name>
     </file>
   </files>
 </dotnetnuke>
