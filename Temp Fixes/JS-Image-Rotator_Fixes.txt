@@ -22,14 +22,6 @@ SETTINGS: > 2ND VERSE
 	са доста повече от 'animation' and 'transition'
 ------------------------------------------------------------------------
 
-SETTINGS: Дифолтнатите стойности в сетингите не са сетнати правилно на следните пропъртита:
-	- overlay: false, 
-	- align: center center, 
-	- transition: fade, 
-	- transition type (radio buttons): manual 
-
-
-
 MAIN.JS: OPTIMIZING CODE..
 ALL JS script code also..
 
