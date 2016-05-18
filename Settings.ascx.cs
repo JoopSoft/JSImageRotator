@@ -53,95 +53,23 @@ namespace JS.Modules.JSImageRotator
                     joopSoft.ToolTip = "JoopSOFT.com";
                     joopSoft.CssClass = "link-dev";
                     joopSoft.Target = "_blank";
+                    bool isSettingPresent = false;
                     var sc = new SettingsController();
                     var cs = sc.LoadSettings();
                     foreach (CustomSettings s in cs)
                     {
                         if (s.SettingsId == ModuleId)
                         {
-                            ddRotatorType.SelectedValue = s.RotatorType;
-                            txtMinHeight.Text = s.MinHeight.ToString();
-                            cbPPControl.Checked = s.PlayPauseControl;
-                            cbSlideInfo.Checked = s.SlideInfo;
-                            txtSlide.Text = s.Slide.ToString();
-                            cbPreload.Checked = s.Preload;
-                            cbPreloadImage.Checked = s.PreloadImage;
-                            cbPreloadVideo.Checked = s.PreloadVideo;
-                            cbTimer.Checked = s.Timer;
-                            ddOverlay.SelectedValue = s.Overlay;
-                            ddOverlayType.SelectedValue = s.OverlayType;
-                            cbAutoplay.Checked = s.Autoplay;
-                            cbShuffle.Checked = s.Shuffle;
-                            txtDelay.Text = s.Delay.ToString();
-                            ddCover.SelectedValue = s.Cover;
-                            txtColor.Text = s.BackgroundColor;
-                            ddAlign.SelectedValue = s.Align;
-                            txtAlignPercentage.Text = s.AlignPercent.ToString();
-                            txtVAlignPercentage.Text = s.VerticalAlignPercent.ToString();
-                            foreach (ListItem li in lbTransition.Items)
-                            {
-                                if (s.Transition.Contains("\"" + li.Value + "\""))
-                                {
-                                    li.Selected = true;
-                                }
-                            }
-                            rblTransDurationType.SelectedValue = s.AutoTransitionDuration;
-                            txtTransDuration.Text = s.TransitionDuration.ToString();
-                            //txtTransRegister.Text = s.TransitionRegister; - 2nd verse of module
-                            foreach (ListItem li in lbAnimation.Items)
-                            {
-                                if (s.Animation.Contains("\"" + li.Value + "\""))
-                                {
-                                    li.Selected = true;
-                                }
-                            }
-                            rblAnimDurationType.SelectedValue = s.AutoAnimationDuration;
-                            txtAnimDuration.Text = s.AnimationDuration.ToString();
-                            //txtAnimRegister.Text = s.AnimationRegister; - 2nd verse of module
+                            isSettingPresent = true;
                         }
-                        else
-                        {
-                            var ds = sc.LoadSingleSettings(0);
-                            ddRotatorType.SelectedValue = ds.RotatorType;
-                            txtMinHeight.Text = ds.MinHeight.ToString();
-                            cbPPControl.Checked = ds.PlayPauseControl;
-                            cbSlideInfo.Checked = ds.SlideInfo;
-                            txtSlide.Text = ds.Slide.ToString();
-                            cbPreload.Checked = ds.Preload;
-                            cbPreloadImage.Checked = ds.PreloadImage;
-                            cbPreloadVideo.Checked = ds.PreloadVideo;
-                            cbTimer.Checked = ds.Timer;
-                            ddOverlay.SelectedValue = ds.Overlay;
-                            ddOverlayType.SelectedValue = s.OverlayType;
-                            cbAutoplay.Checked = ds.Autoplay;
-                            cbShuffle.Checked = ds.Shuffle;
-                            txtDelay.Text = ds.Delay.ToString();
-                            ddCover.SelectedValue = ds.Cover;
-                            txtColor.Text = ds.BackgroundColor;
-                            ddAlign.SelectedValue = ds.Align;
-                            txtAlignPercentage.Text = ds.AlignPercent.ToString();
-                            txtVAlignPercentage.Text = ds.VerticalAlignPercent.ToString();
-                            foreach (ListItem li in lbTransition.Items)
-                            {
-                                if (s.Transition.Contains("\"" + li.Value + "\""))
-                                {
-                                    li.Selected = true;
-                                }
-                            }
-                            rblTransDurationType.SelectedValue = ds.AutoTransitionDuration;
-                            txtTransDuration.Text = ds.TransitionDuration.ToString();
-                            //txtTransRegister.Text = ds.TransitionRegister; - 2nd verse of module
-                            foreach (ListItem li in lbAnimation.Items)
-                            {
-                                if (s.Animation.Contains("\"" + li.Value + "\""))
-                                {
-                                    li.Selected = true;
-                                }
-                            }
-                            rblAnimDurationType.SelectedValue = ds.AutoAnimationDuration;
-                            txtAnimDuration.Text = ds.AnimationDuration.ToString();
-                            //txtAnimRegister.Text = ds.AnimationRegister; - 2nd verse of module
-                        }
+                    }
+                    if (isSettingPresent)
+                    {
+                        SettingsLoad(ModuleId);
+                    }
+                    else
+                    {
+                        SettingsLoad(0);
                     }
                 }
             }
@@ -168,72 +96,13 @@ namespace JS.Modules.JSImageRotator
                 }
                 if (!isSettingsPresent)
                 {
-                    var ns = new CustomSettings()
-                    {
-                        SettingsId = ModuleId,
-                        RotatorType = ddRotatorType.SelectedValue,
-                        MinHeight = Convert.ToInt32(txtMinHeight.Text.Trim()),
-                        PlayPauseControl = cbPPControl.Checked,
-                        SlideInfo = cbSlideInfo.Checked,
-                        Slide = Convert.ToInt32(txtSlide.Text.Trim()),
-                        Preload = cbPreload.Checked,
-                        PreloadImage = cbPreloadImage.Checked,
-                        PreloadVideo = cbPreloadVideo.Checked,
-                        Timer = cbTimer.Checked,
-                        Overlay = ddOverlay.SelectedValue,
-                        OverlayType = ddOverlayType.SelectedValue,
-                        Autoplay = cbAutoplay.Checked,
-                        Shuffle = cbShuffle.Checked,
-                        Delay = Convert.ToInt32(txtDelay.Text.Trim()),
-                        Cover = ddCover.SelectedValue,
-                        BackgroundColor = txtColor.Text.Trim(),
-                        Align = ddAlign.SelectedValue,
-                        AlignPercent = AlignPercent(),
-                        VerticalAlignPercent = VAlignPercent(),
-                        Transition = TransitionValues(),
-                        AutoTransitionDuration = rblTransDurationType.SelectedValue,
-                        TransitionDuration = Convert.ToInt32(txtTransDuration.Text.Trim()),
-                        //TransitionRegister = txtTransRegister.Text.Trim(), - 2nd verse of module
-                        Animation = AnimationValues(),
-                        AutoAnimationDuration = rblAnimDurationType.SelectedValue,
-                        AnimationDuration = Convert.ToInt32(txtAnimDuration.Text.Trim()),
-                        //AnimationRegister = txtAnimRegister.Text.Trim() - 2nd verse of module
-                    };
-                    SettingsJson(ns);
-                    sc.AddSettings(ns);
+                    var ns = new CustomSettings();
+                    SettingsSave(ns);
                 }
                 else
                 {
                     var s = sc.LoadSingleSettings(ModuleId);
-                    s.RotatorType = ddRotatorType.SelectedValue;
-                    s.MinHeight = Convert.ToInt32(txtMinHeight.Text.Trim());
-                    s.PlayPauseControl = cbPPControl.Checked;
-                    s.SlideInfo = cbSlideInfo.Checked;
-                    s.Slide = Convert.ToInt32(txtSlide.Text.Trim());
-                    s.Preload = cbPreload.Checked;
-                    s.PreloadImage = cbPreloadImage.Checked;
-                    s.PreloadVideo = cbPreloadVideo.Checked;
-                    s.Timer = cbTimer.Checked;
-                    s.Overlay = ddOverlay.SelectedValue;
-                    s.OverlayType = ddOverlayType.SelectedValue;
-                    s.Autoplay = cbAutoplay.Checked;
-                    s.Shuffle = cbShuffle.Checked;
-                    s.Delay = Convert.ToInt32(txtDelay.Text.Trim());
-                    s.Cover = ddCover.SelectedValue;
-                    s.BackgroundColor = txtColor.Text.Trim();
-                    s.Align = ddAlign.SelectedValue;
-                    s.AlignPercent = AlignPercent();
-                    s.VerticalAlignPercent = VAlignPercent();
-                    s.Transition = TransitionValues();
-                    s.AutoTransitionDuration = rblTransDurationType.SelectedValue;
-                    s.TransitionDuration = Convert.ToInt32(txtTransDuration.Text.Trim());
-                    //s.TransitionRegister = txtTransRegister.Text.Trim(); - 2nd verse of module
-                    s.Animation = AnimationValues();
-                    s.AutoAnimationDuration = rblAnimDurationType.SelectedValue;
-                    s.AnimationDuration = Convert.ToInt32(txtAnimDuration.Text.Trim());
-                    //s.AnimationRegister = txtAnimRegister.Text.Trim(); - 2nd verse of module
-                    SettingsJson(s);
-                    sc.UpdateSettings(s);
+                    SettingsSave(s);
                 }
                 Response.Redirect(DotNetNuke.Common.Globals.NavigateURL());
             }
@@ -441,6 +310,81 @@ namespace JS.Modules.JSImageRotator
             AddLine("\t\t\"animationRegister\": " + "\"" + s.AnimationRegister + "\"");
             AddLine("\t}");
             AddLine("}");
+        }
+
+        void SettingsLoad(int id)
+        {
+            var sCon = new SettingsController();
+            var s = sCon.LoadSingleSettings(id);
+            ddRotatorType.SelectedValue = s.RotatorType;
+            txtMinHeight.Text = s.MinHeight.ToString();
+            cbPPControl.Checked = s.PlayPauseControl;
+            cbSlideInfo.Checked = s.SlideInfo;
+            txtSlide.Text = s.Slide.ToString();
+            cbPreload.Checked = s.Preload;
+            cbPreloadImage.Checked = s.PreloadImage;
+            cbPreloadVideo.Checked = s.PreloadVideo;
+            cbTimer.Checked = s.Timer;
+            ddOverlay.SelectedValue = s.Overlay;
+            ddOverlayType.SelectedValue = s.OverlayType;
+            cbAutoplay.Checked = s.Autoplay;
+            cbShuffle.Checked = s.Shuffle;
+            txtDelay.Text = s.Delay.ToString();
+            ddCover.SelectedValue = s.Cover;
+            txtColor.Text = s.BackgroundColor;
+            ddAlign.SelectedValue = s.Align;
+            txtAlignPercentage.Text = s.AlignPercent.ToString();
+            txtVAlignPercentage.Text = s.VerticalAlignPercent.ToString();
+            foreach (ListItem li in lbTransition.Items)
+            {
+                if (s.Transition.Contains("\"" + li.Value + "\""))
+                {
+                    li.Selected = true;
+                }
+            }
+            rblTransDurationType.SelectedValue = s.AutoTransitionDuration;
+            txtTransDuration.Text = s.TransitionDuration.ToString();
+            foreach (ListItem li in lbAnimation.Items)
+            {
+                if (s.Animation.Contains("\"" + li.Value + "\""))
+                {
+                    li.Selected = true;
+                }
+            }
+            rblAnimDurationType.SelectedValue = s.AutoAnimationDuration;
+            txtAnimDuration.Text = s.AnimationDuration.ToString();
+        }
+
+        void SettingsSave(CustomSettings s)
+        {
+            var sc = new SettingsController();
+            s.RotatorType = ddRotatorType.SelectedValue;
+            s.MinHeight = Convert.ToInt32(txtMinHeight.Text.Trim());
+            s.PlayPauseControl = cbPPControl.Checked;
+            s.SlideInfo = cbSlideInfo.Checked;
+            s.Slide = Convert.ToInt32(txtSlide.Text.Trim());
+            s.Preload = cbPreload.Checked;
+            s.PreloadImage = cbPreloadImage.Checked;
+            s.PreloadVideo = cbPreloadVideo.Checked;
+            s.Timer = cbTimer.Checked;
+            s.Overlay = ddOverlay.SelectedValue;
+            s.OverlayType = ddOverlayType.SelectedValue;
+            s.Autoplay = cbAutoplay.Checked;
+            s.Shuffle = cbShuffle.Checked;
+            s.Delay = Convert.ToInt32(txtDelay.Text.Trim());
+            s.Cover = ddCover.SelectedValue;
+            s.BackgroundColor = txtColor.Text.Trim();
+            s.Align = ddAlign.SelectedValue;
+            s.AlignPercent = AlignPercent();
+            s.VerticalAlignPercent = VAlignPercent();
+            s.Transition = TransitionValues();
+            s.AutoTransitionDuration = rblTransDurationType.SelectedValue;
+            s.TransitionDuration = Convert.ToInt32(txtTransDuration.Text.Trim());
+            s.Animation = AnimationValues();
+            s.AutoAnimationDuration = rblAnimDurationType.SelectedValue;
+            s.AnimationDuration = Convert.ToInt32(txtAnimDuration.Text.Trim());
+            SettingsJson(s);
+            sc.UpdateSettings(s);
         }
         #endregion
     }
