@@ -1,6 +1,6 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="JSImageRotator" type="Module" version="00.00.01">
+    <package name="JSImageRotator" type="Module" version="01.00.00">
       <friendlyName>JSImageRotator</friendlyName>
       <description>JSImageRotator allows you to create image slides with some describe attributes, modify slides, delete slides, change the slide order and etc. We used Vegas plugin with MIT license.</description>
       <iconFile>Images\Icons\icon.png</iconFile>
@@ -23,13 +23,13 @@
             <basePath>DesktopModules\JSImageRotator</basePath>
             <script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
-              <name>00.00.01.SqlDataProvider</name>
-              <version>00.00.01</version>
+              <name>01.00.00.SqlDataProvider</name>
+              <version>01.00.00</version>
             </script>
             <script type="UnInstall">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>Uninstall.SqlDataProvider</name>
-              <version>00.00.01</version>
+              <version>01.00.00</version>
             </script>
           </scripts>
         </component>
@@ -121,7 +121,7 @@
             <attributes>
               <businessControllerClass>JS.Modules.JSImageRotator.Components.FeatureController, JSImageRotator</businessControllerClass>
               <desktopModuleID>[DESKTOPMODULEID]</desktopModuleID>
-              <upgradeVersionsList>00.00.01</upgradeVersionsList>
+              <upgradeVersionsList>01.00.00</upgradeVersionsList>
             </attributes>
           </eventMessage>
         </component>

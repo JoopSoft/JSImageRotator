@@ -52,7 +52,7 @@ namespace JS.Modules.JSImageRotator.Components
             {
                 switch (version)
                 {
-                    case "00.00.01":
+                    case "01.00.00":
                         // run your custom code here
                         return "success";
                     default:
