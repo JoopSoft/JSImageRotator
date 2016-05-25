@@ -3,12 +3,7 @@
 .JSRotator {
 
     * {
-        @include box-size(border-box);
-    }
-
-    [class*=RadAjaxPanel] *, 
-    [class*=Digital] * {
-        @include box-size(border-box);
+        @include box-size(border-box !important);
     }
 
     .link-dev {
@@ -235,7 +230,6 @@
         }
 
         .dnnRadiobutton img {
-            /*background: transparent url(radiobutton.png) no-repeat;*/
             background: transparent url(Images/Icons/radiobutton.png) no-repeat;
         }
 

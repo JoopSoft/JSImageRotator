@@ -131,16 +131,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="checkbox.png" />
     <Content Include="Images\Icons\checkbox.png" />
     <Content Include="Images\Icons\h-icon.png" />
     <Content Include="Images\Icons\icon.png" />
     <Content Include="Images\Icons\radiobutton.png" />
     <Content Include="Js\jquery.ellipsis.js" />
     <Content Include="Js\jquery.ellipsis.min.js" />
-    <Content Include="icon.png" />
     <Content Include="AddImage.ascx" />
-    <Content Include="h-icon.png" />
     <Content Include="Js\JSScript.js" />
     <Content Include="Js\main.js" />
     <Content Include="Js\main.min.js">
@@ -152,7 +149,6 @@
     <Content Include="module.min.css">
       <DependentUpon>module.css</DependentUpon>
     </Content>
-    <Content Include="radiobutton.png" />
     <Content Include="Select.ascx" />
     <Content Include="Edit.ascx" />
     <Content Include="License.txt" />
@@ -234,6 +230,7 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="Vegas\vegas.min.js.map" />
+    <Content Include="Resources.zip.manifest" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
