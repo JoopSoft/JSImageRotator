@@ -120,15 +120,6 @@
   <data name="AddImage.Text" xml:space="preserve">
     <value>Add New Image</value>
   </data>
-  <data name="BasicSettings.Text" xml:space="preserve">
-    <value>Basic JSImageRotator Settings</value>
-  </data>
-  <data name="CollapseAll.Text" xml:space="preserve">
-    <value>Collapse All</value>
-  </data>
-  <data name="ConfirmDelete.Text" xml:space="preserve">
-    <value>Are you sure you want to delete this Item</value>
-  </data>
   <data name="EditModule.Text" xml:space="preserve">
     <value>Edit Image List</value>
   </data>

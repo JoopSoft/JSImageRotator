@@ -1,4 +1,4 @@
-﻿@import "variables.scss";
+﻿@import "Styles/variables.scss";
 
 .JSRotator {
 
@@ -115,6 +115,7 @@
 
             .JSRotatorMenu {
                 display: inline-block;
+                margin: 0;
 
                 .dnnFormTitle {
                     float: left;
@@ -564,6 +565,17 @@
 
                     &.grouped {
                         border-right: $none;
+
+                        &.squared-box {
+                            width: calc(50% - 45px);
+                            max-width: 405px;
+                            margin-right: 10px;
+                            border: 1px solid $dark-alpha;
+
+                            &:focus {
+                                border: 1px solid $dark;
+                            }
+                        }
                     }
 
                     &.ungrouped {
@@ -601,6 +613,42 @@
                         max-width: 420px;
                     }
                 }
+            }
+
+            .input-group {
+                display: block;
+
+                .input-group-addon {
+                    float: left;
+                    width: 35px;
+                    height: 35px;
+                    line-height: 35px;
+                    padding: 0;
+                    background-color: transparent;
+                    border: 1px solid $dark-alpha;
+
+                    @include border-radius(0);
+
+                    i {
+                        height: 33px;
+                        vertical-align: top;
+                        width: 33px;
+                    }
+                }
+            }
+
+            .txt-error-validate {
+                font-style: italic;
+                position: absolute;
+                top: 5px;
+                /*left: calc(82.075% - 97px);*/
+                left: calc(32.075% + 355px - 18px);
+                color: $white;
+                background: $warning;
+                height: 25px;
+                line-height: 25px;
+                min-width: 110px;
+                text-align: center;
             }
         }
 
@@ -896,6 +944,30 @@
                                     &[disabled=disabled] {
                                         color: $white;
                                     }
+
+                                    &.error {
+                                        background: $warning-lg;
+                                    }
+                                }
+
+                                ::-webkit-input-placeholder {
+                                    color: $white;
+                                    font-style: italic;
+                                }
+
+                                :-moz-placeholder {
+                                    color: $white;
+                                    font-style: italic;
+                                }
+
+                                ::-moz-placeholder {
+                                    color: $white;
+                                    font-style: italic;
+                                }
+
+                                :-ms-input-placeholder {
+                                    color: $white;
+                                    font-style: italic;
                                 }
 
                                 &.edit-cell {
@@ -921,6 +993,26 @@
                                         cursor: text;
 
                                         @include box-shadow($none);
+                                    }
+
+                                    ::-webkit-input-placeholder {
+                                        color: $dark-alpha;
+                                        font-style: italic;
+                                    }
+
+                                    :-moz-placeholder {
+                                        color: $dark-alpha;
+                                        font-style: italic;
+                                    }
+
+                                    ::-moz-placeholder {
+                                        color: $dark-alpha;
+                                        font-style: italic;
+                                    }
+
+                                    :-ms-input-placeholder {
+                                        color: $dark-alpha;
+                                        font-style: italic;
                                     }
 
                                     select {
@@ -1016,6 +1108,13 @@
                                     background-position: -150px 0px;
                                 }
                             }
+
+                            .btn {
+                                &.disabled,
+                                &.aspNetDisabled {
+                                    color: $light-alpha-md;
+                                }
+                            }
                         }
                     }
 
@@ -1037,7 +1136,7 @@
                 img.row-img {
                     height: 35px;
                     width: auto;
-                    max-width: 100%;
+                    max-width: 100% !important;
                 }
             }
         }
@@ -1568,6 +1667,26 @@
         option[disabled] {
             color: $grey;
         }
+    }
+
+    ::-webkit-input-placeholder {
+        color: $dark-alpha;
+        font-style: italic;
+    }
+
+    :-moz-placeholder {
+        color: $dark-alpha;
+        font-style: italic;
+    }
+
+    ::-moz-placeholder {
+        color: $dark-alpha;
+        font-style: italic;
+    }
+
+    :-ms-input-placeholder {
+        color: $dark-alpha;
+        font-style: italic;
     }
 }
 

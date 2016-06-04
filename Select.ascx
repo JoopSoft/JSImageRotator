@@ -13,11 +13,9 @@
                 <%=LocalizeString("Title")%>
                 <asp:HyperLink ID="joopSoft" runat="server" />
             </h3>
-        </div>
-        <div class="dnnFormSectionHead">
             <div class="dnnFormItem JSRotatorMenu">
                 <h3 class="dnnFormMessage three-controls dnnFormTitle no-spacing">
-                    <asp:Label ID="lblTableTitle" runat="server" Text="Image List" />
+                    <asp:Label ID="lblTableTitle" runat="server" Text="Select Image List" />
                 </h3>
                 <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add no-txt"
                     data-toggle="tooltip" ToolTip="Add New Image" />
@@ -25,6 +23,8 @@
                     data-toggle="tooltip" ToolTip="Edit Lists" />
                 <asp:LinkButton ID="btnDeleteList" runat="server" CssClass="btn btn-danger link-delete no-txt" OnClick="btnDeleteList_Click"
                     data-toggle="tooltip" ToolTip="Delete Selected List" />
+                <asp:HyperLink ID="lnkSettings" runat="server" CssClass="btn btn-primary link-settings no-txt"
+                    ResourceKey="lnkSettings" ToolTip="Settings" />
             </div>
         </div>
 

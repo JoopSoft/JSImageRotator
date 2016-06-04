@@ -196,7 +196,7 @@
     <value>Preload Video</value>
   </data>
   <data name="lblRotatorType.Help" xml:space="preserve">
-    <value>Choose the Rotator type</value>
+    <value>Choose the rotator type</value>
   </data>
   <data name="lblRotatorType.Text" xml:space="preserve">
     <value>Rotator Type</value>
@@ -220,7 +220,7 @@
     <value>Slides</value>
   </data>
   <data name="lblTimer.Help" xml:space="preserve">
-    <value>Display/hide timer bar.</value>
+    <value>Display/Hide timer bar.</value>
   </data>
   <data name="lblTimer.Text" xml:space="preserve">
     <value>Timer</value>
@@ -244,7 +244,7 @@
     <value>Transition Register</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
-    <value>JSImageRotator - Settings</value>
+    <value>JSImageRotator</value>
   </data>
   <data name="lblPPControl.Help" xml:space="preserve">
     <value>Display/Hide play/pause controls.</value>
@@ -253,7 +253,7 @@
     <value>Play/Pause Control</value>
   </data>
   <data name="lblSlideInfo.Help" xml:space="preserve">
-    <value>Show/Hide slide info controls.</value>
+    <value>Display/Hide slide info controls.</value>
   </data>
   <data name="lblSlideInfo.Text" xml:space="preserve">
     <value>Slide Info</value>

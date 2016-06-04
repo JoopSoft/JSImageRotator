@@ -154,10 +154,10 @@
     <Content Include="License.txt" />
     <Content Include="ReleaseNotes.txt" />
     <Content Include="Settings.ascx" />
-    <Content Include="variables.css">
+    <Content Include="Styles\variables.css">
       <DependentUpon>variables.scss</DependentUpon>
     </Content>
-    <Content Include="variables.min.css">
+    <Content Include="Styles\variables.min.css">
       <DependentUpon>variables.css</DependentUpon>
     </Content>
     <Content Include="Vegas\overlays\01.png" />
@@ -222,7 +222,7 @@
     <Content Include="module.scss" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="variables.scss" />
+    <Content Include="Styles\variables.scss" />
   </ItemGroup>
   <ItemGroup>
     <None Include="compilerconfig.json" />

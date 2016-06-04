@@ -40,6 +40,24 @@ namespace JS.Modules.JSImageRotator {
         protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnCssInclude bootstrapSelectCss;
         
         /// <summary>
+        /// bootstrapColorPickerCss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnCssInclude bootstrapColorPickerCss;
+        
+        /// <summary>
+        /// moduleCss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnCssInclude moduleCss;
+        
+        /// <summary>
         /// joopSoft control.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,42 @@ namespace JS.Modules.JSImageRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink joopSoft;
+        
+        /// <summary>
+        /// lblTableTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTableTitle;
+        
+        /// <summary>
+        /// lnkAdd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkAdd;
+        
+        /// <summary>
+        /// lnkEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkEdit;
+        
+        /// <summary>
+        /// btnLists control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink btnLists;
         
         /// <summary>
         /// lblRotatorType control.
@@ -542,6 +596,15 @@ namespace JS.Modules.JSImageRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnJsInclude bootstrapSelectJs;
+        
+        /// <summary>
+        /// bootstrapColorPickerJs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnJsInclude bootstrapColorPickerJs;
         
         /// <summary>
         /// mainJs control.

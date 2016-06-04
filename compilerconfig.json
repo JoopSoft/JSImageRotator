@@ -4,8 +4,8 @@
     "inputFile": "module.scss"
   },
   {
-    "outputFile": "variables.css",
-    "inputFile": "variables.scss"
+    "outputFile": "Styles/variables.css",
+    "inputFile": "Styles/variables.scss"
   },
   {
     "outputFile": "Js/main.js",

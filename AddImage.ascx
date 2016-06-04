@@ -5,6 +5,7 @@
 <dnn:DnnCssInclude ID="fontAwesomeCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
 <dnn:DnnCssInclude ID="bootstrapCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
 <dnn:DnnCssInclude ID="bootstrapSelectCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" />
+<dnn:DnnCssInclude ID="moduleCss" runat="server" FilePath="~/DesktopModules/JSImageRotator/module.min.css" />
 
 <div class="JSRotator">
     <div class="dnnForm add-img">
@@ -13,17 +14,16 @@
                 <%=LocalizeString("Title")%>
                 <asp:HyperLink ID="joopSoft" runat="server" />
             </h3>
-        </div>
-        <div class="dnnFormSectionHead">
             <div class="dnnFormItem JSRotatorMenu">
-                <asp:Panel ID="headerMenu" runat="server" CssClass="dnnFormMessage two-controls dnnFormTitle no-spacing">
+                <asp:Panel ID="headerMenu" runat="server" CssClass="dnnFormMessage one-control dnnFormTitle no-spacing">
                     <asp:Label ID="lblAddedImage" runat="server" Text="Adding New Image" />
                 </asp:Panel>
                 <asp:HyperLink ID="btnEdit" runat="server" CssClass="btn btn-primary link-edit-square no-txt"
                     data-toggle="tooltip" ToolTip="Edit Lists" Visible="true" />
-
                 <asp:HyperLink ID="btnLists" runat="server" CssClass="btn btn-primary link-list no-txt"
-                    data-toggle="tooltip" ToolTip="Select Image Lists" Visible="true" />
+                    data-toggle="tooltip" ToolTip="Select Image Lists" Visible="true" />                
+                <asp:HyperLink ID="lnkSettings" runat="server" CssClass="btn btn-primary link-settings no-txt"
+                    ResourceKey="lnkSettings" ToolTip="Settings" />
             </div>
         </div>
         <fieldset>
@@ -48,31 +48,34 @@
                         data-target=".availableLists" />
                     <asp:DropDownList ID="ddAvailableLists" runat="server" CssClass="availableLists selectpicker single-select cb-group" 
                           />
-                    <%--Visible="false" />--%>
                 </asp:Panel>
             </div>
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:label ID="lblTitle" runat="server" />
-                    <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control" />
+                    <asp:TextBox ID="txtTitle" runat="server" CssClass="form-control"
+                        Placeholder="Enter Title" />
                 </div>
             </div>
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:label ID="lblDescription" runat="server" />
-                    <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control teaser-txt" TextMode="MultiLine" />
+                    <asp:TextBox ID="txtDescription" runat="server" CssClass="form-control teaser-txt" TextMode="MultiLine"
+                        Placeholder="Enter Description" />
                 </div>
             </div>
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:label ID="lblPhotographer" runat="server" />
-                    <asp:TextBox ID="txtPhotographer" runat="server" CssClass="form-control" />
+                    <asp:TextBox ID="txtPhotographer" runat="server" CssClass="form-control"
+                        Placeholder="Enter Photographer Name" />
                 </div>
             </div>
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:label ID="lblContact" runat="server" />
-                    <asp:TextBox ID="txtContact" runat="server" CssClass="form-control" />
+                    <asp:TextBox ID="txtContact" runat="server" CssClass="form-control"
+                        Placeholder="Enter E-mail Address" />
                 </div>
             </div>
             <div class="fieldset">
@@ -158,26 +161,6 @@
         </div>
     </div>
 </div>
-
-<%--<script type="text/javascript">
-
-    $('.JSRotator #<%= ddSlideType.ClientID %>')
-        .each(function () {
-            var $this = $(this),
-                $target = $this.data('target');
-        
-            if ($this.val() !== 'image') $($target).show();
-            else $($target).hide();
-        })
-        .bind('change', function () {
-            var $this = $(this),
-                $target = $this.data('target');
-        
-            if ($this.val() !== 'image') $($target).show();
-            else $($target).hide();
-        });
-    
-</script>--%>
 
 <dnn:DnnJsInclude ID="bootstrapJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" Priority="19" />
 <dnn:DnnJsInclude ID="bootstrapSelectJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js" Priority="20" />

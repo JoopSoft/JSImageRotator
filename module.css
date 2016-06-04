@@ -86,7 +86,8 @@
           background: rgba(59, 30, 119, 0.5);
           /*display: $none;*/ }
       .JSRotator .dnnForm .dnnFormSectionHead .JSRotatorMenu {
-        display: inline-block; }
+        display: inline-block;
+        margin: 0; }
         .JSRotator .dnnForm .dnnFormSectionHead .JSRotatorMenu .dnnFormTitle {
           float: left;
           background-color: rgba(59, 30, 119, 0.7); }
@@ -364,6 +365,25 @@
           .JSRotator .dnnForm .dnnFormItem.group input[type="number"].grouped,
           .JSRotator .dnnForm .dnnFormItem.group input[type="date"].grouped {
             border-right: none; }
+            .JSRotator .dnnForm .dnnFormItem.group input[type="text"].grouped.squared-box,
+            .JSRotator .dnnForm .dnnFormItem.group select.grouped.squared-box,
+            .JSRotator .dnnForm .dnnFormItem.group textarea.grouped.squared-box,
+            .JSRotator .dnnForm .dnnFormItem.group input[type="email"].grouped.squared-box,
+            .JSRotator .dnnForm .dnnFormItem.group input[type="search"].grouped.squared-box,
+            .JSRotator .dnnForm .dnnFormItem.group input[type="number"].grouped.squared-box,
+            .JSRotator .dnnForm .dnnFormItem.group input[type="date"].grouped.squared-box {
+              width: calc(50% - 45px);
+              max-width: 405px;
+              margin-right: 10px;
+              border: 1px solid rgba(59, 30, 119, 0.25); }
+              .JSRotator .dnnForm .dnnFormItem.group input[type="text"].grouped.squared-box:focus,
+              .JSRotator .dnnForm .dnnFormItem.group select.grouped.squared-box:focus,
+              .JSRotator .dnnForm .dnnFormItem.group textarea.grouped.squared-box:focus,
+              .JSRotator .dnnForm .dnnFormItem.group input[type="email"].grouped.squared-box:focus,
+              .JSRotator .dnnForm .dnnFormItem.group input[type="search"].grouped.squared-box:focus,
+              .JSRotator .dnnForm .dnnFormItem.group input[type="number"].grouped.squared-box:focus,
+              .JSRotator .dnnForm .dnnFormItem.group input[type="date"].grouped.squared-box:focus {
+                border: 1px solid #3b1e77; }
           .JSRotator .dnnForm .dnnFormItem.group input[type="text"].ungrouped,
           .JSRotator .dnnForm .dnnFormItem.group select.ungrouped,
           .JSRotator .dnnForm .dnnFormItem.group textarea.ungrouped,
@@ -409,6 +429,36 @@
           .JSRotator .dnnForm .dnnFormItem.group .btn-group.cb-group {
             width: calc(50% - 30px) !important;
             max-width: 420px; }
+      .JSRotator .dnnForm .dnnFormItem .input-group {
+        display: block; }
+        .JSRotator .dnnForm .dnnFormItem .input-group .input-group-addon {
+          float: left;
+          width: 35px;
+          height: 35px;
+          line-height: 35px;
+          padding: 0;
+          background-color: transparent;
+          border: 1px solid rgba(59, 30, 119, 0.25);
+          -webkit-border-radius: 0;
+          -moz-border-radius: 0;
+          -ms-border-radius: 0;
+          border-radius: 0; }
+          .JSRotator .dnnForm .dnnFormItem .input-group .input-group-addon i {
+            height: 33px;
+            vertical-align: top;
+            width: 33px; }
+      .JSRotator .dnnForm .dnnFormItem .txt-error-validate {
+        font-style: italic;
+        position: absolute;
+        top: 5px;
+        /*left: calc(82.075% - 97px);*/
+        left: calc(32.075% + 355px - 18px);
+        color: #fff;
+        background: #d9534f;
+        height: 25px;
+        line-height: 25px;
+        min-width: 110px;
+        text-align: center; }
     .JSRotator .dnnForm.controls {
       margin: 0;
       padding: 10px 0 0 0;
@@ -807,6 +857,26 @@
             .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="number"][disabled=disabled],
             .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="date"][disabled=disabled] {
               color: #fff; }
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="text"].error,
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td select.error,
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td textarea.error,
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="email"].error,
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="search"].error,
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="number"].error,
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td input[type="date"].error {
+              background: rgba(217, 83, 79, 0.7); }
+          .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td ::-webkit-input-placeholder {
+            color: #fff;
+            font-style: italic; }
+          .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td :-moz-placeholder {
+            color: #fff;
+            font-style: italic; }
+          .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td ::-moz-placeholder {
+            color: #fff;
+            font-style: italic; }
+          .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td :-ms-input-placeholder {
+            color: #fff;
+            font-style: italic; }
           .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell {
             display: block;
             float: left;
@@ -831,6 +901,18 @@
               -webkit-box-shadow: none;
               -o-box-shadow: none;
               box-shadow: none; }
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell ::-webkit-input-placeholder {
+              color: rgba(59, 30, 119, 0.25);
+              font-style: italic; }
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell :-moz-placeholder {
+              color: rgba(59, 30, 119, 0.25);
+              font-style: italic; }
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell ::-moz-placeholder {
+              color: rgba(59, 30, 119, 0.25);
+              font-style: italic; }
+            .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell :-ms-input-placeholder {
+              color: rgba(59, 30, 119, 0.25);
+              font-style: italic; }
             .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell select {
               cursor: default; }
             .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td.edit-cell .btn {
@@ -879,6 +961,8 @@
             background-position: -100px 0px; }
           .JSRotator .dnnForm.edit .dnnFormItem table tr.active > td .dnnCheckbox-checked img {
             background-position: -150px 0px; }
+        .JSRotator .dnnForm.edit .dnnFormItem table tr.active .btn.disabled, .JSRotator .dnnForm.edit .dnnFormItem table tr.active .btn.aspNetDisabled {
+          color: rgba(255, 255, 255, 0.5); }
       .JSRotator .dnnForm.edit .dnnFormItem table .btn.disabled {
         background-color: transparent;
         color: #3b1e77;
@@ -890,7 +974,7 @@
     .JSRotator .dnnForm.edit .dnnFormItem img.row-img {
       height: 35px;
       width: auto;
-      max-width: 100%; }
+      max-width: 100% !important; }
     .JSRotator .dnnForm.select .dnnFormItem table {
       border: none;
       width: 100%;
@@ -1196,6 +1280,18 @@
   .JSRotator .dnnForm .dnnFormItem select option[disabled="disabled"],
   .JSRotator .dnnForm .dnnFormItem select option[disabled] {
     color: #ccc; }
+  .JSRotator ::-webkit-input-placeholder {
+    color: rgba(59, 30, 119, 0.25);
+    font-style: italic; }
+  .JSRotator :-moz-placeholder {
+    color: rgba(59, 30, 119, 0.25);
+    font-style: italic; }
+  .JSRotator ::-moz-placeholder {
+    color: rgba(59, 30, 119, 0.25);
+    font-style: italic; }
+  .JSRotator :-ms-input-placeholder {
+    color: rgba(59, 30, 119, 0.25);
+    font-style: italic; }
 
 .vegas-timer-progress {
   background: #fff;

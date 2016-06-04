@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Title.Text" xml:space="preserve">
-    <value>JSImageRotator - Add/Edit Image List</value>
+    <value>JSImageRotator</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>Cancel</value>
@@ -130,13 +130,13 @@
     <value>Are you sure you want to delete this Image</value>
   </data>
   <data name="ControlTitle_edit.Text" xml:space="preserve">
-    <value>Edit Control for JSImageRotator</value>
+    <value>Edit Image List</value>
   </data>
   <data name="ExpandAll.Text" xml:space="preserve">
     <value>Expand All</value>
   </data>
   <data name="lblFileName.Help" xml:space="preserve">
-    <value>Enter the Name of the List to Create</value>
+    <value>Enter the name of the list to create.</value>
   </data>
   <data name="lblFileName.Text" xml:space="preserve">
     <value>List Name</value>
@@ -145,7 +145,7 @@
     <value>Delete</value>
   </data>
   <data name="lblSelectList.Help" xml:space="preserve">
-    <value>Select a List to Edit from Available Lists</value>
+    <value>Select a list to edit from available lists.</value>
   </data>
   <data name="lblSelectList.Text" xml:space="preserve">
     <value>Available Lists</value>

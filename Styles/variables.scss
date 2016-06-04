@@ -1,0 +1,115 @@
+﻿
+$font-awesome:	'FontAwesome';
+
+$white:             #fff;
+$black:             #000;
+$blue:              #33ccff;
+$link:              #33ccff;
+$link-md:           rgba(51,204,255,0.5); //33ccff
+$link-hover:        #f7944d;
+
+$warning:           rgba(217,83,79, 1); //#d9534f;
+$warning-md:        rgba(217,83,79, 0.5);
+$warning-lg:        rgba(217,83,79, 0.7);
+$warning-xlg:       rgba(217,83,79, 0.8);
+
+$success:           rgba(39,174,96, 1); //#27ae60;
+$success-md:        rgba(39,174,96, 0.5); //#27ae60;
+$success-lg:        rgba(39,174,96, 0.7); //#27ae60;
+$success-xlg:       rgba(39,174,96, 0.8); //#27ae60;
+
+
+$grey:              #ccc;
+$middle:            #999;
+$large:             #333;
+
+//$tooltip:           rgba(59,30,119, 0.9);
+$tooltip:           rgba(0,0,0, 0.8);
+$tooltip-md:        rgba(0,0,0, 0.5);
+//$overlay:           rgba(0,0,0,0.75);
+$overlay:           rgba(255,255,255,0.7);
+$activeColor:       #27ae60; //green
+$darkenColor:       darken($activeColor, 20%);
+
+$dark: rgba(59,30,119, 1);
+$dark-alpha-null: rgba(59,30,119, 0);
+$dark-alpha-xsm: rgba(59,30,119, 0.15);
+$dark-alpha: rgba(59,30,119, 0.25);
+$dark-alpha-md: rgba(59,30,119, 0.5);
+$dark-alpha-lg: rgba(59,30,119, 0.7);
+$dark-alpha-xlg: rgba(59,30,119, 0.8);
+$dark-alpha-hover: rgba(59,30,119, 0.05);
+
+$light: rgba(255,255,255, 1);
+$light-alpha-null: rgba(255,255,255, 0);
+$light-alpha-xsm: rgba(255,255,255, 0.15);
+$light-alpha: rgba(255,255,255, 0.35);
+$light-alpha-md: rgba(255,255,255, 0.5);
+$light-alpha-lg: rgba(255,255,255, 0.7);
+$light-alpha-xlg: rgba(255,255,255, 0.8);
+
+
+$none: none;
+$all: all 300ms ease-out;
+$bgColor: background-color 300ms ease-out;
+$color: color 300ms ease-out;
+$width: width 3000ms ease-out;
+
+
+@keyframes roll {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin bg-size($bgsize){
+    -webkit-background-size: $bgsize;
+    -moz-background-size: $bgsize;
+    -o-background-size: $bgsize;
+    background-size: $bgsize;
+}
+
+@mixin box-size($boxsize){
+	-webkit-box-sizing: $boxsize; 
+    -moz-box-sizing: $boxsize; 
+    -o-box-sizing: $boxsize; 
+    box-sizing: $boxsize;
+}
+
+@mixin box-shadow($boxshadow){
+    -moz-box-shadow: $boxshadow;
+    -webkit-box-shadow: $boxshadow;
+    -o-box-shadow: $boxshadow;
+    box-shadow: $boxshadow;
+}
+
+@mixin transition($transitions) {
+	-webkit-transition: $transitions;
+	-moz-transition: $transitions;
+	-o-transition: $transitions;
+	transition: $transitions;
+}
+
+@mixin transition-delay($delay) {
+    -webkit-transition-delay: $delay;
+    -moz-transition-delay: $delay;
+    -o-transition-delay: $delay;
+    transition-delay: $delay;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+     -moz-transform: $transform;
+      -ms-transform: $transform;
+          transform: $transform;
+}

@@ -148,6 +148,15 @@ namespace JS.Modules.JSImageRotator {
         protected global::System.Web.UI.WebControls.HyperLink lnkView;
         
         /// <summary>
+        /// lnkSettings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkSettings;
+        
+        /// <summary>
         /// vegasJs control.
         /// </summary>
         /// <remarks>

@@ -38,6 +38,8 @@
             $lnkImage = '<i class="fa fa-picture-o"></i>',
             $lnkClose = '<i class="fa fa-close"></i>',
             $lnkWarning = '<i class="fa fa-warning"></i>',
+            $lnkCheck = '<i class="fa fa-check"></i>',
+            $lnkSettings = '<i class="fa fa-cog"></i>',
             $lnkSelUp = '<i class="fa fa-arrow-circle-up"></i>',
             $lnkSelDown = '<i class="fa fa-arrow-circle-down"></i>',
             $lnkSelRight = '<i class="fa fa-arrow-circle-right"></i>',
@@ -71,6 +73,8 @@
             $('.JSRotator .link-prev').prepend($lnkPrev + ' ');
             $('.JSRotator .link-close').prepend($lnkClose + ' ');
             $('.JSRotator .link-warning').prepend($lnkWarning + ' ');
+            $('.JSRotator .link-settings').prepend($lnkSettings + ' ');
+            $('.JSRotator .link-check').prepend($lnkCheck + ' ');
             $('.JSRotator .link-success').prepend($lnkSuccess + ' ');
             $('.JSRotator .link-list').prepend($lnkList + ' ');
             $('.JSRotator .link-exch').prepend($lnkExch + ' ');
@@ -101,6 +105,8 @@
             $('.JSRotator .link-next.no-txt').html($lnkNext);
             $('.JSRotator .link-close.no-txt').html($lnkClose);
             $('.JSRotator .link-warning.no-txt').html($lnkWarning);
+            $('.JSRotator .link-settings.no-txt').html($lnkSettings);
+            $('.JSRotator .link-check.no-txt').html($lnkCheck);
             $('.JSRotator .link-success.no-txt').html($lnkSuccess);
             $('.JSRotator .link-list.no-txt').html($lnkList);
             $('.JSRotator .link-exch.no-txt').html($lnkExch);
@@ -130,7 +136,7 @@
 
             $this.tooltip('destroy').keyup(function (e) {
                 var code = e.keyCode ? e.keyCode : e.which;
-                if (code === 27) {
+                if (code === 27 || code === 13) {
                     $('.JSRotator .dnnFormItem table tr.active td').removeClass('no-edit-cell');
                     $this.closest('td').removeClass('edit-cell').find('button').remove();
                     $this.blur().tooltip({ placement: 'auto bottom' });
@@ -143,6 +149,56 @@
                 $this.closest('td').removeClass('edit-cell');
                 $this.blur().tooltip({ placement: 'auto bottom' });
             })).find('i').addClass('fa-2x');
+        });
+
+        //CUSTOM ANIMATION & TRANSITION SELECT DEFINITION
+        $('.JSRotator .lbAnimation, .JSRotator .lbTransition').each(function () {
+            var $this = $(this),
+                $value = $this.val(),
+
+            //$length = $(this).find(':selected').length,
+            $equal = $this.data('equal');
+
+            if ($value !== null) {
+                if ($value.toString() === $equal) {
+                    //console.log('ONLY RANDOM');
+                    $this.find('[class=JSRandom]').prop('disabled', false);
+                    $this.find('[class=JSAnimType]').prop('disabled', true);
+                } else {
+                    //console.log("REST OF ITEMS");
+                    $this.find('[class=JSRandom]').prop('disabled', true);
+                    $this.find('[class=JSAnimType]').prop('disabled', false);
+                }
+            } else {
+                //console.log("NULL ITEMS");
+                $this.find('[class=JSRandom]').prop('disabled', false);
+                $this.find('[class=JSAnimType]').prop('disabled', false);
+            }
+        }).bind('change', function () {
+            var $this = $(this),
+                $value = $this.val(),
+
+            //$length = $(this).find(':selected').length,
+            $equal = $this.data('equal');
+
+            if ($value !== null) {
+                if ($value.toString() === $equal) {
+                    //console.log('ONLY RANDOM');
+                    $this.find('[class=JSRandom]').prop('disabled', false);
+                    $this.find('[class=JSAnimType]').prop('disabled', true);
+                    $this.selectpicker('refresh');
+                } else {
+                    //console.log("REST OF ITEMS");
+                    $this.find('[class=JSRandom]').prop('disabled', true);
+                    $this.find('[class=JSAnimType]').prop('disabled', false);
+                    $this.selectpicker('refresh');
+                }
+            } else {
+                //console.log("NULL ITEMS");
+                $this.find('[class=JSRandom]').prop('disabled', false);
+                $this.find('[class=JSAnimType]').prop('disabled', false);
+                $this.selectpicker('refresh');
+            }
         });
 
         //BIGGER CONTROL ICONS ON EDIT TABLE
@@ -303,6 +359,21 @@
             if ($(this).is(':checked')) {
                 if ($(this).val() !== 'auto') $($(this).closest('.hidder-radio').data('target')).show();else $($(this).closest('.hidder-radio').data('target')).hide();
             }
+        });
+
+        if ($('.JSRotator .color-picker').exists()) $('.JSRotator .color-picker').colorpicker({
+            horizontal: true,
+            format: 'rgba',
+            color: 'rgba(59,30,119, 0.7)'
+            //,
+            //colorSelectors: {
+            //    'default': '#777777',
+            //    'primary': '#337ab7',
+            //    'success': '#5cb85c',
+            //    'info': '#5bc0de',
+            //    'warning': '#f0ad4e',
+            //    'danger': '#d9534f'
+            //}
         });
 
         //SELECT PICKER CUSTOM PLUGIN DEFINITION

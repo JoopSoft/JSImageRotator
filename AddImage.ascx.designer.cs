@@ -40,6 +40,15 @@ namespace JS.Modules.JSImageRotator {
         protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnCssInclude bootstrapSelectCss;
         
         /// <summary>
+        /// moduleCss control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.Client.ClientResourceManagement.DnnCssInclude moduleCss;
+        
+        /// <summary>
         /// joopSoft control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace JS.Modules.JSImageRotator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink btnLists;
+        
+        /// <summary>
+        /// lnkSettings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkSettings;
         
         /// <summary>
         /// lblImage control.

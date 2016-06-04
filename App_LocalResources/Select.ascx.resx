@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Title.Text" xml:space="preserve">
-    <value>JSImageRotator - Select Image List</value>
+    <value>JSImageRotator</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>Cancel</value>
@@ -139,7 +139,7 @@
     <value>Delete</value>
   </data>
   <data name="lblImageLists.Help" xml:space="preserve">
-    <value>Select Images From Available List</value>
+    <value>Select images from available list.</value>
   </data>
   <data name="lblImageLists.Text" xml:space="preserve">
     <value>Select List</value>

@@ -5,14 +5,27 @@
 <dnn:DnnCssInclude ID="fontAwesomeCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
 <dnn:DnnCssInclude ID="bootstrapCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
 <dnn:DnnCssInclude ID="bootstrapSelectCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" />
+<dnn:DnnCssInclude ID="bootstrapColorPickerCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.3.3/css/bootstrap-colorpicker.min.css" />
+<dnn:DnnCssInclude ID="moduleCss" runat="server" FilePath="~/DesktopModules/JSImageRotator/module.min.css" />
 
 <div class="JSRotator">
     <div class="dnnForm settings">
         <div class="dnnFormSectionHead">
-            <h3 class="dnnFormMessage dnnFormTitle dnnFormIcon">
+            <h3 class="dnnFormMessage dnnFormTitle dnnFormIcon no-spacing">
                 <%=LocalizeString("Title")%>
                 <asp:HyperLink ID="joopSoft" runat="server" />
             </h3>
+            <div class="dnnFormItem JSRotatorMenu">
+                <h3 class="dnnFormMessage three-controls dnnFormTitle no-spacing">
+                    <asp:Label ID="lblTableTitle" runat="server" Text="Settings" />
+                </h3>
+                <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add no-txt"
+                    data-toggle="tooltip" ToolTip="Add New Image" />
+                <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary link-edit-square no-txt"
+                    data-toggle="tooltip" ToolTip="Edit Lists" />
+               <asp:HyperLink ID="btnLists" runat="server" CssClass="btn btn-primary link-list no-txt"
+                    data-toggle="tooltip" ToolTip="Select Image Lists" />                
+            </div>
         </div>
         <fieldset>
             <div class="fieldset">
@@ -25,7 +38,8 @@
                     </asp:DropDownList>
                     <div class="containerHeight dnnFormItem">
                         <dnn:Label ID="lblMinHeight" runat="server" />
-                        <asp:TextBox ID="txtMinHeight" runat="server" CssClass="form-control" TextMode="Number" />
+                        <asp:TextBox ID="txtMinHeight" runat="server" CssClass="form-control"
+                            Placeholder="Enter Minimum Height" TextMode="Number" />
                     </div>
                 </div>
             </div>
@@ -44,7 +58,8 @@
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblSlide" runat="server" />
-                    <asp:TextBox ID="txtSlide" runat="server" CssClass="form-control" TextMode="Number"/>
+                    <asp:TextBox ID="txtSlide" runat="server" CssClass="form-control"
+                        Placeholder="Enter Initial Slide Number" TextMode="Number"/>
                 </div>
             </div>
             <div class="fieldset">
@@ -112,7 +127,8 @@
             <div class="fieldset">
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblDelay" runat="server" />
-                    <asp:TextBox ID="txtDelay" runat="server" CssClass="form-control" />
+                    <asp:TextBox ID="txtDelay" runat="server" CssClass="form-control"
+                        Placeholder="Enter Delay Value" />
                 </div>
             </div>
             <div class="fieldset">
@@ -126,9 +142,13 @@
                 </div>
             </div>
             <div class="fieldset">
-                <div class="dnnFormItem">
+                <div class="dnnFormItem group">
                     <dnn:Label ID="lblColor" runat="server" />
-                    <asp:TextBox ID="txtColor" runat="server" CssClass="form-control" />
+                    <div class="input-group colorpicker-component color-picker">
+                        <asp:TextBox ID="txtColor" runat="server" CssClass="form-control grouped squared-box"
+                            Placeholder="Enter Background Color" />
+                        <span class="input-group-addon"><i></i></span>
+                    </div>
                 </div>
             </div>
             <div class="fieldset">
@@ -150,11 +170,13 @@
                 </div>
                 <div class="percTextBox dnnFormItem">
                     <dnn:Label ID="lblAlignPercentage" runat="server" />
-                    <asp:TextBox ID="txtAlignPercentage" runat="server" CssClass="form-control" TextMode="Number" />
+                    <asp:TextBox ID="txtAlignPercentage" runat="server" CssClass="form-control"
+                        Placeholder="Enter Align Percentage" TextMode="Number" />
                 </div>
                 <div class="percTextBox dnnFormItem">
                     <dnn:Label ID="lblVAlignPercentage" runat="server" />
-                    <asp:TextBox ID="txtVAlignPercentage" runat="server" CssClass="form-control" TextMode="Number" />
+                    <asp:TextBox ID="txtVAlignPercentage" runat="server" CssClass="form-control"
+                        Placeholder="Enter Vertical Align Percentage" TextMode="Number" />
                 </div>
 
             </div>
@@ -202,13 +224,15 @@
                 </div>
                 <div class="transDur dnnFormItem">
                     <dnn:Label ID="lblTransDuration" runat="server" />
-                    <asp:TextBox ID="txtTransDuration" runat="server" CssClass="form-control" />
+                    <asp:TextBox ID="txtTransDuration" runat="server" CssClass="form-control"
+                        Placeholder="Enter Transition Duration Value" />
                 </div>
                 <%--
             MOVE TO 2ND VERSE OF MODULE
                 <div class="dnnFormItem">
                 <dnn:Label ID="lblTransRegister" runat="server" />
-                <asp:TextBox ID="txtTransRegister" runat="server" CssClass="form-control" />
+                <asp:TextBox ID="txtTransRegister" runat="server" CssClass="form-control"
+                    Placeholder="Enter Text Color" />
             </div>
                 --%>
             </div>
@@ -239,13 +263,15 @@
                 </div>
                 <div class="animDur dnnFormItem">
                     <dnn:Label ID="lblAnimDuration" runat="server" />
-                    <asp:TextBox ID="txtAnimDuration" runat="server" CssClass="form-control" />
+                    <asp:TextBox ID="txtAnimDuration" runat="server" CssClass="form-control"
+                        Placeholder="Enter Duration Value" />
                 </div>
                 <%--
                 MOVE TO 2ND VERSE OF MODULE
                             <div class="dnnFormItem">
                 <dnn:Label ID="lblAnimRegister" runat="server" />
-                <asp:TextBox ID="txtAnimRegister" runat="server" CssClass="form-control" />
+                <asp:TextBox ID="txtAnimRegister" runat="server" CssClass="form-control"
+                    Placeholder="Enter Text Color" />
             </div>
                 --%>
             </div>
@@ -263,66 +289,14 @@
 </div>
 
 <script type="text/javascript">
-
-    $('.JSRotator #<%= txtSlides.ClientID %>')
-        .val('<%= ModulePath %>Json/' + <%= ModuleId %> + '_Slides.json');
-
-
-    //CUSTOM ANIMATION & TRANSITION SELECT DEFINITION
-    $('.JSRotator .lbAnimation, .JSRotator .lbTransition')
-        .each(function () {
-            var $value = $(this).val(),
-                //$length = $(this).find(':selected').length,
-                $equal = $(this).data('equal');
-
-            if ($value !== null) {
-                if ($value.toString() === $equal) {
-                    //console.log('ONLY RANDOM');
-                    $(this).find('[class=JSRandom]').prop('disabled', false);
-                    $(this).find('[class=JSAnimType]').prop('disabled', true);
-                } else {
-                    //console.log("REST OF ITEMS");
-                    $(this).find('[class=JSRandom]').prop('disabled', true);
-                    $(this).find('[class=JSAnimType]').prop('disabled', false);
-                }
-            }
-            else {
-                //console.log("NULL ITEMS");
-                $(this).find('[class=JSRandom]').prop('disabled', false);
-                $(this).find('[class=JSAnimType]').prop('disabled', false);
-            }
-        })
-        .bind('change', function () {
-            var $value = $(this).val(),
-                //$length = $(this).find(':selected').length,
-                $equal = $(this).data('equal');
-
-            if ($value !== null) {
-                if ($value.toString() === $equal) {
-                    //console.log('ONLY RANDOM');
-                    $(this).find('[class=JSRandom]').prop('disabled', false);
-                    $(this).find('[class=JSAnimType]').prop('disabled', true);
-                    $(this).selectpicker('refresh');
-                } else {
-                    //console.log("REST OF ITEMS");
-                    $(this).find('[class=JSRandom]').prop('disabled', true);
-                    $(this).find('[class=JSAnimType]').prop('disabled', false);
-                    $(this).selectpicker('refresh');
-                }
-            }
-            else {
-                //console.log("NULL ITEMS");
-                $(this).find('[class=JSRandom]').prop('disabled', false);
-                $(this).find('[class=JSAnimType]').prop('disabled', false);
-                $(this).selectpicker('refresh');
-            }
-        });
-
-
-
+    $(function () {
+        $('.JSRotator #<%= txtSlides.ClientID %>')
+            .val('<%= ModulePath %>Json/' + <%= ModuleId %> + '_Slides.json');
+    });
 </script>
 
 <dnn:DnnJsInclude ID="bootstrapJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" Priority="19" />
 <dnn:DnnJsInclude ID="bootstrapSelectJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js" Priority="20" />
+<dnn:DnnJsInclude ID="bootstrapColorPickerJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.3.3/js/bootstrap-colorpicker.min.js" Priority="20" />
 <dnn:DnnJsInclude ID="mainJs" runat="server" FilePath="~/DesktopModules/JSImageRotator/Js/main.min.js" Priority="21" />
 

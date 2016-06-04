@@ -6,6 +6,7 @@
 <dnn:DnnCssInclude ID="fontAwesomeCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
 <dnn:DnnCssInclude ID="bootstrapCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
 <dnn:DnnCssInclude ID="bootstrapSelectCss" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css" />
+<dnn:DnnCssInclude ID="moduleCss" runat="server" FilePath="~/DesktopModules/JSImageRotator/module.min.css" />
 
 <div class="JSRotator">
     <div class="dnnForm edit">
@@ -14,8 +15,6 @@
                 <%=LocalizeString("Title")%>
                 <asp:HyperLink ID="joopSoft" runat="server" />
             </h3>
-        </div>
-        <div class="dnnFormSectionHead">
             <div class="dnnFormItem JSRotatorMenu">
                 <asp:Panel ID="headerMenu" runat="server" CssClass="dnnFormMessage three-controls dnnFormTitle no-spacing">
                     <asp:Label ID="lblJsonTitle" runat="server" Text="Create Image Lists" />
@@ -27,13 +26,16 @@
                 <asp:LinkButton ID="btnShowAddNewList" runat="server" CssClass="btn btn-primary link-exch no-txt"
                     data-toggle="tooltip" ToolTip="Edit Available Lists"
                     OnClick="btnShowAddNewList_Click" />
+                <asp:HyperLink ID="lnkSettings" runat="server" CssClass="btn btn-primary link-settings no-txt"
+                    ResourceKey="lnkSettings" ToolTip="Settings" />
             </div>
         </div>
         <fieldset>
             <div class="fieldset">
                 <div class="dnnFormItem group">
                     <dnn:label ID="lblFileName" runat="server" />
-                    <asp:TextBox ID="txtFileName" runat="server" CssClass="txtFileName form-control grouped" />
+                    <asp:TextBox ID="txtFileName" runat="server" CssClass="txtFileName form-control grouped"
+                        Placeholder="Enter List Name" />
 
                     <dnn:label ID="lblSelectList" runat="server" Visible="false" />
                     <asp:DropDownList ID="lstSelectList" runat="server" CssClass="selectpicker single-select" AutoPostBack="True"
@@ -103,22 +105,26 @@
                                     <asp:TableCell>
                                         <asp:TextBox ID="txtTitle" runat="server" CssClass="ellipsis"
                                             Enabled="false" data-toggle="tooltip" ToolTip="Edit Title"
-                                            Text='<%#DataBinder.Eval(Container.DataItem,"ImageTitle").ToString() %>' />
+                                            Text='<%#DataBinder.Eval(Container.DataItem,"ImageTitle").ToString() %>'
+                                            Placeholder="Enter Title" />
                                     </asp:TableCell>
                                     <asp:TableCell>
                                         <asp:TextBox ID="txtDescription" runat="server" CssClass="ellipsis"
                                             Enabled="false" data-toggle="tooltip" ToolTip="Edit Description"
-                                            Text='<%#DataBinder.Eval(Container.DataItem,"ImageDescription").ToString() %>' />
+                                            Text='<%#DataBinder.Eval(Container.DataItem,"ImageDescription").ToString() %>'
+                                            Placeholder="Enter Description" />
                                     </asp:TableCell>
                                     <asp:TableCell>
                                         <asp:TextBox ID="txtPhotographer" runat="server" CssClass="ellipsis"
                                             Enabled="false" data-toggle="tooltip" ToolTip="Edit Photographer"
-                                            Text='<%#DataBinder.Eval(Container.DataItem,"ImagePhotographer").ToString() %>' />
+                                            Text='<%#DataBinder.Eval(Container.DataItem,"ImagePhotographer").ToString() %>'
+                                            Placeholder="Enter Photographer Name" />
                                     </asp:TableCell>
                                     <asp:TableCell>
                                         <asp:TextBox ID="txtContact" runat="server" CssClass="ellipsis"
                                             Enabled="false" data-toggle="tooltip" ToolTip="Edit E-mail"
-                                            Text='<%#DataBinder.Eval(Container.DataItem,"ImageContact").ToString() %>' />
+                                            Text='<%#DataBinder.Eval(Container.DataItem,"ImageContact").ToString() %>'
+                                            Placeholder="Enter E-mail Address" />
                                     </asp:TableCell>
                                     <asp:TableCell CssClass="custom-fx">
                                         <asp:DropDownList ID="ddTransition" runat="server" CssClass="selectpicker table-select"
@@ -234,15 +240,16 @@
 </div>
 
 <script type="text/javascript">
+    $(function () {
 
-    //ENABLE/DISABLE CREATE LIST BUTTONS
-    $('.JSRotator #<%= txtFileName.ClientID %>')
-        .each(function () {
-            var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length);
+        //ENABLE/DISABLE CREATE LIST BUTTONS
+        $('.JSRotator #<%= txtFileName.ClientID %>')
+            .each(function () {
+                var $n = parseInt($('.JSRotator table tbody .cbSelect input:checked').length);
 
-            if ($n != 0) {
-                if ($(this).val() === '') {
-                    $('.JSRotator #<%= btnSubmit.ClientID %>').addClass('disabled');
+                if ($n != 0) {
+                    if ($(this).val() === '') {
+                        $('.JSRotator #<%= btnSubmit.ClientID %>').addClass('disabled');
                     $('.JSRotator #<%= btnAddUpdateList.ClientID %>').addClass('disabled');
                 } else {
                     $('.JSRotator #<%= btnSubmit.ClientID %>').removeClass('disabled');
@@ -269,7 +276,8 @@
                 $('.JSRotator #<%= btnAddUpdateList.ClientID %>').addClass('disabled');
             }
         });
-    
+
+    });
 </script>
 
 <dnn:DnnJsInclude ID="bootstrapJs" runat="server" FilePath="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" Priority="19" />

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Title.Text" xml:space="preserve">
-    <value>JSImageRotator - Add Image</value>
+    <value>JSImageRotator</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>Cancel</value>
@@ -139,7 +139,7 @@
     <value>E-mail</value>
   </data>
   <data name="lblDescription.Help" xml:space="preserve">
-    <value>Enter a Description for the Image.</value>
+    <value>Enter a description for the image.</value>
   </data>
   <data name="lblDescription.Text" xml:space="preserve">
     <value>Description</value>
@@ -157,7 +157,7 @@
     <value>Photographer</value>
   </data>
   <data name="lblTitle.Help" xml:space="preserve">
-    <value>Enter the Title of the Image.</value>
+    <value>Enter the title of the image.</value>
   </data>
   <data name="lblTitle.Text" xml:space="preserve">
     <value>Title</value>
