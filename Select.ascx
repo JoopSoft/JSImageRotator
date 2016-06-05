@@ -14,7 +14,7 @@
                 <asp:HyperLink ID="joopSoft" runat="server" />
             </h3>
             <div class="dnnFormItem JSRotatorMenu">
-                <h3 class="dnnFormMessage three-controls dnnFormTitle no-spacing">
+                <h3 class="dnnFormMessage four-controls dnnFormTitle no-spacing">
                     <asp:Label ID="lblTableTitle" runat="server" Text="Select Image List" />
                 </h3>
                 <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add no-txt"

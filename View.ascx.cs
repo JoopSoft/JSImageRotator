@@ -20,6 +20,8 @@ using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.Services.Localization;
 using DotNetNuke.UI.Utilities;
 using System.IO;
+using DotNetNuke.Entities.Tabs;
+using System.Web;
 
 namespace JS.Modules.JSImageRotator
 {
@@ -42,6 +44,11 @@ namespace JS.Modules.JSImageRotator
         {
             try
             {
+                lnkAdd.NavigateUrl = EditUrl("AddImage");
+                lnkEdit.NavigateUrl = EditUrl();
+                lnkView.NavigateUrl = EditUrl("Select");
+                string PageName = TabController.CurrentPage.TabPath.Remove(0, 1);
+                lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://" + Request.Url.Host + PageName + "/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=" + PageName + "&amp;popUp=true',/*showReturn*/false,550,950,true,'')";
                 DefaultSettings();
                 DefaultSlides();
                 var ic = new ImageController();
@@ -62,9 +69,6 @@ namespace JS.Modules.JSImageRotator
                         s = sc.LoadSingleSettings(0);
                     }
                 }
-                lnkAdd.NavigateUrl = EditUrl("AddImage");
-                lnkEdit.NavigateUrl = EditUrl();
-                lnkView.NavigateUrl = EditUrl("Select");
                 btnPlayPause.Visible = s.PlayPauseControl;
                 pnlSlideInfo.Visible = s.SlideInfo;
                 pnlControlHolder.Visible = btnPlayPause.Visible || pnlSlideInfo.Visible;

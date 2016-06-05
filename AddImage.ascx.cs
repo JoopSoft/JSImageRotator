@@ -15,6 +15,7 @@ using DotNetNuke.Entities.Users;
 using JS.Modules.JSImageRotator.Components;
 using DotNetNuke.Services.Exceptions;
 using System.IO;
+using DotNetNuke.Entities.Tabs;
 
 namespace JS.Modules.JSImageRotator
 {
@@ -45,6 +46,8 @@ namespace JS.Modules.JSImageRotator
                     joopSoft.Target = "_blank";
                     btnEdit.NavigateUrl = EditUrl();
                     btnLists.NavigateUrl = EditUrl("Select");
+                    string PageName = TabController.CurrentPage.TabPath.Remove(0, 1);
+                    lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://" + Request.Url.Host + PageName + "/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=" + PageName + "&amp;popUp=true',/*showReturn*/false,550,950,true,'')";
                     FillImageLists();
                     ShowHideMenuControls("");
                 }
@@ -248,22 +251,23 @@ namespace JS.Modules.JSImageRotator
                 if (listPresent)
                 {
                     btnEdit.Visible = btnLists.Visible = true;
-                    headerMenu.CssClass = "dnnFormMessage two-controls dnnFormTitle no-spacing " + status;
+                    headerMenu.CssClass = "dnnFormMessage three-controls dnnFormTitle no-spacing " + status;
                 }
                 else
                 {
                     btnEdit.Visible = true;
                     btnLists.Visible = false;
-                    headerMenu.CssClass = "dnnFormMessage one-control dnnFormTitle no-spacing " + status;
+                    headerMenu.CssClass = "dnnFormMessage two-controls dnnFormTitle no-spacing " + status;
                 }
             }
             else
             {
                 btnEdit.Visible = btnLists.Visible = false;
-                headerMenu.CssClass = "dnnFormMessage no-controls dnnFormTitle no-spacing " + status;
+                headerMenu.CssClass = "dnnFormMessage one-control dnnFormTitle no-spacing " + status;
             }
             btnEdit.CssClass = "btn btn-primary link-edit-square no-txt " + status;
             btnLists.CssClass = "btn btn-primary link-list no-txt " + status;
+            lnkSettings.CssClass = "btn btn-primary link-settings no-txt " + status;
         }
     }
 }

@@ -48,11 +48,15 @@ namespace JS.Modules.JSImageRotator
             {
                 if (Page.IsPostBack == false)
                 {
+                    DropDownsFill();
                     joopSoft.NavigateUrl = "http://www.joopsoft.com/";
                     joopSoft.Text = "JoopSOFT.com";
                     joopSoft.ToolTip = "JoopSOFT.com";
                     joopSoft.CssClass = "link-dev";
                     joopSoft.Target = "_blank";
+                    lnkAdd.NavigateUrl = EditUrl("AddImage");
+                    lnkEdit.NavigateUrl = EditUrl();
+                    lnkLists.NavigateUrl = EditUrl("Select");
                     bool isSettingPresent = false;
                     var sc = new SettingsController();
                     var cs = sc.LoadSettings();
@@ -71,6 +75,7 @@ namespace JS.Modules.JSImageRotator
                     {
                         SettingsLoad(0);
                     }
+                    ShowHideMenuControls();
                 }
             }
             catch (Exception exc) //Module failed to load
@@ -385,6 +390,119 @@ namespace JS.Modules.JSImageRotator
             s.AnimationDuration = Convert.ToInt32(txtAnimDuration.Text.Trim());
             SettingsJson(s);
             sc.UpdateSettings(s);
+        }
+
+        protected void ShowHideMenuControls()
+        {
+            bool listPresent = false;
+            bool imagePresent = false;
+            var ic = new ImageController();
+            var al = ic.GetLists(ModuleId);
+            var ai = ic.GetImages(ModuleId);
+            foreach (var img in ai)
+            {
+                if (img.ImageId != 0)
+                {
+                    imagePresent = true;
+                    break;
+                }
+            }
+            foreach (var lst in al)
+            {
+                if (lst.ImageListId != 0)
+                {
+                    listPresent = true;
+                    break;
+                }
+            }
+            if (listPresent)
+            {
+                lnkEdit.Visible = lnkLists.Visible = true;
+                headerMenu.CssClass = "dnnFormMessage three-controls dnnFormTitle no-spacing";
+            }
+            else
+            {
+                if (imagePresent)
+                {
+                    lnkEdit.Visible = true;
+                    lnkLists.Visible = false;
+                    headerMenu.CssClass = "dnnFormMessage two-controls dnnFormTitle no-spacing";
+                }
+                else
+                {
+                lnkEdit.Visible = lnkLists.Visible = false;
+                headerMenu.CssClass = "dnnFormMessage one-control dnnFormTitle no-spacing";
+                }
+            }
+        }
+
+        protected void DropDownsFill()
+        {
+            //Rotator Type
+            ListItem rotatorType01 = new ListItem("Body", "body");
+            ListItem rotatorType02 = new ListItem("Container", "container");
+            ddRotatorType.Items.Add(rotatorType01);
+            ddRotatorType.Items.Add(rotatorType02);
+
+            //Overlay
+            ListItem overlay01 = new ListItem("True", "true");
+            ListItem overlay02 = new ListItem("False", "false");
+            ListItem overlay03 = new ListItem("Path", "path");
+            ddOverlay.Items.Add(overlay01);
+            ddOverlay.Items.Add(overlay02);
+            ddOverlay.Items.Add(overlay03);
+
+            //Overlay Type
+            ListItem overlayType01 = new ListItem("Overlay Type 01", "01.png");
+            ListItem overlayType02 = new ListItem("Overlay Type 02", "02.png");
+            ListItem overlayType03 = new ListItem("Overlay Type 03", "03.png");
+            ListItem overlayType04 = new ListItem("Overlay Type 04", "04.png");
+            ListItem overlayType05 = new ListItem("Overlay Type 05", "05.png");
+            ListItem overlayType06 = new ListItem("Overlay Type 06", "06.png");
+            ListItem overlayType07 = new ListItem("Overlay Type 07", "07.png");
+            ListItem overlayType08 = new ListItem("Overlay Type 08", "08.png");
+            ListItem overlayType09 = new ListItem("Overlay Type 09", "09.png");
+            ListItem overlayType10 = new ListItem("Overlay Type 10", "10.png");
+            ddOverlayType.Items.Add(overlayType01);
+            ddOverlayType.Items.Add(overlayType02);
+            ddOverlayType.Items.Add(overlayType03);
+            ddOverlayType.Items.Add(overlayType04);
+            ddOverlayType.Items.Add(overlayType05);
+            ddOverlayType.Items.Add(overlayType06);
+            ddOverlayType.Items.Add(overlayType07);
+            ddOverlayType.Items.Add(overlayType08);
+            ddOverlayType.Items.Add(overlayType09);
+            ddOverlayType.Items.Add(overlayType10);
+
+            //Cover
+            ListItem cover01 = new ListItem("True", "true");
+            ListItem cover02 = new ListItem("False", "false");
+            ListItem cover03 = new ListItem("Repeat", "repeat");
+            ddCover.Items.Add(cover01);
+            ddCover.Items.Add(cover02);
+            ddCover.Items.Add(cover03);
+
+            //Align
+            ListItem align01 = new ListItem("Top Left", "top-left");
+            ListItem align02 = new ListItem("Top Right", "top-right");
+            ListItem align03 = new ListItem("Top Center", "top-center");
+            ListItem align04 = new ListItem("Bottom Left", "bottom-left");
+            ListItem align05 = new ListItem("Bottom Right", "bottom-right");
+            ListItem align06 = new ListItem("Bottom Center", "bottom-center");
+            ListItem align07 = new ListItem("Center Left", "center-left");
+            ListItem align08 = new ListItem("Center Right", "center-right");
+            ListItem align09 = new ListItem("Center Center", "center-center");
+            ListItem align10 = new ListItem("Percentage", "percentage");
+            ddAlign.Items.Add(align01);
+            ddAlign.Items.Add(align02);
+            ddAlign.Items.Add(align03);
+            ddAlign.Items.Add(align04);
+            ddAlign.Items.Add(align05);
+            ddAlign.Items.Add(align06);
+            ddAlign.Items.Add(align07);
+            ddAlign.Items.Add(align08);
+            ddAlign.Items.Add(align09);
+            ddAlign.Items.Add(align10);
         }
         #endregion
     }

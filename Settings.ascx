@@ -16,14 +16,15 @@
                 <asp:HyperLink ID="joopSoft" runat="server" />
             </h3>
             <div class="dnnFormItem JSRotatorMenu">
-                <h3 class="dnnFormMessage three-controls dnnFormTitle no-spacing">
+                <%--<h3 class="dnnFormMessage three-controls dnnFormTitle no-spacing">--%>
+                <asp:Panel ID="headerMenu" runat="server" CssClass="dnnFormMessage three-controls dnnFormTitle no-spacing">
                     <asp:Label ID="lblTableTitle" runat="server" Text="Settings" />
-                </h3>
+                </asp:Panel>
                 <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add no-txt"
                     data-toggle="tooltip" ToolTip="Add New Image" />
                 <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary link-edit-square no-txt"
                     data-toggle="tooltip" ToolTip="Edit Lists" />
-               <asp:HyperLink ID="btnLists" runat="server" CssClass="btn btn-primary link-list no-txt"
+               <asp:HyperLink ID="lnkLists" runat="server" CssClass="btn btn-primary link-list no-txt"
                     data-toggle="tooltip" ToolTip="Select Image Lists" />                
             </div>
         </div>
@@ -33,8 +34,8 @@
                     <dnn:Label ID="lblRotatorType" runat="server" />
                     <asp:DropDownList ID="ddRotatorType" runat="server" CssClass="selectpicker form-control single-select check-equal"
                         data-target=".containerHeight" data-equal="container">
-                        <asp:ListItem Value="body" Text="Body" />
-                        <asp:ListItem Value="container" Text="Container" />
+<%--                        <asp:ListItem Value="body" Text="Body" />
+                        <asp:ListItem Value="container" Text="Container" />--%>
                     </asp:DropDownList>
                     <div class="containerHeight dnnFormItem">
                         <dnn:Label ID="lblMinHeight" runat="server" />
@@ -91,15 +92,15 @@
                     <dnn:Label ID="lblOverlay" runat="server" />                    
                     <asp:DropDownList ID="ddOverlay" runat="server" CssClass="selectpicker form-control single-select check-equal"
                         data-target=".overlayType" data-equal="path">
-                        <asp:ListItem Value="true" Text="True"></asp:ListItem>
+<%--                        <asp:ListItem Value="true" Text="True"></asp:ListItem>
                         <asp:ListItem Value="false" Text="False"></asp:ListItem>
-                        <asp:ListItem Value="path" Text="Path"></asp:ListItem>
+                        <asp:ListItem Value="path" Text="Path"></asp:ListItem>--%>
                     </asp:DropDownList>
                 </div>
                 <div class="overlayType dnnFormItem">
                     <dnn:Label ID="lblOverlayType" runat="server" />
                     <asp:DropDownList ID="ddOverlayType" runat="server" CssClass="selectpicker form-control single-select">
-                        <asp:ListItem Value="01.png" Text="Overlay Type 01" />
+<%--                        <asp:ListItem Value="01.png" Text="Overlay Type 01" />
                         <asp:ListItem Value="02.png" Text="Overlay Type 02" />
                         <asp:ListItem Value="03.png" Text="Overlay Type 03" />
                         <asp:ListItem Value="04.png" Text="Overlay Type 04" />
@@ -108,7 +109,7 @@
                         <asp:ListItem Value="07.png" Text="Overlay Type 07" />
                         <asp:ListItem Value="08.png" Text="Overlay Type 08" />
                         <asp:ListItem Value="09.png" Text="Overlay Type 09" />
-                        <asp:ListItem Value="10.png" Text="Overlay Type 10" />
+                        <asp:ListItem Value="10.png" Text="Overlay Type 10" />--%>
                     </asp:DropDownList>
                 </div>
             </div>
@@ -135,9 +136,9 @@
                 <div class="dnnFormItem">
                     <dnn:Label ID="lblCover" runat="server" />
                     <asp:DropDownList ID="ddCover" runat="server" CssClass="selectpicker form-control single-select">
-                        <asp:ListItem Value="true" Text="True" />
+<%--                        <asp:ListItem Value="true" Text="True" />
                         <asp:ListItem Value="false" Text="False" />
-                        <asp:ListItem Value="repeat" Text="Repeat" />
+                        <asp:ListItem Value="repeat" Text="Repeat" />--%>
                     </asp:DropDownList>
                 </div>
             </div>
@@ -156,7 +157,7 @@
                     <dnn:Label ID="lblAlign" runat="server" />
                     <asp:DropDownList ID="ddAlign" runat="server" CssClass="selectpicker form-control single-select check-equal"
                         data-target=".percTextBox" data-equal="percentage">
-                        <asp:ListItem Value="top-left" Text="Top Left" />
+<%--                        <asp:ListItem Value="top-left" Text="Top Left" />
                         <asp:ListItem Value="top-right" Text="Top Right" />
                         <asp:ListItem Value="top-center" Text="Top Center" />
                         <asp:ListItem Value="bottom-left" Text="Bottom Left" />
@@ -165,7 +166,7 @@
                         <asp:ListItem Value="center-left" Text="Center Left" />
                         <asp:ListItem Value="center-right" Text="Center Right" />
                         <asp:ListItem Value="center-center" Text="Center Center" />
-                        <asp:ListItem Value="percentage" Text="Percentage" />
+                        <asp:ListItem Value="percentage" Text="Percentage" />--%>
                     </asp:DropDownList>
                 </div>
                 <div class="percTextBox dnnFormItem">
