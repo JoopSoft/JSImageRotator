@@ -27,7 +27,7 @@
                     data-toggle="tooltip" ToolTip="Edit Available Lists"
                     OnClick="btnShowAddNewList_Click" />
                 <asp:HyperLink ID="lnkSettings" runat="server" CssClass="btn btn-primary link-settings no-txt"
-                    ResourceKey="lnkSettings" ToolTip="Settings" />
+                    ResourceKey="lnkSettings" data-toggle="tooltip" ToolTip="Settings" />
             </div>
         </div>
         <fieldset>

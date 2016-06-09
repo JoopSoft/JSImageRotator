@@ -23,7 +23,7 @@
                 <asp:HyperLink ID="btnLists" runat="server" CssClass="btn btn-primary link-list no-txt"
                     data-toggle="tooltip" ToolTip="Select Image Lists" Visible="true" />                
                 <asp:HyperLink ID="lnkSettings" runat="server" CssClass="btn btn-primary link-settings no-txt"
-                    ResourceKey="lnkSettings" ToolTip="Settings" />
+                    ResourceKey="lnkSettings" data-toggle="tooltip" ToolTip="Settings" />
             </div>
         </div>
         <fieldset>

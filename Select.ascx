@@ -24,7 +24,7 @@
                 <asp:LinkButton ID="btnDeleteList" runat="server" CssClass="btn btn-danger link-delete no-txt" OnClick="btnDeleteList_Click"
                     data-toggle="tooltip" ToolTip="Delete Selected List" />
                 <asp:HyperLink ID="lnkSettings" runat="server" CssClass="btn btn-primary link-settings no-txt"
-                    ResourceKey="lnkSettings" ToolTip="Settings" />
+                    ResourceKey="lnkSettings" data-toggle="tooltip" ToolTip="Settings" />
             </div>
         </div>
 

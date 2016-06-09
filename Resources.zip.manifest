@@ -34,14 +34,6 @@
     </file>
     <file>
       <path />
-      <name>variables.css</name>
-    </file>
-    <file>
-      <path />
-      <name>variables.min.css</name>
-    </file>
-    <file>
-      <path />
       <name>View.ascx</name>
     </file>
     <file>
@@ -99,6 +91,14 @@
     <file>
       <path>Js/</path>
       <name>main.min.js</name>
+    </file>
+    <file>
+      <path>Styles/</path>
+      <name>variables.css</name>
+    </file>
+    <file>
+      <path>Styles/</path>
+      <name>variables.min.css</name>
     </file>
     <file>
       <path>Temp Fixes/</path>

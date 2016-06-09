@@ -128,9 +128,19 @@
             onlyFullWords: false
         });
 
+        var $inputs = [];
+
         //POPUP INPUT TEXTBOX - TABLE
-        $('.JSRotator .dnnFormItem table input[type=text]').focus(function () {
-            var $this = $(this);
+        $('.JSRotator .dnnFormItem table input[type=text]').each(function (idx, el) {
+            var $this = $(this),
+                $length = $this.length;
+
+            if ($this.val() == '') $this.addClass('error').attr('data-id', $this.attr('id') + '_error');else $this.removeClass('error').removeAttr('data-id');
+
+            $inputs.push($this.attr('id'));
+        }).focus(function () {
+            var $this = $(this),
+                $length = $('.JSRotator .dnnFormItem table input[type=text]').length;
 
             $('.JSRotator .dnnFormItem table tr.active td').addClass('no-edit-cell');
 
@@ -140,6 +150,39 @@
                     $('.JSRotator .dnnFormItem table tr.active td').removeClass('no-edit-cell');
                     $this.closest('td').removeClass('edit-cell').find('button').remove();
                     $this.blur().tooltip({ placement: 'auto bottom' });
+
+                    if ($this.val() == '') {
+                        $this.addClass('error');
+                    } else {
+                        $this.removeClass('error');
+
+                        for (var i = 0; i < $inputs.length; i++) {
+                            console.log($inputs.length + ' : ' + $inputs[i]);
+
+                            //var removeItem = 2;
+                            //
+                            //$inputs = $.grep($inputs, function (value) {
+                            //    return value != removeItem;
+                            //});
+                            //console.log('Array after removing the element = ' + $inputs);
+                            //
+                            //var $errorArr = [];
+                            //var $el = $inputs[i];
+                            //var idx = $inputs.indexOf($el);
+                            //
+                            //while (idx != -1) {
+                            //    $errorArr.push(idx);
+                            //    idx = $inputs.indexOf($el, idx + 1)
+                            //}
+                            //
+                            //console.log($errorArr);
+                            //
+
+                            if ($('.JSRotator #' + $inputs[i]).siblings().is('error')) {
+                                if ($('.JSRotator #' + $inputs[i]).val() == '') $('.JSRotator #' + $inputs[i]).closest('tr').find('td:last .link-save').addClass('disabled');else $('.JSRotator #' + $inputs[i]).closest('tr').find('td:last .link-save').removeClass('disabled');
+                            }
+                        }
+                    }
                 }
             }).closest('td').removeClass('no-edit-cell').addClass('edit-cell');
 
@@ -148,8 +191,24 @@
                 $('.JSRotator .dnnFormItem table tr.active td').removeClass('no-edit-cell');
                 $this.closest('td').removeClass('edit-cell');
                 $this.blur().tooltip({ placement: 'auto bottom' });
+
+                if ($this.val() == '') $this.addClass('error');else $this.removeClass('error');
             })).find('i').addClass('fa-2x');
         });
+
+        console.log($inputs);
+
+        for (var i = 0; i < $inputs.length; i++) {
+            //console.log($inputs[i]);
+
+            var $this = $('.JSRotator #' + $inputs[i]);
+
+            if ($this.val() == '') {
+                $this.closest('tr').find('td:last .link-save').addClass('disabled');
+            } else {
+                $this.closest('tr').find('td:last .link-save').removeClass('disabled');
+            }
+        }
 
         //CUSTOM ANIMATION & TRANSITION SELECT DEFINITION
         $('.JSRotator .lbAnimation, .JSRotator .lbTransition').each(function () {

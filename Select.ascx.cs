@@ -55,7 +55,7 @@ namespace JS.Modules.JSImageRotator
                     lnkAdd.NavigateUrl = EditUrl("AddImage");
                     lnkEdit.NavigateUrl = EditUrl();
                     string PageName = TabController.CurrentPage.TabPath.Remove(0, 1);
-                    lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://" + Request.Url.Host + PageName + "/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=" + PageName + "&amp;popUp=true',/*showReturn*/false,550,950,true,'')";
+                    lnkSettings.NavigateUrl = "javascript:dnnModal.show('http://" + Request.Url.Host + PageName + "/ctl/Module/ModuleId/" + ModuleId + "?ReturnURL=" + PageName + "&amp;popUp=true#msSpecificSettings',/*showReturn*/false,550,950,true,'')";
                     var ic = new ImageController();
                     var i = ic.GetImages(ModuleId);
                     var il = ic.GetLists(ModuleId);
