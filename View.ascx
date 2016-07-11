@@ -26,9 +26,16 @@
         </asp:Panel>
 
         <%--EDIT MODE GROUP BUTTONS--%>
-        <asp:Panel ID="pnlAdmin" runat="server" Visible="true" CssClass="pnl-admin pull-right">
+        <asp:Panel ID="pnlAdmin" runat="server" Visible="true" CssClass="pnl-admin">
             <div class="btn-group" role="group" aria-label="Control buttons">
-                <asp:Label ID="lblContentHolder" runat="server" CssClass="content-holder" />
+                <asp:Label ID="lblContentHolder" runat="server" />
+                <asp:Label ID="lblContentHolderActivate" runat="server" />
+
+                <asp:LinkButton ID="lnkCheckLicenseKey" runat="server"
+                    OnClick="lnkCheckLicenseKey_Click" />
+                <asp:LinkButton ID="lnkGetOwnerInfo" runat="server"
+                    OnClick="lnkMoreInfo_Click" />
+                                
                 <asp:HyperLink ID="lnkAdd" runat="server" CssClass="btn btn-primary link-add no-txt"
                     ResourceKey="lnkAdd" ToolTip="Add New Image" />
                 <asp:HyperLink ID="lnkEdit" runat="server" CssClass="btn btn-primary link-edit-square no-txt"
@@ -37,6 +44,70 @@
                     ResourceKey="lnkView" ToolTip="Select Image Lists" />
                 <asp:HyperLink ID="lnkSettings" runat="server" CssClass="btn btn-primary link-settings no-txt"
                     ResourceKey="lnkSettings" ToolTip="Settings" />
+            </div>
+        </asp:Panel>
+
+        <asp:Panel ID="pnlPopUp" runat="server" Visible="false" CssClass="popup overlay">
+            <div class="popup-wrapper">
+                <asp:Label ID="lblPopUpIcon" runat="server" />
+                <h3>
+                    <asp:Label ID="lblPopUpTitle" runat="server" CssClass="popup-msg" />
+                </h3>
+
+                <asp:Panel ID="pnlInputGroups" runat="server" CssClass="input-group">
+                    <asp:Label ID="lblKey" runat="server" CssClass="input-group-addon"
+                        ClientIDMode="Static" />
+                    <asp:TextBox ID="txtKey" runat="server" CssClass="form-control" Enabled="true"
+                        aria-describedby="lblKey"
+                        Placeholder="Enter Installed Key" />
+                    <span class="input-group-btn">
+                        <asp:HyperLink ID="lnkSubmit" runat="server" CssClass="btn btn-primary link-key no-txt"
+                            data-toggle="tooltip" />
+                    </span>
+                </asp:Panel>
+
+                <asp:Panel ID="pnlAlerts" runat="server" CssClass="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true" class="link-close no-txt">&times;</span>
+                    </button>
+                    <asp:Label ID="lblPopUpMsg" runat="server"
+                        Text="Error messaging status text.." />
+                </asp:Panel>
+
+                <asp:Panel ID="pnlButtonGroups" runat="server" CssClass="btn-group" role="group" aria-label="Control buttons">
+                    <asp:LinkButton ID="btnGenConfirmKey" runat="server" CssClass="btn btn-primary link-key"
+                        ResourceKey="btnGenConfirmKey"
+                        data-toggle="tooltip" ToolTip="Generate Confirm Key" />
+
+                    <asp:LinkButton ID="btnActivateModule" runat="server" CssClass="btn btn-primary link-lock"
+                        ResourceKey="btnActivateModule"
+                        data-toggle="tooltip" ToolTip="Activate Module" />
+
+                    <asp:HyperLink ID="lnkOwnerInfo" runat="server" CssClass="btn btn-primary link-info"
+                        href="#pnlOwnerInfo" aria-expanded="false" ResourceKey="lnkOwnerInfo"
+                        data-toggle="collapse" data-toggle-tooltip="tooltip" ToolTip="Owner Info" />
+                </asp:Panel>
+
+                <asp:Panel ID="pnlOwnerInfo" runat="server" ClientIDMode="Static">
+                    <div class="owner-wrapper">
+                        <asp:Label ID="lblInfoInstalledKey" runat="server"
+                            Text="<strong>Installed Key: </strong>47334jLJND#@fsssdg#dvjjbb343#$$" />
+                        <asp:Label ID="lblInfoConfirmKey" runat="server"
+                            Text="<strong>Confirm Key: </strong>fsjjdv34347bbs33D#@#$s4jLJNdg#$" />
+                        <asp:Label ID="lblInfoCompany" runat="server"
+                            Text="<strong>Company: </strong>JoopSOFT Ltd." />
+                        <asp:Label ID="lblInfoEmail" runat="server"
+                            Text="<strong>Email: </strong><a href='mailto:iliya@devedjiev.me' title='Send mail to iliya@devedjiev.me'>iliya@devedjiev.me</a>" />
+                        <asp:Label ID="lblInfoCellPhone" runat="server"
+                            Text="<strong>Cell: </strong>+359878/209292" />
+                        <asp:Label ID="lblInfoDomain" runat="server"
+                            Text="<strong>Installed on: </strong><a href='www.devedjiev.me' title='Installed domain' target='_blank'>www.devedjiev.me</a>" />
+                    </div>
+                </asp:Panel>
+
+
+                <asp:LinkButton ID="btnClose" runat="server" CssClass="close-action btn btn-danger link-close no-txt"
+                    data-toggle="tooltip" ToolTip="Close" OnClick="btnClose_Click" />
             </div>
         </asp:Panel>
     </div>
@@ -61,9 +132,6 @@
             $defaultSettingsData = '<%= ModulePath %>Json/Default_Settings.json',
 
             $settings = {};
-
-        $('.JSRotator #<%= lblContentHolder.ClientID %>')
-            .html('<b class="link-check"> Activated</b> | JSRotator Module: ' + <%= ModuleId %>);
 
         //PREDEFINED AJAX REQUEST
         function jqXHR(url, beforeLoad, cache) {

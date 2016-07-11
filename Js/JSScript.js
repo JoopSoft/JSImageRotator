@@ -32,8 +32,12 @@
             $lnkList = '<i class="fa fa-list"></i>',
             $lnkExch = '<i class="fa fa-exchange"></i>',
             $lnkImage = '<i class="fa fa-picture-o"></i>',
+            $lnkCopy = '<i class="fa fa-clipboard"></i>',
+            $lnkKey = '<i class="fa fa-key"></i>',
             $lnkClose = '<i class="fa fa-close"></i>',
             $lnkWarning = '<i class="fa fa-warning"></i>',
+            $lnkLock = '<i class="fa fa-lock"></i>',
+            $lnkUnlock = '<i class="fa fa-unlock"></i>',
             $lnkCheck = '<i class="fa fa-check"></i>',
             $lnkSettings = '<i class="fa fa-cog"></i>',
 
@@ -71,12 +75,16 @@
             $('.JSRotator .link-prev').prepend($lnkPrev + ' ');
             $('.JSRotator .link-close').prepend($lnkClose + ' ');
             $('.JSRotator .link-warning').prepend($lnkWarning + ' ');
+            $('.JSRotator .link-lock').prepend($lnkLock + ' ');
+            $('.JSRotator .link-unlock').prepend($lnkUnlock + ' ');
             $('.JSRotator .link-settings').prepend($lnkSettings + ' ');
             $('.JSRotator .link-check').prepend($lnkCheck + ' ');
             $('.JSRotator .link-success').prepend($lnkSuccess + ' ');
             $('.JSRotator .link-list').prepend($lnkList + ' ');
             $('.JSRotator .link-exch').prepend($lnkExch + ' ');
             $('.JSRotator .link-image').prepend($lnkImage + ' ');
+            $('.JSRotator .link-copy').prepend($lnkCopy + ' ');
+            $('.JSRotator .link-key').prepend($lnkKey + ' ');
             $('.JSRotator .link-next').append(' ' + $lnkNext);
 
             //PUSHED ONLY ICONS ON ELEMTNS
@@ -103,12 +111,16 @@
             $('.JSRotator .link-next.no-txt').html($lnkNext);
             $('.JSRotator .link-close.no-txt').html($lnkClose);
             $('.JSRotator .link-warning.no-txt').html($lnkWarning);
+            $('.JSRotator .link-lock.no-txt').html($lnkLock);
+            $('.JSRotator .link-unlock.no-txt').html($lnkUnlock);
             $('.JSRotator .link-settings.no-txt').html($lnkSettings);
             $('.JSRotator .link-check.no-txt').html($lnkCheck);
             $('.JSRotator .link-success.no-txt').html($lnkSuccess);
             $('.JSRotator .link-list.no-txt').html($lnkList);
             $('.JSRotator .link-exch.no-txt').html($lnkExch);
             $('.JSRotator .link-image.no-txt').html($lnkImage);
+            $('.JSRotator .link-copy.no-txt').html($lnkCopy);
+            $('.JSRotator .link-key.no-txt').html($lnkKey);
 
             $('.JSRotator a.dnnFormHelp').prepend($lnkInfo);
 

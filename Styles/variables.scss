@@ -12,12 +12,17 @@ $warning:           rgba(217,83,79, 1); //#d9534f;
 $warning-md:        rgba(217,83,79, 0.5);
 $warning-lg:        rgba(217,83,79, 0.7);
 $warning-xlg:       rgba(217,83,79, 0.8);
+$warning-hover:     rgba(201,48,44, 1);     //#c9302c
 
 $success:           rgba(39,174,96, 1); //#27ae60;
 $success-md:        rgba(39,174,96, 0.5); //#27ae60;
 $success-lg:        rgba(39,174,96, 0.7); //#27ae60;
 $success-xlg:       rgba(39,174,96, 0.8); //#27ae60;
 
+$success-alert:     rgba(92,184,92, 1);     //#5cb85c
+$success-alert-md:  rgba(92,184,92, 0.5);   //#5cb85c
+$success-alert-lg:  rgba(92,184,92, 0.7);   //#5cb85c
+$success-alert-xlg: rgba(92,184,92, 0.8);   //#5cb85c
 
 $grey:              #ccc;
 $middle:            #999;

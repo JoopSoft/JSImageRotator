@@ -44,6 +44,21 @@ namespace JS.Modules.JSImageRotator
         {
             try
             {
+                //Code should be improved
+                lblContentHolder.Text = "<strong class='link-key'>Installed Key: </strong>jDEnn#$%rfdDGessd&$^Iskh";
+                lblContentHolder.CssClass = "content-holder warning";
+
+                lblContentHolderActivate.Text = "<strong class='link-unlock'>Activated</strong>";
+                lblContentHolderActivate.CssClass = "content-holder success";
+
+                lnkCheckLicenseKey.Text = "Activate";
+                lnkCheckLicenseKey.ToolTip = "Activate Module";
+                lnkCheckLicenseKey.CssClass = "btn btn-danger link-lock";
+
+                lnkGetOwnerInfo.ToolTip = "Owner Info";
+                lnkGetOwnerInfo.CssClass = "btn btn-success link-info no-txt";
+                //End of this
+
                 lnkAdd.NavigateUrl = EditUrl("AddImage");
                 lnkEdit.NavigateUrl = EditUrl();
                 lnkView.NavigateUrl = EditUrl("Select");
@@ -253,6 +268,60 @@ namespace JS.Modules.JSImageRotator
                 }
                 return actions;
             }
+        }
+
+        protected void lnkFirstButton_Click(object sender, EventArgs e)
+        {
+            pnlPopUp.Visible = true;
+            pnlPopUp.CssClass = "popup overlay";
+            lblPopUpIcon.CssClass = "popup-icon link-key";
+            lblPopUpTitle.Text = "Generate Confirmation Key";
+            pnlInputGroups.Visible = true;
+            pnlAlerts.Visible = true;
+            pnlButtonGroups.Visible = true;
+            pnlOwnerInfo.Visible = true;
+            txtKey.Focus();
+            txtKey.Attributes["Placeholder"] = "Enter Installed Key";
+            lblKey.Text = "<strong>Installed Key</strong>";
+            pnlOwnerInfo.CssClass = "pnl-owner-info collapse";
+            lnkSubmit.CssClass = "btn btn-primary link-key no-txt";
+            lnkSubmit.ToolTip = "Generate Confirmation Key";
+        }
+
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+            pnlPopUp.Visible = false;
+
+        }
+
+        protected void lnkMoreInfo_Click(object sender, EventArgs e)
+        {
+            pnlPopUp.Visible = true;
+            pnlPopUp.CssClass = "popup overlay success";
+            lblPopUpIcon.CssClass = "popup-icon link-info";
+            lblPopUpTitle.Text = "Owner Info";
+            pnlInputGroups.Visible = false;
+            pnlAlerts.Visible = false;
+            pnlButtonGroups.Visible = false;
+            pnlOwnerInfo.Visible = true;
+            pnlOwnerInfo.CssClass = "pnl-owner-info";
+        }
+
+        protected void lnkCheckLicenseKey_Click(object sender, EventArgs e)
+        {
+            pnlPopUp.Visible = true;
+            pnlPopUp.CssClass = "popup overlay warning";
+            lblPopUpIcon.CssClass = "popup-icon link-lock";
+            lblPopUpTitle.Text = "Activate Module";
+            pnlInputGroups.Visible = true;
+            pnlAlerts.Visible = true;
+            pnlButtonGroups.Visible = false;
+            pnlOwnerInfo.Visible = false;
+            txtKey.Focus();
+            txtKey.Attributes["Placeholder"] = "Enter Confirmation Key";
+            lblKey.Text = "<strong>Confirmation Key</strong>";
+            lnkSubmit.CssClass = "btn btn-primary link-lock no-txt";
+            lnkSubmit.ToolTip = "Activate Module";
         }
     }
 }
