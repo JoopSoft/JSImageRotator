@@ -57,6 +57,14 @@ namespace JS.Modules.JSImageRotator
 
                 lnkGetOwnerInfo.ToolTip = "Owner Info";
                 lnkGetOwnerInfo.CssClass = "btn btn-success link-info no-txt";
+
+                lblInfoInstalledKey.Text = "<strong class='link-key'>Installed Key: </strong>47334jLJND#@fsssdg#dvjjbb343#$$";
+                lblInfoConfirmKey.Text = "<strong class='link-key'>Confirm Key: </strong>fsjjdv34347bbs33D#@#$s4jLJNdg#$";
+                lblInfoCompany.Text = "<strong class='link-company'>Company: </strong>JoopSOFT Ltd.";
+                lblInfoEmail.Text = "<strong class='link-mail'>Email: </strong><a href='mailto:iliya@devedjiev.me' title='Send mail to iliya@devedjiev.me'>iliya@devedjiev.me</a>";
+                lblInfoCellPhone.Text = "<strong class='link-phone'>Phone: </strong>+359878/209292";
+                lblInfoDomain.Text = "<strong class='link-globe'>Installed on: </strong><a href='www.devedjiev.me' title='Installed on www.devedjiev.me' target='_blank'>www.devedjiev.me</a>";
+
                 //End of this
 
                 lnkAdd.NavigateUrl = EditUrl("AddImage");
@@ -207,6 +215,40 @@ namespace JS.Modules.JSImageRotator
             }
         }
 
+        protected void btnClose_Click(object sender, EventArgs e)
+        {
+            pnlPopUp.Visible = false;
+
+        }
+
+        protected void lnkMoreInfo_Click(object sender, EventArgs e)
+        {
+            pnlPopUp.Visible = true;
+            pnlPopUp.CssClass = "popup overlay success";
+            lblPopUpIcon.CssClass = "popup-icon link-info";
+            lblPopUpTitle.Text = "Owner Info";
+            pnlInputGroups.Visible = false;
+            pnlAlerts.Visible = false;
+            pnlOwnerInfo.Visible = true;
+            pnlOwnerInfo.CssClass = "pnl-owner-info";
+        }
+
+        protected void lnkCheckLicenseKey_Click(object sender, EventArgs e)
+        {
+            pnlPopUp.Visible = true;
+            pnlPopUp.CssClass = "popup overlay warning";
+            lblPopUpIcon.CssClass = "popup-icon link-lock";
+            lblPopUpTitle.Text = "Activate Module";
+            pnlInputGroups.Visible = true;
+            pnlAlerts.Visible = true;
+            pnlOwnerInfo.Visible = false;
+            txtKey.Focus();
+            txtKey.Attributes["Placeholder"] = "Enter Confirmation Key";
+            lblKey.Text = "<strong>Confirmation Key</strong>";
+            lnkSubmit.CssClass = "btn btn-primary link-lock no-txt";
+            lnkSubmit.ToolTip = "Activate Module";
+        }
+
         public ModuleActionCollection ModuleActions
         {
             get
@@ -268,60 +310,6 @@ namespace JS.Modules.JSImageRotator
                 }
                 return actions;
             }
-        }
-
-        protected void lnkFirstButton_Click(object sender, EventArgs e)
-        {
-            pnlPopUp.Visible = true;
-            pnlPopUp.CssClass = "popup overlay";
-            lblPopUpIcon.CssClass = "popup-icon link-key";
-            lblPopUpTitle.Text = "Generate Confirmation Key";
-            pnlInputGroups.Visible = true;
-            pnlAlerts.Visible = true;
-            pnlButtonGroups.Visible = true;
-            pnlOwnerInfo.Visible = true;
-            txtKey.Focus();
-            txtKey.Attributes["Placeholder"] = "Enter Installed Key";
-            lblKey.Text = "<strong>Installed Key</strong>";
-            pnlOwnerInfo.CssClass = "pnl-owner-info collapse";
-            lnkSubmit.CssClass = "btn btn-primary link-key no-txt";
-            lnkSubmit.ToolTip = "Generate Confirmation Key";
-        }
-
-        protected void btnClose_Click(object sender, EventArgs e)
-        {
-            pnlPopUp.Visible = false;
-
-        }
-
-        protected void lnkMoreInfo_Click(object sender, EventArgs e)
-        {
-            pnlPopUp.Visible = true;
-            pnlPopUp.CssClass = "popup overlay success";
-            lblPopUpIcon.CssClass = "popup-icon link-info";
-            lblPopUpTitle.Text = "Owner Info";
-            pnlInputGroups.Visible = false;
-            pnlAlerts.Visible = false;
-            pnlButtonGroups.Visible = false;
-            pnlOwnerInfo.Visible = true;
-            pnlOwnerInfo.CssClass = "pnl-owner-info";
-        }
-
-        protected void lnkCheckLicenseKey_Click(object sender, EventArgs e)
-        {
-            pnlPopUp.Visible = true;
-            pnlPopUp.CssClass = "popup overlay warning";
-            lblPopUpIcon.CssClass = "popup-icon link-lock";
-            lblPopUpTitle.Text = "Activate Module";
-            pnlInputGroups.Visible = true;
-            pnlAlerts.Visible = true;
-            pnlButtonGroups.Visible = false;
-            pnlOwnerInfo.Visible = false;
-            txtKey.Focus();
-            txtKey.Attributes["Placeholder"] = "Enter Confirmation Key";
-            lblKey.Text = "<strong>Confirmation Key</strong>";
-            lnkSubmit.CssClass = "btn btn-primary link-lock no-txt";
-            lnkSubmit.ToolTip = "Activate Module";
         }
     }
 }

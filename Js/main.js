@@ -38,6 +38,10 @@
             $lnkImage = '<i class="fa fa-picture-o"></i>',
             $lnkCopy = '<i class="fa fa-clipboard"></i>',
             $lnkKey = '<i class="fa fa-key"></i>',
+            $lnkCompany = '<i class="fa fa-building-o"></i>',
+            $lnkMail = '<i class="fa fa-envelope-o"></i>',
+            $lnkPhone = '<i class="fa fa-phone"></i>',
+            $lnkGlobe = '<i class="fa fa-globe"></i>',
             $lnkClose = '<i class="fa fa-close"></i>',
             $lnkWarning = '<i class="fa fa-warning"></i>',
             $lnkLock = '<i class="fa fa-lock"></i>',
@@ -87,6 +91,10 @@
             $('.JSRotator .link-image').prepend($lnkImage + ' ');
             $('.JSRotator .link-copy').prepend($lnkCopy + ' ');
             $('.JSRotator .link-key').prepend($lnkKey + ' ');
+            $('.JSRotator .link-company').prepend($lnkCompany + ' ');
+            $('.JSRotator .link-mail').prepend($lnkMail + ' ');
+            $('.JSRotator .link-phone').prepend($lnkPhone + ' ');
+            $('.JSRotator .link-globe').prepend($lnkGlobe + ' ');
             $('.JSRotator .link-next').append(' ' + $lnkNext);
 
             //PUSHED ONLY ICONS ON ELEMTNS
@@ -123,6 +131,10 @@
             $('.JSRotator .link-image.no-txt').html($lnkImage);
             $('.JSRotator .link-copy.no-txt').html($lnkCopy);
             $('.JSRotator .link-key.no-txt').html($lnkKey);
+            $('.JSRotator .link-company.no-txt').html($lnkCompany);
+            $('.JSRotator .link-mail.no-txt').html($lnkMail);
+            $('.JSRotator .link-phone.no-txt').html($lnkPhone);
+            $('.JSRotator .link-globe.no-txt').html($lnkGlobe);
 
             $('.JSRotator a.dnnFormHelp').prepend($lnkInfo);
         }

@@ -53,16 +53,13 @@
 
         h1, h2, h3, h4, h5, h6 {
             color: $dark;
-            /*margin: 0 0 10px;*/
         }
 
         h3 {
-            /*font-size: 1rem;*/
             font-size: 1.571em;
         }
 
         h4 {
-            /*font-size: 0.85rem;*/
             font-size: 1.286em;
         }
 
@@ -1426,6 +1423,7 @@
             border: $none;
             background-color: $dark-alpha-lg;
             color: $white;
+            cursor: default;
 
             @include border-radius(0);
 
@@ -1518,6 +1516,14 @@
                     color: $dark-alpha-lg;
                 }
 
+                h3 {
+                    font-size: 1rem;
+                }
+
+                h4 {
+                    font-size: 0.85rem;
+                }
+
                 input[type=text] {
                     height: 60px;
                     line-height: 60px;
@@ -1530,6 +1536,26 @@
 
                     &:focus {
                         background: $dark-alpha-xlg;
+                    }
+
+                    &::-webkit-input-placeholder {
+                        color: $light-alpha !important;
+                        font-style: italic;
+                    }
+
+                    &:-moz-placeholder {
+                        color: $light-alpha !important;
+                        font-style: italic;
+                    }
+
+                    &::-moz-placeholder {
+                        color: $light-alpha !important;
+                        font-style: italic;
+                    }
+
+                    &:-ms-input-placeholder {
+                        color: $light-alpha !important;
+                        font-style: italic;
                     }
                 }
             }
@@ -1735,7 +1761,7 @@
             }
         }
     }
-    
+
     .pnl-admin {
         .btn {
             &.btn-primary {
