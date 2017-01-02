@@ -34,8 +34,6 @@
                     <dnn:Label ID="lblRotatorType" runat="server" />
                     <asp:DropDownList ID="ddRotatorType" runat="server" CssClass="selectpicker form-control single-select check-equal"
                         data-target=".containerHeight" data-equal="container">
-<%--                        <asp:ListItem Value="body" Text="Body" />
-                        <asp:ListItem Value="container" Text="Container" />--%>
                     </asp:DropDownList>
                     <div class="containerHeight dnnFormItem">
                         <dnn:Label ID="lblMinHeight" runat="server" />
